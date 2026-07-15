@@ -1,0 +1,36 @@
+# --- Ingestion ---
+pdfplumber==0.11.4
+pytesseract==0.3.13
+pdf2image==1.17.0
+Pillow==10.4.0
+
+# --- Chunking / NLP utils ---
+tiktoken==0.7.0
+
+# --- Embeddings & Retrieval ---
+sentence-transformers==3.1.1
+rank-bm25==0.2.2
+faiss-cpu==1.8.0.post1
+qdrant-client==1.11.3
+
+# --- Reranking ---
+# CrossEncoder is part of sentence-transformers, no separate package needed
+
+# --- Generation ---
+openai==1.51.0          # swap for anthropic SDK if you use Claude API instead
+anthropic==0.36.0
+groq==0.11.0
+
+# --- API ---
+fastapi==0.115.0
+uvicorn==0.31.0
+python-multipart==0.0.12
+pydantic==2.9.2
+
+# --- Eval ---
+pandas==2.2.3
+
+# --- Utils ---
+python-dotenv==1.0.1
+tqdm==4.66.5
+

@@ -1,0 +1,29 @@
+
+FinFiling RAG — Eval Summary
+=============================
+Total questions   : 35
+Keyword accuracy  : 31/35 = 88.6%
+Grounding rate    : 28/35 = 80.0%
+Citation rate     : 33/35 = 94.3%
+Not-available     : 5/35 = 14.3%
+Avg confidence    : 0.652
+Avg citations/Q   : 3.8
+
+Per-category accuracy:
+  audit                1/1 = 100%
+  corporate_action     2/3 = 67%
+  expenses             3/3 = 100%
+  general              4/4 = 100%
+  per_share            0/1 = 0%
+  profitability        8/9 = 89%
+  ratios               2/2 = 100%
+  revenue              4/4 = 100%
+  segment              5/6 = 83%
+  tax                  2/2 = 100%
+
+Resume bullet (fill in):
+  - Evaluated RAG pipeline on a hand-labeled 35-question eval set
+    across 2 Indian listed companies,
+    achieving 89% answer accuracy and
+    80% grounding rate with 94%
+    citation coverage.

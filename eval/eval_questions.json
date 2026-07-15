@@ -1,0 +1,475 @@
+[
+    {
+        "id": "Q001",
+        "question": "What was the EBITDA of Reliance Industries standalone entity in FY25?",
+        "expected_keywords": [
+            "74,163",
+            "74163",
+            "EBITDA",
+            "standalone"
+        ],
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "doc_type": "annual_report",
+        "category": "profitability"
+    },
+    {
+        "id": "Q002",
+        "question": "What was the standalone Profit After Tax of Reliance Industries in FY25?",
+        "expected_keywords": [
+            "35,262",
+            "35262",
+            "profit after tax",
+            "standalone"
+        ],
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "doc_type": "annual_report",
+        "category": "profitability"
+    },
+    {
+        "id": "Q003",
+        "question": "What dividend was declared by Reliance Industries board?",
+        "expected_keywords": [
+            "dividend",
+            "per share",
+            "equity"
+        ],
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "doc_type": "annual_report",
+        "category": "corporate_action"
+    },
+    {
+        "id": "Q004",
+        "question": "What is the face value of Reliance Industries equity shares?",
+        "expected_keywords": [
+            "10",
+            "face value",
+            "equity share"
+        ],
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "doc_type": "annual_report",
+        "category": "general"
+    },
+    {
+        "id": "Q005",
+        "question": "What was the net profit margin ratio formula used by Reliance Industries?",
+        "expected_keywords": [
+            "profit after tax",
+            "value of sales",
+            "services",
+            "margin"
+        ],
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "doc_type": "annual_report",
+        "category": "ratios"
+    },
+    {
+        "id": "Q006",
+        "question": "What is the return on capital employed formula for Reliance Industries?",
+        "expected_keywords": [
+            "net profit after tax",
+            "deferred tax",
+            "capital employed"
+        ],
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "doc_type": "annual_report",
+        "category": "ratios"
+    },
+    {
+        "id": "Q007",
+        "question": "What was TCS revenue from operations in Q3FY25?",
+        "expected_keywords": [
+            "63,973",
+            "63973",
+            "revenue from operations"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "revenue"
+    },
+    {
+        "id": "Q008",
+        "question": "What was TCS consolidated profit for the period in Q3FY25?",
+        "expected_keywords": [
+            "12,444",
+            "12444",
+            "profit for the period"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "profitability"
+    },
+    {
+        "id": "Q009",
+        "question": "What was TCS total income in Q3FY25?",
+        "expected_keywords": [
+            "65,216",
+            "65216",
+            "total income"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "revenue"
+    },
+    {
+        "id": "Q010",
+        "question": "What was TCS employee benefit expenses in Q3FY25?",
+        "expected_keywords": [
+            "35,956",
+            "35956",
+            "employee benefit"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "expenses"
+    },
+    {
+        "id": "Q011",
+        "question": "What was TCS earnings per share in Q3FY25?",
+        "expected_keywords": [
+            "34.21",
+            "earnings per share",
+            "EPS",
+            "basic",
+            "diluted"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "per_share"
+    },
+    {
+        "id": "Q012",
+        "question": "What interim dividend did TCS declare in Q3FY25?",
+        "expected_keywords": [
+            "76",
+            "10",
+            "interim dividend",
+            "special dividend"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "corporate_action"
+    },
+    {
+        "id": "Q013",
+        "question": "What was TCS profit before tax in Q3FY25?",
+        "expected_keywords": [
+            "16,666",
+            "16666",
+            "profit before tax"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "profitability"
+    },
+    {
+        "id": "Q014",
+        "question": "What was TCS total tax expense in Q3FY25?",
+        "expected_keywords": [
+            "4,222",
+            "4222",
+            "tax expense",
+            "current tax"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "tax"
+    },
+    {
+        "id": "Q015",
+        "question": "What was TCS Banking Financial Services and Insurance segment revenue in Q3FY25?",
+        "expected_keywords": [
+            "23,481",
+            "23481",
+            "banking",
+            "financial services",
+            "insurance"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "segment"
+    },
+    {
+        "id": "Q016",
+        "question": "What was TCS Manufacturing segment revenue in Q3FY25?",
+        "expected_keywords": [
+            "6,194",
+            "6194",
+            "manufacturing"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "segment"
+    },
+    {
+        "id": "Q017",
+        "question": "What was TCS Communication Media and Technology segment revenue in Q3FY25?",
+        "expected_keywords": [
+            "11,989",
+            "11989",
+            "communication",
+            "media",
+            "technology"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "segment"
+    },
+    {
+        "id": "Q018",
+        "question": "What was TCS depreciation and amortisation expense in Q3FY25?",
+        "expected_keywords": [
+            "1,377",
+            "1377",
+            "depreciation",
+            "amortisation"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "expenses"
+    },
+    {
+        "id": "Q019",
+        "question": "What was TCS nine month revenue from operations ending December 2024?",
+        "expected_keywords": [
+            "1,90,845",
+            "190845",
+            "nine months",
+            "nine-months"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "revenue"
+    },
+    {
+        "id": "Q020",
+        "question": "When was the TCS Q3FY25 board meeting held?",
+        "expected_keywords": [
+            "January 9, 2025",
+            "9 January 2025",
+            "board meeting"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "general"
+    },
+    {
+        "id": "Q021",
+        "question": "What was TCS standalone revenue from operations in Q3FY25?",
+        "expected_keywords": [
+            "53,883",
+            "53883",
+            "standalone",
+            "revenue from operations"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "revenue"
+    },
+    {
+        "id": "Q022",
+        "question": "What was TCS standalone profit for the period in Q3FY25?",
+        "expected_keywords": [
+            "11,832",
+            "11832",
+            "standalone",
+            "profit for the period"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "profitability"
+    },
+    {
+        "id": "Q023",
+        "question": "What was TCS Life Sciences and Healthcare segment revenue in Q3FY25?",
+        "expected_keywords": [
+            "6,426",
+            "6426",
+            "life sciences",
+            "healthcare"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "segment"
+    },
+    {
+        "id": "Q024",
+        "question": "What was TCS Consumer Business segment revenue in Q3FY25?",
+        "expected_keywords": [
+            "10,035",
+            "10035",
+            "consumer business"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "segment"
+    },
+    {
+        "id": "Q025",
+        "question": "What was TCS finance costs in Q3FY25?",
+        "expected_keywords": [
+            "234",
+            "finance costs"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "expenses"
+    },
+    {
+        "id": "Q026",
+        "question": "What was TCS paid up equity share capital in Q3FY25?",
+        "expected_keywords": [
+            "362",
+            "paid up",
+            "equity share capital",
+            "face value"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "general"
+    },
+    {
+        "id": "Q027",
+        "question": "What was TCS total comprehensive income for Q3FY25?",
+        "expected_keywords": [
+            "11,624",
+            "11624",
+            "total comprehensive income"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "profitability"
+    },
+    {
+        "id": "Q028",
+        "question": "Who audited TCS Q3FY25 financial results?",
+        "expected_keywords": [
+            "BS R",
+            "BSR",
+            "chartered accountants",
+            "Aniruddha Godbole"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "audit"
+    },
+    {
+        "id": "Q029",
+        "question": "What was TCS profit before exceptional item and tax in Q3FY25?",
+        "expected_keywords": [
+            "16,666",
+            "16666",
+            "profit before exceptional"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "profitability"
+    },
+    {
+        "id": "Q030",
+        "question": "What was the record date for TCS Q3FY25 dividend payment?",
+        "expected_keywords": [
+            "January 17, 2025",
+            "17 January",
+            "record date"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "corporate_action"
+    },
+    {
+        "id": "Q031",
+        "question": "What was TCS nine month profit for the period ending December 2024?",
+        "expected_keywords": [
+            "36,504",
+            "36504",
+            "nine months"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "profitability"
+    },
+    {
+        "id": "Q032",
+        "question": "What is the CIN of Tata Consultancy Services?",
+        "expected_keywords": [
+            "L22210MH1995PLC084781",
+            "CIN"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "general"
+    },
+    {
+        "id": "Q033",
+        "question": "What was Reliance Industries Oil to Chemicals EBITDA for FY25?",
+        "expected_keywords": [
+            "74,163",
+            "oil to chemicals",
+            "O2C",
+            "EBITDA"
+        ],
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "doc_type": "annual_report",
+        "category": "segment"
+    },
+    {
+        "id": "Q034",
+        "question": "What was TCS current tax expense in Q3FY25?",
+        "expected_keywords": [
+            "4,217",
+            "4217",
+            "current tax"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "tax"
+    },
+    {
+        "id": "Q035",
+        "question": "What was TCS profit attributable to shareholders of the company in Q3FY25?",
+        "expected_keywords": [
+            "12,380",
+            "12380",
+            "shareholders",
+            "attributable"
+        ],
+        "company": "TCS",
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "profitability"
+    }
+]

@@ -1,0 +1,62 @@
+============================================================
+  FinFiling RAG — API Keys Checklist
+============================================================
+
+Get all of these before building vector_store.py
+
+------------------------------------------------------------
+1. QDRANT API KEY
+   Where : cloud.qdrant.io
+   Steps : Sign up → Create Cluster (free tier) → API Keys tab
+   Used for : Storing and searching your embeddings (vector store)
+
+   QDRANT_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIiwic3ViamVjdCI6ImFwaS1rZXk6Mjg0YjM2YWYtNDdhMS00YWQ3LWJmYzMtZjc0YmFjNzM1M2UxIn0.LsL0SpMtyWbRtbkJzw16TrF-swbBqSBxadu_AJ74-Gw
+
+------------------------------------------------------------
+2. QDRANT CLUSTER URL
+   Where : cloud.qdrant.io (same dashboard as above)
+   Steps : Your cluster dashboard → copy the cluster URL
+   Looks like : https://xyz-abc.eu-central.aws.cloud.qdrant.io:6333
+   Used for : Connecting your FastAPI backend to Qdrant cloud
+
+   QDRANT_URL=https://8acb5271-5f23-453f-a72c-b00a1d7a89e1.us-east-1-1.aws.cloud.qdrant.io
+
+------------------------------------------------------------
+3. OPENAI API KEY  (if using GPT for generation)
+   Where : platform.openai.com → API Keys
+   Steps : Sign in → API Keys → Create new secret key
+   Used for : LLM answer generation
+
+   OPENAI_API_KEY=your-openai-api-key-here
+
+------------------------------------------------------------
+4. ANTHROPIC API KEY  (only if using Claude instead of OpenAI)
+   Where : console.anthropic.com → API Keys
+   Steps : Sign in → API Keys → Create Key
+   Used for : LLM answer generation (alternative to OpenAI)
+
+   ANTHROPIC_API_KEY=_________________________
+
+============================================================
+  NOT needed (no key required)
+============================================================
+
+- BAAI/bge-base-en-v1.5  → runs locally via sentence-transformers, no key
+- CrossEncoder reranker  → runs locally via sentence-transformers, no key
+- BM25                   → pure Python, no API, no key
+
+============================================================
+  Your .env file at project root should look like this
+============================================================
+
+QDRANT_URL=https://your-cluster-url:6333
+QDRANT_API_KEY=your-qdrant-key
+OPENAI_API_KEY=your-openai-key
+
+# only add this if using Claude for generation
+# ANTHROPIC_API_KEY=your-anthropic-key
+
+============================================================
+  IMPORTANT — never commit .env to GitHub
+  Add .env to your .gitignore right now
+============================================================

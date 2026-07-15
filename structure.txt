@@ -1,0 +1,46 @@
+finfiling-rag/
+├── data/
+│   ├── raw_pdfs/                  # downloaded filings, organized by company
+│   │   ├── reliance/
+│   │   ├── tcs/
+│   │   ├── hdfc_bank/
+│   │   ├── infosys/
+│   │   └── tata_motors/
+│   └── processed/                 # parsed + chunked JSON output
+│       └── chunks.jsonl           # each line: {text, company, doc_type, quarter, page, chunk_type}
+│
+├── src/
+│   ├── ingestion/
+│   │   ├── pdf_parser.py          # pdfplumber extraction, text + tables
+│   │   ├── ocr_fallback.py        # pytesseract for scanned pages
+│   │   └── scraper.py             # (optional) auto-download filings from BSE/NSE
+│   │
+│   ├── chunking/
+│   │   └── chunker.py             # structure-aware: tables kept whole, prose split by section
+│   │
+│   ├── indexing/
+│   │   ├── embed.py               # bge-base embeddings
+│   │   ├── vector_store.py        # Qdrant client wrapper
+│   │   └── bm25_index.py          # keyword index for hybrid search
+│   │
+│   ├── retrieval/
+│   │   ├── hybrid_retriever.py    # combines dense + BM25
+│   │   └── reranker.py            # CrossEncoder reranking
+│   │
+│   ├── generation/
+│   │   ├── answer_generator.py    # LLM call with retrieved context
+│   │   └── verifier.py            # checks generated claims against source chunks
+│   │
+│   └── api/
+│       └── main.py                # FastAPI app: /query, /companies, /health
+│
+├── eval/
+│   ├── eval_questions.json        # 30-40 hand-written Q&A pairs with expected sources
+│   └── run_eval.py                # scores citation accuracy, retrieval precision/recall
+│
+├── frontend/
+│   └── (React or Streamlit app — query box + answer + expandable citations)
+│
+├── requirements.txt
+├── .env.example
+└── README.md
