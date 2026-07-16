@@ -75,7 +75,7 @@ state = AppState()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Load all models at startup. FastAPI keeps them alive across requests."""
-    print("\n🚀 Starting FinFiling RAG API...")
+    print("\n[INFO] Starting FinFiling RAG API...")
     t0 = time.time()
 
     state.retriever = HybridRetriever(bm25_index_path=BM25_INDEX_PATH)
@@ -84,7 +84,7 @@ async def lifespan(app: FastAPI):
     state.vector_store = VectorStore()
     state.startup_time = time.time() - t0
 
-    print(f"✓ All models loaded in {state.startup_time:.1f}s\n")
+    print(f"[OK] All models loaded in {state.startup_time:.1f}s\n")
     yield
     print("Shutting down FinFiling RAG API...")
 
