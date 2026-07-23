@@ -4,13 +4,13 @@ import "./App.css";
 
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
+// Keep in sync with INDEXED_COMPANIES in src/api/main.py — only list
+// companies whose filings have actually been ingested into the index.
 const COMPANIES = [
     { value: "", label: "All Companies" },
     { value: "Reliance Industries", label: "Reliance Industries" },
     { value: "TCS", label: "TCS" },
-    { value: "HDFC Bank", label: "HDFC Bank" },
     { value: "Infosys", label: "Infosys" },
-    { value: "Tata Motors", label: "Tata Motors" },
 ];
 
 const SAMPLE_QUERIES = [

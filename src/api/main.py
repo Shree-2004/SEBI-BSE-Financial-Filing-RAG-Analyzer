@@ -44,12 +44,14 @@ load_dotenv()
 # Known companies in the index — used for /companies endpoint + validation
 # ---------------------------------------------------------------------------
 
+# Only companies with data actually ingested into the index belong here.
+# Add a company to this list *after* running the ingestion pipeline for it
+# (see implementation_plan.md Phase 1) — never before, or the API will
+# validate queries for a company that has zero chunks and return 404s.
 INDEXED_COMPANIES = [
     "Reliance Industries",
     "TCS",
-    "HDFC Bank",
     "Infosys",
-    "Tata Motors",
 ]
 
 BM25_INDEX_PATH = "data/processed/bm25_index.pkl"
