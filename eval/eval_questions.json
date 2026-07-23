@@ -471,5 +471,135 @@
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
         "category": "profitability"
+    },
+    {
+        "id": "Q036",
+        "question": "What was Infosys consolidated revenue from operations for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "48,211",
+            "48211",
+            "revenue from operations"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue"
+    },
+    {
+        "id": "Q037",
+        "question": "What was Infosys consolidated profit for the period for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "7,775",
+            "7775",
+            "profit for the period"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability"
+    },
+    {
+        "id": "Q038",
+        "question": "What was Infosys consolidated basic earnings per share for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "19.19",
+            "earnings per share",
+            "basic"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "per_share"
+    },
+    {
+        "id": "Q039",
+        "question": "What were Infosys consolidated employee benefit expenses for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "25,287",
+            "25287",
+            "employee benefit"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "expenses"
+    },
+    {
+        "id": "Q040",
+        "question": "What final dividend did Infosys recommend for financial year 2026?",
+        "expected_keywords": [
+            "25",
+            "final dividend",
+            "per equity share"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "corporate_action"
+    },
+    {
+        "id": "Q041",
+        "question": "What was Infosys Financial Services segment revenue for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "13,463",
+            "13463",
+            "financial services"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "segment"
+    },
+    {
+        "id": "Q042",
+        "question": "What was Infosys consolidated current tax expense for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "3,356",
+            "3356",
+            "current tax"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "tax"
+    },
+    {
+        "id": "Q043",
+        "question": "Who are the statutory auditors of Infosys and what opinion did they express for Q1FY27?",
+        "expected_keywords": [
+            "Deloitte Haskins",
+            "Sells",
+            "unmodified audit opinion"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "audit"
+    },
+    {
+        "id": "Q044",
+        "question": "What is the CIN of Infosys Limited?",
+        "expected_keywords": [
+            "L85110KA1981PLC013115",
+            "CIN"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "general"
+    },
+    {
+        "id": "Q045",
+        "question": "What was Infosys standalone profit before tax for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "10,161",
+            "10161",
+            "standalone",
+            "profit before tax"
+        ],
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability"
     }
 ]

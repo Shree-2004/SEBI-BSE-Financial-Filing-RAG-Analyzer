@@ -183,17 +183,33 @@ def _split_by_tokens(
         chunk_tokens = tokens[start:end]
         chunk_text = _TOKENIZER.decode(chunk_tokens)
 
-        # Try to end at a clean sentence boundary within the last 60 tokens
+        # Try to end at a clean sentence boundary within the last 300 chars —
+        # but only accept it if the window still advances by more than
+        # `overlap` tokens. Without this guard, a separator found near the
+        # start of the window barely shrinks `end`, so the next `start`
+        # (end - overlap) can land behind or right next to the current
+        # `start`, degenerating into single-token-advance chunks.
         if end < len(tokens):
             for sep in [". \n", ".\n", ". ", "\n\n", "\n"]:
                 last_sep = chunk_text.rfind(sep, max(0, len(chunk_text) - 300))
                 if last_sep != -1:
-                    chunk_text = chunk_text[: last_sep + len(sep)].strip()
-                    # recalculate end based on actual text used
-                    end = start + len(_TOKENIZER.encode(chunk_text))
+                    candidate_text = chunk_text[: last_sep + len(sep)].strip()
+                    candidate_end = start + len(_TOKENIZER.encode(candidate_text))
+                    if candidate_end - start > overlap:
+                        chunk_text = candidate_text
+                        end = candidate_end
                     break
 
         chunks.append(chunk_text.strip())
+
+        # Reached the end of the text — nothing left to slide the window
+        # over, so stop instead of recomputing `start` (which, once `end`
+        # is pinned at len(tokens), would otherwise creep forward by a
+        # single token per iteration and emit dozens of near-duplicate
+        # trailing chunks).
+        if end >= len(tokens):
+            break
+
         # next window starts overlap tokens before end
         start = max(end - overlap, start + 1)
 

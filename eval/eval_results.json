@@ -5,7 +5,7 @@
     "company": "Reliance Industries",
     "period": "FY2025",
     "category": "profitability",
-    "answer": "The EBITDA of Reliance Industries standalone entity in FY25 was J 74,163 crore (US$ 8.7 billion) [Reliance Industries | FY2025 | Page 32]. This figure represents a 14.2% decrease from the previous year's EBITDA of J 86,393 crore [Reliance Industries | FY2025 | Page 32].",
+    "answer": "The EBITDA of Reliance Industries standalone entity in FY25 was J 74,163 crore (US$ 8.7 billion) [Reliance Industries | FY2025 | Page 32]. This figure represents a 14.2% decrease from the previous year [Reliance Industries | FY2025 | Page 32].",
     "expected_keywords": [
       "74,163",
       "74163",
@@ -13,10 +13,10 @@
       "standalone"
     ],
     "keyword_hit": true,
-    "is_grounded": false,
-    "grounding_confidence": 0.462,
+    "is_grounded": true,
+    "grounding_confidence": 0.583,
     "not_available": false,
-    "citation_count": 3,
+    "citation_count": 2,
     "citations": [
       {
         "company": "Reliance Industries",
@@ -29,18 +29,10 @@
       {
         "company": "Reliance Industries",
         "period": "FY2025",
-        "page_number": 109,
+        "page_number": 67,
         "doc_type": "annual_report",
         "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "STANDALONE FINANCIAL STATEMENTS\nNotes\nto the Standalone Financial Statements for the year ended 31st March, 2025\n(C in crore) (C in crore)\n160 Reliance Industries Limited Integrated Annual Report 2024-25 161"
-      },
-      {
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "page_number": 30,
-        "doc_type": "annual_report",
-        "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "EBITDA figures are for the year ended March 31, 2025\n2 Reliance Industries Limited Integrated Annual Report 2024-25 3"
+        "excerpt": "and\nAlliance increased domestic product placement.\nonly) each, on the increased paid-up\nDigital Services achieved a revenue\nshare capital post issue of bonus shares The Company completed the formation of C 1,54,119 crore driven by tariff EBITDA of Oil to Chemicals for FY25\nValue of Sales and Service..."
       }
     ]
   },
@@ -50,7 +42,7 @@
     "company": "Reliance Industries",
     "period": "FY2025",
     "category": "profitability",
-    "answer": "The standalone Profit After Tax of Reliance Industries in FY25 was J 35,262 crore (US$ 4.1 billion) [Reliance Industries | FY2025 | Page 32]. This figure is down 16.1% compared to the previous year's standalone Profit After Tax of J 42,042 crore [Reliance Industries | FY2025 | Page 32].",
+    "answer": "The standalone Profit After Tax of Reliance Industries in FY25 was J 35,262 crore (US$ 4.1 billion) [Reliance Industries | FY2025 | Page 32].",
     "expected_keywords": [
       "35,262",
       "35262",
@@ -59,9 +51,9 @@
     ],
     "keyword_hit": true,
     "is_grounded": true,
-    "grounding_confidence": 0.583,
+    "grounding_confidence": 0.571,
     "not_available": false,
-    "citation_count": 3,
+    "citation_count": 2,
     "citations": [
       {
         "company": "Reliance Industries",
@@ -78,14 +70,6 @@
         "doc_type": "annual_report",
         "source_file": "reliance_annual_report_FY2025.pdf",
         "excerpt": "STANDALONE FINANCIAL STATEMENTS\nNotes\nto the Standalone Financial Statements for the year ended 31st March, 2025\n(C in crore) (C in crore)\n* Includes fair valuation of derivatives.\n(C in crore)\nTax expenses for the year can be reconciled to the accounting profit as follows:\n(C in crore)\nFigures in i..."
-      },
-      {
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "page_number": 92,
-        "doc_type": "annual_report",
-        "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "STANDALONE FINANCIAL STATEMENTS\nNotes\nto the Standalone Financial Statements for the year ended 31st March, 2025\n(C in crore) (C in crore)\n$ Net of provision for impairment.\n126 Reliance Industries Limited Integrated Annual Report 2024-25 127"
       }
     ]
   },
@@ -95,18 +79,43 @@
     "company": "Reliance Industries",
     "period": "FY2025",
     "category": "corporate_action",
-    "answer": "This information is not available in the provided filings.",
+    "answer": "The dividend declared by the Reliance Industries board is not explicitly stated in the provided excerpts. However, it is mentioned that the dividend proposed by the Board of Directors is subject to approval of the shareholders in the ensuing Annual General Meeting [Reliance Industries | FY2025 | Page 140]. \n\nAdditionally, it is mentioned that the company declared bonus shares in the ratio of 1:1 [Reliance Industries | FY2025 | Page 75], but this is not the same as dividend. \n\nTherefore, the exact dividend declared by the board cannot be determined from the provided excerpts.",
     "expected_keywords": [
       "dividend",
       "per share",
       "equity"
     ],
-    "keyword_hit": false,
-    "is_grounded": true,
-    "grounding_confidence": 1.0,
-    "not_available": true,
-    "citation_count": 0,
-    "citations": []
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.429,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 140,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "CONSOLIDATED FINANCIAL STATEMENTS\nNotes\nto the Consolidated Financial Statements for the year ended 31st March, 2025\n(C in crore) 14.4 The Reconciliation of the Number of Shares Outstanding is set out below:\n14.5 Pursuant to ‘Reliance Industries Limited Employees’ Stock Option Scheme 2017’ (ESOS-201..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 57,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "2. Alteration of Objects Clause of the Memorandum of Association News releases, presentations: Official system are centralised database\nunclaimed/unpaid dividend from the\nof the Company news releases and official media\n56 Reliance Industries Limited Integrated Annual Report 2024-25 57"
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 75,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "2 n O8t 7 pu tr c ie ors o n r 2e ) ( . S Pe ar ri te s\nI have conducted the Secretarial (iv) The Foreign Exchange Board of India (Delisting of is duly constituted with proper balance partly paid-up equity shares. redemption of Rs. 1,000 crore\nAudit of the compliance of applicable Management Act, 19..."
+      }
+    ]
   },
   {
     "id": "Q004",
@@ -114,7 +123,7 @@
     "company": "Reliance Industries",
     "period": "FY2025",
     "category": "general",
-    "answer": "The face value of Reliance Industries equity shares is H 10 each [Reliance Industries | FY2025 | Page 98], [Reliance Industries | FY2025 | Page 140]. \n\nNote: This information is consistently mentioned across excerpts [Excerpt 1 | Reliance Industries | FY2025 | annual_report | Page 98], [Excerpt 2 | Reliance Industries | FY2025 | annual_report | Page 98], [Excerpt 3 | Reliance Industries | FY2025 | annual_report | Page 140], and [Excerpt 4 | Reliance Industries | FY2025 | annual_report | Page 140].",
+    "answer": "The face value of Reliance Industries equity shares is ₹10 each [Reliance Industries | FY2025 | Page 98], [Reliance Industries | FY2025 | Page 140]. \n\nThis information is consistently mentioned across multiple excerpts, including:\n- [Reliance Industries | FY2025 | Page 98] in the \"STANDALONE FINANCIAL STATEMENTS\" section, \n- [Reliance Industries | FY2025 | Page 140] in the \"CONSOLIDATED FINANCIAL STATEMENTS\" section.",
     "expected_keywords": [
       "10",
       "face value",
@@ -122,9 +131,9 @@
     ],
     "keyword_hit": true,
     "is_grounded": false,
-    "grounding_confidence": 0.4,
+    "grounding_confidence": 0.357,
     "not_available": false,
-    "citation_count": 3,
+    "citation_count": 2,
     "citations": [
       {
         "company": "Reliance Industries",
@@ -141,14 +150,6 @@
         "doc_type": "annual_report",
         "source_file": "reliance_annual_report_FY2025.pdf",
         "excerpt": "CONSOLIDATED FINANCIAL STATEMENTS\nNotes\nto the Consolidated Financial Statements for the year ended 31st March, 2025\n(C in crore) 14.4 The Reconciliation of the Number of Shares Outstanding is set out below:\n14.5 Pursuant to ‘Reliance Industries Limited Employees’ Stock Option Scheme 2017’ (ESOS-201..."
-      },
-      {
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "page_number": 58,
-        "doc_type": "annual_report",
-        "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "equity\nshares constituting 1.99% of Company’s paid-up equity share capital. Each GDR\nJune 30, 2025 - Third week of\nJuly, 2025;\n58 Reliance Industries Limited Integrated Annual Report 2024-25 59"
       }
     ]
   },
@@ -158,7 +159,7 @@
     "company": "Reliance Industries",
     "period": "FY2025",
     "category": "ratios",
-    "answer": "The net profit margin ratio formula used by Reliance Industries is: \nNet Profit Margin = Profit After Tax / Value of Sales & Services [Reliance Industries | FY2025 | Page 118]",
+    "answer": "The net profit margin ratio formula used by Reliance Industries is: \nNet Profit Margin = Profit After Tax / Value of Sales & Services [Reliance Industries | FY2025 | Page 118].",
     "expected_keywords": [
       "profit after tax",
       "value of sales",
@@ -166,10 +167,10 @@
       "margin"
     ],
     "keyword_hit": true,
-    "is_grounded": false,
-    "grounding_confidence": 0.4,
+    "is_grounded": true,
+    "grounding_confidence": 0.6,
     "not_available": false,
-    "citation_count": 2,
+    "citation_count": 3,
     "citations": [
       {
         "company": "Reliance Industries",
@@ -182,10 +183,18 @@
       {
         "company": "Reliance Industries",
         "period": "FY2025",
-        "page_number": 103,
+        "page_number": 67,
         "doc_type": "annual_report",
         "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "the ratio of 1:1 made by the Company during FY 2024-25.\n148 Reliance Industries Limited Integrated Annual Report 2024-25 149"
+        "excerpt": "and\nAlliance increased domestic product placement.\nonly) each, on the increased paid-up\nDigital Services achieved a revenue\nshare capital post issue of bonus shares The Company completed the formation of C 1,54,119 crore driven by tariff EBITDA of Oil to Chemicals for FY25\nValue of Sales and Service..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 168,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": ".80) - 80.82% INR 1,770.44 495.17 8,399.60 6,133.99 3,395.81 3,538.58 33.42 - 33.42 - 33.42 -\n176 Reliance Brands Luxury Fashion Private 07-09-2018 INR 17.50 221.84 370.59 131.25 98.32 355.13 45.84 11.80 34.04 1.06 35.10 - 100.00% 203 Reliance International Limited 16-06-2021 USD 25.00 367.37 17,930..."
       }
     ]
   },
@@ -195,17 +204,17 @@
     "company": "Reliance Industries",
     "period": "FY2025",
     "category": "ratios",
-    "answer": "The return on capital employed formula for Reliance Industries is: \nNet Profit After Tax + Deferred Tax Expense/(Income) + Finance Cost (-) Other Income from Cash & Other Marketable Securities, \ndivided by Average Capital Employed [Reliance Industries | FY2025 | Page 118]. \n\nNote that Capital Employed includes Equity, Borrowings, Deferred Tax Liabilities, Creditor for Capital Expenditure and is reduced by Investments, \nCash and Cash Equivalents, Capital Work-in-Progress and Intangible Assets under Development [Reliance Industries | FY2025 | Page 118].",
+    "answer": "The return on capital employed formula for Reliance Industries is: \nNet Profit After Tax + Deferred Tax Expense/(Income) + Finance Cost (-) Other Income from Cash & Other Marketable Securities, \nall divided by Average Capital Employed [Reliance Industries | FY2025 | Page 118]. \n\nNote that Capital Employed includes Equity, Borrowings, Deferred Tax Liabilities, Creditor for Capital Expenditure, and is reduced by Investments, Cash and Cash Equivalents, Capital Work-in-Progress, and Intangible Assets under Development [Reliance Industries | FY2025 | Page 118].",
     "expected_keywords": [
       "net profit after tax",
       "deferred tax",
       "capital employed"
     ],
     "keyword_hit": true,
-    "is_grounded": false,
-    "grounding_confidence": 0.25,
+    "is_grounded": true,
+    "grounding_confidence": 0.5,
     "not_available": false,
-    "citation_count": 4,
+    "citation_count": 3,
     "citations": [
       {
         "company": "Reliance Industries",
@@ -218,10 +227,10 @@
       {
         "company": "Reliance Industries",
         "period": "FY2025",
-        "page_number": 115,
+        "page_number": 70,
         "doc_type": "annual_report",
         "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "or the fai r\nvalues of its financial instruments, principally debt. The Company issues debt in a variety of currencies based on market\nopportunities and it uses derivatives to hedge interest rate exposures.\n172 Reliance Industries Limited Integrated Annual Report 2024-25 173"
+        "excerpt": "ECTF • Neither the Managing Director 6 IndiaCast US Ltd\nAnnual Return 7 Reliance Global Project Services UK Limited @\nevaluates incidents of suspected nor the Whole-time Directors of 7 JVCO 2024 Limited\n8 Reliance Industries Uruguay Petroquimica S.A $\nor actual violations of the Code of The Annual R..."
       },
       {
         "company": "Reliance Industries",
@@ -229,15 +238,7 @@
         "page_number": 41,
         "doc_type": "annual_report",
         "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "Capital\nH Human Capital I Intellectual Capital F Financial Capital\n24 Reliance Industries Limited Integrated Annual Report 2024-25 25"
-      },
-      {
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "page_number": 142,
-        "doc_type": "annual_report",
-        "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "interest @ 8.65% p.a.\n226 Reliance Industries Limited Integrated Annual Report 2024-25 227"
+        "excerpt": "ig c imh a ao le ll yl d r er o N C S s Dhf e ohe iaC p wiw n ph b na r ii l snn e oc tgfe ca ri es n kp oe aai pn u mge eg re c d p\nc\nco l rep ha on d erpo do\nm\na tm udc o c iu ciy t thc. ay sit lg ti ppn h o\nr\nr e oN i Ec r du i e fg urrse oe\nc\nar pi tgi n a e phd .& rt\ni\nR cfo ee r sd\nGlobal and ..."
       }
     ]
   },
@@ -247,59 +248,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "revenue",
-    "answer": "According to the provided excerpts, TCS revenue from operations in Q3FY25 is as follows:\n* Standalone: 59 crore [TCS | Q3FY25 | Page 13]\n* Consolidated: 93 [TCS | Q3FY25 | Page 7] \n\nNote that the unit of measurement is not explicitly mentioned in the excerpts, but based on the context, it appears to be in crore (a unit of the Indian numbering system).",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99801, Requested 2220. Please try again in 29m6.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "63,973",
       "63973",
       "revenue from operations"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.6,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 14,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n(URL: www.bseindia.com), the National Stock Exchange of India Limited website (URL: www.nseindia.com) and on the Company's website\n(URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 9,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n{URL: www.bseindia.com), the National Stock Exchange of India Limited website {URL: www.nseindia.com) and on the Company's website\n{URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q008",
@@ -307,51 +267,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "profitability",
-    "answer": "The consolidated profit for the period of TCS in Q3FY25 is INR 99 [TCS | Q3FY25 | Page 7]. This figure is mentioned in the Audited Consolidated Interim Statement of Financial Results. \n\nHere are the details:\n* Profit before tax: INR 97 [TCS | Q3FY25 | Page 7]\n* Tax expense: INR 98 [TCS | Q3FY25 | Page 7]\n* Profit for the period: INR 99 [TCS | Q3FY25 | Page 7]",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99798, Requested 2378. Please try again in 31m20.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "12,444",
       "12444",
       "profit for the period"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.643,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 2,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "income (comprising of net\nprofit and other comprehensive loss/income) and other financial information of the Group for the\nquarter ended 31 December 2024 as well as for the year to date results for the period from 01 April\n2024 to 31 December 2024.\nWe conducted our audit in accordance with the Stand..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q009",
@@ -359,51 +286,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "revenue",
-    "answer": "According to the provided excerpts, TCS' total income in Q3FY25 is reported differently in standalone and consolidated financial statements. \n\n* In the standalone financial statement, TOTAL INCOME is reported as 32 (~ crore) [TCS | Q3FY25 | Page 13].\n* In the consolidated financial statement, TOTAL INCOME is reported as 15 (~ crore) [TCS | Q3FY25 | Page 7].\n\nNote that these figures are not directly comparable due to the difference in reporting (standalone vs consolidated).",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99796, Requested 2074. Please try again in 26m55.68s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "65,216",
       "65216",
       "total income"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.7,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q010",
@@ -411,51 +305,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "expenses",
-    "answer": "The TCS employee benefit expenses in Q3FY25 were:\n* 31 (Consolidated) [TCS | Q3FY25 | Page 7]\n* 39 (Standalone) [TCS | Q3FY25 | Page 13]",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99793, Requested 2880. Please try again in 38m29.472s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "35,956",
       "35956",
       "employee benefit"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.667,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 6,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| Sr. No. | Name of component Sr.\nNo | Name of component\n. |\n| --- | --- | --- |\n| 39 | Tata Consultancy Services (Philippines) Inc. 48 | Tata Consultancy Services Guatemala,\nS.A. |\n| 40 | Tata Consultancy Services (Thailand) 49\nLimited | Tata Consultancy Services UK Limited |\n| 41 | Tata Consultanc..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q011",
@@ -463,7 +324,7 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "per_share",
-    "answer": "The earnings per equity share for TCS in Q3FY25 is .88 [TCS | Q3FY25 | Page 7]. This information is consistently reported across all excerpts [TCS | Q3FY25 | Page 7].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99791, Requested 1828. Please try again in 23m18.816s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "34.21",
       "earnings per share",
@@ -473,19 +334,10 @@
     ],
     "keyword_hit": false,
     "is_grounded": false,
-    "grounding_confidence": 0.25,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 1,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "957\nEarnings per equity s .88\nDividend per share (Par\nInterim dividend on e .00\nFinal dividend on equ .00\nTotal dividend on equ .00\nTotal eauitydividend 00"
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q012",
@@ -493,52 +345,19 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "corporate_action",
-    "answer": "The interim dividend declared by TCS in Q3FY25 is INR 10 per equity share [TCS | Q3FY25 | Page 1]. Additionally, a special dividend of INR 66 per equity share was also declared [TCS | Q3FY25 | Page 1]. This information is further confirmed in [TCS | Q3FY25 | Page 14], which states that the Board of Directors declared an interim dividend of ~10.00 per equity share and a special dividend of ~66.00 per equity share. \n\nHowever, excerpts [TCS | Q3FY25 | Page 13], [TCS | Q3FY25 | Page 7], and another [TCS | Q3FY25 | Page 7] do not provide the specific amount of the interim dividend as the relevant fields are filled with \".00\", indicating that these excerpts do not contain the required information.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99789, Requested 1726. Please try again in 21m48.96s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "76",
       "10",
       "interim dividend",
       "special dividend"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.609,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 14,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "2. The Board of Directors at its meeting held on January 9, 2025, has declared an interim dividend of ~10.00 per equity share and special\ndividend of~66.00 per equity share."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "Interim dividend on equity shares (t) .00\nFinal dividend on equity shares (t) .00\nTotal dividend on equity shares (t) .00\nTotal equity dividend percentage 00"
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "Interim dividend on e .00\nFinal dividend on equ .00\nTotal dividend on equ .00\nTotal eauitydividend 00"
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q013",
@@ -546,51 +365,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "profitability",
-    "answer": "The profit before tax for TCS in Q3FY25 is not directly stated in the provided excerpts. However, we can find the profit before exceptional items and tax, and the exceptional item to calculate the profit before tax.\n\nFrom [TCS | Q3FY25 | Page 7], we have:\n- PROFIT BEFORE EXCEP 55 (in crore)\n- Exceptional item: Settlement of legal 58 (in crore)\n\nAnd from [TCS | Q3FY25 | Page 13], we have:\n- PROFIT BEFORE EXCEPTIONAL ITEM AND TAX 60 (in crore)\n- Exceptional item: Settlement of legal claim 58 (in crore)\n\nHowever, to find the profit before tax, we need to look at [TCS | Q3FY25 | Page 7] which mentions PROFIT BEFORE TAX 97, but the unit is not specified. \n\nFrom [TCS | Q3FY25 | Page 13], we have PROFIT BEFORE TAX 02, but again the unit is not specified.\n\nFrom [TCS | Q3FY25 | Page 7 of Excerpt 4], we have a table with financial data, including:\n- PROFIT BEFORE EXCEPTIONAL ITEM AND TAX 16,666 (in crore)\n- Exceptional item: 0\n- Tax 4,217 (in crore)\n- PROFIT BEFORE TAX is not directly stated, but we can see PROFIT FOR THE PERIOD 12,444 (in crore) and TOTAL TAX EXPENSE 4,222 (in crore), which implies PROFIT BEFORE TAX 16,666 (in crore)\n\nGiven the inconsistencies and lack of clarity on units in some excerpts, the most reliable figure for profit before tax from the provided context is 16,666 crore as seen in [TCS | Q3FY25 | Page 7 of Excerpt 4].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99786, Requested 3378. Please try again in 45m33.696s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "16,666",
       "16666",
       "profit before tax"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.714,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 9,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n{URL: www.bseindia.com), the National Stock Exchange of India Limited website {URL: www.nseindia.com) and on the Company's website\n{URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q014",
@@ -598,52 +384,19 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "tax",
-    "answer": "The total tax expense for TCS in Q3FY25 is as follows:\n* Standalone: ₹43 crore [TCS | Q3FY25 | Page 13]\n* Consolidated: ₹98 crore [TCS | Q3FY25 | Page 7]\n\nNote that there are two different figures for total tax expense due to the standalone and consolidated financial statements.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99784, Requested 2769. Please try again in 36m45.792s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "4,222",
       "4222",
       "tax expense",
       "current tax"
     ],
-    "keyword_hit": true,
+    "keyword_hit": false,
     "is_grounded": false,
-    "grounding_confidence": 0.444,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 6,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| Sr. No. | Name of component Sr.\nNo | Name of component\n. |\n| --- | --- | --- |\n| 39 | Tata Consultancy Services (Philippines) Inc. 48 | Tata Consultancy Services Guatemala,\nS.A. |\n| 40 | Tata Consultancy Services (Thailand) 49\nLimited | Tata Consultancy Services UK Limited |\n| 41 | Tata Consultanc..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q015",
@@ -651,7 +404,7 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "segment",
-    "answer": "The TCS Banking, Financial Services, and Insurance segment revenue in Q3FY25 was 23,481 [TCS | Q3FY25 | Page 8].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99780, Requested 2568. Please try again in 33m48.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "23,481",
       "23481",
@@ -659,53 +412,12 @@
       "financial services",
       "insurance"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.667,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 8,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| It c\nThree months ended Nine months ended Year end\nDecember 31, September 30, December 31, December 31, December 31, March 3\n2024 2024 2023 2024 2023 2024 |  |  |  |  |\n| --- | --- | --- | --- | --- |\n|  |  | ber 30, December 31, December 31,\n4 2023 2024 | December 3\n2023 | 1, March 3\n2024 |\n| T R..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q016",
@@ -713,16 +425,16 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "segment",
-    "answer": "This information is not available in the provided filings.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99778, Requested 2240. Please try again in 29m3.552s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "6,194",
       "6194",
       "manufacturing"
     ],
     "keyword_hit": false,
-    "is_grounded": true,
-    "grounding_confidence": 1.0,
-    "not_available": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
     "citation_count": 0,
     "citations": []
   },
@@ -732,7 +444,7 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "segment",
-    "answer": "The TCS Communication, Media and Technology segment revenue in Q3FY25 was 10,035 [TCS | Q3FY25 | Page 8]. \n\nAdditionally, the nine-month ended December 31, 2024, revenue for the same segment was 30,057 [TCS | Q3FY25 | Page 8].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99775, Requested 2616. Please try again in 34m25.824s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "11,989",
       "11989",
@@ -740,53 +452,12 @@
       "media",
       "technology"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.636,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 8,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| It c\nThree months ended Nine months ended Year end\nDecember 31, September 30, December 31, December 31, December 31, March 3\n2024 2024 2023 2024 2023 2024 |  |  |  |  |\n| --- | --- | --- | --- | --- |\n|  |  | ber 30, December 31, December 31,\n4 2023 2024 | December 3\n2023 | 1, March 3\n2024 |\n| T R..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q018",
@@ -794,52 +465,19 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "expenses",
-    "answer": "The TCS depreciation and amortisation expense in Q3FY25 was 87 (~ crore) as per the standalone financial results [TCS | Q3FY25 | Page 13]. However, the consolidated financial results report a depreciation and amortisation expense of 85 [TCS | Q3FY25 | Page 7]. Additionally, another excerpt reports the depreciation and amortisation expense as 1,377 [TCS | Q3FY25 | Page 7] in a table, but the context is not explicitly stated as standalone or consolidated.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99773, Requested 2103. Please try again in 27m0.863999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "1,377",
       "1377",
       "depreciation",
       "amortisation"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.667,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q019",
@@ -847,60 +485,19 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "revenue",
-    "answer": "The nine month revenue from operations for TCS ending December 2024 is not explicitly stated in the provided excerpts. However, we can find the total revenue for the nine months ended December 2024 in [Excerpt 2 | TCS | Q3FY25 | quarterly_result | Page 8 | table]. \n\nAccording to [Excerpt 2 | TCS | Q3FY25 | quarterly_result | Page 8 | table], the revenue from operations for the nine months ended December 2024 is 190,843 (under the column 'Nine months ended December 31, 2024'). \n\nTherefore, the nine month revenue from operations for TCS ending December 2024 is 190,843 [Excerpt 2 | TCS | Q3FY25 | quarterly_result | Page 8 | table].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99770, Requested 2534. Please try again in 33m10.656s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "1,90,845",
       "190845",
       "nine months",
       "nine-months"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.667,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 8,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| It c\nThree months ended Nine months ended Year end\nDecember 31, September 30, December 31, December 31, December 31, March 3\n2024 2024 2023 2024 2023 2024 |  |  |  |  |\n| --- | --- | --- | --- | --- |\n|  |  | ber 30, December 31, December 31,\n4 2023 2024 | December 3\n2023 | 1, March 3\n2024 |\n| T R..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 14,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n(URL: www.bseindia.com), the National Stock Exchange of India Limited website (URL: www.nseindia.com) and on the Company's website\n(URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 9,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n{URL: www.bseindia.com), the National Stock Exchange of India Limited website {URL: www.nseindia.com) and on the Company's website\n{URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| Three months ended Nine\nDecember 31, September 30, December 31, December 3\n2024 2024 2023 2024 | months ended | Yea | r ende |\n| --- | --- | --- | --- |\n|  | 1, December\n2023 | 31, March 31,\n2024 |  |\n| 53,883 53,990 50,844 1,60,\n2,118 3,185 1,809 7,\n56,001 57,175 52,653 1,68,\n26,613 26,815 25,511..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q020",
@@ -908,51 +505,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "general",
-    "answer": "The TCS Q3FY25 board meeting was held on January 9, 2025 [TCS | Q3FY25 | Page 1]. Additionally, the meeting timing is also mentioned in [TCS | Q3FY25 | Page 15] as starting at 11:30 a.m. and concluding at 4:00 p.m.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99768, Requested 1258. Please try again in 14m46.464s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "January 9, 2025",
       "9 January 2025",
       "board meeting"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.667,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 15,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "Intimation as per NSE and BSE circulars dated July 14, 2023\nThis is to inform you that pursuant to NSE circular no. NSE/CML/2023/57 and\nBSE Circular no. 20230714-34 dated July 14, 2023, the meeting of the Board of Directors\nof the Company was held today at 11.30 a.m. and concluded at 4.00 p.m.\nThank..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 9,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "2. The Board of Directors at its meeting held on January 9, 2025, has declared an interim dividend of ~10.00 per equity share and special\ndividend of~66.00 per equity share."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 14,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "2. The Board of Directors at its meeting held on January 9, 2025, has declared an interim dividend of ~10.00 per equity share and special\ndividend of~66.00 per equity share."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q021",
@@ -960,60 +524,19 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "revenue",
-    "answer": "The TCS standalone revenue from operations in Q3FY25 was 59 (~ crore) [TCS | Q3FY25 | Page 13].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99766, Requested 2372. Please try again in 30m47.232s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "53,883",
       "53883",
       "standalone",
       "revenue from operations"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.714,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 11,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "Independent Auditor's Report (Continued)\nTata Consultancy Services Limited\nfree from material misstatement, whether due to fraud or error.\nIn preparing the standalone financial results, the Management and the Board of Directors are responsible\nfor assessing the Company's ability to continue as a goi..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q022",
@@ -1021,60 +544,19 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "profitability",
-    "answer": "The standalone profit for the period for TCS in Q3FY25 was 59 [TCS | Q3FY25 | Page 13].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99763, Requested 2025. Please try again in 25m44.832s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "11,832",
       "11832",
       "standalone",
       "profit for the period"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.667,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 10,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "BS R & Co. LLP 14th Floor, Central B Wing and North C Wing\nNesco IT Park 4, Nesco Center\nWestern Express Highway\nChartered Accountants\nGoregaon (East), Mumbai - 400 063, India\nTelephone: +91 (22) 6257 1000\nFax: +91 (22) 6257 1010\nlndeoendent Auditor«s Reoort\nTo the Board of Directors of Tata Consult..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 14,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended\nDecember 31. 2024"
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q023",
@@ -1082,52 +564,19 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "segment",
-    "answer": "The TCS Life Sciences and Healthcare segment revenue in Q3FY25 was 6,745 [TCS | Q3FY25 | Page 8].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99761, Requested 2462. Please try again in 32m0.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "6,426",
       "6426",
       "life sciences",
       "healthcare"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.667,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 8,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| It c\nThree months ended Nine months ended Year end\nDecember 31, September 30, December 31, December 31, December 31, March 3\n2024 2024 2023 2024 2023 2024 |  |  |  |  |\n| --- | --- | --- | --- | --- |\n|  |  | ber 30, December 31, December 31,\n4 2023 2024 | December 3\n2023 | 1, March 3\n2024 |\n| T R..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q024",
@@ -1135,59 +584,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "segment",
-    "answer": "This information is not available in the provided filings. \n\nAlthough [TCS | Q3FY25 | Page 8] provides revenue data for various segments such as Financial Services and Insurance, Manufacturing, and Communication, Media and Technology, it does not specifically mention the Consumer Business segment. \n\nAdditionally, [TCS | Q3FY25 | Page 7] and [TCS | Q3FY25 | Page 13] provide consolidated and standalone financial results, respectively, but do not provide segment-wise revenue data for Consumer Business. \n\nTherefore, the required information cannot be found in the provided excerpts.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99758, Requested 2565. Please try again in 33m27.072s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "10,035",
       "10035",
       "consumer business"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 1.0,
-    "not_available": true,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 8,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| It c\nThree months ended Nine months ended Year end\nDecember 31, September 30, December 31, December 31, December 31, March 3\n2024 2024 2023 2024 2023 2024 |  |  |  |  |\n| --- | --- | --- | --- | --- |\n|  |  | ber 30, December 31, December 31,\n4 2023 2024 | December 3\n2023 | 1, March 3\n2024 |\n| T R..."
-      }
-    ]
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q025",
@@ -1195,58 +603,17 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "expenses",
-    "answer": "The finance costs for TCS in Q3FY25 were:\n* 78 (Consolidated) [TCS | Q3FY25 | Page 7]\n* 73 (Standalone) [TCS | Q3FY25 | Page 13]\n\nThese figures are based on the audited consolidated and standalone interim statements of financial results.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99756, Requested 2170. Please try again in 27m44.063999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "234",
       "finance costs"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.667,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 14,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n(URL: www.bseindia.com), the National Stock Exchange of India Limited website (URL: www.nseindia.com) and on the Company's website\n(URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q026",
@@ -1254,44 +621,19 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "general",
-    "answer": "The paid up equity share capital of TCS in Q3FY25 was stated in two excerpts with the same value. \n* The paid up equity share capital (Face value) was 62 [TCS | Q3FY25 | Page 13] \n* The paid up equity share capital was also 62 [TCS | Q3FY25 | Page 7]",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99754, Requested 1830. Please try again in 22m48.576s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "362",
       "paid up",
       "equity share capital",
       "face value"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.7,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 3,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q027",
@@ -1299,43 +641,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "profitability",
-    "answer": "The total comprehensive income for TCS in Q3FY25 is not directly stated in the provided excerpts. However, we can find the total comprehensive income in two different excerpts:\n\n* In [TCS | Q3FY25 | Page 13], the total comprehensive income is stated as 24.\n* In [TCS | Q3FY25 | Page 7], the total comprehensive income is stated as 36 for the consolidated results, and further broken down into 07 for shareholders and 29 for non-controlling interests.\n\nThere is a conflict in the data, with [TCS | Q3FY25 | Page 13] stating 24 and [TCS | Q3FY25 | Page 7] stating 36. \n\nAdditionally, [TCS | Q3FY25 | Page 13] and [TCS | Q3FY25 | Page 7] seem to refer to standalone and consolidated results, respectively. \n\nIt is also mentioned in [TCS | Q3FY25 | Page 1] that the audited standalone financial results and audited consolidated financial results are enclosed, but it does not provide the total comprehensive income directly. \n\nGiven the information, the total comprehensive income for TCS in Q3FY25 can be cited from the provided excerpts as:\n- 24 [TCS | Q3FY25 | Page 13] for standalone results, \n- 36 [TCS | Q3FY25 | Page 7] for consolidated results.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99751, Requested 1877. Please try again in 23m26.591999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "11,624",
       "11624",
       "total comprehensive income"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.676,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 3,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q028",
@@ -1343,60 +660,19 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "audit",
-    "answer": "The auditor of TCS Q3FY25 financial results is BS R & Co. LLP, a Chartered Accountants firm [TCS | Q3FY25 | Page 2]. They submitted an Independent Auditor's Report to the Board of Directors of Tata Consultancy Services Limited [TCS | Q3FY25 | Page 2].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99749, Requested 2127. Please try again in 27m0.863999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "BS R",
       "BSR",
       "chartered accountants",
       "Aniruddha Godbole"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.5,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 2,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "BS R & Co. LLP 14th Floor, Central B Wing and North C Wing\nNesco IT Park 4, Nesco Center\nWestern Express Highway\nChartered Accountants\nGoregaon (East), Mumbai - 400 063, India\nTelephone: +91 (22) 6257 1000\nFax: +91 (22) 6257 1010\nlndeoendent Auditor«s Reoort\nTo the Board of Directors of Tata Consult..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 9,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "Select explanatory notes to the Statement of Audited Consolidated Interim Financial Results for three months and nine-months ended\nDecember 31. 2024"
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q029",
@@ -1404,51 +680,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "profitability",
-    "answer": "The profit before exceptional item and tax for TCS in Q3FY25 is 60 [TCS | Q3FY25 | Page 13]. \n\nNote: This figure is from the standalone financial results. If you are looking for the consolidated results, the relevant figure is not explicitly mentioned in the provided excerpts, but the profit before exceptional item is 55 [TCS | Q3FY25 | Page 7] and the exceptional item is 58 [TCS | Q3FY25 | Page 7], so the profit before exceptional item and tax would be 55 + 58 = 113 - 58 = 55 [TCS | Q3FY25 | Page 7] (since the exceptional item is a loss, it is subtracted from the profit before exceptional item to get the profit before tax). However, the direct figure for profit before exceptional item and tax is only available in the standalone results.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99747, Requested 1904. Please try again in 23m46.464s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "16,666",
       "16666",
       "profit before exceptional"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.684,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q030",
@@ -1456,59 +699,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "corporate_action",
-    "answer": "The record date for TCS Q3FY25 dividend payment was Friday, January 17, 2025 [TCS | Q3FY25 | Page 1].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99745, Requested 1362. Please try again in 15m56.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "January 17, 2025",
       "17 January",
       "record date"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.714,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 14,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n(URL: www.bseindia.com), the National Stock Exchange of India Limited website (URL: www.nseindia.com) and on the Company's website\n(URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 9,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n{URL: www.bseindia.com), the National Stock Exchange of India Limited website {URL: www.nseindia.com) and on the Company's website\n{URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q031",
@@ -1516,51 +718,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "profitability",
-    "answer": "To find the nine-month profit for TCS for the period ending December 2024, we need to look at the provided excerpts. \n\nThe profit figures are typically found in the financial statements or the notes to the financial statements. \n\nIn [Excerpt 4 | TCS | Q3FY25 | quarterly_result | Page 8 | table], there is a table with financial information, but it does not explicitly state the profit. However, it does provide revenue and various expenses for different segments.\n\nUnfortunately, the provided excerpts do not explicitly mention the nine-month profit for the period ending December 2024. \n\nThis information is not available in the provided filings.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99742, Requested 2891. Please try again in 37m54.912s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "36,504",
       "36504",
       "nine months"
     ],
     "keyword_hit": false,
-    "is_grounded": true,
-    "grounding_confidence": 1.0,
-    "not_available": true,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 14,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n(URL: www.bseindia.com), the National Stock Exchange of India Limited website (URL: www.nseindia.com) and on the Company's website\n(URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 9,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n{URL: www.bseindia.com), the National Stock Exchange of India Limited website {URL: www.nseindia.com) and on the Company's website\n{URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 8,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| It c\nThree months ended Nine months ended Year end\nDecember 31, September 30, December 31, December 31, December 31, March 3\n2024 2024 2023 2024 2023 2024 |  |  |  |  |\n| --- | --- | --- | --- | --- |\n|  |  | ber 30, December 31, December 31,\n4 2023 2024 | December 3\n2023 | 1, March 3\n2024 |\n| T R..."
-      }
-    ]
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q032",
@@ -1568,58 +737,17 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "general",
-    "answer": "The CIN of Tata Consultancy Services is L22210MH1995PLC084781 [TCS | Q3FY25 | Page 13], which is also confirmed in [TCS | Q3FY25 | Page 7] and [TCS | Q3FY25 | Page 15].",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99739, Requested 2009. Please try again in 25m10.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "L22210MH1995PLC084781",
       "CIN"
     ],
-    "keyword_hit": true,
+    "keyword_hit": false,
     "is_grounded": false,
-    "grounding_confidence": 0.455,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 15,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "Intimation as per NSE and BSE circulars dated July 14, 2023\nThis is to inform you that pursuant to NSE circular no. NSE/CML/2023/57 and\nBSE Circular no. 20230714-34 dated July 14, 2023, the meeting of the Board of Directors\nof the Company was held today at 11.30 a.m. and concluded at 4.00 p.m.\nThank..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 6,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| Sr. No. | Name of component Sr.\nNo | Name of component\n. |\n| --- | --- | --- |\n| 39 | Tata Consultancy Services (Philippines) Inc. 48 | Tata Consultancy Services Guatemala,\nS.A. |\n| 40 | Tata Consultancy Services (Thailand) 49\nLimited | Tata Consultancy Services UK Limited |\n| 41 | Tata Consultanc..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "Independent Auditor's Report (Continued)\nTata Consultancy Services Limited\nThe consolidated results include financial results of the Holding Company and its subsidiaries listed below:\nSr. ent\n1 olutions Australia Pty\n2 utions Beijing Co., Ltd.\nConsultancy Services\n.e.f. 01 July 2024)\n3\n4 Services Ar..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q033",
@@ -1627,36 +755,19 @@
     "company": "Reliance Industries",
     "period": "FY2025",
     "category": "segment",
-    "answer": "The EBITDA of Oil to Chemicals for FY25 is not explicitly stated in the provided excerpts. However, the revenue of Oil to Chemicals for FY25 is mentioned as C 6,26,921 crore [Reliance Industries | FY2025 | Page 67]. \n\nAdditionally, Excerpt 3 [Reliance Industries | FY2025 | Page 30] provides the EBITDA for certain segments, but it does not specifically mention the EBITDA for Oil to Chemicals. It does mention the revenue and EBITDA for other segments, such as:\n* Revenue: L6,26,921 Crore and EBITDA: no specific figure for Oil to Chemicals\n* Revenue: L25,211 Crore and EBITDA: L21,188 Crore for Oil and Gas\n* Revenue: L54,988 Crore and EBITDA: no specific figure, but a different segment is mentioned with EBITDA: L1,592 Crore (FY 24)\n\nSince the specific EBITDA figure for Oil to Chemicals is not found in the provided excerpts, the answer is:\nThis information is not available in the provided filings.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99737, Requested 2034. Please try again in 25m30.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "74,163",
       "oil to chemicals",
       "O2C",
       "EBITDA"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 1.0,
-    "not_available": true,
-    "citation_count": 2,
-    "citations": [
-      {
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "page_number": 67,
-        "doc_type": "annual_report",
-        "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "31, 2025 (1 US$ = C 83.41 as on March 31, 2024). equity shares of C 10/- (Rupees Ten further reinforce Reliance Retail’s leader in financial news segment.\n# Includes impact of change in Non-Controlling Interest.\nonly) each and 100,00,00,000 (One position as the partner of choice 3 movies of Jio Stud..."
-      },
-      {
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "page_number": 30,
-        "doc_type": "annual_report",
-        "source_file": "reliance_annual_report_FY2025.pdf",
-        "excerpt": "products through\n2,156\nREVENUE ↑11.0% EBITDA 11.9% advanced integration, optimised conversion, and a strong ` Crore\nL6,26,921 Crore L54,988 Crore focus on sustainable, high-value chemical solutions. L1,592 Crore (FY 24)\nUS$ 73.4 Billion US$ 6.4 Billion\nProducts\nTransportation Fuels, Polymers & Elast..."
-      }
-    ]
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q034",
@@ -1664,51 +775,18 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "tax",
-    "answer": "The current tax expense for TCS in Q3FY25 was 64 [TCS | Q3FY25 | Page 7]. \n\nAdditionally, another excerpt also mentions the current tax expense, which is 78 [TCS | Q3FY25 | Page 13], and 4,217 [TCS | Q3FY25 | Page 7] in the table. \n\nThere seems to be a conflict in the data, as different excerpts provide different values for the current tax expense.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99734, Requested 2860. Please try again in 37m21.216s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "4,217",
       "4217",
       "current tax"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.667,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 4,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 5,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "| No. Name of component Sr.\nNo | Name of compo\n. |\n| --- | --- |\n| APTOnline Limited 20 | TCS Financial S\nLtd |\n| C-Edge Technologies Limited 21 | TCS Financial So\n(Merged with Tata\n(China) Co., Ltd. |\n| Diligenta Limited 22 | MGDC S.C. |\n| MahaOnline Limited 23 | Tata Consultanc\nS.A. |\n| MP Online ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
   },
   {
     "id": "Q035",
@@ -1716,59 +794,208 @@
     "company": "TCS",
     "period": "Q3FY25",
     "category": "profitability",
-    "answer": "The profit for the period attributable to shareholders of the company is 08 [TCS | Q3FY25 | Page 7]. \n\nAdditionally, the total comprehensive income for the period attributable to shareholders of the company is 07 [TCS | Q3FY25 | Page 7]. \n\nNote that the standalone financial results also provide the profit for the period, which is 59 [TCS | Q3FY25 | Page 13]. However, this figure is for the standalone results, whereas the figure from Page 7 is for the consolidated results.",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99731, Requested 2749. Please try again in 35m42.719999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
     "expected_keywords": [
       "12,380",
       "12380",
       "shareholders",
       "attributable"
     ],
-    "keyword_hit": true,
-    "is_grounded": true,
-    "grounding_confidence": 0.7,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
     "not_available": false,
-    "citation_count": 5,
-    "citations": [
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 7,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH1995PLC084781\nTel: +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nre)\nRevenue from operati..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 1,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TCS/BM/241/SE/2024-25\nJanuary 9, 2025\nNational Stock Exchange of India Limited BSE Limited\nExchange Plaza, C-1, Block G, P. J. Towers,\nBandra Kurla Complex, Bandra (East), Dalal Street,\nMumbai - 400051 Mumbai - 400001\nSymbol - TCS Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 13,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results\n(~ crore)\nRevenue from ope..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 14,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n(URL: www.bseindia.com), the National Stock Exchange of India Limited website (URL: www.nseindia.com) and on the Company's website\n(URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      },
-      {
-        "company": "TCS",
-        "period": "Q3FY25",
-        "page_number": 9,
-        "doc_type": "quarterly_result",
-        "source_file": "tcs_q3fy25.pdf",
-        "excerpt": "3. The results for three months and nine months ended December 31, 2024, are available on the BSE Limited website\n{URL: www.bseindia.com), the National Stock Exchange of India Limited website {URL: www.nseindia.com) and on the Company's website\n{URL: www.tcs.com/investors).\nFor and on behalf of the ..."
-      }
-    ]
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q036",
+    "question": "What was Infosys consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99729, Requested 1894. Please try again in 23m22.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "48,211",
+      "48211",
+      "revenue from operations"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q037",
+    "question": "What was Infosys consolidated profit for the period for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99726, Requested 1644. Please try again in 19m43.68s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "7,775",
+      "7775",
+      "profit for the period"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q038",
+    "question": "What was Infosys consolidated basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99724, Requested 2027. Please try again in 25m12.864s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "19.19",
+      "earnings per share",
+      "basic"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q039",
+    "question": "What were Infosys consolidated employee benefit expenses for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "expenses",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99722, Requested 2330. Please try again in 29m32.928s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "25,287",
+      "25287",
+      "employee benefit"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q040",
+    "question": "What final dividend did Infosys recommend for financial year 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "corporate_action",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99719, Requested 1880. Please try again in 23m1.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "25",
+      "final dividend",
+      "per equity share"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q041",
+    "question": "What was Infosys Financial Services segment revenue for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "segment",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99717, Requested 2091. Please try again in 26m2.111999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "13,463",
+      "13463",
+      "financial services"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q042",
+    "question": "What was Infosys consolidated current tax expense for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "tax",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99714, Requested 2091. Please try again in 25m59.52s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "3,356",
+      "3356",
+      "current tax"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q043",
+    "question": "Who are the statutory auditors of Infosys and what opinion did they express for Q1FY27?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "audit",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99712, Requested 2015. Please try again in 24m52.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "Deloitte Haskins",
+      "Sells",
+      "unmodified audit opinion"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q044",
+    "question": "What is the CIN of Infosys Limited?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "general",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99709, Requested 1699. Please try again in 20m16.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "L85110KA1981PLC013115",
+      "CIN"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q045",
+    "question": "What was Infosys standalone profit before tax for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99707, Requested 2090. Please try again in 25m52.608s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "expected_keywords": [
+      "10,161",
+      "10161",
+      "standalone",
+      "profit before tax"
+    ],
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
   }
 ]

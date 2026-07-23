@@ -1,17 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
-
-// Keep in sync with INDEXED_COMPANIES in src/api/main.py — only list
-// companies whose filings have actually been ingested into the index.
-const COMPANIES = [
-    { value: "", label: "All Companies" },
-    { value: "Reliance Industries", label: "Reliance Industries" },
-    { value: "TCS", label: "TCS" },
-    { value: "Infosys", label: "Infosys" },
-];
 
 const SAMPLE_QUERIES = [
     "What was TCS revenue from operations in Q3FY25?",
@@ -28,6 +19,14 @@ export default function App() {
     const [result, setResult] = useState(null);
     const [error, setError] = useState(null);
     const [expandedCitations, setExpandedCitations] = useState({});
+    const [companies, setCompanies] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get(`${API_BASE}/companies`)
+            .then((res) => setCompanies(res.data.companies || []))
+            .catch(() => setCompanies([]));
+    }, []);
 
     const handleSubmit = async (q = query) => {
         if (!q.trim()) return;
@@ -108,8 +107,9 @@ export default function App() {
 
                     <div className="filters">
                         <select className="filter-select" value={company} onChange={(e) => setCompany(e.target.value)}>
-                            {COMPANIES.map((c) => (
-                                <option key={c.value} value={c.value}>{c.label}</option>
+                            <option value="">All Companies</option>
+                            {companies.map((name) => (
+                                <option key={name} value={name}>{name}</option>
                             ))}
                         </select>
                         <input
@@ -188,7 +188,11 @@ export default function App() {
                 {!result && !loading && !error && (
                     <div className="empty-state">
                         <div className="empty-icon">📄</div>
-                        <p>Ask a question about Reliance Industries or TCS filings to get started.</p>
+                        <p>
+                            {companies.length > 0
+                                ? `Ask a question about ${companies.join(" or ")} filings to get started.`
+                                : "Ask a question about an indexed company's filings to get started."}
+                        </p>
                     </div>
                 )}
             </main>
