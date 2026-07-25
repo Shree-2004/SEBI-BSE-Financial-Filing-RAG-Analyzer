@@ -33,9 +33,21 @@ as "supported" without ever being ingested, which caused 404s whenever selected.
    unindexed company) can't happen again.
 
 **Workflow to add another company (e.g. "ITC"), current and correct:**
-1. Source the actual filing PDF (BSE/NSE/company investor-relations page — must
-   have a real text layer, not a scanned image).
-2. Place it in `data/raw_pdfs/<company>/<file>.pdf`.
+1. Source the actual filing PDF. For **quarterly/annual results specifically**,
+   this step is now automated — `fetch_bse_filing.py` queries BSE's
+   announcements feed directly and downloads the real PDF, verified working
+   for both an already-indexed company (TCS) and a fresh one (Wipro):
+   ```
+   python fetch_bse_filing.py "ITC" --list                    # browse candidates first
+   python fetch_bse_filing.py "ITC" --output data/raw_pdfs/itc/itc_latest.pdf
+   ```
+   Uses the unofficial `bse` package against an undocumented BSE endpoint —
+   if it breaks (BSE changes their API) or the filing isn't a results
+   announcement (e.g. annual reports, which are separate documents typically
+   distributed via investor-relations pages, not this feed), fall back to
+   manual sourcing as before.
+2. Place it in `data/raw_pdfs/<company>/<file>.pdf` (already done by step 1
+   for results filings).
 3. Parse: `python src/ingestion/pdf_parser.py <pdf> --company "ITC" --doc-type quarterly_result --period Q1FY27 --output data/processed/itc_chunks.jsonl`
 4. Chunk: `python src/chunking/chunker.py data/processed/itc_chunks.jsonl --output data/processed/itc_chunked.jsonl`
 5. Embed + upsert: `python embed_and_upsert.py --input data/processed/itc_chunked.jsonl --company "ITC"`
