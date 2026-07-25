@@ -40,6 +40,7 @@ from indexing.bm25_index import BM25Index
 from indexing.embed import Embedder
 from indexing.vector_store import VectorStore
 from retrieval.hybrid_retriever import HybridRetriever
+from api.query_cache import QueryCache
 
 load_dotenv()
 
@@ -77,8 +78,10 @@ class AppState:
     verifier: Verifier = None
     vector_store: VectorStore = None
     startup_time: float = None
+    query_cache: QueryCache = None
 
 state = AppState()
+state.query_cache = QueryCache(max_entries=500, ttl_seconds=3600)
 
 
 # ---------------------------------------------------------------------------
@@ -203,6 +206,7 @@ class QueryResponse(BaseModel):
     chunks_used: int
     filters_applied: dict
     latency_ms: float
+    cached: bool = False
 
 
 # ---------------------------------------------------------------------------
@@ -242,6 +246,18 @@ async def query(request: Request, payload: QueryRequest):
     if payload.doc_type:
         filters["doc_type"] = payload.doc_type
 
+    # Serve identical questions from cache instead of re-embedding,
+    # re-retrieving, and re-generating — saves both latency and Groq's
+    # scarce daily token quota. Exact-match only (see query_cache.py).
+    cache_key = state.query_cache.make_key(
+        payload.query, payload.company, payload.period, payload.doc_type, payload.top_k
+    )
+    cached_result = state.query_cache.get(cache_key)
+    if cached_result is not None:
+        return cached_result.model_copy(
+            update={"cached": True, "latency_ms": round((time.time() - t0) * 1000, 2)}
+        )
+
     try:
         # Retrieve relevant chunks
         chunks = state.retriever.retrieve(
@@ -272,7 +288,7 @@ async def query(request: Request, payload: QueryRequest):
 
     latency_ms = (time.time() - t0) * 1000
 
-    return QueryResponse(
+    response = QueryResponse(
         query=result["query"],
         answer=result["answer"],
         citations=[CitationSchema(**c) for c in result["citations"]],
@@ -284,7 +300,10 @@ async def query(request: Request, payload: QueryRequest):
         chunks_used=result["chunks_used"],
         filters_applied=filters,
         latency_ms=round(latency_ms, 2),
+        cached=False,
     )
+    state.query_cache.set(cache_key, response)
+    return response
 
 
 @app.get("/companies", tags=["Meta"])
@@ -335,6 +354,7 @@ async def stats():
         "collection_status": info["status"],
         "indexed_companies": INDEXED_COMPANIES,
         "note": "Per-company breakdown available after full ingestion",
+        "query_cache": state.query_cache.stats(),
     }
 
 
