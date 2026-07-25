@@ -1,0 +1,29 @@
+name: Keep Qdrant cluster alive
+
+# Qdrant Cloud's free tier auto-pauses the cluster after a period of
+# inactivity (this project hit that directly mid-development — the
+# cluster returned a bare "404 page not found" instead of a real Qdrant
+# error until it was manually resumed). Pinging the cluster on a schedule
+# keeps it active regardless of whether the app itself is deployed or
+# getting real traffic.
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"  # every 4 hours
+  workflow_dispatch: {}     # allow manual runs from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Qdrant collections endpoint
+        run: |
+          status=$(curl -s -o /tmp/response.txt -w '%{http_code}' \
+            -H "api-key: ${{ secrets.QDRANT_API_KEY }}" \
+            "${{ secrets.QDRANT_URL }}/collections")
+          echo "HTTP status: $status"
+          cat /tmp/response.txt
+          if [ "$status" != "200" ]; then
+            echo "::error::Qdrant ping failed with status $status"
+            exit 1
+          fi

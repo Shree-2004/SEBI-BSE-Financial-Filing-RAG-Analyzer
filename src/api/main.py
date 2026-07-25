@@ -27,9 +27,12 @@ from contextlib import asynccontextmanager
 from typing import Optional
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+from slowapi.util import get_remote_address
 
 from generation.answer_generator import AnswerGenerator
 from generation.verifier import Verifier, generate_and_verify
@@ -39,6 +42,14 @@ from indexing.vector_store import VectorStore
 from retrieval.hybrid_retriever import HybridRetriever
 
 load_dotenv()
+
+# ---------------------------------------------------------------------------
+# Rate limiting — /query calls an LLM (Groq) with a small daily token quota,
+# so it needs its own per-IP limit. Metadata endpoints don't touch the LLM
+# and are left unlimited.
+# ---------------------------------------------------------------------------
+
+limiter = Limiter(key_func=get_remote_address)
 
 # ---------------------------------------------------------------------------
 # Known companies in the index — used for /companies endpoint + validation
@@ -106,10 +117,23 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS — allows the React frontend (Vercel) to call this API
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# CORS — allows the React frontend to call this API. Set CORS_ALLOWED_ORIGINS
+# (comma-separated) in production to the deployed frontend's exact URL(s);
+# a wildcard here lets any site burn your Groq/Qdrant quota by proxying
+# requests through a visitor's browser.
+_cors_env = os.getenv("CORS_ALLOWED_ORIGINS")
+ALLOWED_ORIGINS = (
+    [origin.strip() for origin in _cors_env.split(",") if origin.strip()]
+    if _cors_env
+    else ["http://localhost:5173", "http://localhost:3000"]
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # tighten this to your Vercel URL before production
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -186,7 +210,8 @@ class QueryResponse(BaseModel):
 # ---------------------------------------------------------------------------
 
 @app.post("/query", response_model=QueryResponse, tags=["RAG"])
-async def query(request: QueryRequest):
+@limiter.limit("10/minute")
+async def query(request: Request, payload: QueryRequest):
     """
     Main RAG endpoint.
 
@@ -195,29 +220,33 @@ async def query(request: QueryRequest):
     retrieval (dense + BM25 + CrossEncoder reranking), generates a
     grounded answer with source citations, and verifies the answer
     is actually supported by the retrieved context.
+
+    Rate-limited to 10 requests/minute per IP — this endpoint calls an
+    LLM against a small daily token quota, so it needs its own ceiling
+    separate from the metadata endpoints below.
     """
     t0 = time.time()
 
     # Build metadata filter from optional request fields
     filters = {}
-    if request.company:
-        if request.company not in INDEXED_COMPANIES:
+    if payload.company:
+        if payload.company not in INDEXED_COMPANIES:
             raise HTTPException(
                 status_code=400,
-                detail=f"Company '{request.company}' not in index. "
+                detail=f"Company '{payload.company}' not in index. "
                        f"Available: {INDEXED_COMPANIES}",
             )
-        filters["company"] = request.company
-    if request.period:
-        filters["period"] = request.period
-    if request.doc_type:
-        filters["doc_type"] = request.doc_type
+        filters["company"] = payload.company
+    if payload.period:
+        filters["period"] = payload.period
+    if payload.doc_type:
+        filters["doc_type"] = payload.doc_type
 
     try:
         # Retrieve relevant chunks
         chunks = state.retriever.retrieve(
-            query=request.query,
-            top_k=request.top_k,
+            query=payload.query,
+            top_k=payload.top_k,
             filters=filters or None,
         )
 
@@ -230,7 +259,7 @@ async def query(request: QueryRequest):
 
         # Generate + verify
         result = generate_and_verify(
-            query=request.query,
+            query=payload.query,
             chunks=chunks,
             generator=state.generator,
             verifier=state.verifier,
