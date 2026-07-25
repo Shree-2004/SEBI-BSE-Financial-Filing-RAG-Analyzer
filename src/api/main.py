@@ -23,6 +23,7 @@ Then open: http://localhost:8000/docs  (Swagger UI auto-generated)
 
 import os
 import time
+import uuid
 from contextlib import asynccontextmanager
 from typing import Optional
 
@@ -41,8 +42,11 @@ from indexing.embed import Embedder
 from indexing.vector_store import VectorStore
 from retrieval.hybrid_retriever import HybridRetriever
 from api.query_cache import QueryCache
+from api.logging_config import setup_logging, get_logger
 
 load_dotenv()
+setup_logging()
+logger = get_logger(__name__)
 
 # ---------------------------------------------------------------------------
 # Rate limiting — /query calls an LLM (Groq) with a small daily token quota,
@@ -91,7 +95,7 @@ state.query_cache = QueryCache(max_entries=500, ttl_seconds=3600)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Load all models at startup. FastAPI keeps them alive across requests."""
-    print("\n[INFO] Starting FinFiling RAG API...")
+    logger.info("Starting FinFiling RAG API")
     t0 = time.time()
 
     state.retriever = HybridRetriever(bm25_index_path=BM25_INDEX_PATH)
@@ -100,9 +104,9 @@ async def lifespan(app: FastAPI):
     state.vector_store = VectorStore()
     state.startup_time = time.time() - t0
 
-    print(f"[OK] All models loaded in {state.startup_time:.1f}s\n")
+    logger.info("All models loaded", extra={"startup_time_s": round(state.startup_time, 2)})
     yield
-    print("Shutting down FinFiling RAG API...")
+    logger.info("Shutting down FinFiling RAG API")
 
 
 # ---------------------------------------------------------------------------
@@ -141,6 +145,33 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.middleware("http")
+async def request_logging_middleware(request: Request, call_next):
+    """Tags every request with a short ID (also returned as X-Request-ID)
+    so a single log line can be correlated with a user's bug report, and
+    logs one structured line per request — the thing raw print() couldn't
+    give us: a queryable record of what happened, not just what was
+    printed to a scrollback buffer."""
+    request_id = uuid.uuid4().hex[:12]
+    request.state.request_id = request_id
+    t0 = time.time()
+
+    response = await call_next(request)
+
+    response.headers["X-Request-ID"] = request_id
+    logger.info(
+        "request completed",
+        extra={
+            "request_id": request_id,
+            "method": request.method,
+            "path": request.url.path,
+            "status_code": response.status_code,
+            "latency_ms": round((time.time() - t0) * 1000, 2),
+        },
+    )
+    return response
 
 
 # ---------------------------------------------------------------------------
@@ -230,11 +261,16 @@ async def query(request: Request, payload: QueryRequest):
     separate from the metadata endpoints below.
     """
     t0 = time.time()
+    request_id = getattr(request.state, "request_id", None)
 
     # Build metadata filter from optional request fields
     filters = {}
     if payload.company:
         if payload.company not in INDEXED_COMPANIES:
+            logger.warning(
+                "unknown company requested",
+                extra={"request_id": request_id, "company": payload.company},
+            )
             raise HTTPException(
                 status_code=400,
                 detail=f"Company '{payload.company}' not in index. "
@@ -254,6 +290,7 @@ async def query(request: Request, payload: QueryRequest):
     )
     cached_result = state.query_cache.get(cache_key)
     if cached_result is not None:
+        logger.info("cache hit", extra={"request_id": request_id, "filters": filters})
         return cached_result.model_copy(
             update={"cached": True, "latency_ms": round((time.time() - t0) * 1000, 2)}
         )
@@ -267,6 +304,10 @@ async def query(request: Request, payload: QueryRequest):
         )
 
         if not chunks:
+            logger.warning(
+                "no chunks retrieved",
+                extra={"request_id": request_id, "filters": filters},
+            )
             raise HTTPException(
                 status_code=404,
                 detail="No relevant documents found for this query. "
@@ -284,9 +325,25 @@ async def query(request: Request, payload: QueryRequest):
     except HTTPException:
         raise
     except Exception as e:
+        logger.exception(
+            "pipeline error",
+            extra={"request_id": request_id, "filters": filters},
+        )
         raise HTTPException(status_code=500, detail=f"Pipeline error: {str(e)}")
 
     latency_ms = (time.time() - t0) * 1000
+
+    logger.info(
+        "query completed",
+        extra={
+            "request_id": request_id,
+            "filters": filters,
+            "is_grounded": result["is_grounded"],
+            "grounding_confidence": result["grounding_confidence"],
+            "chunks_used": result["chunks_used"],
+            "latency_ms": round(latency_ms, 2),
+        },
+    )
 
     response = QueryResponse(
         query=result["query"],
@@ -329,6 +386,7 @@ async def health():
         qdrant_status = "ok"
     except Exception as e:
         qdrant_status = f"error: {str(e)}"
+        logger.error("Qdrant health check failed", extra={"error": str(e)})
 
     return {
         "status": "ok" if qdrant_status == "ok" else "degraded",
@@ -347,6 +405,7 @@ async def stats():
     try:
         info = state.vector_store.get_collection_info()
     except Exception as e:
+        logger.error("Qdrant stats fetch failed", extra={"error": str(e)})
         raise HTTPException(status_code=500, detail=str(e))
 
     return {
