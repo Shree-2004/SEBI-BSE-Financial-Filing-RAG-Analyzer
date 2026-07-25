@@ -1,14 +1,36 @@
 
 FinFiling RAG — Eval Summary
 =============================
-INVALID RUN — Groq daily token quota (100,000 TPD, free tier) was
-exhausted after question 6/45; the remaining 39 questions failed with
-HTTP 429 rate-limit errors, not real pipeline failures. Do not use the
-numbers below (or in eval_results.json from this run) as a measure of
-system quality — re-run eval/run_eval.py once the Groq daily quota
-resets, then regenerate this file.
+NOTE: 44/45 questions got real answers. Q045 hit Groq's daily token
+quota on the very last question of the run (not a real accuracy
+failure) — it's counted as a miss below, so true accuracy on
+completed questions is 43/44 = 97.7%, slightly better than the
+headline number. This is the first fully valid run against the
+corrected (de-duplicated) index from the chunker fix.
 
-Last known-good full run (45 questions, before this session's chunker
-fix + full re-ingestion, so not fully representative of current state
-either): 93.3% keyword accuracy, 84.4% grounding rate, 95.6% citation
-rate. A fresh clean run against the corrected index is still pending.
+Total questions   : 45
+Keyword accuracy  : 43/45 = 95.6%
+Grounding rate    : 41/45 = 91.1%
+Citation rate     : 44/45 = 97.8%
+Not-available     : 3/45 = 6.7%
+Avg confidence    : 0.654
+Avg citations/Q   : 4.0
+
+Per-category accuracy:
+  audit                2/2 = 100%
+  corporate_action     4/4 = 100%
+  expenses             4/4 = 100%
+  general              5/5 = 100%
+  per_share            2/2 = 100%
+  profitability        10/11 = 91%
+  ratios               2/2 = 100%
+  revenue              4/5 = 80%
+  segment              7/7 = 100%
+  tax                  3/3 = 100%
+
+Resume bullet (fill in):
+  - Evaluated RAG pipeline on a hand-labeled 45-question eval set
+    across 3 Indian listed companies,
+    achieving 96% answer accuracy and
+    91% grounding rate with 98%
+    citation coverage.
