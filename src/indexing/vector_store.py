@@ -20,6 +20,7 @@ Usage:
 """
 
 import os
+import time
 from dotenv import load_dotenv
 from qdrant_client import QdrantClient
 from qdrant_client.models import (
@@ -52,9 +53,30 @@ class VectorStore:
         self.client = QdrantClient(url=url, api_key=api_key, timeout=60)
         self._ensure_collection()
 
-    def _ensure_collection(self):
-        """Create the collection if it doesn't exist yet."""
-        existing = [c.name for c in self.client.get_collections().collections]
+    def _ensure_collection(self, max_retries: int = 5, backoff_seconds: float = 5.0):
+        """
+        Create the collection if it doesn't exist yet.
+
+        Retries with backoff on the first connection — Qdrant Cloud's free
+        tier auto-pauses on inactivity, and the first request after a pause
+        can take up to ~1-2 minutes to wake the cluster (it returns
+        connection errors or a bare 404 in the meantime, not a normal
+        Qdrant error). Without this, that manifests as a raw startup crash
+        instead of the app just waiting for the cluster to come back.
+        """
+        for attempt in range(1, max_retries + 1):
+            try:
+                existing = [c.name for c in self.client.get_collections().collections]
+                break
+            except Exception as e:
+                if attempt == max_retries:
+                    raise
+                wait = backoff_seconds * attempt
+                print(
+                    f"⚠ Qdrant not reachable yet (attempt {attempt}/{max_retries}: {e}). "
+                    f"Retrying in {wait:.0f}s — likely waking from free-tier auto-pause."
+                )
+                time.sleep(wait)
         if COLLECTION_NAME not in existing:
             self.client.create_collection(
                 collection_name=COLLECTION_NAME,

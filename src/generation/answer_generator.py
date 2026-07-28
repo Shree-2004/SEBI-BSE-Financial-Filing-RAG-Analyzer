@@ -25,12 +25,18 @@ Usage:
 """
 
 import os
-from groq import Groq
+from groq import Groq, RateLimitError, APIStatusError, APIConnectionError
+from openai import OpenAI
 from dotenv import load_dotenv
+
+from api.logging_config import get_logger
 
 load_dotenv()
 
+logger = get_logger(__name__)
+
 MODEL = "llama-3.3-70b-versatile"
+FALLBACK_MODEL = "gpt-4o-mini"   # used only when Groq is rate-limited or unreachable
 MAX_TOKENS = 1024
 TEMPERATURE = 0.1   # low temperature = more factual, less creative
 
@@ -116,7 +122,15 @@ class AnswerGenerator:
         if not api_key:
             raise ValueError("GROQ_API_KEY must be set in your .env file.")
         self.client = Groq(api_key=api_key)
-        print(f"✓ AnswerGenerator ready (model: {MODEL})")
+
+        # Optional fallback — used only when Groq is rate-limited or down.
+        # Groq's free tier is a hard 100K-token/day cap that a handful of
+        # real users can exhaust; without this, every request past the cap
+        # 500s until the quota resets.
+        openai_key = os.getenv("OPENAI_API_KEY")
+        self.fallback_client = OpenAI(api_key=openai_key) if openai_key else None
+
+        print(f"✓ AnswerGenerator ready (model: {MODEL}, fallback: {FALLBACK_MODEL if self.fallback_client else 'none'})")
 
     def generate(
         self,
@@ -126,24 +140,42 @@ class AnswerGenerator:
     ) -> dict:
         context_chunks = chunks[:max_chunks]
         user_prompt = _build_user_prompt(query, context_chunks)
+        messages = [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt},
+        ]
 
-        response = self.client.chat.completions.create(
-            model=MODEL,
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": user_prompt},
-            ],
-            max_tokens=MAX_TOKENS,
-            temperature=TEMPERATURE,
-        )
+        model_used = MODEL
+        try:
+            response = self.client.chat.completions.create(
+                model=MODEL,
+                messages=messages,
+                max_tokens=MAX_TOKENS,
+                temperature=TEMPERATURE,
+            )
+            answer_text = response.choices[0].message.content.strip()
+        except (RateLimitError, APIStatusError, APIConnectionError) as e:
+            if not self.fallback_client:
+                raise
+            logger.warning(
+                "Groq unavailable, falling back to OpenAI",
+                extra={"error": str(e), "fallback_model": FALLBACK_MODEL},
+            )
+            response = self.fallback_client.chat.completions.create(
+                model=FALLBACK_MODEL,
+                messages=messages,
+                max_tokens=MAX_TOKENS,
+                temperature=TEMPERATURE,
+            )
+            answer_text = response.choices[0].message.content.strip()
+            model_used = FALLBACK_MODEL
 
-        answer_text = response.choices[0].message.content.strip()
         citations = _parse_citations(answer_text, context_chunks)
 
         return {
             "answer": answer_text,
             "citations": citations,
-            "model": MODEL,
+            "model": model_used,
             "chunks_used": len(context_chunks),
             "query": query,
         }

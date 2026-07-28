@@ -19,7 +19,7 @@ qdrant-client==1.11.3
 # CrossEncoder is part of sentence-transformers, no separate package needed
 
 # --- Generation ---
-openai==1.51.0          # swap for anthropic SDK if you use Claude API instead
+openai==1.109.1          # also used as Groq rate-limit fallback in answer_generator.py
 anthropic==0.36.0
 groq==0.11.0
 
@@ -29,6 +29,7 @@ uvicorn==0.31.0
 python-multipart==0.0.12
 pydantic==2.9.2
 slowapi==0.1.10
+sentry-sdk[fastapi]==2.66.1   # no-op unless SENTRY_DSN is set
 
 # --- Eval ---
 pandas==2.2.3
