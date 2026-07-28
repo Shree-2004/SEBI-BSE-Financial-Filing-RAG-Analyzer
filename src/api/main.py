@@ -49,6 +49,24 @@ setup_logging()
 logger = get_logger(__name__)
 
 # ---------------------------------------------------------------------------
+# Error tracking — optional. Right now a production failure is only visible
+# as a JSON log line someone has to go looking for; Sentry surfaces it
+# proactively instead. No-op unless SENTRY_DSN is set, so local dev and
+# anyone who hasn't set up a Sentry project are unaffected.
+# ---------------------------------------------------------------------------
+
+_sentry_dsn = os.getenv("SENTRY_DSN")
+if _sentry_dsn:
+    import sentry_sdk
+
+    sentry_sdk.init(
+        dsn=_sentry_dsn,
+        environment=os.getenv("ENVIRONMENT", "production"),
+        traces_sample_rate=0.1,
+    )
+    logger.info("Sentry error tracking enabled")
+
+# ---------------------------------------------------------------------------
 # Rate limiting — /query calls an LLM (Groq) with a small daily token quota,
 # so it needs its own per-IP limit. Metadata endpoints don't touch the LLM
 # and are left unlimited.
