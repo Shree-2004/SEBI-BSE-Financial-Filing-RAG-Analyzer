@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.git/
+.env
+finfiling-frontend/
+data/raw/
+data/processed/*.jsonl
+eval/
+tests/
+*.md
