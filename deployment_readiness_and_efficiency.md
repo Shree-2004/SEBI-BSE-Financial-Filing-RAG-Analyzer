@@ -129,9 +129,13 @@ waits through the full model-loading sequence before getting a response.
 ✅ **Done (the Docker piece).** The new [Dockerfile](Dockerfile) downloads
 `BAAI/bge-base-en-v1.5` and `cross-encoder/ms-marco-MiniLM-L-6-v2` at build time via
 `HF_HOME=/app/.cache/huggingface`, so a cold start only pays for loading weights
-already on disk, not re-downloading ~400MB+ over the network. The frontend
-loading-state piece is not done — `App.jsx` doesn't currently show anything special
-for a slow first request.
+already on disk, not re-downloading ~400MB+ over the network.
+
+✅ **Done (the frontend piece).** [App.jsx](finfiling-frontend/src/App.jsx) now polls
+`/health` on mount (retrying up to 6 times, 10s apart) and shows a "Waking up…"
+header badge plus an explanatory banner while the backend is unreachable, instead of
+silently hanging. The query-loading state also shows a "may take up to a minute"
+hint whenever the backend hasn't confirmed itself online yet.
 
 ### 3. No structured logging or error tracking
 Right now, debugging a production issue means SSH-ing into logs (if available at all)
@@ -162,6 +166,14 @@ That is over a 512MB free-tier ceiling on its own. **Action needed before deploy
 to a 512MB tier:** either pick a host/plan with at least ~1GB RAM (Railway's starter
 tier is not RAM-capped this tightly), or drop the CrossEncoder reranker to cut the
 biggest chunk of that footprint.
+
+✅ **Mitigation added.** The reranker is no longer hardcoded on — set
+`USE_RERANKER=false` in the environment (see `.env.example`) to skip loading the
+CrossEncoder at startup on a tight-memory tier, at the cost of retrieval precision.
+Wired in [main.py](src/api/main.py) lifespan; `HybridRetriever` already supported
+`use_reranker=False`, it just wasn't exposed as a runtime toggle before. Still
+Docker-unverified against the built image — treat ~1GB RAM as the safe target and
+use this toggle only if stuck on a smaller tier.
 
 ---
 

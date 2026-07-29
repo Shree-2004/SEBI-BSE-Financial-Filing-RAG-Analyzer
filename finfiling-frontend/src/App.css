@@ -115,6 +115,45 @@ body {
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 
+.header-badge.status-checking,
+.header-badge.status-waking {
+  color: var(--warning);
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.header-badge.status-checking .badge-dot,
+.header-badge.status-waking .badge-dot {
+  background-color: var(--warning);
+}
+
+.header-badge.status-offline {
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.header-badge.status-offline .badge-dot {
+  background-color: var(--danger);
+  animation: none;
+}
+
+.wake-banner {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: var(--warning);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.loading-hint {
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
 /* Main */
 .main {
   max-width: 900px;

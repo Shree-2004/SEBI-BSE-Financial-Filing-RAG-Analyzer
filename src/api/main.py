@@ -116,7 +116,8 @@ async def lifespan(app: FastAPI):
     logger.info("Starting FinFiling RAG API")
     t0 = time.time()
 
-    state.retriever = HybridRetriever(bm25_index_path=BM25_INDEX_PATH)
+    use_reranker = os.getenv("USE_RERANKER", "true").lower() not in ("false", "0", "no")
+    state.retriever = HybridRetriever(bm25_index_path=BM25_INDEX_PATH, use_reranker=use_reranker)
     state.generator = AnswerGenerator()
     state.verifier = Verifier()
     state.vector_store = VectorStore()

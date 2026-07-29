@@ -4,6 +4,13 @@ import "./App.css";
 
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
+// Free-tier hosts (Railway/Qdrant) spin down when idle and can take up to
+// ~1-2 min to wake on the next request — poll /health at startup so the UI
+// can say so instead of just looking broken while the first request hangs.
+const HEALTH_CHECK_TIMEOUT_MS = 3000;
+const HEALTH_CHECK_MAX_ATTEMPTS = 6;
+const HEALTH_CHECK_RETRY_MS = 10000;
+
 const SAMPLE_QUERIES = [
     "What was TCS revenue from operations in Q3FY25?",
     "What was the standalone Profit After Tax of Reliance Industries in FY25?",
@@ -20,12 +27,39 @@ export default function App() {
     const [error, setError] = useState(null);
     const [expandedCitations, setExpandedCitations] = useState({});
     const [companies, setCompanies] = useState([]);
+    const [backendStatus, setBackendStatus] = useState("checking"); // checking | online | waking | offline
 
     useEffect(() => {
         axios
             .get(`${API_BASE}/companies`)
             .then((res) => setCompanies(res.data.companies || []))
             .catch(() => setCompanies([]));
+    }, []);
+
+    useEffect(() => {
+        let cancelled = false;
+        let attempt = 0;
+
+        const checkHealth = async () => {
+            attempt += 1;
+            try {
+                await axios.get(`${API_BASE}/health`, { timeout: HEALTH_CHECK_TIMEOUT_MS });
+                if (!cancelled) setBackendStatus("online");
+            } catch {
+                if (cancelled) return;
+                if (attempt >= HEALTH_CHECK_MAX_ATTEMPTS) {
+                    setBackendStatus("offline");
+                } else {
+                    setBackendStatus("waking");
+                    setTimeout(checkHealth, HEALTH_CHECK_RETRY_MS);
+                }
+            }
+        };
+
+        checkHealth();
+        return () => {
+            cancelled = true;
+        };
     }, []);
 
     const handleSubmit = async (q = query) => {
@@ -42,6 +76,7 @@ export default function App() {
 
             const res = await axios.post(`${API_BASE}/query`, payload);
             setResult(res.data);
+            setBackendStatus("online");
         } catch (err) {
             setError(
                 err.response?.data?.detail ||
@@ -72,9 +107,12 @@ export default function App() {
                             <p className="logo-sub">SEBI / BSE Filing Analyzer</p>
                         </div>
                     </div>
-                    <div className="header-badge">
+                    <div className={`header-badge status-${backendStatus}`}>
                         <span className="badge-dot" />
-                        Live
+                        {backendStatus === "online" && "Live"}
+                        {backendStatus === "checking" && "Connecting…"}
+                        {backendStatus === "waking" && "Waking up…"}
+                        {backendStatus === "offline" && "Offline"}
                     </div>
                 </div>
             </header>
@@ -128,6 +166,14 @@ export default function App() {
                     </div>
                 </section>
 
+                {(backendStatus === "waking" || backendStatus === "offline") && !loading && (
+                    <div className="wake-banner">
+                        {backendStatus === "waking"
+                            ? "The backend is waking up from idle (free-tier hosting) — the first response can take up to a minute."
+                            : "Can't reach the backend right now. It may still be waking up — try again in a moment."}
+                    </div>
+                )}
+
                 {error && (
                     <div className="error-box"><span className="error-icon">⚠</span> {error}</div>
                 )}
@@ -136,6 +182,11 @@ export default function App() {
                     <div className="loading-box">
                         <div className="loading-bar" />
                         <p>Retrieving from filings and generating answer…</p>
+                        {backendStatus !== "online" && (
+                            <p className="loading-hint">
+                                First request after idle can take up to a minute while the server wakes up.
+                            </p>
+                        )}
                     </div>
                 )}
 
