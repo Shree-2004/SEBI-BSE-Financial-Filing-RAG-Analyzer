@@ -1,3 +1,4 @@
+
 # Project Priorities & Next Steps Roadmap
 
 Status of the **FinFiling RAG Analyzer** as of the current session. Replaces the
@@ -86,45 +87,37 @@ slots. See `eval/eval_summary.txt` for the full breakdown.
 
 ## Phase 3: Production Deployment & Reliability Hardening
 
-Full detail and reasoning for all of this lives in
-[deployment_readiness_and_efficiency.md](deployment_readiness_and_efficiency.md)
-— this section is a status summary only.
+**Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;
+full detail and reasoning behind every line lives in
+[deployment_readiness_and_efficiency.md](deployment_readiness_and_efficiency.md),
+this is a summary only):**
 
-**Done this session:**
-- ✅ CORS locked down — reads `CORS_ALLOWED_ORIGINS` from env instead of a
-  wildcard (`src/api/main.py`). **Note:** you'll need to set this env var to
-  your real frontend URL once it's deployed, or it'll be blocked too.
-- ✅ Rate limiting — `/query` capped at 10 req/min per IP (`slowapi`),
-  verified live (10 requests through, 11th got a real 429).
-- ✅ Qdrant keep-alive — scheduled GitHub Action
-  (`.github/workflows/keep-qdrant-alive.yml`) pings the cluster every 4 hours
-  so it can't silently auto-pause again (it did, mid-project, and needed a
-  manual resume). **Needs `QDRANT_URL` and `QDRANT_API_KEY` added as GitHub
-  repo secrets before it'll actually run** — not done yet, has to be done via
-  the GitHub web UI (Settings → Secrets and variables → Actions).
-- ✅ Query caching — identical questions now served instantly from an
-  in-memory LRU/TTL cache instead of re-calling Groq. Verified live: repeat
-  question went from 6.35s / real Groq call to ~0ms / `cached: true`, zero
-  extra tokens spent.
-- ✅ Chunker regression test — `tests/test_chunker.py` guards against the
-  duplication bug recurring. Verified it has real teeth: run against a
-  reconstruction of the original buggy logic, it produces 62 chunks on the
-  test case and fails; 4/4 pass against the fix.
+- ✅ CORS locked down, reads `CORS_ALLOWED_ORIGINS` from env
+- ✅ Rate limiting — `/query` capped at 10 req/min per IP, verified live
+- ✅ Qdrant keep-alive workflow exists **and its GitHub repo secrets
+  (`QDRANT_URL`, `QDRANT_API_KEY`) are now added** — confirmed via
+  `gh secret list`, so this is genuinely mitigated now, not just in code
+- ✅ Query caching — verified live (repeat question: 6.35s real call → ~0ms cached)
+- ✅ Chunker regression test (`tests/test_chunker.py`)
+- ✅ Groq → OpenAI fallback on rate-limit (`answer_generator.py`)
+- ✅ Dockerfile + `railway.json` + Vercel config — deployment mechanics exist
+- ✅ Cold-start handling — Docker pre-downloads model weights at build time;
+  frontend polls `/health` and shows a "waking up" state
+- ✅ Structured JSON logging + Sentry (opt-in via `SENTRY_DSN`)
+- ✅ RAM measured (~510MB, tight against a 512MB free-tier ceiling) with a
+  `USE_RERANKER=false` mitigation toggle — **but not yet verified against the
+  actual built Docker image** (no Docker available in the sessions so far)
+- ✅ `data/processed/embeddings.pkl` confirmed dead code, removed
 
-**Still open, in priority order:**
-1. **Groq fallback to a second LLM provider** — blocked on a real billing
-   decision (you said "not yet" when asked about Claude API access; `.env`
-   already has an unused `OPENAI_API_KEY` as another option). Without this,
-   the app still goes down entirely whenever Groq's free tier is exhausted.
-2. **Dockerfile + Procfile** for Railway/Render, and Vercel/Netlify config for
-   the frontend — the actual mechanics of going live. Not started.
-3. **Cold-start handling** — model loading (embedder + reranker) takes real
-   time; free-tier hosts spin down when idle, so the first visitor after any
-   idle period eats that full load time. Needs either a paid always-on tier or
-   a frontend loading state, decided before deployment.
-4. Lower-priority polish: structured logging/error tracking, verifying actual
-   RAM usage against free-tier limits, a broader eval set, confirming
-   `data/processed/embeddings.pkl` is dead code.
+**Genuinely still open:**
+1. **Not actually deployed yet** — mechanics are ready, but no live Railway/
+   Vercel URL exists. Needs your own accounts; not something automatable.
+2. **RAM verification against the real built Docker image** — blocked on
+   Docker not being available in any session so far.
+3. **Broader `pytest` suite** — only the chunker test exists; nothing for
+   retrieval filtering or the `/companies` ↔ `INDEXED_COMPANIES` sync.
+4. **Eval set is thin (45 Qs)** for confidently advertising the accuracy
+   numbers externally, though the numbers that exist are real and verified.
 
 ---
 
@@ -132,7 +125,7 @@ Full detail and reasoning for all of this lives in
 
 ### Automated Tests
 - No real `pytest` suite exists yet (`test_pipeline.py` is a manual smoke
-  script, not CI-runnable) — see Phase 3 item #2 above.
+  script, not CI-runnable) — see Phase 3 item #3 above.
 - `eval/run_eval.py` is the closest thing to a regression suite currently;
   re-run it after any change to chunking, retrieval, or the indexed company
   list.
