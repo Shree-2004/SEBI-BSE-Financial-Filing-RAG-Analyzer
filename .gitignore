@@ -1,6 +1,12 @@
-.env 
-venv/ 
+.env
+venv/
 __pycache__/
 *.pyc
-data/
 .pytest_cache/
+
+# Data stays local, except the BM25 index: the Dockerfile COPYs it into the
+# API image, and Railway builds from this repo, so it must be tracked.
+data/*
+!data/processed/
+data/processed/*
+!data/processed/bm25_index.pkl

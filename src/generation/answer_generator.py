@@ -2,7 +2,7 @@
 answer_generator.py
 
 Takes retrieved chunks from hybrid_retriever.py and generates a
-grounded, cited answer using Groq's Llama 3.1 70B model.
+grounded, cited answer using Groq's gpt-oss-120b model.
 
 Key design decisions:
 - Prompt explicitly instructs the model to ONLY use the provided context
@@ -35,10 +35,10 @@ load_dotenv()
 
 logger = get_logger(__name__)
 
-# NOTE: Groq has retired llama-3.3-70b-versatile (404 model_not_found as of
-# 2026-10-12), so with this default every request falls through to the
-# OpenAI fallback. Override with GROQ_MODEL until a new default is chosen.
-MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+# Was llama-3.3-70b-versatile until Groq retired it (404 model_not_found,
+# 2026-10-12) — every request was silently falling through to the OpenAI
+# fallback. gpt-oss-120b is what the current eval numbers were measured on.
+MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
 FALLBACK_MODEL = "gpt-4o-mini"   # used only when Groq is rate-limited or unreachable
 MAX_TOKENS = 1024
 TEMPERATURE = 0.1   # low temperature = more factual, less creative

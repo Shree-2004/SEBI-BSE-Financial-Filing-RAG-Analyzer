@@ -33,7 +33,7 @@ import json
 import re
 import sys
 
-_CITATION_RE = re.compile(r"\[[^\]]*\]")
+_CITATION_RE = re.compile(r"\[[^\]]*\]|【[^】]*】")  # gpt-oss cites with 【】
 _NUMBER_RE = re.compile(r"\d[\d,]*(?:\.\d+)?")
 _NUMERIC_GOLD_RE = re.compile(r"^[\d,]+(?:\.\d+)?$")
 

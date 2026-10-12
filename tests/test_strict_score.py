@@ -40,3 +40,8 @@ def test_all_groups_required():
     assert strict_match("Interim 10 and special 66 per share", gold)
     assert strict_match("Total dividend of 76 per share", gold)
     assert not strict_match("Interim dividend of 10 per share", gold)
+
+
+def test_fullwidth_citation_brackets_do_not_count():
+    # gpt-oss-120b cites as 【TCS | Q3FY25 | Page 10】 instead of [...]
+    assert not strict_match("Not stated 【TCS | Q3FY25 | Page 10】", [["10"]])
