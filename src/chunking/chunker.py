@@ -4,8 +4,9 @@ chunker.py
 Takes the raw FilingBlock list from pdf_parser.py and produces
 embedding-ready chunks with the following rules:
 
-TABLES  → always one chunk per table, never split, size doesn't matter.
-          A split table is useless — "| Revenue | 45" means nothing.
+TABLES  → never cut mid-row. Large tables are split into row groups,
+          each repeating the caption + column headers, so every piece is
+          a self-describing table — "| Revenue | 45" alone means nothing.
 
 PROSE   → split by section heading first (MD&A, Risk Factors, Notes to
           Accounts, etc.). If a section is still too long, split by token
@@ -44,6 +45,11 @@ CHUNK_TARGET_TOKENS = 400
 # Overlap between consecutive prose chunks so sentences at a boundary
 # appear in both chunks — reduces "answer split across two chunks" misses.
 CHUNK_OVERLAP_TOKENS = 60
+
+# Tables above this are split into row groups (header repeated in each).
+# Kept under the 512-token input limit of both bge-base and the reranker,
+# with headroom for the cl100k vs WordPiece tokenizer mismatch.
+TABLE_MAX_TOKENS = 400
 
 # Section heading patterns common in Indian financial filings (annual
 # reports, quarterly results). When we detect these, we split at the
@@ -259,30 +265,73 @@ def _chunk_prose_block(block: dict, global_chunk_index: int) -> list[Chunk]:
     return chunks
 
 
+def _split_table_rows(text: str, max_tokens: int = TABLE_MAX_TOKENS) -> list[str]:
+    """
+    Split a markdown table into row groups, repeating everything above the
+    first body row (caption + header row + separator) at the top of every
+    group — so each piece is still a self-describing table, never a bare
+    "| Revenue | 45 |" fragment.
+
+    Needed because both the embedder (bge-base) and the CrossEncoder
+    truncate input at 512 tokens: a full P&L statement runs ~1,500 tokens,
+    so as a single chunk its bottom rows (EPS, dividends, share capital)
+    were never embedded or reranked at all.
+    """
+    if _count_tokens(text) <= max_tokens:
+        return [text]
+
+    lines = text.splitlines()
+    sep_idx = next(
+        (i for i, l in enumerate(lines) if re.fullmatch(r"\|[-|\s:]+\|", l.strip())),
+        None,
+    )
+    if sep_idx is None:
+        return [text]   # not a markdown table — keep whole rather than guess
+
+    head = "\n".join(lines[: sep_idx + 1])
+    budget = max_tokens - _count_tokens(head)
+    groups: list[str] = []
+    current: list[str] = []
+    current_tokens = 0
+    for row in lines[sep_idx + 1 :]:
+        row_tokens = _count_tokens(row) + 1
+        if current and current_tokens + row_tokens > budget:
+            groups.append(head + "\n" + "\n".join(current))
+            current, current_tokens = [], 0
+        current.append(row)
+        current_tokens += row_tokens
+    if current:
+        groups.append(head + "\n" + "\n".join(current))
+    return groups
+
+
 def _chunk_table_block(block: dict, global_chunk_index: int) -> list[Chunk]:
     """
-    Tables are NEVER split — one table = one chunk.
-    If a table is enormous, we still keep it whole; the reranker can
-    handle long context better than a half-table.
+    Tables are never cut mid-row. Small tables stay as one chunk; large
+    ones are split into row groups that each carry the caption + column
+    headers (see _split_table_rows).
     """
-    text = block["text"]
-    return [
-        Chunk(
-            chunk_id=_make_id(text, block["company"], block["page_number"], global_chunk_index),
-            text=text,
-            block_type="table",
-            company=block["company"],
-            doc_type=block["doc_type"],
-            period=block["period"],
-            source_file=block["source_file"],
-            page_number=block["page_number"],
-            section_hint=_detect_section(text),
-            token_count=_count_tokens(text),
-            table_index=block.get("table_index"),
-            extraction_method=block.get("extraction_method", "text_layer"),
-            chunk_index=global_chunk_index,
+    chunks = []
+    for i, text in enumerate(_split_table_rows(block["text"])):
+        idx = global_chunk_index + i
+        chunks.append(
+            Chunk(
+                chunk_id=_make_id(text, block["company"], block["page_number"], idx),
+                text=text,
+                block_type="table",
+                company=block["company"],
+                doc_type=block["doc_type"],
+                period=block["period"],
+                source_file=block["source_file"],
+                page_number=block["page_number"],
+                section_hint=_detect_section(text),
+                token_count=_count_tokens(text),
+                table_index=block.get("table_index"),
+                extraction_method=block.get("extraction_method", "text_layer"),
+                chunk_index=idx,
+            )
         )
-    ]
+    return chunks
 
 
 def chunk_blocks(blocks: list[dict]) -> list[Chunk]:

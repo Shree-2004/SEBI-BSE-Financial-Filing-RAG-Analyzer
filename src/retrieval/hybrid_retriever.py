@@ -49,7 +49,7 @@ RETRIEVAL_CANDIDATES = 20
 # RRF constant — 60 is the standard value from the original RRF paper
 RRF_K = 60
 
-BM25_INDEX_PATH = "data/processed/bm25_index.pkl"
+BM25_INDEX_PATH = os.getenv("BM25_INDEX_PATH", "data/processed/bm25_index.pkl")
 
 
 # ---------------------------------------------------------------------------

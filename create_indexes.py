@@ -8,7 +8,7 @@ client = QdrantClient(url=os.getenv("QDRANT_URL"), api_key=os.getenv("QDRANT_API
 
 for field in ["company", "period", "doc_type", "block_type"]:
     client.create_payload_index(
-        collection_name="filing_chunks",
+        collection_name=os.getenv("QDRANT_COLLECTION", "filing_chunks"),
         field_name=field,
         field_schema=PayloadSchemaType.KEYWORD,
     )

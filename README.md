@@ -7,13 +7,13 @@ FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system b
 - **Hybrid Retrieval:** Combines Dense Retrieval (BAAI/bge-base-en-v1.5 embeddings) with Keyword Search (BM25) to accurately surface both semantic concepts and exact financial numbers/company terms.
 - **Advanced Reranking:** Employs CrossEncoder to rerank the top chunks for maximum relevance before generating answers.
 - **Robust Answer Generation & Verification:** Generates answers and features a post-generation verification step that checks whether the cited claims actually appear in the retrieved source chunks.
-- **Structured Ingestion:** Structure-aware chunking keeps financial tables whole while prose is split by section, using `pdfplumber` and `pytesseract` (for OCR fallback).
+- **Structured Ingestion:** Docling's layout + table-structure models rebuild financial tables with row labels and multi-level column headers intact, and tag each table with its heading (consolidated vs standalone). Large tables are split into row groups that repeat the caption and headers, so every chunk fits the 512-token embedder/reranker window. The original `pdfplumber` parser is kept behind `--parser pdfplumber`.
 - **FastAPI Backend:** A fast, asynchronous API serving the complete RAG pipeline with Swagger UI.
 - **Qdrant Vector Database:** Uses Qdrant Cloud to store and search high-dimensional embeddings efficiently.
 
 ## 🛠️ Tech Stack
 
-- **Ingestion:** `pdfplumber`, `pytesseract` (OCR), `pdf2image`, `Pillow`
+- **Ingestion:** `docling` (default, see `requirements-ingest.txt`), `pdfplumber` + `pytesseract` (legacy parser / OCR fallback)
 - **Embeddings:** `BAAI/bge-base-en-v1.5` via `sentence-transformers`
 - **Vector Store:** Qdrant Cloud (or FAISS for local dev)
 - **Hybrid Retrieval:** Dense Embeddings + `rank-bm25`
@@ -111,7 +111,26 @@ Once running, visit **[http://localhost:8000/docs](http://localhost:8000/docs)**
 
 ## 🧪 Evaluation
 
-To evaluate the pipeline's retrieval precision/recall and citation accuracy, navigate to the `eval/` directory. It contains `eval_questions.json` with 30-40 hand-written Q&A pairs and expected sources for automated benchmarking.
+45 hand-written questions across 3 companies (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF. Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
+
+Same model (`openai/gpt-oss-120b` on Groq) and same questions, only the parser changed:
+
+| | pdfplumber | Docling |
+|---|---|---|
+| Gold answer in top-5 retrieved chunks | 25/45 (55.6%) | **35/45 (77.8%)** |
+| Strict answer accuracy | 13/45 (28.9%) | **30/45 (66.7%)** |
+| Misses from retrieval/parsing | 20 | 10 |
+| Misses from generation | 12 | 5 |
+
+An earlier version of this README reported 95.6% "keyword accuracy". That metric counted an answer correct if *any* expected keyword appeared, and most keyword lists repeated words from the question, so wrong figures still passed. It is still printed as "lenient" for comparison, but it is not an accuracy number.
+
+```bash
+set PYTHONPATH=src
+python eval/run_eval.py --retrieval-only        # context hit only, no LLM quota
+python eval/run_eval.py --no-fallback --resume  # full run, resumable after quota stops
+```
+
+Per-run outputs live in `eval/runs/`.
 
 ## 🤝 Contributing
 

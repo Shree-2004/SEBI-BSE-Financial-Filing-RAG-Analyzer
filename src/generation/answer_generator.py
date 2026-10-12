@@ -35,7 +35,10 @@ load_dotenv()
 
 logger = get_logger(__name__)
 
-MODEL = "llama-3.3-70b-versatile"
+# NOTE: Groq has retired llama-3.3-70b-versatile (404 model_not_found as of
+# 2026-10-12), so with this default every request falls through to the
+# OpenAI fallback. Override with GROQ_MODEL until a new default is chosen.
+MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 FALLBACK_MODEL = "gpt-4o-mini"   # used only when Groq is rate-limited or unreachable
 MAX_TOKENS = 1024
 TEMPERATURE = 0.1   # low temperature = more factual, less creative

@@ -9,7 +9,7 @@ By employing **hybrid retrieval**, we combine dense semantic search with **BM25*
 
 ### 2. Walk me through what happens to a scanned/complex PDF table from ingestion to answer.
 **Answer:** The journey of a complex table is handled through a robust multi-stage pipeline designed to preserve structural integrity:
-1. **Initial Parsing (`pdfplumber`):** First, the system attempts to extract structured text directly using `pdfplumber`, which is excellent at reading digital PDF tables and retaining row/column alignment.
+1. **Initial Parsing (Docling):** Docling's layout and table-structure models rebuild each table as rows with multi-level column headers, and prefix it with its section heading (e.g. "Audited Consolidated Interim Statement of Financial Results"). This replaced `pdfplumber.find_tables()`, which split numbers across column boundaries on real filings (TCS's "63,973" came out as "93").
 2. **OCR Fallback (`Tesseract`):** If the page is scanned or contains image-based tables, the system seamlessly falls back to Tesseract OCR to extract the visual text.
 3. **Structure-Aware Chunking:** This is a critical step. Instead of blindly splitting text every 500 words (which destroys table context), the chunker is "structure-aware." It ensures that tables are kept intact within a single chunk or split logically by rows while retaining column headers as context.
 4. **Embedding (`BAAI/bge`):** The structured chunks are converted into high-dimensional vectors using a dense embedding model optimized for complex financial text.
@@ -37,9 +37,9 @@ Here is how it works concretely:
 
 The SEBI/BSE RAG Analyzer is built on four foundational pillars that ensure accuracy, speed, and reliability in financial document analysis.
 
-### 1. The Multi-Modal Ingestion Engine (pdfplumber + OCR)
+### 1. The Multi-Modal Ingestion Engine (Docling, pdfplumber + OCR legacy)
 Financial filings are notoriously messy, mixing digital text, scanned images, and complex financial tables. 
-* **Mechanism:** The ingestion engine doesn't rely on a single parser. It uses a tiered approach. It primarily uses `pdfplumber` to surgically extract table boundaries and digital text. When it detects a scanned page, it dynamically routes the image to `Tesseract OCR` for extraction.
+* **Mechanism:** Docling (layout + TableFormer models) is the default parser. The original `pdfplumber` parser, with its Tesseract OCR fallback for scanned pages, is still available via `--parser pdfplumber`. Measured on the eval set, switching parsers raised gold-in-context@5 from 55.6% to 77.8% and strict accuracy from 28.9% to 66.7%.
 * **Importance:** If a table is ingested poorly (e.g., columns blend into a single paragraph), the RAG pipeline fails before it even begins. This engine guarantees that the spatial reality of the document is preserved as text.
 
 ### 2. Structure-Aware Chunking Strategy

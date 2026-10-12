@@ -1,0 +1,11 @@
+# Ingestion-only dependencies (PDF -> blocks). NOT needed by the API, and
+# deliberately kept out of requirements.txt so the Docker image stays small:
+# Docling pulls in layout/table models, OpenCV, and a newer torch.
+#
+#   pip install -r requirements.txt -r requirements-ingest.txt
+#   docling-tools models download layout tableformer    # one-time, ~500MB
+#
+# Note: Docling needs pydantic>=2.11 (requirements.txt pins 2.9.2 for the
+# API image); FastAPI 0.115 was verified to import and run on 2.14.
+docling==2.137.0
+pydantic==2.14.1

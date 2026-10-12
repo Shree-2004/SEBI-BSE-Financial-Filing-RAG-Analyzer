@@ -1,3 +1,8 @@
+!! SUPERSEDED 2026-10-12 — do not quote these numbers.
+!! "Keyword accuracy" below is the lenient any-keyword metric; re-scored
+!! strictly this run is 20/45 (44.4%). Current numbers: README "Evaluation"
+!! section and eval/runs/*_summary.txt.
+
 
 FinFiling RAG — Eval Summary
 =============================

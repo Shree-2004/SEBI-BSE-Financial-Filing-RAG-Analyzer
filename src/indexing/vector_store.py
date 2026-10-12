@@ -35,19 +35,29 @@ from tqdm import tqdm
 
 load_dotenv()
 
-COLLECTION_NAME = "filing_chunks"
+COLLECTION_NAME = os.getenv("QDRANT_COLLECTION", "filing_chunks")
 EMBEDDING_DIM = 768          # bge-base-en-v1.5 output dim
 UPSERT_BATCH_SIZE = 100      # Qdrant free tier is comfortable with this
 
 
 class VectorStore:
     def __init__(self):
+        # QDRANT_PATH = embedded on-disk Qdrant (no server, no cloud account).
+        # Used for local eval runs so results don't depend on the free-tier
+        # cluster being awake; takes precedence over QDRANT_URL when set.
+        local_path = os.getenv("QDRANT_PATH")
+        if local_path:
+            self.client = QdrantClient(path=local_path)
+            self._ensure_collection()
+            return
+
         url = os.getenv("QDRANT_URL")
         api_key = os.getenv("QDRANT_API_KEY")
 
         if not url or not api_key:
             raise ValueError(
-                "QDRANT_URL and QDRANT_API_KEY must be set in your .env file."
+                "Set QDRANT_URL and QDRANT_API_KEY in your .env file "
+                "(or QDRANT_PATH for a local on-disk index)."
             )
 
         self.client = QdrantClient(url=url, api_key=api_key, timeout=60)

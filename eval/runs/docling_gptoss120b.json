@@ -1,0 +1,2426 @@
+[
+  {
+    "id": "Q001",
+    "question": "What was the EBITDA of Reliance Industries standalone entity in FY25?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      88,
+      32,
+      77,
+      67,
+      106
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q002",
+    "question": "What was the standalone Profit After Tax of Reliance Industries in FY25?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      32,
+      77,
+      32,
+      168,
+      67
+    ],
+    "answer": "- Standalone Profit After Tax for FY 2025 was **₹ 35,262 crore** (US $ 4.1 billion)【Reliance Industries | FY2025 | Page 32】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 32,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "163 crore (US$ 8.7 billion) from J 86,393 crore for the year ago period. The O2C segment profitability was impacted by unfavourable global demand-supply balance, which was partially offset by improved upstream performance with higher volumes of gas and condensate. Standalone Profit After Tax was at ..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 77,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Independent Auditor's Report\nTo The Members of Reliance Industries Limited\nReport on the Audit of the Standalone Financial Statements\nOpinion\nWe have audited the accompanying Standalone Financial Statements of Reliance Industries Limited (the \"Company\"), which includes its joint operations, which co..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 168,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Annexure \"A\"\n| Sr. No. Name | The date since which Subsidiary was acquired | Currency | Equity Share Capital | Other Equity $ | Total Assets | Total Liabilities | Investments | Total Income | Profit Before Taxation | Provision - for Taxation | Profit After Taxation | Other Compre- hensive Income | F..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 67,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Management Discussion and Analysis Report for the year under review, as per the Securities and Exchange Board of India (Listing Obligations and Disclosure Requirements) Regulations, 2015 (\"Listing Regulations\"), is presented in a separate section, which forms part of this Annual Report.\nBusiness ope..."
+      }
+    ]
+  },
+  {
+    "id": "Q003",
+    "question": "What dividend was declared by Reliance Industries board?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "corporate_action",
+    "context_hit": false,
+    "retrieved_pages": [
+      61,
+      49,
+      168,
+      169,
+      88
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q004",
+    "question": "What is the face value of Reliance Industries equity shares?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      98,
+      140,
+      165,
+      29,
+      140
+    ],
+    "answer": "- The equity shares of Reliance Industries Limited have a face value of **₹10 each**【Reliance Industries | FY2025 | Page 98】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.4,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 98,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Notes to the Standalone Financial Statements for the year ended 31 st March, 2025\n13.5 \u0007Pursuant to 'Reliance Industries Limited Employees' Stock Option Scheme 2017' (ESOS-2017), options granted and remaining to be vested as at the end of the year is 66,088.\n13.6 Rights, preferences and restrictions..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 140,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Notes to the Consolidated Financial Statements for the year ended 31 st March, 2025\nFigures in italics represent Previous Year figures.\n14.2 The details of shareholders holding more than 5% shares:\n14.3 Shareholding of Promoter:\n14.4 The Reconciliation of the Number of Shares Outstanding is set out ..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 165,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": ",61,50,236 fully paid-up equity shares of H 10 each at par (valuation of H 32,937 crore).\nTotal consideration for (b) and (c) being H 44,437 crore (H 11,500 crore + H 32,937 crore).\n\u0007The aforesaid resulted in SIPL becoming a 63.16 % subsidiary of Reliance Industries Limited. The Group derives synerg..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 29,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Reliance Industries Limited (RIL) is India's largest private sector enterprise and a Fortune Global 500 leader. Its presence across energy, retail, telecom, media and green technologies touches millions of lives every day, contributing to the nation's unstoppable growth momentum. As India dreams big..."
+      }
+    ]
+  },
+  {
+    "id": "Q005",
+    "question": "What was the net profit margin ratio formula used by Reliance Industries?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "ratios",
+    "context_hit": true,
+    "retrieved_pages": [
+      32,
+      118,
+      168,
+      118,
+      29
+    ],
+    "answer": "- **Net Profit Margin formula**: Profit After Tax ÷ Value of Sales & Services [Reliance Industries | FY2025 | Page 118]",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.6,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 32,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "the back of favourable demographics and a large domestic market.\nPerformance Overview\nReliance Industries Limited delivered a resilient performance for FY 2024-25, emphasising the strength of its Indiafocused, diverse business portfolio. Amidst prolonged global volatility, the Company delivered bala..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 118,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "39.1 Formula for computation of ratios are as follows:\n| Sr. No. | Particulars | Formula |\n|---|---|---|\n| 1 | Current Ratio | Current Assets Current Liabilities |\n| 2 | Debt-Equity Ratio | Total Debt Total Equity |\n| 3 | Debt Service Coverage Ratio | Earnings before Interest and Tax Interest Expens..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 168,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Annexure \"A\"\n| Sr. No. Name | The date since which Subsidiary was acquired | Currency | Equity Share Capital | Other Equity $ | Total Assets | Total Liabilities | Investments | Total Income | Profit Before Taxation | Provision - for Taxation | Profit After Taxation | Other Compre- hensive Income | F..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 29,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Reliance Industries Limited (RIL) is India's largest private sector enterprise and a Fortune Global 500 leader. Its presence across energy, retail, telecom, media and green technologies touches millions of lives every day, contributing to the nation's unstoppable growth momentum. As India dreams big..."
+      }
+    ]
+  },
+  {
+    "id": "Q006",
+    "question": "What is the return on capital employed formula for Reliance Industries?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "ratios",
+    "context_hit": false,
+    "retrieved_pages": [
+      118,
+      130,
+      88,
+      29,
+      44
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q007",
+    "question": "What was TCS revenue from operations in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [
+      1,
+      7,
+      13,
+      13,
+      5
+    ],
+    "answer": "- **Revenue from operations (Q3 FY 2025)**: **₹ 53,883 crore**【TCS | Q3FY25 | Page 13】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Registered Office: 9 th Floor, Nirmal Building, Nariman Point, Mumbai 400 021 CIN: L22210MH1995PLC084781\nTel : +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nI\" crore)"
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Annexure I\n| Sr. No. | Name of component | Sr. No. | Name of component |\n|---|---|---|---|\n| 1 | APTOnline Limited | 20 | TCS Financial Solutions Australia Pty Ltd |\n| 2 | C-Edge Technologies Limited | 21 | TCS Financial Solutions Beijing Co. , Ltd. (Merged with Tata Consultancy Services (China) Co...."
+      }
+    ]
+  },
+  {
+    "id": "Q008",
+    "question": "What was TCS consolidated profit for the period in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      7,
+      2,
+      7,
+      8
+    ],
+    "answer": "- Consolidated profit for the period (Q3 FY 25) was **INR 12,444**【TCS | Q3FY25 | Page 7】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.75,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 2,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "total comprehensive income (comprising of net profit and other comprehensive loss/income) and other financial information of the Group for the quarter ended 31 December 2024 as well as for the year to date results for the period from 01 April 2024 to 31 December 2024.\nBasis for Opinion\nWe conducted ..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      }
+    ]
+  },
+  {
+    "id": "Q009",
+    "question": "What was TCS total income in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [
+      1,
+      7,
+      5,
+      8,
+      5
+    ],
+    "answer": "- **Total income (Operating income + Other income) for Q3 FY 2025:** **INR 16,666 crore**【TCS | Q3FY25 | Page 8】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.4,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Registered Office: 9 th Floor, Nirmal Building, Nariman Point, Mumbai 400 021 CIN: L22210MH1995PLC084781\nTel : +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nI\" crore)"
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Annexure I\n| Sr. No. | Name of component | Sr. No. | Name of component |\n|---|---|---|---|\n| 1 | APTOnline Limited | 20 | TCS Financial Solutions Australia Pty Ltd |\n| 2 | C-Edge Technologies Limited | 21 | TCS Financial Solutions Beijing Co. , Ltd. (Merged with Tata Consultancy Services (China) Co...."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      }
+    ]
+  },
+  {
+    "id": "Q010",
+    "question": "What was TCS employee benefit expenses in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "expenses",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      7,
+      13,
+      7,
+      13
+    ],
+    "answer": "- **Consolidated employee benefit expenses (Q3 FY 2025, three months ended 31 Dec 2024):** ₹ 35,956 crore【TCS | Q3FY25 | Page 7】  \n- **Standalone employee benefit expenses (Q3 FY 2025, three months ended 31 Dec 2024):** ₹ 26,613 crore【TCS | Q3FY25 | Page 13】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.692,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results"
+      }
+    ]
+  },
+  {
+    "id": "Q011",
+    "question": "What was TCS earnings per share in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      7,
+      13,
+      9,
+      14
+    ],
+    "answer": "- **Consolidated earnings per share (basic & diluted) for the quarter ended 31 Dec 2024 (Q3 FY 25):** ₹ 34.21 per share【TCS | Q3FY25 | Page 7】  \n- **Standalone earnings per share (basic & diluted) for the same quarter:** ₹ 32.71 per share【TCS | Q3FY25 | Page 13】\n\n*Both figures are reported for Q3 FY 25; the consolidated EPS is ₹ 34.21, while the standalone EPS is ₹ 32.71.*",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.467,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 9,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Consolidated Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Consolidated Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordan..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Standalone Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordance w..."
+      }
+    ]
+  },
+  {
+    "id": "Q012",
+    "question": "What interim dividend did TCS declare in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "corporate_action",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      14,
+      9,
+      7,
+      13
+    ],
+    "answer": "- TCS declared an interim dividend of **INR 10 per equity share** for Q3FY25【TCS | Q3FY25 | Page 1】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.714,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Standalone Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordance w..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 9,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Consolidated Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Consolidated Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordan..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Registered Office: 9 th Floor, Nirmal Building, Nariman Point, Mumbai 400 021 CIN: L22210MH1995PLC084781\nTel : +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nI\" crore)"
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      }
+    ]
+  },
+  {
+    "id": "Q013",
+    "question": "What was TCS profit before tax in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      1,
+      13,
+      7,
+      7
+    ],
+    "answer": "- **Consolidated profit before tax (Q3FY25, three months ended 31 Dec 2024):** ₹ 16,666 crore【TCS | Q3FY25 | Page 7】  \n- **Standalone profit before tax (Q3FY25, three months ended 31 Dec 2024):** ₹ 15,509 crore【TCS | Q3FY25 | Page 13】\n\n*The two figures differ because one is for the consolidated entity and the other is for the standalone company.*",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.6,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      }
+    ]
+  },
+  {
+    "id": "Q014",
+    "question": "What was TCS total tax expense in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "tax",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      1,
+      13,
+      13,
+      7
+    ],
+    "answer": "- **Consolidated total tax expense (Q3 FY 2025, three months ended 31 Dec 2024):** ₹ 4,222 crore【TCS | Q3FY25 | Page 7】  \n- **Standalone total tax expense (same period):** ₹ 3,677 crore【TCS | Q3FY25 | Page 13】  \n\nThus, the total tax expense reported for TCS in Q3 FY 2025 is ₹ 4,222 crore on a consolidated basis (₹ 3,677 crore on a standalone basis).",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.538,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      }
+    ]
+  },
+  {
+    "id": "Q015",
+    "question": "What was TCS Banking Financial Services and Insurance segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      8,
+      1,
+      1,
+      13
+    ],
+    "answer": "- **Banking, Financial Services and Insurance segment revenue (Q3 FY 25)**: **23,481** (₹ crore) for the three months ended 31 December 2024【TCS | Q3FY25 | Page 8】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.857,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results"
+      }
+    ]
+  },
+  {
+    "id": "Q016",
+    "question": "What was TCS Manufacturing segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      1,
+      8,
+      5,
+      5
+    ],
+    "answer": "- Manufacturing segment revenue for Q3 FY 25 (three months ended 31 December 2024) was **INR 6,194**【TCS | Q3FY25 | Page 8】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.857,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Annexure I\n| Sr. No. | Name of component | Sr. No. | Name of component |\n|---|---|---|---|\n| 1 | APTOnline Limited | 20 | TCS Financial Solutions Australia Pty Ltd |\n| 2 | C-Edge Technologies Limited | 21 | TCS Financial Solutions Beijing Co. , Ltd. (Merged with Tata Consultancy Services (China) Co...."
+      }
+    ]
+  },
+  {
+    "id": "Q017",
+    "question": "What was TCS Communication Media and Technology segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      8,
+      5,
+      13,
+      8
+    ],
+    "answer": "- **Communication, Media and Technology segment revenue (Q3 FY 25)**  \n  - INR 11,989 (as reported in the consolidated interim segment revenue table)【TCS | Q3FY25 | Page 8】  \n  - INR 2,390 (as reported in another consolidated interim segment table)【TCS | Q3FY25 | Page 8】\n\n*The two excerpts provide different figures for the same segment; the first appears to present revenue, while the second may represent a different metric (e.g., segment result). Both figures are taken directly from the provided filings.*",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.75,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Annexure I\n| Sr. No. | Name of component | Sr. No. | Name of component |\n|---|---|---|---|\n| 1 | APTOnline Limited | 20 | TCS Financial Solutions Australia Pty Ltd |\n| 2 | C-Edge Technologies Limited | 21 | TCS Financial Solutions Beijing Co. , Ltd. (Merged with Tata Consultancy Services (China) Co...."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results"
+      }
+    ]
+  },
+  {
+    "id": "Q018",
+    "question": "What was TCS depreciation and amortisation expense in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "expenses",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      7,
+      1,
+      7,
+      5
+    ],
+    "answer": "- **Standalone (unaudited) depreciation & amortisation expense** – INR 1,125 crore for the three months ended 31 December 2024 (Q3 FY25)【TCS | Q3FY25 | Page 13】  \n- **Consolidated (audited) depreciation & amortisation expense** – INR 1,377 crore for the three months ended 31 December 2024 (Q3 FY25)【TCS | Q3FY25 | Page 7】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.6,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Annexure I\n| Sr. No. | Name of component | Sr. No. | Name of component |\n|---|---|---|---|\n| 1 | APTOnline Limited | 20 | TCS Financial Solutions Australia Pty Ltd |\n| 2 | C-Edge Technologies Limited | 21 | TCS Financial Solutions Beijing Co. , Ltd. (Merged with Tata Consultancy Services (China) Co...."
+      }
+    ]
+  },
+  {
+    "id": "Q019",
+    "question": "What was TCS nine month revenue from operations ending December 2024?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      13,
+      8,
+      8,
+      14
+    ],
+    "answer": "- Nine‑month revenue from operations (ended 31 December 2024): **₹ 1,60,717 crore**【TCS | Q3FY25 | Page 13】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 0.714,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Standalone Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordance w..."
+      }
+    ]
+  },
+  {
+    "id": "Q020",
+    "question": "When was the TCS Q3FY25 board meeting held?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      15,
+      9,
+      14,
+      1
+    ],
+    "answer": "- The Board of Directors met on **January 9, 2025** 【TCS | Q3FY25 | Page 1】, 【TCS | Q3FY25 | Page 9】, 【TCS | Q3FY25 | Page 14】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 15,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Intimation as per NSE and BSE circulars dated July 14, 2023\nThis is to inform you that pursuant to NSE circular no. NSE/CML/2023/57 and BSE Circular no. 20230714-34 dated July 14, 2023, the meeting of the Board of Directors of the Company was held today at 11.30 a.m. and concluded at 4.00 p.m.\nThank..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 9,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Consolidated Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Consolidated Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordan..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Standalone Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordance w..."
+      }
+    ]
+  },
+  {
+    "id": "Q021",
+    "question": "What was TCS standalone revenue from operations in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      13,
+      13,
+      14,
+      5
+    ],
+    "answer": "- **Standalone revenue from operations for the quarter (Q3FY25, three months ended 31 December 2024): ₹ 53,883 crore**【TCS | Q3FY25 | Page 13】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Standalone Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordance w..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Annexure I\n| Sr. No. | Name of component | Sr. No. | Name of component |\n|---|---|---|---|\n| 15 | TCS e-Serve International Limited | 34 | Tata Consultancy Services Switzerland Ltd |\n| 16 | TCS FNS Pty Limited | 35 | TCS Business Services GmbH |\n| 17 | TCS lberoamerica S.A. | 36 | Tata Consultancy S..."
+      }
+    ]
+  },
+  {
+    "id": "Q022",
+    "question": "What was TCS standalone profit for the period in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      13,
+      14,
+      13,
+      13
+    ],
+    "answer": "- **Standalone profit for the period (Q3 FY 25, three months ended 31 December 2024):** INR 11,832 crore【TCS | Q3FY25 | Page 13】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.714,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Standalone Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordance w..."
+      }
+    ]
+  },
+  {
+    "id": "Q023",
+    "question": "What was TCS Life Sciences and Healthcare segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      7,
+      8,
+      1,
+      5
+    ],
+    "answer": "- Life Sciences and Healthcare segment revenue for the quarter ended 31 December 2024 (Q3 FY 25) was **₹ 6,426 crore**【TCS | Q3FY25 | Page 8】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.714,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Registered Office: 9 th Floor, Nirmal Building, Nariman Point, Mumbai 400 021 CIN: L22210MH1995PLC084781\nTel : +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nI\" crore)"
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Annexure I\n| Sr. No. | Name of component | Sr. No. | Name of component |\n|---|---|---|---|\n| 15 | TCS e-Serve International Limited | 34 | Tata Consultancy Services Switzerland Ltd |\n| 16 | TCS FNS Pty Limited | 35 | TCS Business Services GmbH |\n| 17 | TCS lberoamerica S.A. | 36 | Tata Consultancy S..."
+      }
+    ]
+  },
+  {
+    "id": "Q024",
+    "question": "What was TCS Consumer Business segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      1,
+      8,
+      13,
+      8
+    ],
+    "answer": "- **Consumer Business segment revenue (Q3FY25)**: **INR 10,035** (for the three months ended 31 December 2024)【TCS | Q3FY25 | Page 8】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.75,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results"
+      }
+    ]
+  },
+  {
+    "id": "Q025",
+    "question": "What was TCS finance costs in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "expenses",
+    "context_hit": false,
+    "retrieved_pages": [
+      1,
+      5,
+      7,
+      1,
+      13
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q026",
+    "question": "What was TCS paid up equity share capital in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      13,
+      7,
+      9,
+      14
+    ],
+    "answer": "- **Paid‑up equity share capital (Face value ₹1 per share) for the quarter ended 31 December 2024 (Q3FY25): ₹ 362 crore**【TCS | Q3FY25 | Page 13】 (stand‑alone table) and the same figure appears in the consolidated table【TCS | Q3FY25 | Page 7】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.583,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 9,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Consolidated Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Consolidated Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordan..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Standalone Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordance w..."
+      }
+    ]
+  },
+  {
+    "id": "Q027",
+    "question": "What was TCS total comprehensive income for Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      2,
+      7,
+      1,
+      2,
+      13
+    ],
+    "answer": "- **Total comprehensive income for the quarter (Q3 FY 25, three months ended 31 December 2024):** ₹ 11,604 crore【TCS | Q3FY25 | Page 7】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 2,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "total comprehensive income (comprising of net profit and other comprehensive loss/income) and other financial information of the Group for the quarter ended 31 December 2024 as well as for the year to date results for the period from 01 April 2024 to 31 December 2024.\nBasis for Opinion\nWe conducted ..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      }
+    ]
+  },
+  {
+    "id": "Q028",
+    "question": "Who audited TCS Q3FY25 financial results?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "audit",
+    "context_hit": false,
+    "retrieved_pages": [
+      1,
+      7,
+      13,
+      14,
+      9
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q029",
+    "question": "What was TCS profit before exceptional item and tax in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      7,
+      8,
+      1,
+      7
+    ],
+    "answer": "- **Consolidated profit before exceptional item and tax (Q3 FY 25, three months ended 31 Dec 2024):** ₹ 16,666 crore【TCS | Q3FY25 | Page 7】  \n- **Standalone profit before exceptional item and tax (Q3 FY 25, three months ended 31 Dec 2024):** ₹ 15,509 crore【TCS | Q3FY25 | Page 13】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.692,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      }
+    ]
+  },
+  {
+    "id": "Q030",
+    "question": "What was the record date for TCS Q3FY25 dividend payment?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "corporate_action",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      1,
+      14,
+      9,
+      5
+    ],
+    "answer": "- The record date for the third interim dividend and special dividend for TCS Q3FY25 was **Friday, 17 January 2025** 【TCS | Q3FY25 | Page 1 | Excerpt 1】.  \n\n(Repeated in the subsequent excerpt confirming the same date【TCS | Q3FY25 | Page 1 | Excerpt 2】).",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Standalone Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordance w..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 9,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Consolidated Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Consolidated Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordan..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Annexure I\n| Sr. No. | Name of component | Sr. No. | Name of component |\n|---|---|---|---|\n| 1 | APTOnline Limited | 20 | TCS Financial Solutions Australia Pty Ltd |\n| 2 | C-Edge Technologies Limited | 21 | TCS Financial Solutions Beijing Co. , Ltd. (Merged with Tata Consultancy Services (China) Co...."
+      }
+    ]
+  },
+  {
+    "id": "Q031",
+    "question": "What was TCS nine month profit for the period ending December 2024?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      7,
+      14,
+      9,
+      8
+    ],
+    "answer": "- TCS reported a **nine‑month profit of INR 36,504** for the period ended 31 December 2024【TCS | Q3FY25 | Page 7】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.8,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Standalone Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Standalone Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordance w..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 9,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Select explanatory notes to the Statement of Audited Consolidated Interim Financial Results for three months and nine-months ended December 31. 2024\nAudited Consolidated Interim Statement of Financial Results for the three months and nine-months ended December 31, 2024 have been prepared in accordan..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | It crorel..."
+      }
+    ]
+  },
+  {
+    "id": "Q032",
+    "question": "What is the CIN of Tata Consultancy Services?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      13,
+      1,
+      6,
+      4
+    ],
+    "answer": "- **CIN reported in most excerpts:** L22210MH1995PLC084781 [**TCS | Q3FY25 | Page 7**] and [**TCS | Q3FY25 | Page 1**]  \n- **Conflicting entry:** L22210MH199SPLC084781 [**TCS | Q3FY25 | Page 13**]  \n\nThe CIN appears as **L22210MH1995PLC084781** in the majority of the provided documents, but a different value (**L22210MH199SPLC084781**) is shown in one excerpt, indicating a discrepancy.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.789,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED Registered Office: 9 th Floor, Nirmal Building, Nariman Point, Mumbai 400 021 CIN: L22210MH1995PLC084781\nTel : +91 22 6778 9595 e-mail: investor.relations@tcs.com Website: www.tcs.com\nAudited Consolidated Interim Statement of Financial Results\nI\" crore)"
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results"
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "the Register of Members of the Company or in the records of the Depositories as beneficial owners of the shares as on Friday, January 17, 2025, which is the Record Date fixed for the purpose.\nThe above information is also available on the website of the Company www.tcs.com.\nThanking you,\nYours faith..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Tata Consultancy Services Limited\n| Sr. No. | Name of component | Sr. No. | Name of component |\n|---|---|---|---|\n| 39 | Tata Consultancy Services (Philippines) Inc. | 48 | Tata Consultancy Services Guatemala, S.A. |\n| 40 | Tata Consultancy Services (Thailand) Limited | 49 | Tata Consultancy Service..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Independent Auditor's Report (Continued)\nTata Consultancy Services Limited\nWe communicate with those charged with governance of the Holding Company and such other entities included in the consolidated financial results of which we are the independent auditors regarding, among other matters, the plan..."
+      }
+    ]
+  },
+  {
+    "id": "Q033",
+    "question": "What was Reliance Industries Oil to Chemicals EBITDA for FY25?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      32,
+      51,
+      67,
+      88,
+      130
+    ],
+    "answer": "- Oil to Chemicals (O2C) EBITDA for FY 2025 was **C 54,988 crore**【Reliance Industries | FY2025 | Page 67】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 32,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "the back of favourable demographics and a large domestic market.\nPerformance Overview\nReliance Industries Limited delivered a resilient performance for FY 2024-25, emphasising the strength of its Indiafocused, diverse business portfolio. Amidst prolonged global volatility, the Company delivered bala..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 51,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "APPENDIX I\nIdentified Sustainability Information subject to Reasonable Assurance\nAPPENDIX II\nIdentified Sustainability Information subject to Limited Assurance\nOil to Chemicals (O2C) Entities^ -\nReliance Industries Limited (RIL) - Standalone (excluding telecom towers owned and operated by the Compan..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 67,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "191 million Jio True5G subscribers. JioAirFiber services has accelerated the pace of home connect and is close to global leadership in FWA with ~6 million homes. In addition, there is also strong momentum in revenue contribution from content bundling and cloud and IoT services for enterprises.\nMedia..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 88,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Notes to the Standalone Financial Statements for the year ended 31 st March, 2025\nA. Corporate Information\n\u0007Reliance Industries Limited (\"the Company\") is a listed entity incorporated in India. The registered office of the Company is located at 3 rd Floor, Maker Chambers IV, 222, Nariman Point, Mumb..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 130,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Notes to the Consolidated Financial Statements for the year ended 31 st March, 2025\nA. Corporate Information\n\u0007The Consolidated Financial Statements comprise financial statements of \"Reliance Industries Limited\" (\"the Company\") and its subsidiaries (collectively referred to as \"the Group\") for the ye..."
+      }
+    ]
+  },
+  {
+    "id": "Q034",
+    "question": "What was TCS current tax expense in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "tax",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      7,
+      13,
+      13,
+      13
+    ],
+    "answer": "- **Consolidated current tax expense (Q3 FY 25, three months ended 31 Dec 2024):** INR 4,217 crore【TCS | Q3FY25 | Page 7】  \n- **Standalone current tax expense (Q3 FY 25, three months ended 31 Dec 2024):** INR 3,638 crore【TCS | Q3FY25 | Page 13】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.692,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | (~ crore) Year ended - March 31, 2..."
+      }
+    ]
+  },
+  {
+    "id": "Q035",
+    "question": "What was TCS profit attributable to shareholders of the company in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      7,
+      7,
+      7,
+      13
+    ],
+    "answer": "- **Profit for the period attributable to shareholders of the Company (Q3 FY 25, three months ended 31 December 2024):** **INR 11,624 crore**【TCS | Q3FY25 | Page 7】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001 Scrip Code No. 532540\nDear Sirs,\nSub: Financial Results for the quart..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Audited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - December 31, 2023 | Year ended - March 31, 2024 |\n|-..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TATA CONSULTANCY SERVICES LIMITED\nRegistered Office: 9th Floor, Nirmal Building, Nariman Point, Mumbai 400 021\nCIN: L22210MH199SPLC084781\nTel: +91 22 6778 9S9S e-mail: iovestor celatjons@tcs com Website: www tcs com\nAudited Standalone Interim Statement of Financial Results"
+      }
+    ]
+  },
+  {
+    "id": "Q036",
+    "question": "What was Infosys consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [
+      26,
+      43,
+      35,
+      25,
+      22
+    ],
+    "answer": "- **Revenue from operations (quarter ended June 30 2026): ₹ 39,957 crore**【Infosys | Q1FY27 | Page 26】【Infosys | Q1FY27 | Page 25】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.7,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 26,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Statement of Audited results of Infosys Limited for the quarter ended June 30, 2026\n| Particulars | Quarter ended June 30, 2026 Audited | Quarter ended March 31, 2026 Audited | Quarter ended June 30, 2025 Audited | Year ended March 31, 2026 Audited |\n|---|---|---|---|---|\n| Revenue from operations |..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 43,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "NOTES:\nThe above information is extracted from the audited condensed consolidated Balance sheet and Statement of Comprehensive Income for the quarter ended June 30, 2026, which have been taken on record at the Board meeting held on July 23, 2026.\nRevenue growth in reported currency includes the impa..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 35,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "NOTES:\nThe above information is extracted from the audited condensed consolidated Balance sheet and Statement of Comprehensive Income for the quarter ended June 30, 2026, which have been taken on record at the Board meeting held on July 23, 2026.\nRevenue growth in reported currency includes the impa..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 25,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "4. Audited financial results of Infosys Limited (Standalone Information)\n| Particulars | Quarter ended June 30, | Quarter ended March 31, | Quarter ended June 30, | . Year ended March 31, |\n|---|---|---|---|---|\n| | 2026 | 2026 | 2025 | 2026 |\n| | Audited | Audited | Audited | Audited |\n| Revenue fr..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 22,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited\nCIN: L85110KA1981PLC013115\nRegd. Office: Electronics City, Hosur Road, Bengaluru 560 100, India.\nWebsite: www.infos s.com; Email : investors infos s.com; Tele hone: 91 80 2852 0261; Fax: 91 80 2852 0362\nStatement of Consolidated Audited Results of Infosys Limited and its subsidiaries..."
+      }
+    ]
+  },
+  {
+    "id": "Q037",
+    "question": "What was Infosys consolidated profit for the period for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      43,
+      35,
+      26,
+      26,
+      25
+    ],
+    "answer": "- Consolidated profit for the period (net profit) for the quarter ended June 30 2026 was **7,249** (₹ 7,249 crore)【Infosys | Q1FY27 | Page 26】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.625,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 43,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "NOTES:\nThe above information is extracted from the audited condensed consolidated Balance sheet and Statement of Comprehensive Income for the quarter ended June 30, 2026, which have been taken on record at the Board meeting held on July 23, 2026.\nRevenue growth in reported currency includes the impa..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 35,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "NOTES:\nThe above information is extracted from the audited condensed consolidated Balance sheet and Statement of Comprehensive Income for the quarter ended June 30, 2026, which have been taken on record at the Board meeting held on July 23, 2026.\nRevenue growth in reported currency includes the impa..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 26,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Statement of Audited results of Infosys Limited for the quarter ended June 30, 2026\n| Particulars | Quarter ended June 30, 2026 Audited | Quarter ended March 31, 2026 Audited | Quarter ended June 30, 2025 Audited | Year ended March 31, 2026 Audited |\n|---|---|---|---|---|\n| Fair value changes on inv..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 25,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "4. Audited financial results of Infosys Limited (Standalone Information)\n| Particulars | Quarter ended June 30, | Quarter ended March 31, | Quarter ended June 30, | . Year ended March 31, |\n|---|---|---|---|---|\n| | 2026 | 2026 | 2025 | 2026 |\n| | Audited | Audited | Audited | Audited |\n| Revenue fr..."
+      }
+    ]
+  },
+  {
+    "id": "Q038",
+    "question": "What was Infosys consolidated basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      85,
+      25,
+      85,
+      26,
+      49
+    ],
+    "answer": "- **Consolidated basic earnings per share (EPS) for the quarter ended 30 June 2026:** **₹ 17.87 per share**【Infosys | Q1FY27 | Page 26】  \n\n*Note:* A different figure (₹ 2.13) appears in another excerpt for “Basic (₹)”【Infosys | Q1FY27 | Page 85】, which is inconsistent with the audited EPS disclosed in the statement of results. The audited statement (Page 26) is the definitive source for the consolidated basic EPS.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.538,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 85,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited and subsidiaries X\n| Consolidated Statement of Comprehensive Income for the | (In ₹ crore except equity share and per equity share data) - Note | (In ₹ crore except equity share and per equity share data) - Three months ended June 30, - 2026 | (In ₹ crore except equity share and per ..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 25,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "4. Audited financial results of Infosys Limited (Standalone Information)\n| Particulars | • - Quarter ended June 30, - 2026 - Audited | • - Quarter ended March 31, - 2026 - Audited | • - Quarter ended June 30, - 2025 - Audited | • - Year ended March 31, - 2026 - Audited |\n|---|---|---|---|---|\n| Reve..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 26,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Statement of Audited results of Infosys Limited for the quarter ended June 30, 2026\n| Particulars | Quarter ended June 30, 2026 Audited | Quarter ended March 31, 2026 Audited | Quarter ended June 30, 2025 Audited | Year ended March 31, 2026 Audited |\n|---|---|---|---|---|\n| Fair value changes on inv..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 49,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited and subsidiaries X\n| Condensed Consolidated Statement of Comprehensive Income for the | Note | Three months ended - June 30, 2026 | Three months ended - June 30, 2025 |\n|---|---|---|---|\n| Exchange differences on translation of foreign operations | | 11 | 80 |\n| | | 22 | 95 |\n| Total..."
+      }
+    ]
+  },
+  {
+    "id": "Q039",
+    "question": "What were Infosys consolidated employee benefit expenses for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "expenses",
+    "context_hit": true,
+    "retrieved_pages": [
+      66,
+      26,
+      22,
+      49,
+      161
+    ],
+    "answer": "- **Excerpt 2** (Statement of Audited results) lists **Employee benefit expenses = 18,820** for the quarter ended 30 June 2026【Infosys | Q1FY27 | Page 26】  \n- **Excerpt 5** (Condensed Consolidated Statement of Profit and Loss) lists **Employee benefit expenses = 25,287 ₹ crore** for the quarter ended 30 June 2026【Infosys | Q1FY27 | Page 161】  \n\n**Conflict:** The two excerpts give different figures (18,820 vs 25,287 ₹ crore) for the same period. The first appears in a table of audited results (units not specified), while the second is explicitly a consolidated statement in ₹ crore. Both are from the same filing period, so the exact consolidated amount cannot be resolved from the provided excerpts.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.786,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 66,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Retention bonus and management incentives are recognized in employee benefit expenses in the interim condensed consolidated statement of comprehensive income over the period of service.\nFair value of trade receivables acquired is $61 million as of acquisition date and as of June 30, 2026, the amount..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 26,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Statement of Audited results of Infosys Limited for the quarter ended June 30, 2026\n| Particulars | Quarter ended June 30, 2026 Audited | Quarter ended March 31, 2026 Audited | Quarter ended June 30, 2025 Audited | Year ended March 31, 2026 Audited |\n|---|---|---|---|---|\n| Revenue from operations |..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 22,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited\n| Particulars | Quarter ended June 30, | ~-- \\.alUcuter ended March 31, | Quarter ended June 30, | Year ended March 31, |\n|---|---|---|---|---|\n| Revenue from operations | 2026 Audited . : . | 2026 Audited •••• | 2025 Audited . | 2026 Audited . . I |\n| Other income, net | : ~ | . | |..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 49,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited and subsidiaries X\n| Condensed Consolidated Statement of Comprehensive Income for the | Note | Three months ended - June 30, 2026 | Three months ended - June 30, 2025 |\n|---|---|---|---|\n| Revenues | 2.16 | 5,082 | 4,941 |\n| Cost of sales | 2.19 | 3,482 | 3,416 |\n| Gross profit | | 1..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 161,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "INFOSYS LIMITED AND SUBSIDIARIES X\n| Condensed Consolidated Statement of Profit and Loss for the | (In ₹ crore, except equity share and per equity share data) - Note No. | (In ₹ crore, except equity share and per equity share data) - 2026 Three months ended June | (In ₹ crore, except equity share an..."
+      }
+    ]
+  },
+  {
+    "id": "Q040",
+    "question": "What final dividend did Infosys recommend for financial year 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "corporate_action",
+    "context_hit": true,
+    "retrieved_pages": [
+      23,
+      27,
+      146,
+      180,
+      118
+    ],
+    "answer": "- Infosys’ Board recommended a final dividend of **₹25 per equity share** for financial year 2026. [Infosys | Q1FY27 | Page 23] [Infosys | Q1FY27 | Page 180] [Infosys | Q1FY27 | Page 118]",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.385,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 23,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "2. Information on dividends for the quarter ended June 30, 2026\nFor financial year 2026, the Board recommended a final dividend of t25/- (par value of ~5/- each) per equity share. The same was approved by the shareholders in the Annual General Meeting (AGM) of the Company held on June 23, 2026 and p..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 27,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "2. Information on dividends for the quarter ended June 30, 2026\nFor financial year 2026, the Board recommended a final dividend of f25/- (par value of f5/- each) per equity share. The same was approved by the shareholders in the Annual General Meeting (AGM) of the Company held on June 23, 2026 and p..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 146,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "2026. The same was approved by the shareholders at the Annual General Meeting (AGM) of the Company held on June 23, 2026 which resulted in a net cash outflow of ₹10,143 crore. The final dividend was paid on June 25, 2026.\n2.11.3 Employee Stock Option Plan (ESOP):\nAccounting Policy\nThe Company recogn..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 180,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "the date of approval by the shareholders and interim dividends are recorded as a liability on the date of declaration by the Company's Board of Directors. Income tax consequences of dividends on financial instruments classified as equity will be recognized according to where the entity originally re..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 118,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Dividend\n| Particulars | Three months ended June 30, - 2026 | (In ₹) - Three months ended June 30, - 2025 |\n|---|---|---|\n| Final dividend for fiscal 2026 | 25.00 | - |\n| Final dividend for fiscal 2025 | - | 22.00 |"
+      }
+    ]
+  },
+  {
+    "id": "Q041",
+    "question": "What was Infosys Financial Services segment revenue for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      193,
+      26,
+      25,
+      24,
+      26
+    ],
+    "answer": "- Financial Services segment revenue for the quarter ended June 30 2026: **13,463** (in the units reported in the filing)【Infosys | Q1FY27 | Page 24】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.857,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 193,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Business Segments\nThree months ended June 30, 2026 and June 30, 2025:\n(1) Financial Services include enterprises in Financial Services and Insurance\n(2) Retail includes enterprises in Retail, Consumer Packaged Goods and Logistics\n(3) Communication includes enterprises in Communication, Telecom OEM a..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 26,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Statement of Audited results of Infosys Limited for the quarter ended June 30, 2026\n| Particulars | Quarter ended June 30, 2026 Audited | Quarter ended March 31, 2026 Audited | Quarter ended June 30, 2025 Audited | Year ended March 31, 2026 Audited |\n|---|---|---|---|---|\n| Revenue from operations |..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 25,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "4. Audited financial results of Infosys Limited (Standalone Information)\n| Particulars | Quarter ended June 30, | Quarter ended March 31, | Quarter ended June 30, | . Year ended March 31, |\n|---|---|---|---|---|\n| | 2026 | 2026 | 2025 | 2026 |\n| | Audited | Audited | Audited | Audited |\n| Revenue fr..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 24,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "2. Information on dividends for the quarter ended June 30, 2026\n| Particulars | Quarter ended June 30, - 2026 | Quarter ended March 31, - 2026 | Quarter ended June 30, - 2025 | . Year ended March 31, - 2026 |\n|---|---|---|---|---|\n| Revenue by business segment | | | | |\n| Financial Services < 1 > | ..."
+      }
+    ]
+  },
+  {
+    "id": "Q042",
+    "question": "What was Infosys consolidated current tax expense for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "tax",
+    "context_hit": false,
+    "retrieved_pages": [
+      26,
+      26,
+      85,
+      42,
+      22
+    ],
+    "answer": "- Consolidated current tax expense for the quarter ended June 30 2026 was **₹ 3,041 crore**【Infosys | Q1FY27 | Page 26】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 26,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Statement of Audited results of Infosys Limited for the quarter ended June 30, 2026\n| Particulars | Quarter ended June 30, 2026 Audited | Quarter ended March 31, 2026 Audited | Quarter ended June 30, 2025 Audited | Year ended March 31, 2026 Audited |\n|---|---|---|---|---|\n| Profit before exceptional..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 85,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited and subsidiaries X\n| Consolidated Statement of Comprehensive Income for the | (In ₹ crore except equity share and per equity share data) - Note | (In ₹ crore except equity share and per equity share data) - Three months ended June 30, - 2026 | (In ₹ crore except equity share and per ..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 42,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited and Subsidiaries\n| Particulars | 3 months ended June 30, 2026 | 3 months ended June 30, 2025 |\n|---|---|---|\n| Revenues | 5,082 | 4,941 |\n| Cost of sales | 3,482 | 3,416 |\n| Gross profit | 1,600 | 1,525 |\n| Operating expenses: | | |\n| Selling and marketing expenses | 270 | 258 |\n| Ad..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 22,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited\nCIN: L85110KA1981PLC013115\nRegd. Office: Electronics City, Hosur Road, Bengaluru 560 100, India.\nWebsite: www.infos s.com; Email : investors infos s.com; Tele hone: 91 80 2852 0261; Fax: 91 80 2852 0362\nStatement of Consolidated Audited Results of Infosys Limited and its subsidiaries..."
+      }
+    ]
+  },
+  {
+    "id": "Q043",
+    "question": "Who are the statutory auditors of Infosys and what opinion did they express for Q1FY27?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "audit",
+    "context_hit": true,
+    "retrieved_pages": [
+      23,
+      26,
+      156,
+      80,
+      44
+    ],
+    "answer": "- **Statutory auditor:** Deloitte Haskins & Sells LLP  \n- **Opinion expressed:** An **unmodified audit opinion** on the audited interim condensed financial statements for Q1FY27  \n\nSource: [Infosys | Q1FY27 | Page 23] (the same information is repeated on Page 26).",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 23,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "1. Notes\na) The audited interim condensed consolidated financial statements for the quarter ended June 30, 2026 have been taken on record by the Board of Directors at its meeting held on July 23, 2026. The statutory auditors, Deloitte Haskins & Sells LLP have expressed an unmodified audit opinion. T..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 26,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "1. Notes\na) The audited interim condensed standalone financial statements for the quarter ended June 30, 2026 have been taken on record by the Board of Directors at its meeting held on July 23, 2026. The statutory auditors, Deloitte Haskins & Sells LLP have expressed an unmodified audit opinion. The..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 156,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "INDEPENDENT AUDITOR'S REPORT\nTO THE BOARD OF DIRECTORS OF INFOSYS LIMITED\nReport on the Audit of the Interim Condensed Consolidated Financial Statements\nOpinion\nWe have audited the accompanying interim condensed consolidated financial statements of INFOSYS LIMITED (the \"Company\"), and its subsidiari..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 80,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "INDEPENDENT AUDITOR'S REPORT\nTO THE BOARD OF DIRECTORS OF INFOSYS LIMITED\nReport on the Audit of the Interim Condensed Consolidated financial Statements\nOpinion\nWe have audited the accompanying interim condensed consolidated financial statements of INFOSYS LIMITED (the \"Company\"), and its subsidiari..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 44,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "INDEPENDENT AUDITOR'S REPORT\nTO THE BOARD OF DIRECTORS OF INFOSYS LIMITED\nReport on the Audit of the Interim Condensed Consolidated Financial Statements\nOpinion\nWe have audited the accompanying interim condensed consolidated financial statements of INFOSYS LIMITED (the \"Company\"), and its subsidiari..."
+      }
+    ]
+  },
+  {
+    "id": "Q044",
+    "question": "What is the CIN of Infosys Limited?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      22,
+      26,
+      90,
+      53,
+      133
+    ],
+    "answer": "- **CIN of Infosys Limited:** L85110KA1981PLC013115【Infosys | Q1FY27 | Page 22】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 22,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited\nCIN: L85110KA1981PLC013115\nRegd. Office: Electronics City, Hosur Road, Bengaluru 560 100, India.\nWebsite: www.infos s.com; Email : investors infos s.com; Tele hone: 91 80 2852 0261; Fax: 91 80 2852 0362\nStatement of Consolidated Audited Results of Infosys Limited and its subsidiaries..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 26,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited\nCIN: L85110KA1981PLC013115\nRegd. Office: Electronics City, Hosur Road, Bengaluru - 560 100, India.\nWebsite: www.infosys.com; Email : investors@infosys.com; Telephone: 91 80 2852 0261; Fax: 91 80 2852 0362\nQ1 FY27\nFinancial\nResults\nStatement of Audited results of Infosys Limited for t..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 90,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "1. Overview\n1.1 Company overview\nInfosys Limited ('the Company' or 'Infosys') provides AI-first business consulting and technology services, to enable organizations to unlock AI value at scale. With over four decades of experience in managing the systems and workings of global enterprises, Infosys a..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 53,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "1. Overview\n1.1 Company overview\nInfosys Limited ('the Company' or 'Infosys') provides AI-first business consulting and technology services, to enable organizations to unlock AI value at scale. With over four decades of experience in managing the systems and workings of global enterprises, Infosys a..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 133,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "1. Overview\n1.1 Company overview\nInfosys Limited ('the Company' or 'Infosys') provides AI-first business consulting and technology services, to enable organizations to unlock AI value at scale. With over four decades of experience in managing the systems and workings of global enterprises, Infosys a..."
+      }
+    ]
+  },
+  {
+    "id": "Q045",
+    "question": "What was Infosys standalone profit before tax for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      25,
+      25,
+      26,
+      22,
+      42
+    ],
+    "answer": "- **Profit before tax (stand‑alone) for the quarter ended 30 June 2026**  \n  - Reported as **₹ 10,161 million** in the audited results table on Page 26【Infosys | Q1FY27 | Page 26】.  \n  - A different figure of **₹ 11,028 million** appears in another audited results table on Page 22【Infosys | Q1FY27 | Page 22】.  \n\n**Conflict:** The two excerpts provide different profit‑before‑tax amounts for the same quarter (₹ 10,161 million vs. ₹ 11,028 million).",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.571,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 25,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "4. Audited financial results of Infosys Limited (Standalone Information)\n| Particulars | Quarter ended June 30, | Quarter ended March 31, | Quarter ended June 30, | . Year ended March 31, |\n|---|---|---|---|---|\n| | 2026 | 2026 | 2025 | 2026 |\n| | Audited | Audited | Audited | Audited |\n| Revenue fr..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 26,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Statement of Audited results of Infosys Limited for the quarter ended June 30, 2026\n| Particulars | Quarter ended June 30, 2026 Audited | Quarter ended March 31, 2026 Audited | Quarter ended June 30, 2025 Audited | Year ended March 31, 2026 Audited |\n|---|---|---|---|---|\n| Profit before exceptional..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 22,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited\n| Particulars | Quarter ended June 30, | ~-- \\.alUcuter ended March 31, | Quarter ended June 30, | Year ended March 31, |\n|---|---|---|---|---|\n| Profit before exceptional item and tax | 11,028 | 10,797 | 9,740 | 41,284 |\n| Exceptional item | | | | |\n| Impact of Labour Codes | | | | ..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 42,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys Limited and Subsidiaries\n| Particulars | 3 months ended June 30, 2026 | 3 months ended June 30, 2025 |\n|---|---|---|\n| Revenues | 5,082 | 4,941 |\n| Cost of sales | 3,482 | 3,416 |\n| Gross profit | 1,600 | 1,525 |\n| Operating expenses: | | |\n| Selling and marketing expenses | 270 | 258 |\n| Ad..."
+      }
+    ]
+  }
+]

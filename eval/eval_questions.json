@@ -11,7 +11,12 @@
         "company": "Reliance Industries",
         "period": "FY2025",
         "doc_type": "annual_report",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "74,163"
+            ]
+        ]
     },
     {
         "id": "Q002",
@@ -25,7 +30,12 @@
         "company": "Reliance Industries",
         "period": "FY2025",
         "doc_type": "annual_report",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "35,262"
+            ]
+        ]
     },
     {
         "id": "Q003",
@@ -38,7 +48,13 @@
         "company": "Reliance Industries",
         "period": "FY2025",
         "doc_type": "annual_report",
-        "category": "corporate_action"
+        "category": "corporate_action",
+        "gold": [
+            [
+                "5.5"
+            ]
+        ],
+        "gold_note": "Gold added 2026-10-12: Board recommended Rs 5.50/share (annual report p.67, p.165). Original keywords had no figure."
     },
     {
         "id": "Q004",
@@ -51,7 +67,12 @@
         "company": "Reliance Industries",
         "period": "FY2025",
         "doc_type": "annual_report",
-        "category": "general"
+        "category": "general",
+        "gold": [
+            [
+                "10"
+            ]
+        ]
     },
     {
         "id": "Q005",
@@ -65,7 +86,15 @@
         "company": "Reliance Industries",
         "period": "FY2025",
         "doc_type": "annual_report",
-        "category": "ratios"
+        "category": "ratios",
+        "gold": [
+            [
+                "profit after tax"
+            ],
+            [
+                "value of sales"
+            ]
+        ]
     },
     {
         "id": "Q006",
@@ -78,7 +107,18 @@
         "company": "Reliance Industries",
         "period": "FY2025",
         "doc_type": "annual_report",
-        "category": "ratios"
+        "category": "ratios",
+        "gold": [
+            [
+                "deferred tax"
+            ],
+            [
+                "finance cost"
+            ],
+            [
+                "capital employed"
+            ]
+        ]
     },
     {
         "id": "Q007",
@@ -91,7 +131,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "revenue"
+        "category": "revenue",
+        "gold": [
+            [
+                "63,973"
+            ]
+        ]
     },
     {
         "id": "Q008",
@@ -104,7 +149,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "12,444"
+            ]
+        ]
     },
     {
         "id": "Q009",
@@ -117,7 +167,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "revenue"
+        "category": "revenue",
+        "gold": [
+            [
+                "65,216"
+            ]
+        ]
     },
     {
         "id": "Q010",
@@ -130,7 +185,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "expenses"
+        "category": "expenses",
+        "gold": [
+            [
+                "35,956"
+            ]
+        ]
     },
     {
         "id": "Q011",
@@ -145,7 +205,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "per_share"
+        "category": "per_share",
+        "gold": [
+            [
+                "34.21"
+            ]
+        ]
     },
     {
         "id": "Q012",
@@ -159,7 +224,17 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "corporate_action"
+        "category": "corporate_action",
+        "gold": [
+            [
+                "10",
+                "76"
+            ],
+            [
+                "66",
+                "76"
+            ]
+        ]
     },
     {
         "id": "Q013",
@@ -172,7 +247,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "16,666"
+            ]
+        ]
     },
     {
         "id": "Q014",
@@ -186,7 +266,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "tax"
+        "category": "tax",
+        "gold": [
+            [
+                "4,222"
+            ]
+        ]
     },
     {
         "id": "Q015",
@@ -201,7 +286,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "segment"
+        "category": "segment",
+        "gold": [
+            [
+                "23,481"
+            ]
+        ]
     },
     {
         "id": "Q016",
@@ -214,7 +304,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "segment"
+        "category": "segment",
+        "gold": [
+            [
+                "6,194"
+            ]
+        ]
     },
     {
         "id": "Q017",
@@ -229,7 +324,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "segment"
+        "category": "segment",
+        "gold": [
+            [
+                "11,989"
+            ]
+        ]
     },
     {
         "id": "Q018",
@@ -243,7 +343,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "expenses"
+        "category": "expenses",
+        "gold": [
+            [
+                "1,377"
+            ]
+        ]
     },
     {
         "id": "Q019",
@@ -257,7 +362,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "revenue"
+        "category": "revenue",
+        "gold": [
+            [
+                "1,90,845"
+            ]
+        ]
     },
     {
         "id": "Q020",
@@ -270,7 +380,15 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "general"
+        "category": "general",
+        "gold": [
+            [
+                "January 9, 2025",
+                "9 January 2025",
+                "January 09, 2025",
+                "09 January 2025"
+            ]
+        ]
     },
     {
         "id": "Q021",
@@ -284,7 +402,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "revenue"
+        "category": "revenue",
+        "gold": [
+            [
+                "53,883"
+            ]
+        ]
     },
     {
         "id": "Q022",
@@ -298,7 +421,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "11,832"
+            ]
+        ]
     },
     {
         "id": "Q023",
@@ -312,7 +440,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "segment"
+        "category": "segment",
+        "gold": [
+            [
+                "6,426"
+            ]
+        ]
     },
     {
         "id": "Q024",
@@ -325,7 +458,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "segment"
+        "category": "segment",
+        "gold": [
+            [
+                "10,035"
+            ]
+        ]
     },
     {
         "id": "Q025",
@@ -337,7 +475,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "expenses"
+        "category": "expenses",
+        "gold": [
+            [
+                "234"
+            ]
+        ]
     },
     {
         "id": "Q026",
@@ -351,7 +494,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "general"
+        "category": "general",
+        "gold": [
+            [
+                "362"
+            ]
+        ]
     },
     {
         "id": "Q027",
@@ -364,7 +512,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "11,624"
+            ]
+        ]
     },
     {
         "id": "Q028",
@@ -378,7 +531,13 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "audit"
+        "category": "audit",
+        "gold": [
+            [
+                "BSR",
+                "B S R"
+            ]
+        ]
     },
     {
         "id": "Q029",
@@ -391,7 +550,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "16,666"
+            ]
+        ]
     },
     {
         "id": "Q030",
@@ -404,7 +568,13 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "corporate_action"
+        "category": "corporate_action",
+        "gold": [
+            [
+                "January 17, 2025",
+                "17 January 2025"
+            ]
+        ]
     },
     {
         "id": "Q031",
@@ -417,7 +587,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "36,504"
+            ]
+        ]
     },
     {
         "id": "Q032",
@@ -429,7 +604,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "general"
+        "category": "general",
+        "gold": [
+            [
+                "L22210MH1995PLC084781"
+            ]
+        ]
     },
     {
         "id": "Q033",
@@ -443,7 +623,13 @@
         "company": "Reliance Industries",
         "period": "FY2025",
         "doc_type": "annual_report",
-        "category": "segment"
+        "category": "segment",
+        "gold": [
+            [
+                "54,988"
+            ]
+        ],
+        "gold_note": "Gold corrected 2026-10-12: O2C EBITDA FY25 is Rs 54,988 crore (p.39). The original keyword 74,163 is standalone EBITDA (Q001)."
     },
     {
         "id": "Q034",
@@ -456,7 +642,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "tax"
+        "category": "tax",
+        "gold": [
+            [
+                "4,217"
+            ]
+        ]
     },
     {
         "id": "Q035",
@@ -470,7 +661,12 @@
         "company": "TCS",
         "period": "Q3FY25",
         "doc_type": "quarterly_result",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "12,380"
+            ]
+        ]
     },
     {
         "id": "Q036",
@@ -483,7 +679,12 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "revenue"
+        "category": "revenue",
+        "gold": [
+            [
+                "48,211"
+            ]
+        ]
     },
     {
         "id": "Q037",
@@ -496,7 +697,12 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "7,775"
+            ]
+        ]
     },
     {
         "id": "Q038",
@@ -509,7 +715,12 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "per_share"
+        "category": "per_share",
+        "gold": [
+            [
+                "19.19"
+            ]
+        ]
     },
     {
         "id": "Q039",
@@ -522,7 +733,12 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "expenses"
+        "category": "expenses",
+        "gold": [
+            [
+                "25,287"
+            ]
+        ]
     },
     {
         "id": "Q040",
@@ -535,7 +751,12 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "corporate_action"
+        "category": "corporate_action",
+        "gold": [
+            [
+                "25"
+            ]
+        ]
     },
     {
         "id": "Q041",
@@ -548,7 +769,12 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "segment"
+        "category": "segment",
+        "gold": [
+            [
+                "13,463"
+            ]
+        ]
     },
     {
         "id": "Q042",
@@ -561,7 +787,12 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "tax"
+        "category": "tax",
+        "gold": [
+            [
+                "3,356"
+            ]
+        ]
     },
     {
         "id": "Q043",
@@ -574,7 +805,15 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "audit"
+        "category": "audit",
+        "gold": [
+            [
+                "Deloitte"
+            ],
+            [
+                "unmodified"
+            ]
+        ]
     },
     {
         "id": "Q044",
@@ -586,7 +825,12 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "general"
+        "category": "general",
+        "gold": [
+            [
+                "L85110KA1981PLC013115"
+            ]
+        ]
     },
     {
         "id": "Q045",
@@ -600,6 +844,11 @@
         "company": "Infosys",
         "period": "Q1FY27",
         "doc_type": "quarterly_result",
-        "category": "profitability"
+        "category": "profitability",
+        "gold": [
+            [
+                "10,161"
+            ]
+        ]
     }
 ]

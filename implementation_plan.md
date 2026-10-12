@@ -67,7 +67,7 @@ reliability work, since the pipeline is already proven for 3 companies and a
 
 ---
 
-## Phase 2: Evaluation & Tuning — done
+## Phase 2: Evaluation & Tuning — SUPERSEDED (metric was lenient, see Phase 4)
 
 45-question eval set across all 3 companies. First fully valid run **against
 the corrected, de-duplicated index** (44/45 completed — Q045 hit Groq's
@@ -82,6 +82,56 @@ daily quota on the last question of the run, not a real accuracy failure):
 Real improvement across the board, consistent with expectations — retrieval
 no longer competes against thousands of duplicate junk chunks for top-k
 slots. See `eval/eval_summary.txt` for the full breakdown.
+
+---
+
+## Phase 4: Parser swap + strict eval (2026-10-12)
+
+**Why:** the Phase 2 "95.6%" counted an answer correct if ANY expected keyword
+appeared, and most keyword lists repeated words from the question. Re-scored
+strictly, that same run was 20/45 (44.4%). Root cause: `pdfplumber.find_tables()`
+put column boundaries through numbers ("63,973" became "93"), and the prose
+pass then cut the table region out, leaving orphaned number fragments.
+
+**Done:**
+- Docling parser (`--parser docling`, now the default); tables carry their
+  section heading, so consolidated vs standalone is explicit
+- Large tables split into row groups with caption + headers repeated (bge and
+  the CrossEncoder truncate at 512 tokens; bottom rows were never embedded)
+- `gold` field on every question, verified against the PDFs. Two labels were
+  wrong and are fixed with a `gold_note`: Q033 (O2C EBITDA is 54,988, not
+  74,163) and Q003 (no figure; Rs 5.50/share)
+- `eval/strict_score.py` + reworked `run_eval.py` (strict headline, context
+  hit, retrieval-only mode, `--resume`, `--no-fallback`, per-minute retry)
+- `build_index.py` rebuilds Qdrant + BM25 together; `QDRANT_COLLECTION`,
+  `QDRANT_PATH` (local on-disk Qdrant), `BM25_INDEX_PATH`, `GROQ_MODEL` envs
+- Tests: 15 passing (`tests/test_table_split.py`, `tests/test_strict_score.py`)
+
+**Results** (same model `openai/gpt-oss-120b`, local Qdrant, `eval/runs/`):
+
+| | pdfplumber | Docling |
+|---|---|---|
+| Gold in top-5 context | 25/45 (55.6%) | 35/45 (77.8%) |
+| Strict accuracy | 13/45 (28.9%) | 30/45 (66.7%) |
+| Misses: retrieval/parse | 20 | 10 |
+| Misses: generation | 12 | 5 |
+
+All 45 gold answers now exist somewhere in the Docling corpus; the 10
+retrieval misses are ranking problems (6 of them retrieved the right page but
+a different chunk of it).
+
+**Known issues / next:**
+1. **Qdrant Cloud cluster is unreachable** (TLS reset). The keep-alive
+   workflow has failed on every one of its last 200 runs (back to at least
+   2026-08-25). Check the Qdrant console;
+   the Docling index currently exists only in local `data/qdrant_local`.
+2. **Groq retired `llama-3.3-70b-versatile`**. With the default unchanged,
+   production silently answers via the gpt-4o-mini fallback. Pick a new
+   default (`openai/gpt-oss-120b` was used for the eval).
+3. Docling shifts a few densely packed rows at the bottom of TCS's P&L
+   (page 7: attributable-to rows, paid-up capital). This causes Q027/Q035.
+4. Ranking: next step is contextual chunk headers + retrieval ablation.
+5. Reliance's rupee glyph extracts as "J"/"H"/"C" in some fonts (cosmetic).
 
 ---
 

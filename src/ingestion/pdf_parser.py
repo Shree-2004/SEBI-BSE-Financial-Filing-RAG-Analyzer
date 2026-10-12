@@ -23,6 +23,7 @@ Usage:
     )
 """
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal
@@ -47,7 +48,7 @@ class FilingBlock:
     source_file: str
     page_number: int
     table_index: int | None = None   # which table on the page, if block_type == "table"
-    extraction_method: Literal["text_layer", "ocr"] = "text_layer"
+    extraction_method: Literal["text_layer", "ocr", "docling"] = "text_layer"
     metadata: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
@@ -217,6 +218,121 @@ def parse_filing(
     return blocks
 
 
+def _compact_markdown_table(md: str) -> str:
+    """Docling pads every cell to the widest one in its column, which can
+    triple a table's token count for no information gain. Collapse runs of
+    spaces and shorten the separator row."""
+    lines = []
+    for line in md.splitlines():
+        if re.fullmatch(r"\|[-|\s:]+\|", line.strip()):
+            n_cols = line.count("|") - 1
+            lines.append("|" + "---|" * n_cols)
+        else:
+            lines.append(re.sub(r" {2,}", " ", line).strip())
+    return "\n".join(lines)
+
+
+def parse_filing_docling(
+    pdf_path: str,
+    company: str,
+    doc_type: str,
+    period: str,
+) -> list[FilingBlock]:
+    """
+    Same contract as parse_filing(), but uses Docling's layout + table
+    structure models instead of pdfplumber.find_tables().
+
+    Why: pdfplumber's ruling-line heuristics put column boundaries through
+    the middle of numbers on real filing tables (TCS's P&L came out as
+    "Revenue from operati 93" — the tail of 63,973), and the prose pass then
+    cut those half-numbers out of the table region. Docling reconstructs
+    rows and multi-level column headers ("Three months ended - December 31,
+    2024"), so a value always stays attached to its row label and period.
+
+    Each table is also prefixed with the nearest preceding section heading
+    (e.g. "Audited Consolidated Interim Statement of Financial Results"),
+    which is what disambiguates consolidated vs standalone figures — the
+    table body alone doesn't say which one it is.
+
+    Requires: pip install -r requirements-ingest.txt, and the models
+    downloaded once via `docling-tools models download layout tableformer`.
+    """
+    import os
+
+    from docling.datamodel.base_models import InputFormat
+    from docling.datamodel.pipeline_options import PdfPipelineOptions
+    from docling.document_converter import DocumentConverter, PdfFormatOption
+    from docling_core.types.doc import SectionHeaderItem, TableItem, TextItem
+
+    artifacts = os.getenv("DOCLING_ARTIFACTS_PATH", os.path.expanduser("~/.cache/docling/models"))
+    opts = PdfPipelineOptions(
+        artifacts_path=artifacts,
+        do_ocr=False,               # all indexed filings have a real text layer
+        do_table_structure=True,
+    )
+    converter = DocumentConverter(
+        format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=opts)}
+    )
+    doc = converter.convert(str(pdf_path)).document
+
+    source_file = Path(pdf_path).name
+    blocks: list[FilingBlock] = []
+    prose_by_page: dict[int, list[str]] = {}
+    table_counts: dict[int, int] = {}
+    last_heading = ""
+
+    for item, _level in doc.iterate_items():
+        if not item.prov:
+            continue
+        page_number = item.prov[0].page_no
+
+        if isinstance(item, TableItem):
+            md = _compact_markdown_table(item.export_to_markdown(doc=doc))
+            if not md.strip():
+                continue
+            caption = item.caption_text(doc) or last_heading
+            text = f"{caption}\n{md}" if caption else md
+            idx = table_counts.get(page_number, 0)
+            table_counts[page_number] = idx + 1
+            blocks.append(
+                FilingBlock(
+                    text=text,
+                    block_type="table",
+                    company=company,
+                    doc_type=doc_type,
+                    period=period,
+                    source_file=source_file,
+                    page_number=page_number,
+                    table_index=idx,
+                    extraction_method="docling",
+                )
+            )
+        elif isinstance(item, TextItem):
+            text = item.text.strip()
+            if not text:
+                continue
+            if isinstance(item, SectionHeaderItem):
+                last_heading = text
+            prose_by_page.setdefault(page_number, []).append(text)
+
+    for page_number, parts in prose_by_page.items():
+        blocks.append(
+            FilingBlock(
+                text="\n".join(parts),
+                block_type="prose",
+                company=company,
+                doc_type=doc_type,
+                period=period,
+                source_file=source_file,
+                page_number=page_number,
+                extraction_method="docling",
+            )
+        )
+
+    blocks.sort(key=lambda b: (b.page_number, b.block_type != "table"))
+    return blocks
+
+
 def parse_filing_to_jsonl(
     pdf_path: str,
     company: str,
@@ -224,6 +340,7 @@ def parse_filing_to_jsonl(
     period: str,
     output_path: str,
     append: bool = True,
+    parser: str = "docling",
 ) -> int:
     """
     Convenience wrapper: parse a filing and append the resulting blocks
@@ -232,7 +349,8 @@ def parse_filing_to_jsonl(
     """
     import json
 
-    blocks = parse_filing(pdf_path, company, doc_type, period)
+    parse = parse_filing_docling if parser == "docling" else parse_filing
+    blocks = parse(pdf_path, company, doc_type, period)
     mode = "a" if append else "w"
     with open(output_path, mode, encoding="utf-8") as f:
         for block in blocks:
@@ -253,6 +371,13 @@ if __name__ == "__main__":
         default="data/processed/chunks.jsonl",
         help="Where to append parsed blocks (JSONL)",
     )
+    parser.add_argument(
+        "--parser",
+        default="docling",
+        choices=["docling", "pdfplumber"],
+        help="docling (default) or the original pdfplumber parser",
+    )
+    parser.add_argument("--overwrite", action="store_true", help="Overwrite output instead of appending")
     args = parser.parse_args()
 
     n = parse_filing_to_jsonl(
@@ -261,5 +386,7 @@ if __name__ == "__main__":
         doc_type=args.doc_type,
         period=args.period,
         output_path=args.output,
+        append=not args.overwrite,
+        parser=args.parser,
     )
     print(f"Parsed {n} blocks from {args.pdf_path} -> {args.output}")

@@ -88,7 +88,7 @@ INDEXED_COMPANIES = [
     "Infosys",
 ]
 
-BM25_INDEX_PATH = "data/processed/bm25_index.pkl"
+BM25_INDEX_PATH = os.getenv("BM25_INDEX_PATH", "data/processed/bm25_index.pkl")
 
 # ---------------------------------------------------------------------------
 # App state — models loaded once at startup
