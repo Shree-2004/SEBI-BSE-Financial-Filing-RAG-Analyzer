@@ -10,6 +10,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
+# CPU-only torch first: otherwise sentence-transformers pulls the default
+# Linux wheel with ~3GB of CUDA libraries that a CPU host never uses —
+# slower builds and a much bigger image on free tiers (Render, Spaces).
+RUN pip install --no-cache-dir torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Pre-download the embedder + reranker weights into the image at build time.
