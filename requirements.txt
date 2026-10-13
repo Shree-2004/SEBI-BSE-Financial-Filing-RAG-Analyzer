@@ -21,7 +21,8 @@ qdrant-client==1.11.3
 # --- Generation ---
 openai==1.109.1          # also used as Groq rate-limit fallback in answer_generator.py
 anthropic==0.36.0
-groq==0.11.0
+groq==1.5.0             # 0.11 passes proxies= to httpx, removed in httpx 0.28 -> startup crash
+httpx==0.28.1            # pinned to the version the eval runs were made with
 
 # --- API ---
 fastapi==0.115.0
