@@ -22,6 +22,10 @@ from sentence_transformers import SentenceTransformer, CrossEncoder; \
 SentenceTransformer('BAAI/bge-base-en-v1.5'); \
 CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')"
 
+# Hugging Face Spaces runs the container as a non-root user (uid 1000);
+# the model cache baked in above must stay writable for lock files.
+RUN chmod -R 777 /app/.cache
+
 COPY src/ ./src/
 COPY data/processed/bm25_index.pkl ./data/processed/bm25_index.pkl
 
@@ -29,4 +33,7 @@ ENV PYTHONPATH=/app/src
 ENV PORT=8000
 EXPOSE 8000
 
-CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT}"]
+# --proxy-headers: behind a host's proxy (Spaces, Railway) every request
+# otherwise appears to come from the proxy IP, so all visitors would share
+# one per-IP rate-limit bucket.
+CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT} --proxy-headers --forwarded-allow-ips='*'"]
