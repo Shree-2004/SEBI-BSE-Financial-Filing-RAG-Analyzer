@@ -1,12 +1,14 @@
 """
 push_hf_space.py
 
-Uploads the API to a Hugging Face Space (Docker SDK). Only what the
-Dockerfile needs is uploaded; the Space's README.md (its config, incl.
-app_port) comes from deploy/hf-space/README.md, not the project README.
+Uploads the API to a Hugging Face Space. Docker Spaces are paid, so it
+runs in a free Gradio-SDK Space: deploy/hf-space/app.py starts the FastAPI
+app on port 7860, and deploy/hf-space/requirements.txt holds the runtime
+deps. The Space's README.md (its config) comes from deploy/hf-space/,
+not the project README.
 
 One-time setup:
-    1. Create a Space at huggingface.co/new-space (SDK: Docker, Blank, CPU basic)
+    1. Create a Space at huggingface.co/new-space (SDK: Gradio, Blank, CPU basic)
     2. hf auth login            # paste a token with "write" access
     3. In the Space: Settings -> Variables and secrets -> add the secrets
        QDRANT_URL, QDRANT_API_KEY, GROQ_API_KEY, OPENAI_API_KEY,
@@ -21,11 +23,12 @@ import sys
 from huggingface_hub import HfApi
 
 ALLOW = [
-    "Dockerfile",
-    "requirements.txt",
     "src/**/*.py",
     "data/processed/bm25_index.pkl",
 ]
+
+# deploy/hf-space/<name> -> Space root
+SPACE_FILES = ["README.md", "app.py", "requirements.txt"]
 
 
 def main():
@@ -41,13 +44,14 @@ def main():
         allow_patterns=ALLOW,
         commit_message="Deploy API from GitHub repo",
     )
-    api.upload_file(
-        repo_id=repo_id,
-        repo_type="space",
-        path_or_fileobj="deploy/hf-space/README.md",
-        path_in_repo="README.md",
-        commit_message="Space config",
-    )
+    for name in SPACE_FILES:
+        api.upload_file(
+            repo_id=repo_id,
+            repo_type="space",
+            path_or_fileobj=f"deploy/hf-space/{name}",
+            path_in_repo=name,
+            commit_message=f"Space {name}",
+        )
     print(f"✓ Uploaded. Build logs: https://huggingface.co/spaces/{repo_id}?logs=build")
 
 
