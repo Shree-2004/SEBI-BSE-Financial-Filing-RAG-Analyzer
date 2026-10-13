@@ -850,5 +850,334 @@
                 "10,161"
             ]
         ]
+    },
+    {
+        "id": "Q046",
+        "question": "What was ITC's standalone revenue from operations for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "26,943.23",
+            "revenue from operations"
+        ],
+        "company": "ITC",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "26,943.23"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q047",
+        "question": "What was ITC's consolidated profit for the period for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "4,508.79",
+            "profit for the period"
+        ],
+        "company": "ITC",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "4,508.79"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q048",
+        "question": "What was ITC's standalone basic earnings per share for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "2.86",
+            "basic",
+            "earnings per share"
+        ],
+        "company": "ITC",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "per_share",
+        "gold": [
+            [
+                "2.86"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q049",
+        "question": "What was Sun Pharma's consolidated total revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "152,998.8",
+            "revenue from operations"
+        ],
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "152,998.8"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q050",
+        "question": "What was Sun Pharma's consolidated net profit after non-controlling interests for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "28,947.9",
+            "net profit"
+        ],
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "28,947.9"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q051",
+        "question": "What was Sun Pharma's consolidated basic earnings per share for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "12.1",
+            "basic",
+            "earnings per share"
+        ],
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "per_share",
+        "gold": [
+            [
+                "12.1"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q052",
+        "question": "What was HDFC Bank's standalone net profit for the period for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "19,059.72",
+            "net profit"
+        ],
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "19,059.72"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q053",
+        "question": "What was HDFC Bank's consolidated interest earned for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "90,575.33",
+            "interest earned"
+        ],
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "90,575.33"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q054",
+        "question": "What was HDFC Bank's consolidated profit before tax and minority interest for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "27,193.16",
+            "profit"
+        ],
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "27,193.16"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q055",
+        "question": "What was Larsen & Toubro's consolidated revenue from operations for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "67,941.74",
+            "67,942",
+            "revenue from operations"
+        ],
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "67,941.74",
+                "67,942"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q056",
+        "question": "What was Larsen & Toubro's consolidated profit before tax for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "6,922.26",
+            "profit before tax"
+        ],
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "6,922.26"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q057",
+        "question": "What was Larsen & Toubro's consolidated net profit attributable to owners of the company for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "4,122.85",
+            "attributable",
+            "owners"
+        ],
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "4,122.85"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+    },
+    {
+        "id": "Q058",
+        "question": "What was Maruti Suzuki's standalone total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "524,557",
+            "revenue from operations"
+        ],
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "524,557"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+    },
+    {
+        "id": "Q059",
+        "question": "What was Maruti Suzuki's consolidated total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "524,698",
+            "revenue from operations"
+        ],
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "524,698"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+    },
+    {
+        "id": "Q060",
+        "question": "What was Maruti Suzuki's standalone profit for the period for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "33,521",
+            "profit for the period"
+        ],
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "33,521"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+    },
+    {
+        "id": "Q061",
+        "question": "What was Bharti Airtel's consolidated revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "585,391",
+            "revenue from operations"
+        ],
+        "company": "Bharti Airtel",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "585,391"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+    },
+    {
+        "id": "Q062",
+        "question": "What was Bharti Airtel's consolidated profit attributable to owners of the parent for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "81,674",
+            "owners of the parent"
+        ],
+        "company": "Bharti Airtel",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "81,674"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+    },
+    {
+        "id": "Q063",
+        "question": "What was Bharti Airtel's standalone basic earnings per share for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "8.89",
+            "basic"
+        ],
+        "company": "Bharti Airtel",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "per_share",
+        "gold": [
+            [
+                "8.89"
+            ]
+        ],
+        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
     }
 ]

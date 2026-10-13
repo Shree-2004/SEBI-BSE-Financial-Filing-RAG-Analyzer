@@ -111,7 +111,7 @@ Once running, visit **[http://localhost:8000/docs](http://localhost:8000/docs)**
 
 ## 🧪 Evaluation
 
-45 hand-written questions across 3 companies (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF. Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
+63 hand-written questions across 9 companies (the table below covers the original 45 on Reliance, TCS and Infosys; the 18 for the six companies added later currently score 8/18 strict — see implementation_plan.md Phase 5) (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF. Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
 
 Same model (`openai/gpt-oss-120b` on Groq) and same questions, only the parser changed:
 

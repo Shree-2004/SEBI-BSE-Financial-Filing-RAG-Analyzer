@@ -1,0 +1,667 @@
+[
+  {
+    "id": "Q046",
+    "question": "What was ITC's standalone revenue from operations for the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q047",
+    "question": "What was ITC's consolidated profit for the period for the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      8,
+      4,
+      4,
+      4,
+      4
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q048",
+    "question": "What was ITC's standalone basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q049",
+    "question": "What was Sun Pharma's consolidated total revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      10,
+      6,
+      7,
+      10,
+      8
+    ],
+    "answer": "- Consolidated total revenue from operations for the quarter ended 30 June 2026: **152,998.8 million INR**【Sun Pharma | Q1FY27 | Page 10】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.571,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharmaceutical Industries Limited\n| | Particulars | Quarter ended - 30.06.2026 - Unaudited | Quarter ended - 31.03.2026 - Audited | Quarter ended - 30.06.2025 - Unaudited | ({ in Million) - Year ended - 31 .03.2026 - Audited |\n|---|---|---|---|---|---|\n| I Revenue from operations | | | | | |\n| a..."
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "SR BC & COLLP\nChartered Accountants\nSun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026\nPage 2 of 5\nThe accompanying Statement includes the unaudited interim financial results and other financial information, in respect of 23 subsid iaries, whose financial..."
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026 Page 3 of 5\nAnnexure I - List of entities included in the report of the unaudited Consolidated Financial Results"
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "SR 8 C & COLLP\nChartered Accountants\nSun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026 Page 4 of 5"
+      }
+    ]
+  },
+  {
+    "id": "Q050",
+    "question": "What was Sun Pharma's consolidated net profit after non-controlling interests for the quarter ended June 30, 2026?",
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      10,
+      6,
+      10,
+      7,
+      10
+    ],
+    "answer": "- Consolidated net profit after taxes, share of profit/loss of associates and joint venture **and non‑controlling interests** for the quarter ended 30 June 2026 was **INR 28,947.9 million**【Sun Pharma | Q1FY27 | Page 10】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.714,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharmaceutical Industries Limited\n| | Particulars | Quarter ended - 30.06.2026 - Unaudited | Quarter ended - 31.03.2026 - Audited | Quarter ended - 30.06.2025 - Unaudited | ({ in Million) - Year ended - 31 .03.2026 - Audited |\n|---|---|---|---|---|---|\n| XI | Net Profit I (loss) after taxes and ..."
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "SR BC & COLLP\nChartered Accountants\nSun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026\nPage 2 of 5\nThe accompanying Statement includes the unaudited interim financial results and other financial information, in respect of 23 subsid iaries, whose financial..."
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026 Page 3 of 5\nAnnexure I - List of entities included in the report of the unaudited Consolidated Financial Results"
+      }
+    ]
+  },
+  {
+    "id": "Q051",
+    "question": "What was Sun Pharma's consolidated basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      6,
+      10,
+      10,
+      7,
+      10
+    ],
+    "answer": "- Consolidated basic earnings per share (EPS) for the quarter ended 30 June 2026: **12.1** (per share)【Sun Pharma | Q1FY27 | Page 10】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.625,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "SR BC & COLLP\nChartered Accountants\nSun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026\nPage 2 of 5\nThe accompanying Statement includes the unaudited interim financial results and other financial information, in respect of 23 subsid iaries, whose financial..."
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharmaceutical Industries Limited\n| | Particulars | Quarter ended - 30.06.2026 - Unaudited | Quarter ended - 31.03.2026 - Audited | Quarter ended - 30.06.2025 - Unaudited | ({ in Million) - Year ended - 31 .03.2026 - Audited |\n|---|---|---|---|---|---|\n| | (ii) Income tax relating to items that ..."
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026 Page 3 of 5\nAnnexure I - List of entities included in the report of the unaudited Consolidated Financial Results"
+      }
+    ]
+  },
+  {
+    "id": "Q052",
+    "question": "What was HDFC Bank's standalone net profit for the period for the quarter ended June 30, 2026?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      18,
+      21,
+      19,
+      5,
+      18
+    ],
+    "answer": "- **Standalone net profit (Profit after Tax) for the quarter ended 30 June 2026:**  \n  - ₹ 190.6 billion as stated in the profit‑and‑loss summary for the quarter [HDFC Bank | Q1FY27 | Page 19].\n\n- **Note on conflicting information:**  \n  - Another excerpt for the same quarter lists profit after tax as ₹ 8.4 billion [HDFC Bank | Q1FY27 | Page 21]. This figure differs markedly from the ₹ 190.6 billion reported above, indicating a discrepancy in the provided excerpts.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.417,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q053",
+    "question": "What was HDFC Bank's consolidated interest earned for the quarter ended June 30, 2026?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [
+      18,
+      21,
+      19,
+      5,
+      18
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q054",
+    "question": "What was HDFC Bank's consolidated profit before tax and minority interest for the quarter ended June 30, 2026?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      21,
+      19,
+      5,
+      18,
+      12
+    ],
+    "answer": "- Consolidated profit before tax (and before accounting for minority interest) for the quarter ended 30 June 2026 was **₹ 251.1 billion**【HDFC Bank | Q1FY27 | Page 19】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 21,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "Assets Under Management were approximately  9,351 billion. Profit after tax for the quarter ended June 30, 2026 was 8.4 billion compared to ₹ 7.5 billion for the quarter ended June 30, 2025, a growth of 12.1%.\nHDFC Securities Ltd. (HSL), in which the Bank holds a 94.0% stake, is amongst the leading ..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 19,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "We understand your world We understand your world HDFC BANK LIMITED, Sandoz House, Shivsagar Estate, Dr. Annie Besant Road, Worli, Mumbai - 400 018. CIN: L65920MH1994PLC080618\nProvisions and contingencies for the quarter ended June 30, 2026 were ₹ 30.6 billion.\nThe total credit cost ratio was at 0.4..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "ating to  10,000.00 crore, Consequently, during the quarter ended June 30, 2025, the net gain recognise by the Bank on sale of shares under the OFS was  9,128.40 crore (before tax and net of estimated IPO related expenses). For the year ended March 31, 2026, the net gain recognised by the Bank on sa..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 18,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "Profit & Loss Account: Quarter ended June 30, 2026\nThe Bank's net revenue was ₹ 463.6 billion for the quarter ended June 30, 2026, as against  531.7 billion (which included transaction gains of  91.3 billion from a partial divestment through an offer for sale in the IPO of its subsidiary HDB Financi..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 12,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "HDFCBANK\nWe understand your world\nos e   d us e  e  teg t  e  e u  te t options / units under the approved employee stock option schemes / employee stock incentive master scheme.\n8 During the quarter ended June 30, 2025 and year ended March 31, 2026, the Bank made a floating provision of 9,000.00 cr..."
+      }
+    ]
+  },
+  {
+    "id": "Q055",
+    "question": "What was Larsen & Toubro's consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      11,
+      3,
+      11,
+      13,
+      11
+    ],
+    "answer": "- Consolidated revenue from operations for the quarter ended June 30 2026 was **₹ 67,941.74 crore**【Larsen & Toubro | Q1FY27 | Page 11】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.714,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "page_number": 11,
+        "doc_type": "quarterly_result",
+        "source_file": "larsen_toubro_q1fy27.pdf",
+        "excerpt": "LARSEN & TOUBRO LIMITED Registered Office: L&T House, Ballard Estate, Mumbai 400 001 CIN: L99999MH1946PLC004768\nSTATEMENT OF UNAUDITED CONSOLIDATED FINANCIAL RESULTS FOR THE QUARTER ENDED JUNE 30, 2026\nNotes:\nCrore\n(i) During the quarter, the Company has allotted 96,988 equity shares of  2 each full..."
+      },
+      {
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": "quarterly_result",
+        "source_file": "larsen_toubro_q1fy27.pdf",
+        "excerpt": "L&T Press Release\nIssued by Corporate Brand Management & Communications\nAnnexure I\nwww.larsentoubro.com\nL&T House\nBallard Estate, Mumbai 400 001\nTel: 91 22 6752 5656\nCIN: L99999MH1946PLC004768\nFinancial Results for the quarter ended June 30, 2026\nSustaining momentum amid volatility\nRevenues at ₹ 67,..."
+      },
+      {
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "larsen_toubro_q1fy27.pdf",
+        "excerpt": "viea  , t    s s ts   n      s s   (ik www.larsentoubro.com and on the websites of BSE (www.bseindia.com) and NSE (www.nseindia.com). The specified items of the standalone financial results of the Company for the quarter ended June 30, 2026 are given below:\nCrore\n(vii)Figures for the previous period..."
+      }
+    ]
+  },
+  {
+    "id": "Q056",
+    "question": "What was Larsen & Toubro's consolidated profit before tax for the quarter ended June 30, 2026?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "answer": "- Consolidated profit before tax for the quarter ended 30 June 2026 was **₹ 6,922.26 crore**【Larsen & Toubro | Q1FY27 | Page 11】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "page_number": 11,
+        "doc_type": "quarterly_result",
+        "source_file": "larsen_toubro_q1fy27.pdf",
+        "excerpt": "LARSEN & TOUBRO LIMITED Registered Office: L&T House, Ballard Estate, Mumbai 400 001 CIN: L99999MH1946PLC004768\n| | Quarter ended - Particulars | Quarter ended - June 30, 2026 2026 [Reviewed] [Note (iv)] | Quarter ended - March 31, [Audited] | Quarter ended - June 30, 2025 [Reviewed] | Year ended - ..."
+      }
+    ]
+  },
+  {
+    "id": "Q057",
+    "question": "What was Larsen & Toubro's consolidated net profit attributable to owners of the company for the quarter ended June 30, 2026?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      11,
+      11,
+      11,
+      11,
+      13
+    ],
+    "answer": "- Consolidated net profit attributable to owners of Larsen & Toubro for the quarter ended 30 June 2026 was **₹ 4,122.85 crore**【Larsen & Toubro | Q1FY27 | Page 11】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.714,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "page_number": 11,
+        "doc_type": "quarterly_result",
+        "source_file": "larsen_toubro_q1fy27.pdf",
+        "excerpt": "LARSEN & TOUBRO LIMITED Registered Office: L&T House, Ballard Estate, Mumbai 400 001 CIN: L99999MH1946PLC004768\nSTATEMENT OF UNAUDITED CONSOLIDATED FINANCIAL RESULTS FOR THE QUARTER ENDED JUNE 30, 2026\nNotes:\nCrore\n(i) During the quarter, the Company has allotted 96,988 equity shares of  2 each full..."
+      },
+      {
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "larsen_toubro_q1fy27.pdf",
+        "excerpt": "viea  , t    s s ts   n      s s   (ik www.larsentoubro.com and on the websites of BSE (www.bseindia.com) and NSE (www.nseindia.com). The specified items of the standalone financial results of the Company for the quarter ended June 30, 2026 are given below:\nCrore\n(vii)Figures for the previous period..."
+      }
+    ]
+  },
+  {
+    "id": "Q058",
+    "question": "What was Maruti Suzuki's standalone total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      4,
+      2,
+      6,
+      2,
+      4
+    ],
+    "answer": "- **Excerpt 1** reports “Total revenue from operations” as **₹ 524,698 million** for the quarter ended 30 June 2026【Maruti Suzuki | Q1FY27 | Page 4】.  \n- **Excerpt 4** reports “Total revenue from operations” as **₹ 524,557 million** for the same quarter【Maruti Suzuki | Q1FY27 | Page 2】.  \n\n**Conflict:** The two excerpts give different figures (₹ 524,698 million vs. ₹ 524,557 million).",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.455,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "MARUTI SUZUKI INDIA LIMITED\n| | | Quarter ended | Quarter ended | Quarter ended | Year ended |\n|---|---|---|---|---|---|\n| | Particulars | June 30, 2026 | March 31, 2026 | June 30, 2025 | March 31, 2026 |\n| | | Unaudited | Audited (Refer Note 6) | Unaudited | Audited |\n| | Revenue from operations | ..."
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "MARUTI SUZUKI INDIA LIMITED\nPlot No.1, Nelson Mandela Road, Vasant Kunj, New Delhi - 110070 CIN :L34103DL1981PLC011375; Website:www.marutisuzuki.com;\nE-mail : investor@maruti.co.in ; Phone : + 91-11-46781000 ; Fax: +91-11-46150275\nStatement of Standalone Unaudited Financial Results for the quarter e..."
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Price Waterhouse Chartered Accountants LLP\nReview Report\nTo The Board of Directors Maruti Suzuki India Limited Plot 1, Nelson Mandela Marg, Vasant Kunj, Delhi, 110070\nWe have reviewed the standalone unaudited financial results of Maruti Suzuki India Limited (the 1. \"Company\") for the quarter ended J..."
+      }
+    ]
+  },
+  {
+    "id": "Q059",
+    "question": "What was Maruti Suzuki's consolidated total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      4,
+      4,
+      8,
+      2,
+      6
+    ],
+    "answer": "- Consolidated total revenue from operations for the quarter ended June 30 2026: **₹ 524,698 million**【Maruti Suzuki | Q1FY27 | Page 4】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 0.667,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "MARUTI SUZUKI INDIA LIMITED\n| | | Quarter ended | Quarter ended | Quarter ended | Year ended |\n|---|---|---|---|---|---|\n| | Particulars | June 30, 2026 | March 31, 2026 | June 30, 2025 | March 31, 2026 |\n| | | Unaudited | Audited (Refer Note 6) | Unaudited | Audited |\n| | Revenue from operations | ..."
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Price Waterhouse Chartered Accountants LLP\nReview Report\nTo The Board of Directors Maruti Suzuki India Limited Plot 1, Nelson Mandela Road, Vasant Kunj, Delhi, 110070\nWe have reviewed the consolidated unaudited financial results of Maruti Suzuki India Limited (the \"Holding Company\"), its subsidiarie..."
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "MARUTI SUZUKI INDIA LIMITED\nPlot No.1, Nelson Mandela Road, Vasant Kunj, New Delhi - 110070 CIN :L34103DL1981PLC011375; Website:www.marutisuzuki.com;\nE-mail : investor@maruti.co.in ; Phone : + 91-11-46781000 ; Fax: +91-11-46150275\nStatement of Standalone Unaudited Financial Results for the quarter e..."
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Price Waterhouse Chartered Accountants LLP\nReview Report\nTo The Board of Directors Maruti Suzuki India Limited Plot 1, Nelson Mandela Marg, Vasant Kunj, Delhi, 110070\nWe have reviewed the standalone unaudited financial results of Maruti Suzuki India Limited (the 1. \"Company\") for the quarter ended J..."
+      }
+    ]
+  },
+  {
+    "id": "Q060",
+    "question": "What was Maruti Suzuki's standalone profit for the period for the quarter ended June 30, 2026?",
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      6,
+      2,
+      8,
+      4,
+      1
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q061",
+    "question": "What was Bharti Airtel's consolidated revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      2,
+      4,
+      10,
+      1
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q062",
+    "question": "What was Bharti Airtel's consolidated profit attributable to owners of the parent for the quarter ended June 30, 2026?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      2,
+      4,
+      14,
+      1
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q063",
+    "question": "What was Bharti Airtel's standalone basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": false,
+    "retrieved_pages": [
+      5,
+      2,
+      14,
+      4,
+      1
+    ],
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  }
+]

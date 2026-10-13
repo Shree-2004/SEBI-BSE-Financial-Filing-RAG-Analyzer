@@ -135,6 +135,31 @@ a different chunk of it).
 
 ---
 
+## Phase 5: Six more companies (2026-10-13)
+
+Added Q1FY27 results for **HDFC Bank, ITC, Bharti Airtel, Sun Pharma,
+Larsen & Toubro, Maruti Suzuki** — 9 companies across 7 sectors, 2,453 chunks.
+`fetch_bse_filing.py` needs ticker symbols (HDFCBANK, BHARTIARTL, SUNPHARMA,
+LT, MARUTI), not company names.
+
+Parsing needed OCR for 4 of the 6:
+- HDFC Bank (21/22 pages) and L&T (18/32) are scanned images -> `--ocr`
+- Maruti and Bharti have an embedded text layer that is itself bad OCR
+  (Maruti consolidated revenue read "<24 60R"; one standalone figure read
+  524,551 instead of 524,557) -> `--force-ocr`, which renders each page to an
+  image so OCR is the only text source (Docling's force_full_page_ocr still
+  took table cells from the bad text layer)
+- OCR decimal commas ("25108,30") are repaired before indexing
+
+18 new eval questions (Q046-Q063), gold verified against the page images.
+Result (gpt-oss-120b): **8/18 strict (44.4%)**, and all 10 misses are
+retrieval: the gold value exists in the corpus every time, but the top-5
+chunks come from a sibling table (standalone vs consolidated, or the wrong
+page). Next step: contextual chunk headers (company / statement / page
+prepended before embedding), then re-run all 63 questions.
+
+---
+
 ## Phase 3: Production Deployment & Reliability Hardening
 
 **Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;

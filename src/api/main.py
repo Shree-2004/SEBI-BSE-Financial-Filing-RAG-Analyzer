@@ -86,6 +86,12 @@ INDEXED_COMPANIES = [
     "Reliance Industries",
     "TCS",
     "Infosys",
+    "HDFC Bank",
+    "ITC",
+    "Bharti Airtel",
+    "Sun Pharma",
+    "Larsen & Toubro",
+    "Maruti Suzuki",
 ]
 
 BM25_INDEX_PATH = os.getenv("BM25_INDEX_PATH", "data/processed/bm25_index.pkl")

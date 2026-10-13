@@ -51,3 +51,11 @@ def test_large_table_split_loses_and_duplicates_no_rows():
 def test_non_markdown_text_is_not_split():
     text = "plain text without a separator row " * 200
     assert _split_table_rows(text) == [text]
+
+
+def test_ocr_decimal_comma_fix_leaves_indian_grouping_alone():
+    from ingestion.pdf_parser import _fix_ocr_decimal_commas as fix
+
+    assert fix("| 25108,30 | 62005,98 |") == "| 25108.30 | 62005.98 |"
+    assert fix("| 1,90,845 | 63,973 | 12,34,567 |") == "| 1,90,845 | 63,973 | 12,34,567 |"
+    assert fix("| 19059.72 |") == "| 19059.72 |"

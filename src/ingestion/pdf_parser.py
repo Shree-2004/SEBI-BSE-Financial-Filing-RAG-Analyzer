@@ -232,11 +232,23 @@ def _compact_markdown_table(md: str) -> str:
     return "\n".join(lines)
 
 
+# OCR misreads a decimal point as a comma ("25108,30" for 25108.30). A comma
+# followed by exactly two final digits can't be Indian digit grouping — the
+# last group is always three digits ("1,90,845") — so it must be a decimal.
+_OCR_DECIMAL_COMMA_RE = re.compile(r"(?<=\d),(\d{2})(?![\d,])")
+
+
+def _fix_ocr_decimal_commas(text: str) -> str:
+    return _OCR_DECIMAL_COMMA_RE.sub(r".\1", text)
+
+
 def parse_filing_docling(
     pdf_path: str,
     company: str,
     doc_type: str,
     period: str,
+    ocr: bool = False,
+    force_ocr: bool = False,
 ) -> list[FilingBlock]:
     """
     Same contract as parse_filing(), but uses Docling's layout + table
@@ -256,24 +268,54 @@ def parse_filing_docling(
 
     Requires: pip install -r requirements-ingest.txt, and the models
     downloaded once via `docling-tools models download layout tableformer`.
+
+    ocr=True turns on Docling's OCR (RapidOCR, torch backend — models from
+    `docling-tools models download rapidocr`). Needed for filings whose
+    statements are scanned images with no text layer: HDFC Bank's Q1FY27
+    results had 21 of 22 pages image-only, L&T's 18 of 32.
+
+    force_ocr=True ignores the embedded text layer entirely. Some filings DO
+    have a text layer, but it was produced by poor OCR at the company's end
+    (Maruti's Q1FY27 consolidated table reads "<24 60R" for 524,698).
+    Docling's force_full_page_ocr option did not help — table cells still
+    came from the bad text layer — so each page is rendered to an image and
+    converted as an image, which leaves OCR as the only source of text.
     """
+    ocr = ocr or force_ocr
     import os
+    import tempfile
 
     from docling.datamodel.base_models import InputFormat
-    from docling.datamodel.pipeline_options import PdfPipelineOptions
-    from docling.document_converter import DocumentConverter, PdfFormatOption
+    from docling.datamodel.pipeline_options import PdfPipelineOptions, RapidOcrOptions
+    from docling.document_converter import DocumentConverter, ImageFormatOption, PdfFormatOption
     from docling_core.types.doc import SectionHeaderItem, TableItem, TextItem
 
     artifacts = os.getenv("DOCLING_ARTIFACTS_PATH", os.path.expanduser("~/.cache/docling/models"))
     opts = PdfPipelineOptions(
         artifacts_path=artifacts,
-        do_ocr=False,               # all indexed filings have a real text layer
+        do_ocr=ocr,
+        ocr_options=RapidOcrOptions(backend="torch"),
         do_table_structure=True,
     )
-    converter = DocumentConverter(
-        format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=opts)}
-    )
-    doc = converter.convert(str(pdf_path)).document
+
+    # (docling document, page number to use instead of its own) pairs
+    docs = []
+    if force_ocr:
+        import pypdfium2 as pdfium
+
+        converter = DocumentConverter(
+            format_options={InputFormat.IMAGE: ImageFormatOption(pipeline_options=opts)}
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            for i, page in enumerate(pdfium.PdfDocument(str(pdf_path)), start=1):
+                img_path = os.path.join(tmp, f"page_{i}.png")
+                page.render(scale=3).to_pil().save(img_path)   # ~216 dpi
+                docs.append((converter.convert(img_path).document, i))
+    else:
+        converter = DocumentConverter(
+            format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=opts)}
+        )
+        docs.append((converter.convert(str(pdf_path)).document, None))
 
     source_file = Path(pdf_path).name
     blocks: list[FilingBlock] = []
@@ -281,39 +323,42 @@ def parse_filing_docling(
     table_counts: dict[int, int] = {}
     last_heading = ""
 
-    for item, _level in doc.iterate_items():
-        if not item.prov:
-            continue
-        page_number = item.prov[0].page_no
+    for doc, page_override in docs:
+        for item, _level in doc.iterate_items():
+            if not item.prov:
+                continue
+            page_number = page_override or item.prov[0].page_no
 
-        if isinstance(item, TableItem):
-            md = _compact_markdown_table(item.export_to_markdown(doc=doc))
-            if not md.strip():
-                continue
-            caption = item.caption_text(doc) or last_heading
-            text = f"{caption}\n{md}" if caption else md
-            idx = table_counts.get(page_number, 0)
-            table_counts[page_number] = idx + 1
-            blocks.append(
-                FilingBlock(
-                    text=text,
-                    block_type="table",
-                    company=company,
-                    doc_type=doc_type,
-                    period=period,
-                    source_file=source_file,
-                    page_number=page_number,
-                    table_index=idx,
-                    extraction_method="docling",
+            if isinstance(item, TableItem):
+                md = _compact_markdown_table(item.export_to_markdown(doc=doc))
+                if not md.strip():
+                    continue
+                if ocr:
+                    md = _fix_ocr_decimal_commas(md)
+                caption = item.caption_text(doc) or last_heading
+                text = f"{caption}\n{md}" if caption else md
+                idx = table_counts.get(page_number, 0)
+                table_counts[page_number] = idx + 1
+                blocks.append(
+                    FilingBlock(
+                        text=text,
+                        block_type="table",
+                        company=company,
+                        doc_type=doc_type,
+                        period=period,
+                        source_file=source_file,
+                        page_number=page_number,
+                        table_index=idx,
+                        extraction_method="docling",
+                    )
                 )
-            )
-        elif isinstance(item, TextItem):
-            text = item.text.strip()
-            if not text:
-                continue
-            if isinstance(item, SectionHeaderItem):
-                last_heading = text
-            prose_by_page.setdefault(page_number, []).append(text)
+            elif isinstance(item, TextItem):
+                text = item.text.strip()
+                if not text:
+                    continue
+                if isinstance(item, SectionHeaderItem):
+                    last_heading = text
+                prose_by_page.setdefault(page_number, []).append(text)
 
     for page_number, parts in prose_by_page.items():
         blocks.append(
@@ -341,6 +386,8 @@ def parse_filing_to_jsonl(
     output_path: str,
     append: bool = True,
     parser: str = "docling",
+    ocr: bool = False,
+    force_ocr: bool = False,
 ) -> int:
     """
     Convenience wrapper: parse a filing and append the resulting blocks
@@ -349,8 +396,12 @@ def parse_filing_to_jsonl(
     """
     import json
 
-    parse = parse_filing_docling if parser == "docling" else parse_filing
-    blocks = parse(pdf_path, company, doc_type, period)
+    if parser == "docling":
+        blocks = parse_filing_docling(
+            pdf_path, company, doc_type, period, ocr=ocr, force_ocr=force_ocr
+        )
+    else:
+        blocks = parse_filing(pdf_path, company, doc_type, period)
     mode = "a" if append else "w"
     with open(output_path, mode, encoding="utf-8") as f:
         for block in blocks:
@@ -378,6 +429,8 @@ if __name__ == "__main__":
         help="docling (default) or the original pdfplumber parser",
     )
     parser.add_argument("--overwrite", action="store_true", help="Overwrite output instead of appending")
+    parser.add_argument("--ocr", action="store_true", help="Docling OCR for scanned (image-only) pages")
+    parser.add_argument("--force-ocr", action="store_true", help="OCR every page, ignoring a bad embedded text layer")
     args = parser.parse_args()
 
     n = parse_filing_to_jsonl(
@@ -388,5 +441,7 @@ if __name__ == "__main__":
         output_path=args.output,
         append=not args.overwrite,
         parser=args.parser,
+        ocr=args.ocr,
+        force_ocr=args.force_ocr,
     )
     print(f"Parsed {n} blocks from {args.pdf_path} -> {args.output}")
