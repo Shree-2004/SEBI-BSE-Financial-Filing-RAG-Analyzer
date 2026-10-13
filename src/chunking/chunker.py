@@ -354,6 +354,7 @@ def chunk_blocks(blocks: list[dict]) -> list[Chunk]:
 
     all_chunks: list[Chunk] = []
     idx = 0
+    basis = _page_basis(raw)
 
     for block in raw:
         if block["block_type"] == "table":
@@ -361,10 +362,70 @@ def chunk_blocks(blocks: list[dict]) -> list[Chunk]:
         else:
             new_chunks = _chunk_prose_block(block, idx)
 
+        header = _context_header(block, basis.get((block["source_file"], block["page_number"]), ""))
+        for c in new_chunks:
+            c.text = f"{header}\n{c.text}"
+            c.token_count = _count_tokens(c.text)
+            c.chunk_id = _make_id(c.text, c.company, c.page_number, c.chunk_index)
+
         all_chunks.extend(new_chunks)
         idx += len(new_chunks)
 
     return all_chunks
+
+
+# ---------------------------------------------------------------------------
+# Contextual chunk headers
+# ---------------------------------------------------------------------------
+
+_DOC_LABELS = {"quarterly_result": "quarterly results", "annual_report": "annual report"}
+
+
+def _page_basis(blocks: list[dict]) -> dict[tuple[str, int], str]:
+    """
+    Decide, per page, whether it belongs to the standalone or consolidated
+    statements, from the page's own text (headings + table captions).
+
+    Filings print near-identical standalone and consolidated tables on
+    neighbouring pages; without this, a row-group chunk from one is
+    indistinguishable from the other, and retrieval picked the wrong
+    sibling (all 10 misses on the six Q1FY27 companies were this).
+    A page that names neither is consolidated if it has minority /
+    non-controlling-interest lines (only a group with subsidiaries has
+    those — this catches HDFC Bank's consolidated page, whose title OCR'd
+    as "UN P ED ED D D G"); otherwise it's a statement continued from the
+    previous page and inherits that page's basis.
+    """
+    pages: dict[tuple[str, int], list[str]] = {}
+    for b in blocks:
+        pages.setdefault((b["source_file"], b["page_number"]), []).append(b["text"].lower())
+
+    basis: dict[tuple[str, int], str] = {}
+    prev: dict[str, str] = {}
+    for key in sorted(pages):
+        text = " ".join(pages[key])
+        has_c, has_s = "consolidated" in text, "standalone" in text
+        if has_c and has_s:
+            value = "standalone and consolidated"
+        elif has_c:
+            value = "consolidated"
+        elif has_s:
+            value = "standalone"
+        elif "minority interest" in text or "non-controlling interest" in text:
+            value = "consolidated"
+        else:
+            value = prev.get(key[0], "")
+        basis[key] = prev[key[0]] = value
+    return basis
+
+
+def _context_header(block: dict, basis: str) -> str:
+    """One line naming where a chunk comes from, prepended before embedding
+    so dense + BM25 retrieval (and the LLM) can tell sibling tables apart,
+    e.g. "ITC | Q1FY27 | standalone quarterly results | page 3"."""
+    doc = _DOC_LABELS.get(block["doc_type"], block["doc_type"])
+    kind = f"{basis} {doc}" if basis else doc
+    return f"{block['company']} | {block['period']} | {kind} | page {block['page_number']}"
 
 
 # ---------------------------------------------------------------------------

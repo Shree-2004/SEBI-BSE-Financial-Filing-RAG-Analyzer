@@ -1,0 +1,7 @@
+FinFiling RAG — Eval Summary
+=============================
+Index             : filing_chunks
+Questions         : 63/63
+Context hit @5    : 57/63 = 90.5%   (gold answer present in retrieved chunks)
+
+Context misses: Q009 Q028 Q037 Q046 Q053 Q062

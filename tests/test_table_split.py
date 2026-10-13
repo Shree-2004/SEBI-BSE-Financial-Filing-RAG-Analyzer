@@ -59,3 +59,36 @@ def test_ocr_decimal_comma_fix_leaves_indian_grouping_alone():
     assert fix("| 25108,30 | 62005,98 |") == "| 25108.30 | 62005.98 |"
     assert fix("| 1,90,845 | 63,973 | 12,34,567 |") == "| 1,90,845 | 63,973 | 12,34,567 |"
     assert fix("| 19059.72 |") == "| 19059.72 |"
+
+
+def _block(page, text, block_type="prose"):
+    return {
+        "text": text, "block_type": block_type, "company": "ITC", "doc_type": "quarterly_result",
+        "period": "Q1FY27", "source_file": "itc.pdf", "page_number": page,
+    }
+
+
+def test_context_header_names_company_statement_and_page():
+    from chunking.chunker import chunk_blocks
+
+    chunks = chunk_blocks([
+        _block(3, "Statement of Unaudited Standalone Financial Results"),
+        _block(4, "| Revenue | 1 |\n|---|---|", "table"),          # continuation page
+        _block(6, "Statement of Unaudited Consolidated Financial Results"),
+    ])
+    headers = [c.text.splitlines()[0] for c in chunks]
+    assert headers == [
+        "ITC | Q1FY27 | standalone quarterly results | page 3",
+        "ITC | Q1FY27 | standalone quarterly results | page 4",
+        "ITC | Q1FY27 | consolidated quarterly results | page 6",
+    ]
+
+
+def test_untitled_page_with_minority_interest_is_consolidated():
+    from chunking.chunker import chunk_blocks
+
+    chunks = chunk_blocks([
+        _block(8, "Statement of Standalone Financial Results"),
+        _block(9, "UN P ED ED D D G\n| Net profit before minority interest | 20382.69 |\n|---|---|", "table"),
+    ])
+    assert "| consolidated quarterly results | page 9" in chunks[-1].text.splitlines()[0]

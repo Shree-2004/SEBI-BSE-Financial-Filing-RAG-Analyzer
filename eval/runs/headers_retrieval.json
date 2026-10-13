@@ -1,0 +1,1010 @@
+[
+  {
+    "id": "Q001",
+    "question": "What was the EBITDA of Reliance Industries standalone entity in FY25?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      67,
+      32,
+      32,
+      67,
+      92
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q002",
+    "question": "What was the standalone Profit After Tax of Reliance Industries in FY25?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      32,
+      67,
+      97,
+      67,
+      97
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q003",
+    "question": "What dividend was declared by Reliance Industries board?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "corporate_action",
+    "context_hit": true,
+    "retrieved_pages": [
+      3,
+      67,
+      123,
+      168,
+      169
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q004",
+    "question": "What is the face value of Reliance Industries equity shares?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      140,
+      85,
+      98,
+      127,
+      140
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q005",
+    "question": "What was the net profit margin ratio formula used by Reliance Industries?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "ratios",
+    "context_hit": true,
+    "retrieved_pages": [
+      118,
+      118,
+      118,
+      33,
+      153
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q006",
+    "question": "What is the return on capital employed formula for Reliance Industries?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "ratios",
+    "context_hit": true,
+    "retrieved_pages": [
+      118,
+      118,
+      118,
+      33,
+      114
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q007",
+    "question": "What was TCS revenue from operations in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      7,
+      7,
+      6,
+      5
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q008",
+    "question": "What was TCS consolidated profit for the period in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      2,
+      7,
+      1,
+      2,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q009",
+    "question": "What was TCS total income in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [
+      8,
+      7,
+      13,
+      7,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q010",
+    "question": "What was TCS employee benefit expenses in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "expenses",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      7,
+      13,
+      7,
+      13
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q011",
+    "question": "What was TCS earnings per share in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      13,
+      7,
+      1,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q012",
+    "question": "What interim dividend did TCS declare in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "corporate_action",
+    "context_hit": true,
+    "retrieved_pages": [
+      9,
+      1,
+      14,
+      13,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q013",
+    "question": "What was TCS profit before tax in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      13,
+      7,
+      13,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q014",
+    "question": "What was TCS total tax expense in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "tax",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      13,
+      13,
+      13,
+      8
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q015",
+    "question": "What was TCS Banking Financial Services and Insurance segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      8,
+      8,
+      8,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q016",
+    "question": "What was TCS Manufacturing segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      8,
+      8,
+      8,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q017",
+    "question": "What was TCS Communication Media and Technology segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      8,
+      8,
+      8,
+      13
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q018",
+    "question": "What was TCS depreciation and amortisation expense in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "expenses",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      7,
+      7,
+      13,
+      13
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q019",
+    "question": "What was TCS nine month revenue from operations ending December 2024?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      8,
+      8,
+      7,
+      8
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q020",
+    "question": "When was the TCS Q3FY25 board meeting held?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      15,
+      9,
+      14,
+      1,
+      1
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q021",
+    "question": "What was TCS standalone revenue from operations in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      13,
+      1,
+      10,
+      13
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q022",
+    "question": "What was TCS standalone profit for the period in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      10,
+      13,
+      10,
+      1,
+      13
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q023",
+    "question": "What was TCS Life Sciences and Healthcare segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      8,
+      8,
+      13,
+      5
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q024",
+    "question": "What was TCS Consumer Business segment revenue in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      8,
+      8,
+      8,
+      6
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q025",
+    "question": "What was TCS finance costs in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "expenses",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      7,
+      7,
+      13,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q026",
+    "question": "What was TCS paid up equity share capital in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      1,
+      13,
+      13,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q027",
+    "question": "What was TCS total comprehensive income for Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      2,
+      7,
+      13,
+      2,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q028",
+    "question": "Who audited TCS Q3FY25 financial results?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "audit",
+    "context_hit": false,
+    "retrieved_pages": [
+      7,
+      13,
+      9,
+      3,
+      6
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q029",
+    "question": "What was TCS profit before exceptional item and tax in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      13,
+      8,
+      13,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q030",
+    "question": "What was the record date for TCS Q3FY25 dividend payment?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "corporate_action",
+    "context_hit": true,
+    "retrieved_pages": [
+      1,
+      1,
+      13,
+      7,
+      15
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q031",
+    "question": "What was TCS nine month profit for the period ending December 2024?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      13,
+      8,
+      13,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q032",
+    "question": "What is the CIN of Tata Consultancy Services?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      13,
+      6,
+      4,
+      1
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q033",
+    "question": "What was Reliance Industries Oil to Chemicals EBITDA for FY25?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      32,
+      38,
+      51,
+      67,
+      30
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q034",
+    "question": "What was TCS current tax expense in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "tax",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      13,
+      13,
+      8,
+      13
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q035",
+    "question": "What was TCS profit attributable to shareholders of the company in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      7,
+      1,
+      7,
+      1,
+      2
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q036",
+    "question": "What was Infosys consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      24,
+      43,
+      35,
+      25,
+      23
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q037",
+    "question": "What was Infosys consolidated profit for the period for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      23,
+      27,
+      42,
+      24,
+      122
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q038",
+    "question": "What was Infosys consolidated basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      23,
+      27,
+      26,
+      85,
+      161
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q039",
+    "question": "What were Infosys consolidated employee benefit expenses for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "expenses",
+    "context_hit": true,
+    "retrieved_pages": [
+      22,
+      78,
+      121,
+      26,
+      42
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q040",
+    "question": "What final dividend did Infosys recommend for financial year 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "corporate_action",
+    "context_hit": true,
+    "retrieved_pages": [
+      23,
+      27,
+      118,
+      75,
+      75
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q041",
+    "question": "What was Infosys Financial Services segment revenue for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "segment",
+    "context_hit": true,
+    "retrieved_pages": [
+      193,
+      24,
+      71,
+      23,
+      27
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q042",
+    "question": "What was Infosys consolidated current tax expense for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "tax",
+    "context_hit": true,
+    "retrieved_pages": [
+      184,
+      42,
+      22,
+      26,
+      190
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q043",
+    "question": "Who are the statutory auditors of Infosys and what opinion did they express for Q1FY27?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "audit",
+    "context_hit": true,
+    "retrieved_pages": [
+      26,
+      23,
+      80,
+      44,
+      156
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q044",
+    "question": "What is the CIN of Infosys Limited?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      22,
+      26,
+      53,
+      90,
+      166
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q045",
+    "question": "What was Infosys standalone profit before tax for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      25,
+      26,
+      27,
+      26,
+      128
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q046",
+    "question": "What was ITC's standalone revenue from operations for the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q047",
+    "question": "What was ITC's consolidated profit for the period for the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      8,
+      8,
+      10,
+      6,
+      10
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q048",
+    "question": "What was ITC's standalone basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      10,
+      4,
+      3,
+      3,
+      4
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q049",
+    "question": "What was Sun Pharma's consolidated total revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      10,
+      6,
+      7,
+      9,
+      8
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q050",
+    "question": "What was Sun Pharma's consolidated net profit after non-controlling interests for the quarter ended June 30, 2026?",
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      10,
+      6,
+      10,
+      9,
+      7
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q051",
+    "question": "What was Sun Pharma's consolidated basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      10,
+      6,
+      3,
+      10,
+      4
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q052",
+    "question": "What was HDFC Bank's standalone net profit for the period for the quarter ended June 30, 2026?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      18,
+      19,
+      18,
+      21,
+      2
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q053",
+    "question": "What was HDFC Bank's consolidated interest earned for the quarter ended June 30, 2026?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [
+      18,
+      21,
+      18,
+      5,
+      12
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q054",
+    "question": "What was HDFC Bank's consolidated profit before tax and minority interest for the quarter ended June 30, 2026?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      21,
+      14,
+      18,
+      19,
+      9
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q055",
+    "question": "What was Larsen & Toubro's consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      6,
+      6,
+      7,
+      5,
+      3
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q056",
+    "question": "What was Larsen & Toubro's consolidated profit before tax for the quarter ended June 30, 2026?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      16,
+      11,
+      6,
+      11
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q057",
+    "question": "What was Larsen & Toubro's consolidated net profit attributable to owners of the company for the quarter ended June 30, 2026?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      11,
+      16,
+      11,
+      6,
+      11
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q058",
+    "question": "What was Maruti Suzuki's standalone total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      2,
+      2,
+      2,
+      4,
+      2
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q059",
+    "question": "What was Maruti Suzuki's consolidated total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      4,
+      2,
+      4,
+      2,
+      5
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q060",
+    "question": "What was Maruti Suzuki's standalone profit for the period for the quarter ended June 30, 2026?",
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      2,
+      2,
+      2,
+      2,
+      6
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q061",
+    "question": "What was Bharti Airtel's consolidated revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      10,
+      4,
+      4,
+      2,
+      3
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q062",
+    "question": "What was Bharti Airtel's consolidated profit attributable to owners of the parent for the quarter ended June 30, 2026?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      10,
+      4,
+      4,
+      2,
+      13
+    ],
+    "answer": ""
+  },
+  {
+    "id": "Q063",
+    "question": "What was Bharti Airtel's standalone basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      5,
+      5,
+      6,
+      2,
+      4
+    ],
+    "answer": ""
+  }
+]

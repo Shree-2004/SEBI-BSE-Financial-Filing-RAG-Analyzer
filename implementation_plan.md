@@ -160,6 +160,27 @@ prepended before embedding), then re-run all 63 questions.
 
 ---
 
+## Phase 6: Contextual chunk headers (2026-10-13)
+
+Every chunk now starts with `<company> | <period> | <standalone|consolidated>
+<doc type> | page N`. Basis is decided per page from the page's text; a page
+naming neither is consolidated if it has minority / non-controlling-interest
+lines (HDFC Bank's consolidated title OCR'd as "UN P ED ED D D G"), otherwise
+it inherits the previous page. Cloud collection + BM25 rebuilt.
+
+| (gpt-oss-120b) | Before | After |
+|---|---|---|
+| Gold in top-5 context, all 63 | 43/63 | 57/63 (90.5%) |
+| Strict accuracy, original 45 | 30/45 | 39/45 (86.7%) |
+| Strict accuracy, new 18 | 8/18 | 15/18 (83.3%) |
+| Strict accuracy, all 63 | 38/63 | 54/63 (85.7%) |
+
+Remaining misses: 6 retrieval (Q009 Q028 Q037 Q046 Q053 Q062), 3 generation
+(Q006 formula wording, Q012 partial dividend answer, Q035 Docling row shift
+on TCS p7).
+
+---
+
 ## Phase 3: Production Deployment & Reliability Hardening
 
 **Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;

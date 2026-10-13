@@ -111,16 +111,18 @@ Once running, visit **[http://localhost:8000/docs](http://localhost:8000/docs)**
 
 ## 🧪 Evaluation
 
-63 hand-written questions across 9 companies (the table below covers the original 45 on Reliance, TCS and Infosys; the 18 for the six companies added later currently score 8/18 strict — see implementation_plan.md Phase 5) (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF. Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
+63 hand-written questions across 9 companies (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF (page images for OCR'd filings). Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
 
-Same model (`openai/gpt-oss-120b` on Groq) and same questions, only the parser changed:
+All runs use the same model (`openai/gpt-oss-120b` on Groq):
 
-| | pdfplumber | Docling |
-|---|---|---|
-| Gold answer in top-5 retrieved chunks | 25/45 (55.6%) | **35/45 (77.8%)** |
-| Strict answer accuracy | 13/45 (28.9%) | **30/45 (66.7%)** |
-| Misses from retrieval/parsing | 20 | 10 |
-| Misses from generation | 12 | 5 |
+| | pdfplumber | Docling | Docling + contextual chunk headers |
+|---|---|---|---|
+| Original 45 questions (Reliance, TCS, Infosys): strict accuracy | 13/45 (28.9%) | 30/45 (66.7%) | **39/45 (86.7%)** |
+| 18 questions on the six companies added later | — | 8/18 (44.4%) | **15/18 (83.3%)** |
+| All 63: gold answer in top-5 retrieved chunks | — | 43/63 (68.3%) | **57/63 (90.5%)** |
+| **All 63: strict accuracy** | — | 38/63 (60.3%) | **54/63 (85.7%)** |
+
+Contextual chunk headers prepend one line to every chunk before embedding (e.g. `ITC | Q1FY27 | standalone quarterly results | page 3`), so retrieval can tell a company's standalone and consolidated tables apart.
 
 An earlier version of this README reported 95.6% "keyword accuracy". That metric counted an answer correct if *any* expected keyword appeared, and most keyword lists repeated words from the question, so wrong figures still passed. It is still printed as "lenient" for comparison, but it is not an accuracy number.
 
