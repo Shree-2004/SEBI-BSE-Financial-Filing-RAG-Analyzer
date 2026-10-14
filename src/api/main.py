@@ -41,6 +41,7 @@ from indexing.bm25_index import BM25Index
 from indexing.embed import Embedder
 from indexing.vector_store import VectorStore
 from retrieval.hybrid_retriever import HybridRetriever
+from retrieval.query_filters import resolve_filters
 from api.query_cache import QueryCache
 from api.logging_config import setup_logging, get_logger
 
@@ -107,6 +108,7 @@ class AppState:
     vector_store: VectorStore = None
     startup_time: float = None
     query_cache: QueryCache = None
+    available_periods: dict = None   # company -> periods actually in the index
 
 state = AppState()
 state.query_cache = QueryCache(max_entries=500, ttl_seconds=3600)
@@ -127,6 +129,12 @@ async def lifespan(app: FastAPI):
     state.generator = AnswerGenerator()
     state.verifier = Verifier()
     state.vector_store = VectorStore()
+    # which periods exist per company, read from the index itself, so
+    # auto-detected filters never point at a period that isn't ingested
+    state.available_periods = {c: set() for c in INDEXED_COMPANIES}
+    for chunk in (state.retriever.bm25.chunks if state.retriever.bm25 else []):
+        if chunk.get("company") in state.available_periods:
+            state.available_periods[chunk["company"]].add(chunk.get("period"))
     state.startup_time = time.time() - t0
 
     logger.info("All models loaded", extra={"startup_time_s": round(state.startup_time, 2)})
@@ -288,8 +296,7 @@ async def query(request: Request, payload: QueryRequest):
     t0 = time.time()
     request_id = getattr(request.state, "request_id", None)
 
-    # Build metadata filter from optional request fields
-    filters = {}
+    # Validate an explicitly requested company
     if payload.company:
         if payload.company not in INDEXED_COMPANIES:
             logger.warning(
@@ -301,11 +308,23 @@ async def query(request: Request, payload: QueryRequest):
                 detail=f"Company '{payload.company}' not in index. "
                        f"Available: {INDEXED_COMPANIES}",
             )
-        filters["company"] = payload.company
-    if payload.period:
-        filters["period"] = payload.period
+    # Company / period: explicit request fields win; otherwise detected from
+    # the question text. Without a company filter the search would run
+    # across all companies and mix their tables.
+    resolution = resolve_filters(
+        payload.query, state.available_periods, payload.company, payload.period
+    )
+    if resolution["missing"] and not resolution["filters"]:
+        raise HTTPException(status_code=404, detail=f"Not in the index — {resolution['missing']}.")
+    filter_list = resolution["filters"]
     if payload.doc_type:
-        filters["doc_type"] = payload.doc_type
+        filter_list = [{**f, "doc_type": payload.doc_type} for f in filter_list] or \
+            [{"doc_type": payload.doc_type}]
+    filters = {
+        "filters": filter_list,
+        "auto_detected": resolution["detected"],
+        "note": resolution["missing"],
+    }
 
     # Serve identical questions from cache instead of re-embedding,
     # re-retrieving, and re-generating — saves both latency and Groq's
@@ -321,12 +340,15 @@ async def query(request: Request, payload: QueryRequest):
         )
 
     try:
-        # Retrieve relevant chunks
-        chunks = state.retriever.retrieve(
-            query=payload.query,
-            top_k=payload.top_k,
-            filters=filters or None,
-        )
+        # Retrieve relevant chunks (one search per company for comparisons)
+        if len(filter_list) > 1:
+            chunks = state.retriever.retrieve_multi(payload.query, filter_list, top_k=max(payload.top_k, 6))
+        else:
+            chunks = state.retriever.retrieve(
+                query=payload.query,
+                top_k=payload.top_k,
+                filters=filter_list[0] if filter_list else None,
+            )
 
         if not chunks:
             logger.warning(

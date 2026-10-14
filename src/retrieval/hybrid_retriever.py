@@ -208,6 +208,24 @@ class HybridRetriever:
 
         return fused[:top_k]
 
+    def retrieve_multi(
+        self,
+        query: str,
+        filter_list: list[dict],
+        top_k: int = 6,
+    ) -> list[dict]:
+        """
+        Retrieve for a question that names several companies ("compare ITC
+        and Maruti margins"): one filtered search per company, then an equal
+        share of the context for each — a single unfiltered search would let
+        whichever company's tables rank highest crowd the others out.
+        """
+        per_company = max(2, top_k // max(len(filter_list), 1))
+        results = []
+        for f in filter_list:
+            results.extend(self.retrieve(query, top_k=per_company, filters=f))
+        return results
+
     def retrieve_for_display(
         self,
         query: str,

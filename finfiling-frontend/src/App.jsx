@@ -145,14 +145,14 @@ export default function App() {
 
                     <div className="filters">
                         <select className="filter-select" value={company} onChange={(e) => setCompany(e.target.value)}>
-                            <option value="">All Companies</option>
+                            <option value="">Auto-detect from question</option>
                             {companies.map((name) => (
                                 <option key={name} value={name}>{name}</option>
                             ))}
                         </select>
                         <input
                             className="filter-input"
-                            placeholder="Period e.g. Q3FY25"
+                            placeholder="Period (auto) e.g. Q3FY25"
                             value={period}
                             onChange={(e) => setPeriod(e.target.value)}
                         />
@@ -199,6 +199,13 @@ export default function App() {
                             <span className="meta-pill">Confidence {(result.grounding_confidence * 100).toFixed(0)}%</span>
                             <span className="meta-pill">{result.chunks_used} chunks</span>
                             <span className="meta-pill latency">{result.latency_ms.toFixed(0)} ms</span>
+                            {result.filters_applied?.filters?.length > 0 && (
+                                <span className="meta-pill" title="Company and period used to filter the search">
+                                    Searched: {result.filters_applied.filters
+                                        .map((f) => [f.company, f.period].filter(Boolean).join(" · "))
+                                        .join(" + ")}
+                                </span>
+                            )}
                         </div>
 
                         {result.warning && <div className="warning-box">{result.warning}</div>}

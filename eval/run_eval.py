@@ -44,6 +44,7 @@ from retrieval.hybrid_retriever import HybridRetriever
 from generation.answer_generator import AnswerGenerator
 from generation.verifier import Verifier, generate_and_verify
 from strict_score import strict_match
+from retrieval.query_filters import resolve_filters
 
 QUESTIONS_PATH = "eval/eval_questions.json"
 RESULTS_PATH = "eval/eval_results.json"
@@ -75,6 +76,9 @@ def run_eval(args):
     print(f"Index: collection={os.getenv('QDRANT_COLLECTION', 'filing_chunks')} "
           f"bm25={os.getenv('BM25_INDEX_PATH', 'data/processed/bm25_index.pkl')}")
     retriever = HybridRetriever()
+    available: dict[str, set] = {}
+    for ch in (retriever.bm25.chunks if retriever.bm25 else []):
+        available.setdefault(ch["company"], set()).add(ch["period"])
     generator = None if args.retrieval_only else AnswerGenerator()
     if generator and args.no_fallback:
         # keep every answer from the same model so runs are comparable
@@ -88,11 +92,21 @@ def run_eval(args):
             continue
         print(f"[{i}/{len(questions)}] {q['id']}: {q['question'][:60]}...")
 
-        filters = {"company": q["company"]}
-        if q.get("period"):
-            filters["period"] = q["period"]
-
-        chunks = retriever.retrieve(query=q["question"], top_k=5, filters=filters)
+        if args.no_filters:
+            chunks = retriever.retrieve(query=q["question"], top_k=5, filters=None)
+        elif args.auto_filters:
+            # what the API does when the user doesn't pick a filter
+            filter_list = resolve_filters(q["question"], available)["filters"]
+            if len(filter_list) > 1:
+                chunks = retriever.retrieve_multi(q["question"], filter_list, top_k=6)
+            else:
+                chunks = retriever.retrieve(query=q["question"], top_k=5,
+                                            filters=filter_list[0] if filter_list else None)
+        else:
+            filters = {"company": q["company"]}
+            if q.get("period"):
+                filters["period"] = q["period"]
+            chunks = retriever.retrieve(query=q["question"], top_k=5, filters=filters)
         context_hit = strict_match("\n".join(c["text"] for c in chunks), q["gold"])
         record = {
             "id": q["id"],
@@ -211,6 +225,10 @@ if __name__ == "__main__":
     p.add_argument("--resume", action="store_true", help="skip questions already answered in --out")
     p.add_argument("--no-fallback", action="store_true", help="disable the OpenAI fallback so all answers come from one model")
     p.add_argument("--only", help="comma-separated question ids")
+    p.add_argument("--auto-filters", action="store_true",
+                   help="detect company/period from the question instead of using the labelled ones")
+    p.add_argument("--no-filters", action="store_true",
+                   help="no company/period filter at all (what the API did before auto-detection)")
     p.add_argument("--out", default=RESULTS_PATH)
     p.add_argument("--summary", default=SUMMARY_PATH)
     run_eval(p.parse_args())

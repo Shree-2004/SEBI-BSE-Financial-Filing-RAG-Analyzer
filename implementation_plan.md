@@ -213,6 +213,29 @@ in the parsed table, non-numeric answers.
 
 ---
 
+## Phase 8: Company + period auto-detection (2026-10-14)
+
+Without a company picked, /query searched all 9 companies at once.
+`src/retrieval/query_filters.py` detects them from the question
+(rule-based: name/ticker/alias lists, Indian-FY date and FY parsing;
+available periods read from the index at startup, not hardcoded).
+Explicit request filters still win. Several companies -> one search each
+(`HybridRetriever.retrieve_multi`). A period that isn't indexed -> 404
+"TCS: Q1FY27 is not indexed (available: Q3FY25)".
+
+Measured on the 63 eval questions (retrieval only):
+
+| | No filter (old default) | Auto-detected | Hand-labelled |
+|---|---|---|---|
+| Gold in top-5 context | 55/63 (87.3%) | 57/63 (90.5%) | 57/63 (90.5%) |
+| Questions with another company's/period's chunks mixed in | 5/63 | 0/63 | 0/63 |
+
+All 63 questions resolve to their labelled company + period (tested in
+`tests/test_query_filters.py`, 84 tests). Frontend: dropdown now reads
+"Auto-detect from question" and the result shows what was searched.
+
+---
+
 ## Phase 3: Production Deployment & Reliability Hardening
 
 **Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;
