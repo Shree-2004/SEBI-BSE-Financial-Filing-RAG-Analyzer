@@ -6,7 +6,7 @@ FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system b
 
 - **Hybrid Retrieval:** Combines Dense Retrieval (BAAI/bge-base-en-v1.5 embeddings) with Keyword Search (BM25) to accurately surface both semantic concepts and exact financial numbers/company terms.
 - **Advanced Reranking:** Employs CrossEncoder to rerank the top chunks for maximum relevance before generating answers.
-- **Robust Answer Generation & Verification:** Generates answers and features a post-generation verification step that checks whether the cited claims actually appear in the retrieved source chunks.
+- **Cell-level answer verification:** every figure in an answer is traced to the source table cell it came from (row label, period column, standalone vs consolidated) and flagged if it doesn't fit the question. In a held-out mutation test (correct answers with a wrong figure swapped in), it catches **85.7%** of wrong figures; the original substring check caught **0%**. See `eval/verifier_eval.py`.
 - **Structured Ingestion:** Docling's layout + table-structure models rebuild financial tables with row labels and multi-level column headers intact, and tag each table with its heading (consolidated vs standalone). Large tables are split into row groups that repeat the caption and headers, so every chunk fits the 512-token embedder/reranker window. The original `pdfplumber` parser is kept behind `--parser pdfplumber`.
 - **FastAPI Backend:** A fast, asynchronous API serving the complete RAG pipeline with Swagger UI.
 - **Qdrant Vector Database:** Uses Qdrant Cloud to store and search high-dimensional embeddings efficiently.

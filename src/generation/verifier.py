@@ -1,36 +1,36 @@
 """
 verifier.py
 
-Post-generation grounding check — verifies that the key claims in the
-generated answer actually appear in the retrieved source chunks.
+Post-generation grounding check: is every figure in the answer backed by
+the right cell of the retrieved sources?
 
-This is the "production rigor" feature that makes this project stand out:
-instead of silently returning a hallucinated answer, we detect when the
-LLM went off-context and flag it clearly.
+Verifier (current) checks each number in the answer against the source
+cell it could have come from:
+- row:      the cell's row label matches what the answer says the number is
+- column:   the cell is in the period asked about (latest quarter vs nine
+            months vs year), unless the answer frames it as a comparison
+- basis:    consolidated claims come from consolidated tables (and vice versa)
+- question: at least one figure comes from the row the QUESTION asks about,
+            so an answer can't vouch for a figure just by mislabelling it
 
-How it works:
-- Extracts numbers and key terms from the generated answer
-- Checks whether those figures/terms appear in the source chunks
-- Returns a confidence score + a flag if the answer looks ungrounded
-- Ungrounded answers are flagged (not silently returned) so the API
-  response always tells you whether to trust the answer
+Why: on the eval, wrong answers almost never contain invented numbers.
+The LLM copies a REAL number from the wrong row, column or statement, so
+"does this number appear in the context?" passes nearly all of them.
+KeywordVerifier (the original substring check) is kept as the baseline.
 
-This is not a perfect hallucination detector — it's a practical
-grounding heuristic that catches the most common failure mode in
-financial RAG: the LLM confidently stating a number that isn't in
-the retrieved context.
+Measured with eval/verifier_eval.py:
+- mutation test (correct answers with a wrong figure swapped in, not used
+  for tuning): 85.7% caught vs 0% for KeywordVerifier
+- real wrong answers from the current pipeline: 3/6 caught (vs 0/6), with
+  1 false alarm in 54 correct answers
+
+Not caught by design: answers that omit part of the answer, errors already
+present in the parsed source table, and non-numeric answers.
 
 Usage:
     from generation.verifier import Verifier
-
-    verifier = Verifier()
-    result = verifier.verify(
-        answer="Reliance net profit was Rs 19,101 crore [Reliance | Q2FY25 | Page 12]",
-        chunks=[...]
-    )
-    print(result["is_grounded"])     # True / False
-    print(result["confidence"])      # 0.0 to 1.0
-    print(result["unverified_claims"])  # list of claims not found in context
+    result = Verifier().verify(answer, chunks, query=question)
+    result["is_grounded"], result["confidence"], result["unverified_claims"]
 """
 
 import re
@@ -74,7 +74,10 @@ class VerificationResult:
     warning: str | None         # human-readable warning if ungrounded
 
 
-class Verifier:
+class KeywordVerifier:
+    """Original keyword/substring grounding check, kept as the baseline
+    for eval/verifier_eval.py. Superseded by Verifier below."""
+
     def verify(
         self,
         answer: str,
@@ -180,6 +183,274 @@ class Verifier:
 
 
 # ---------------------------------------------------------------------------
+# Cell-level verifier
+# ---------------------------------------------------------------------------
+#
+# Measured on 139 labelled eval answers (eval/verifier_eval.py), the keyword
+# verifier above flagged only 10 of 42 wrong answers. The reason: a wrong
+# answer almost never contains an invented number — the LLM copies a REAL
+# number from the wrong row, the wrong column (prior quarter), or the wrong
+# statement (standalone vs consolidated). "Is this number somewhere in the
+# context?" is true for nearly all of them.
+#
+# So each number in the answer is checked against the specific source cell
+# it could have come from: row label, column (period), and statement basis.
+
+_MONTHS = (r"(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?"
+           r"|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\.?")
+_STRIP_PATTERNS = [
+    re.compile(r"\[[^\]]*\]|【[^】]*】"),                                      # citations
+    re.compile(_MONTHS + r"\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}", re.I),        # June 30, 2026
+    re.compile(r"\d{1,2}(?:st|nd|rd|th)?\s+" + _MONTHS + r",?\s+\d{4}", re.I),  # 30 June 2026
+    re.compile(r"\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b"),                         # 30.06.2026
+    re.compile(r"\bQ[1-4]\s*FY\s*'?\d{2,4}\b", re.I),                           # Q1FY27, Q3 FY 25
+    re.compile(r"\bFY\s*'?\d{2,4}(?:\s*-\s*\d{2,4})?\b", re.I),                 # FY2025, FY 2024-25
+    re.compile(r"\b(?:pages?|pp?\.)\s*\d+(?:\s*(?:,|and|&|-)\s*\d+)*", re.I),  # page 5, pages 27 and 146
+    re.compile(r"\bexcerpt\s+\d+\b", re.I),
+    re.compile(r"\b(?=\w*[A-Za-z])(?=\w*\d)\w{6,}\b"),                           # CIN-style IDs
+    re.compile(r"\b(?:19|20)\d{2}\b(?![,.]\d)"),                                # bare years
+]
+_NUM_RE = re.compile(r"\d[\d,]*(?:\.\d+)?")
+_WORD_RE = re.compile(r"[a-z]{3,}")
+_STOPWORDS = set("""
+the and for from with was were are this that its per each into than over under
+period quarter quarters ended ending three months month nine year years total
+crore crores lakh million billion inr rupees company group limited ltd figure
+figures amount reported value values stood came based financial results result
+statement statements consolidated standalone unaudited audited reviewed what
+""".split())
+_COMPARISON_WORDS = ("previous", "prior", "compared", "versus", " vs", "last year", "year-ago",
+                     "year ago", "preceding", "corresponding", "sequential", "earlier",
+                     "up from", "down from", "increase from", "decrease from")
+
+
+_UNICODE_FIXES = str.maketrans({"\u2011": "-", "\u2010": "-", "\u2013": "-", "\u2014": "-",
+                                "\u202f": " ", "\u00a0": " ", "\u2009": " ", "\u2007": " "})
+
+
+def _normalise(text: str) -> str:
+    return text.translate(_UNICODE_FIXES)
+
+
+def _num_values(text: str) -> list[float]:
+    out = []
+    for m in _NUM_RE.findall(text):
+        try:
+            out.append(float(m.replace(",", "")))
+        except ValueError:
+            pass
+    return out
+
+
+def _content_words(text: str, extra_stop=frozenset()) -> set[str]:
+    return {w for w in _WORD_RE.findall(text.lower()) if w not in _STOPWORDS and w not in extra_stop}
+
+
+def _fuzzy_overlap(row_words: set[str], claim_words: set[str]) -> int:
+    """Shared words, tolerating OCR typos ("reverue" ~ "revenue")."""
+    from difflib import SequenceMatcher
+    n = 0
+    for r in row_words:
+        if r in claim_words or any(len(r) >= 5 and SequenceMatcher(None, r, c).ratio() >= 0.8
+                                   for c in claim_words):
+            n += 1
+    return n
+
+
+def _row_matches(row_label: str, claim_words: set[str]) -> bool:
+    row_words = _content_words(row_label)
+    if not row_words:
+        return True
+    shared = _fuzzy_overlap(row_words, claim_words)
+    # most of the row label is what the claim is about, or a strong 2-word overlap
+    return shared / len(row_words) >= 0.5 or shared >= 2
+
+
+# Row qualifiers that change what a figure is: "profit BEFORE tax" is not
+# "profit", "OTHER income" is not "income", "total COMPREHENSIVE income" is
+# not "profit". A row with one of these only answers a question that asks
+# for it.
+_QUALIFIERS = {"before", "comprehensive", "other", "deferred"}
+
+
+def _answers_question(row_label: str, question_words: set[str]) -> bool:
+    row_words = _content_words(row_label)
+    if not row_words:
+        return False
+    if (row_words & _QUALIFIERS) - question_words:
+        return False
+    # either the row label is mostly what was asked ("Manufacturing" for
+    # "manufacturing segment revenue"), or the question is mostly the row
+    return _row_matches(row_label, question_words) or         _fuzzy_overlap(question_words, row_words) / len(question_words) >= 0.5
+
+
+def _period_kind(text: str) -> str:
+    t = text.lower()
+    if re.search(r"nine[\s-]*months?|9[\s-]*months", t):
+        return "nine"
+    if re.search(r"year ended|full[\s-]year|annual|twelve months", t):
+        return "year"
+    if re.search(r"three months|quarter|\bq[1-4]\b", t):
+        return "quarter"
+    return ""
+
+
+def _basis(text: str) -> str:
+    t = text.lower()
+    c, s = "consolidated" in t, "standalone" in t
+    return "both" if c and s else "consolidated" if c else "standalone" if s else ""
+
+
+@dataclass
+class _Cell:
+    value: float
+    row_label: str
+    column: str        # header text of the cell's column
+    column_rank: int   # 0 = leftmost column of its period kind (the latest period)
+    kind: str          # "quarter" | "nine" | "year" | "" (header carries no date)
+    basis: str         # from the chunk's context header
+    is_table: bool
+
+
+def _cells_from_chunk(chunk: dict) -> list[_Cell]:
+    text = _normalise(chunk.get("text", ""))
+    lines = text.splitlines()
+    # context header written by the chunker: "ITC | Q1FY27 | standalone quarterly results | page 3"
+    basis = _basis(lines[0]) if lines and lines[0].count(" | ") >= 3 else ""
+
+    sep = next((i for i, l in enumerate(lines) if re.fullmatch(r"\|[-|\s:]+\|", l.strip())), None)
+    if sep is not None and sep > 1:
+        basis = _basis(" ".join(lines[:sep - 1])) or basis
+    cells: list[_Cell] = []
+    if sep is not None and sep > 0:
+        header = [h.strip() for h in lines[sep - 1].strip().strip("|").split("|")]
+        kinds = [_period_kind(h) if re.search(r"\d", h) else "" for h in header]
+        seen: dict[str, int] = {}
+        col_rank = []
+        for k in kinds:
+            col_rank.append(seen.get(k, 0) if k else 0)
+            if k:
+                seen[k] = seen.get(k, 0) + 1
+        for line in lines[sep + 1:]:
+            if not line.strip().startswith("|"):
+                continue
+            parts = [p.strip() for p in line.strip().strip("|").split("|")]
+            label = " ".join(p for p in parts if re.search(r"[A-Za-z]{3,}", p))
+            for j, p in enumerate(parts):
+                for v in _num_values(re.sub(r"\(\s*\d+\s*\)|\b[ivx]+\)|\b\d+\)", " ", p)
+                                     if re.search(r"[A-Za-z]{3,}", p) else p):
+                    cells.append(_Cell(v, label, header[j] if j < len(header) else "",
+                                       col_rank[j] if j < len(col_rank) else 0,
+                                       kinds[j] if j < len(kinds) else "", basis, True))
+        body = "\n".join(lines[:sep - 1])   # prose above the table (context header, caption)
+    else:
+        body = text
+    # prose: each sentence/line acts as its own "row"
+    if lines and lines[0].count(" | ") >= 3:
+        body = body.split("\n", 1)[1] if "\n" in body else ""
+    for sent in re.split(r"(?<=[.;])\s+|\n", body):
+        for v in _num_values(sent):
+            cells.append(_Cell(v, sent, "", 0, "", basis, False))
+    return cells
+
+
+class Verifier:
+    """
+    Cell-level grounding check. For every number in the answer, look for a
+    source cell with the same value AND:
+      - row:    the cell's row label shares a content word with what the
+                answer (or question) says the number is
+      - column: the cell sits in the period the claim is about (latest
+                quarter vs nine months vs year), unless the answer line
+                frames it as a comparison ("compared to the previous quarter")
+      - basis:  a "consolidated" claim comes from a consolidated table and
+                vice versa (uses the chunk's context header)
+    The question is used as context too: answers often omit "consolidated"
+    or the period that the question specified.
+    """
+
+    def verify(self, answer: str, chunks: list[dict], query: str = "",
+               confidence_threshold: float = 1.0) -> dict:
+        not_available = ("not available in the provided", "not found in the provided",
+                         "cannot find this information", "no information available")
+        if any(p in answer.lower() for p in not_available):
+            return VerificationResult(True, 1.0, ["Model correctly reported information not found"],
+                                      [], None).__dict__
+
+        cells = [c for ch in chunks for c in _cells_from_chunk(ch)]
+        company_words = {w for ch in chunks for w in _WORD_RE.findall(str(ch.get("company", "")).lower())}
+        q_basis, q_kind = _basis(query), _period_kind(query)
+
+        verified, unverified, matched_cells = [], [], []
+        for line in re.split(r"\n|(?<=[.;])\s+", _normalise(answer)):
+            clean = line
+            for pat in _STRIP_PATTERNS:
+                clean = pat.sub(" ", clean)
+            clean = clean.replace("**", " ")
+            values = _num_values(clean)
+            if not values:
+                continue
+            claim_words = _content_words(clean + " " + query, company_words)
+            line_basis = _basis(clean) or q_basis
+            line_kind = _period_kind(clean) or q_kind or "quarter"
+            comparison = any(w in clean.lower() for w in _COMPARISON_WORDS)
+
+            for v in values:
+                ok, reason, cell = self._check(v, cells, claim_words, line_basis, line_kind, comparison)
+                label = f"{v:,.2f}".rstrip("0").rstrip(".")
+                (verified if ok else unverified).append(f"{label}: {reason}")
+                if cell is not None:
+                    matched_cells.append(cell)
+
+        # The answer must actually report the metric the question asks for:
+        # an answer can label a figure however it likes ("Total income
+        # (profit before tax): 16,666"), so its own wording can't vouch for
+        # the row — the question's wording must match at least one source row.
+        question_words = _content_words(query, company_words)
+        if query and question_words and (verified or unverified) \
+                and not any(_answers_question(c.row_label, question_words) for c in matched_cells):
+            unverified.append("no figure in the answer comes from the row the question asks about")
+
+        total = len(verified) + len(unverified)
+        confidence = len(verified) / total if total else 1.0
+        is_grounded = confidence >= confidence_threshold
+        warning = None
+        if not is_grounded:
+            warning = ("⚠ Some figures could not be matched to the right source cell: "
+                       + "; ".join(unverified[:3]) + (" …" if len(unverified) > 3 else ""))
+        return VerificationResult(is_grounded, round(confidence, 3), verified, unverified, warning).__dict__
+
+    @staticmethod
+    def _check(value, cells, claim_words, basis, kind, comparison):
+        same = [c for c in cells if abs(c.value - value) < 1e-9]
+        if not same:
+            return False, "not in sources", None
+        reasons = []
+        for c in same:
+            if c.is_table and not _content_words(c.row_label):
+                reasons.append("found only in an unlabelled table row")
+                continue
+            if not _row_matches(c.row_label, claim_words):
+                reasons.append(f"found under a different row ('{c.row_label[:60]}')")
+                continue
+            if c.is_table and basis in ("consolidated", "standalone") \
+                    and c.basis in ("consolidated", "standalone") and c.basis != basis:
+                reasons.append(f"found in a {c.basis} table, answer is about {basis}")
+                continue
+            ck = c.kind
+            if c.is_table and ck and not comparison:
+                if ck != kind:
+                    reasons.append(f"found in a different period column ('{c.column[:50]}')")
+                    continue
+                if c.column_rank > 0:
+                    reasons.append(f"found in an earlier-period column ('{c.column[:50]}')")
+                    continue
+            where = f"row '{c.row_label[:50]}'" + (f", column '{c.column[:40]}'" if c.column else "")
+            return True, ("table " if c.is_table else "text ") + where, c
+        return False, reasons[0], None
+
+
+# ---------------------------------------------------------------------------
 # Convenience: generate + verify in one call
 # ---------------------------------------------------------------------------
 
@@ -203,6 +474,7 @@ def generate_and_verify(
     ver_result = verifier.verify(
         answer=gen_result["answer"],
         chunks=chunks,
+        query=query,
     )
 
     return {

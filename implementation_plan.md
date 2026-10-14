@@ -181,6 +181,38 @@ on TCS p7).
 
 ---
 
+## Phase 7: Cell-level answer verifier (2026-10-14)
+
+The old verifier checked whether answer numbers appear anywhere in the
+retrieved text. Measured on 139 labelled answers it caught 10/42 wrong ones,
+and 0/6 on the current pipeline. Wrong answers almost never invent numbers;
+they copy a real one from the wrong row, column or statement.
+
+New `Verifier` checks each figure against its source cell: row label,
+period column (latest quarter / nine months / year, comparisons allowed),
+standalone vs consolidated, and that at least one figure comes from the row
+the question asks about. Old one kept as `KeywordVerifier` for comparison.
+`generate_and_verify` now passes the question.
+
+`eval/verifier_eval.py`:
+- real wrong answers, current pipeline: 3/6 caught (old 0/6), 1 false alarm
+  in 54 (that one is the known TCS p7 Docling row shift)
+- held-out mutation test (wrong figure swapped into correct answers):
+
+| Mutation | Old | New |
+|---|---|---|
+| earlier-period value | 0/44 | 32/44 |
+| different row's value | 0/44 | 37/44 |
+| invented value | 0/45 | 45/45 |
+| **all (current index)** | **0%** | **85.7%** |
+| all (docling index) | 8.1% | 87.1% |
+
+Caveat: the rules were tuned on the labelled answers; the mutation test is
+the held-out number. Not caught by design: partial answers, errors already
+in the parsed table, non-numeric answers.
+
+---
+
 ## Phase 3: Production Deployment & Reliability Hardening
 
 **Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;
