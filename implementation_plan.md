@@ -236,6 +236,41 @@ All 63 questions resolve to their labelled company + period (tested in
 
 ---
 
+## Phase 9: Metrics table — router session 1 of 2 (2026-10-15)
+
+`src/metrics/extract.py` builds `data/processed/metrics.sqlite` (1,100 rows,
+9 companies) from the Docling blocks; `src/metrics/store.py` is the lookup
+the `lookup_metric` tool will call. SQLite instead of DuckDB: stdlib, no new
+dependency (matters for the 512MB deploy target), same result at this size.
+
+Handled: period read per column from its header date (filings order
+columns differently); headers that lost dates borrow from a same-layout
+table in the filing; units from caption/header/page text; US$ columns and
+tables tagged USD and kept out of INR lookups; OCR-merged cells skipped;
+"attributable to owners" sub-rows. Lookups group values equal up to
+rounding and require a clear majority, else return `ambiguous`.
+
+`eval/metrics_eval.py`:
+- 48 hand-verified figures (41 eval questions + 7 year-ago/prior-quarter
+  values checked on page images): **46 correct, 0 wrong, 2 not returned**
+  (Reliance standalone EBITDA lives only in prose; TCS profit-to-owners
+  cell is OCR-merged)
+- held-out: accounting identities over all extracted combinations —
+  revenue + other income = total income **37/37**, PBT − tax = net profit
+  **23/23**
+
+Side effect on the verifier (shared period code): ITC's "3 Months ended"
+columns are now recognised, and column recency is ranked by header date
+instead of position (ITC prints standalone and consolidated current
+quarters side by side); "(not annualised)" no longer reads as a year claim.
+Re-measured: false alarms 1/54 (unchanged), mutation catch 113/133 = 85.0%
+(was 114/133).
+
+Next (session 2): `lookup_metric` / `calculate` / `search_filing` tools,
+tool-calling loop on gpt-oss-120b, comparison + growth eval questions.
+
+---
+
 ## Phase 3: Production Deployment & Reliability Hardening
 
 **Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;

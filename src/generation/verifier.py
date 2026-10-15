@@ -20,7 +20,7 @@ KeywordVerifier (the original substring check) is kept as the baseline.
 
 Measured with eval/verifier_eval.py:
 - mutation test (correct answers with a wrong figure swapped in, not used
-  for tuning): 85.7% caught vs 0% for KeywordVerifier
+  for tuning): 85% caught (113/133) vs 0% for KeywordVerifier
 - real wrong answers from the current pipeline: 3/6 caught (vs 0/6), with
   1 false alarm in 54 correct answers
 
@@ -288,11 +288,30 @@ def _period_kind(text: str) -> str:
     t = text.lower()
     if re.search(r"nine[\s-]*months?|9[\s-]*months", t):
         return "nine"
-    if re.search(r"year ended|full[\s-]year|annual|twelve months", t):
+    # "\bannual\b": "(not annualised)" next to a quarterly EPS is not a year claim
+    if re.search(r"year ended|full[\s-]year|\bannual\b|twelve months|\bfy\s*\d{4}\s*-\s*\d{2}", t):
         return "year"
-    if re.search(r"three months|quarter|\bq[1-4]\b", t):
+    if re.search(r"three months|\b3\s*months|quarter|\bq[1-4]\b", t):   # ITC: "3 Months ended"
         return "quarter"
     return ""
+
+
+_MONTH_NUM = {m: i for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], start=1)}
+
+
+def _header_date(text: str) -> tuple[int | None, int | None]:
+    """(month, year) from a column header ("June 30, 2026", "30.06.2026",
+    "31 .03.2026"); either can be None. Shared with metrics/extract.py."""
+    t = text.lower()
+    m = re.search(r"(\d{1,2})\s*[./-]\s*(\d{1,2})\s*[./-]\s*(\d{4})", t)
+    if m:
+        return int(m.group(2)), int(m.group(3))
+    m = re.search(r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*,?\s*(?:\d{1,2}(?:st|nd|rd|th)?)?"
+                  r"\s*,?\s*-?\s*(\d{4})?", t)
+    if m:
+        return _MONTH_NUM[m.group(1)], int(m.group(2)) if m.group(2) else None
+    return None, None
 
 
 def _basis(text: str) -> str:
@@ -325,12 +344,23 @@ def _cells_from_chunk(chunk: dict) -> list[_Cell]:
     if sep is not None and sep > 0:
         header = [h.strip() for h in lines[sep - 1].strip().strip("|").split("|")]
         kinds = [_period_kind(h) if re.search(r"\d", h) else "" for h in header]
+        # Recency by header DATE, not position: ITC's summary table puts the
+        # standalone and consolidated current-quarter columns side by side,
+        # so "leftmost quarter column = latest" mislabels the second one.
+        dates = [_header_date(h) for h in header]
+        latest: dict[str, tuple] = {}
+        for k, (m, y) in zip(kinds, dates):
+            if k and m and y:
+                latest[k] = max(latest.get(k, (0, 0)), (y, m))
         seen: dict[str, int] = {}
         col_rank = []
-        for k in kinds:
-            col_rank.append(seen.get(k, 0) if k else 0)
-            if k:
-                seen[k] = seen.get(k, 0) + 1
+        for k, (m, y) in zip(kinds, dates):
+            if k and m and y:
+                col_rank.append(0 if (y, m) == latest[k] else 1)
+            else:                                  # undated column: fall back to position
+                col_rank.append(seen.get(k, 0) if k else 0)
+                if k:
+                    seen[k] = seen.get(k, 0) + 1
         for line in lines[sep + 1:]:
             if not line.strip().startswith("|"):
                 continue

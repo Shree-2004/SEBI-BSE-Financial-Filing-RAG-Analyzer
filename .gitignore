@@ -10,3 +10,4 @@ data/*
 !data/processed/
 data/processed/*
 !data/processed/bm25_index.pkl
+!data/processed/metrics.sqlite
