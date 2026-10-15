@@ -208,6 +208,7 @@ _STRIP_PATTERNS = [
     re.compile(r"\b(?:pages?|pp?\.)\s*\d+(?:\s*(?:,|and|&|-)\s*\d+)*", re.I),  # page 5, pages 27 and 146
     re.compile(r"\bexcerpt\s+\d+\b", re.I),
     re.compile(r"\b(?=\w*[A-Za-z])(?=\w*\d)\w{6,}\b"),                           # CIN-style IDs
+    re.compile(r"[×x*]\s*100\b(?!\s*[,.]\d)|\b100\s*[×x*]"),                     # formula "× 100"
     re.compile(r"\b(?:19|20)\d{2}\b(?![,.]\d)"),                                # bare years
 ]
 _NUM_RE = re.compile(r"\d[\d,]*(?:\.\d+)?")

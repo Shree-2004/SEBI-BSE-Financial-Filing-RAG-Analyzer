@@ -25,6 +25,7 @@ from huggingface_hub import HfApi
 ALLOW = [
     "src/**/*.py",
     "data/processed/bm25_index.pkl",
+    "data/processed/metrics.sqlite",
 ]
 
 # deploy/hf-space/<name> -> Space root

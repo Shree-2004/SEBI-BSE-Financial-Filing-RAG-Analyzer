@@ -26,8 +26,10 @@ QUESTIONS = json.loads(
 @pytest.mark.parametrize("q", QUESTIONS, ids=[q["id"] for q in QUESTIONS])
 def test_eval_question_resolves_to_its_labelled_filters(q):
     r = resolve_filters(q["question"], AVAILABLE)
-    assert r["filters"] == [{"company": q["company"], "period": q["period"]}] or \
-        (r["filters"] == [{"company": q["company"]}] and detect_period(q["question"]) is None), r
+    companies = sorted(q.get("companies", [q["company"]]))
+    got = sorted(r["filters"], key=lambda f: f["company"])
+    assert got == [{"company": c, "period": q["period"]} for c in companies] or \
+        (got == [{"company": c} for c in companies] and detect_period(q["question"]) is None), r
 
 
 @pytest.mark.parametrize("text, period", [

@@ -1,0 +1,24 @@
+FinFiling RAG — Eval Summary
+=============================
+Index             : filing_chunks
+Questions         : 14/14
+Context hit @5    : 2/14 = 14.3%   (gold answer present in retrieved chunks)
+Answered          : 14  (models: openai/gpt-oss-120b)
+
+STRICT ACCURACY   : 6/14 = 42.9%
+Lenient keyword   : 5/14 = 35.7%   (legacy any-keyword metric, not accuracy)
+Grounding rate    : 8/14 = 57.1%
+Citation rate     : 10/14 = 71.4%
+Not-available     : 4/14 = 28.6%
+
+Failure split (strict misses):
+  retrieval/parse : 8   (gold not in retrieved context)
+  generation      : 0   (gold retrieved, answer still wrong)
+
+Per-category strict accuracy:
+  comparison           0/4
+  growth               5/7
+  ratio                0/2
+  ratios               1/1
+
+Strict misses: Q067 Q069 Q071 Q072 Q073 Q074 Q075 Q076

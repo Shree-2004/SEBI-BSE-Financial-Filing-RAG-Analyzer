@@ -45,6 +45,7 @@ from generation.answer_generator import AnswerGenerator
 from generation.verifier import Verifier, generate_and_verify
 from strict_score import strict_match
 from retrieval.query_filters import resolve_filters
+from generation.agent import MetricsAgent, agent_answer, needs_agent
 
 QUESTIONS_PATH = "eval/eval_questions.json"
 RESULTS_PATH = "eval/eval_results.json"
@@ -84,6 +85,7 @@ def run_eval(args):
         # keep every answer from the same model so runs are comparable
         generator.fallback_client = None
     verifier = Verifier()
+    agent = MetricsAgent(retriever) if args.router and not args.retrieval_only else None
 
     results = []
     for i, q in enumerate(questions, 1):
@@ -92,11 +94,15 @@ def run_eval(args):
             continue
         print(f"[{i}/{len(questions)}] {q['id']}: {q['question'][:60]}...")
 
-        if args.no_filters:
+        resolution = resolve_filters(q["question"], available)
+        use_agent = bool(agent) and needs_agent(q["question"], resolution["detected"]["companies"])
+        if use_agent:
+            chunks = []                     # the agent fetches its own evidence
+        elif args.no_filters:
             chunks = retriever.retrieve(query=q["question"], top_k=5, filters=None)
-        elif args.auto_filters:
+        elif args.auto_filters or args.router:
             # what the API does when the user doesn't pick a filter
-            filter_list = resolve_filters(q["question"], available)["filters"]
+            filter_list = resolution["filters"]
             if len(filter_list) > 1:
                 chunks = retriever.retrieve_multi(q["question"], filter_list, top_k=6)
             else:
@@ -116,6 +122,7 @@ def run_eval(args):
             "category": q["category"],
             "context_hit": context_hit,
             "retrieved_pages": [c.get("page_number") for c in chunks],
+            "path": "agent" if use_agent else "rag",
         }
 
         if args.retrieval_only:
@@ -127,9 +134,15 @@ def run_eval(args):
         try:
             for attempt in range(4):
                 try:
-                    result = generate_and_verify(
-                        query=q["question"], chunks=chunks, generator=generator, verifier=verifier
-                    )
+                    if use_agent:
+                        result = agent_answer(agent, verifier, q["question"])
+                        # "context" for the agent = everything its tools returned
+                        record["context_hit"] = context_hit = strict_match(result["evidence_text"], q["gold"])
+                        record["tool_calls"] = result["tool_calls"]
+                    else:
+                        result = generate_and_verify(
+                            query=q["question"], chunks=chunks, generator=generator, verifier=verifier
+                        )
                     break
                 except RateLimitError as e:
                     # per-minute (TPM/RPM) limits clear in seconds — wait them
@@ -150,7 +163,7 @@ def run_eval(args):
                 "citation_count": len(result["citations"]),
                 "citations": result["citations"],
             })
-            print(f"       strict: {'✓' if record['strict_hit'] else '✗'} | "
+            print(f"       [{record['path']}] strict: {'✓' if record['strict_hit'] else '✗'} | "
                   f"context: {'✓' if context_hit else '✗'} | grounded: {record['is_grounded']}")
         except RateLimitError as e:
             print(f"       QUOTA STOP: {e}\n       Re-run later with --resume.")
@@ -227,6 +240,9 @@ if __name__ == "__main__":
     p.add_argument("--only", help="comma-separated question ids")
     p.add_argument("--auto-filters", action="store_true",
                    help="detect company/period from the question instead of using the labelled ones")
+    p.add_argument("--router", action="store_true",
+                   help="route like the API: comparison/growth/ratio questions to the tool-using agent, "
+                        "the rest to RAG with auto-detected filters")
     p.add_argument("--no-filters", action="store_true",
                    help="no company/period filter at all (what the API did before auto-detection)")
     p.add_argument("--out", default=RESULTS_PATH)

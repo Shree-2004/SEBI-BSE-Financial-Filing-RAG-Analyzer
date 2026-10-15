@@ -1179,5 +1179,305 @@
             ]
         ],
         "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+    },
+    {
+        "id": "Q064",
+        "question": "What was TCS's consolidated revenue from operations growth year-on-year in Q3FY25?",
+        "expected_keywords": [
+            "5.6"
+        ],
+        "company": "TCS",
+        "companies": [
+            "TCS"
+        ],
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "growth",
+        "gold": [
+            [
+                "5.6",
+                "5.60",
+                "5.596"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (63,973 - 60,583) / 60,583."
+    },
+    {
+        "id": "Q065",
+        "question": "By what percentage did TCS's consolidated revenue from operations change quarter-on-quarter in Q3FY25?",
+        "expected_keywords": [
+            "0.45"
+        ],
+        "company": "TCS",
+        "companies": [
+            "TCS"
+        ],
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "growth",
+        "gold": [
+            [
+                "0.45",
+                "0.445",
+                "0.44",
+                "0.4"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (63,973 - 64,259) / 64,259 = -0.445%."
+    },
+    {
+        "id": "Q066",
+        "question": "What was HDFC Bank's standalone net profit growth year-on-year for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "4.98"
+        ],
+        "company": "HDFC Bank",
+        "companies": [
+            "HDFC Bank"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "growth",
+        "gold": [
+            [
+                "4.98",
+                "4.982",
+                "5.0"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (19,059.72 - 18,155.21) / 18,155.21."
+    },
+    {
+        "id": "Q067",
+        "question": "What was Larsen & Toubro's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "6.69"
+        ],
+        "company": "Larsen & Toubro",
+        "companies": [
+            "Larsen & Toubro"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "growth",
+        "gold": [
+            [
+                "6.69",
+                "6.694",
+                "6.7"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (67,941.74 - 63,678.92) / 63,678.92."
+    },
+    {
+        "id": "Q068",
+        "question": "What was Sun Pharma's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "10.46"
+        ],
+        "company": "Sun Pharma",
+        "companies": [
+            "Sun Pharma"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "growth",
+        "gold": [
+            [
+                "10.46",
+                "10.457",
+                "10.5"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (152,998.8 - 138,514.0) / 138,514.0."
+    },
+    {
+        "id": "Q069",
+        "question": "What was Maruti Suzuki's standalone revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "35.92"
+        ],
+        "company": "Maruti Suzuki",
+        "companies": [
+            "Maruti Suzuki"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "growth",
+        "gold": [
+            [
+                "35.92",
+                "35.920",
+                "35.9"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (524,557 - 385,930) / 385,930."
+    },
+    {
+        "id": "Q070",
+        "question": "What was Bharti Airtel's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "18.35"
+        ],
+        "company": "Bharti Airtel",
+        "companies": [
+            "Bharti Airtel"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "growth",
+        "gold": [
+            [
+                "18.35",
+                "18.350",
+                "18.4"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (585,391 - 494,626) / 494,626."
+    },
+    {
+        "id": "Q071",
+        "question": "Which had higher consolidated revenue from operations for the quarter ended June 30, 2026: ITC or Maruti Suzuki?",
+        "expected_keywords": [
+            "Maruti",
+            "52,469.8"
+        ],
+        "company": "ITC",
+        "companies": [
+            "ITC",
+            "Maruti Suzuki"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "comparison",
+        "gold": [
+            [
+                "Maruti"
+            ],
+            [
+                "52,469.8",
+                "52,469.80",
+                "52,470"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: Maruti 524,698 million = 52,469.8 crore vs ITC 29,523.30 crore."
+    },
+    {
+        "id": "Q072",
+        "question": "How much higher was Bharti Airtel's consolidated revenue from operations than Sun Pharma's for the quarter ended June 30, 2026, in rupees crore?",
+        "expected_keywords": [
+            "43,239.22"
+        ],
+        "company": "Bharti Airtel",
+        "companies": [
+            "Bharti Airtel",
+            "Sun Pharma"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "comparison",
+        "gold": [
+            [
+                "43,239.22",
+                "43,239.2",
+                "43,239"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 58,539.1 - 15,299.88 crore (both reported in million)."
+    },
+    {
+        "id": "Q073",
+        "question": "Compare Larsen & Toubro's and Infosys's consolidated revenue from operations for the quarter ended June 30, 2026. What was the difference?",
+        "expected_keywords": [
+            "19,730.74"
+        ],
+        "company": "Larsen & Toubro",
+        "companies": [
+            "Larsen & Toubro",
+            "Infosys"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "comparison",
+        "gold": [
+            [
+                "19,730.74",
+                "19,730.7",
+                "19,731"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 67,941.74 - 48,211."
+    },
+    {
+        "id": "Q074",
+        "question": "Compare HDFC Bank's standalone net profit with Infosys's consolidated net profit for the quarter ended June 30, 2026. Which was higher and by how much?",
+        "expected_keywords": [
+            "HDFC",
+            "11,284.72"
+        ],
+        "company": "HDFC Bank",
+        "companies": [
+            "HDFC Bank",
+            "Infosys"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "comparison",
+        "gold": [
+            [
+                "HDFC"
+            ],
+            [
+                "11,284.72",
+                "11,284.7",
+                "11,285"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 19,059.72 - 7,775."
+    },
+    {
+        "id": "Q075",
+        "question": "What was TCS's consolidated net profit margin (net profit as a percentage of revenue from operations) in Q3FY25?",
+        "expected_keywords": [
+            "19.45"
+        ],
+        "company": "TCS",
+        "companies": [
+            "TCS"
+        ],
+        "period": "Q3FY25",
+        "doc_type": "quarterly_result",
+        "category": "ratio",
+        "gold": [
+            [
+                "19.45",
+                "19.452",
+                "19.5"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 12,444 / 63,973."
+    },
+    {
+        "id": "Q076",
+        "question": "What was ITC's standalone profit before tax margin (PBT as a percentage of revenue from operations) for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "17.66"
+        ],
+        "company": "ITC",
+        "companies": [
+            "ITC"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "ratio",
+        "gold": [
+            [
+                "17.66",
+                "17.665",
+                "17.7",
+                "17.67"
+            ]
+        ],
+        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 4,759.41 / 26,943.23."
     }
 ]

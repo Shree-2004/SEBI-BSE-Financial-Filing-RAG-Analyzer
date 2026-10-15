@@ -271,6 +271,39 @@ tool-calling loop on gpt-oss-120b, comparison + growth eval questions.
 
 ---
 
+## Phase 10: Agentic router — session 2 of 2 (2026-10-15)
+
+`src/generation/agent.py`: gpt-oss-120b tool loop (Groq tool calling, max 8
+steps) with `lookup_metric` (metrics table), `calculate` (AST arithmetic
+only — names, calls, lists rejected) and `search_filing` (hybrid retrieval
+fallback). Routing (`needs_agent`) is a rule: comparison / growth / ratio
+wording or 2+ companies -> agent; everything else stays on RAG. The answer
+is verified against the tool outputs (lookups, calculations with their
+inputs, retrieved chunks) with the same cell-level Verifier.
+API: `mode` = auto | rag | agent; response carries `path` and `tool_calls`.
+
+13 new eval questions (Q064-Q076: 7 growth, 4 cross-company comparisons
+incl. ₹ crore vs ₹ million, 2 margins), gold computed from hand-verified
+figures. Same model:
+
+| | Plain RAG (auto filters) | Router -> agent |
+|---|---|---|
+| Strict accuracy, 13 new questions | 5/13 | **13/13** |
+| Answers verified grounded | — | 13/13 |
+| Tool calls per question | — | median 3 |
+
+Router sends only 1 of the original 63 questions to the agent (Q005, a
+"margin ratio formula" question): still correct, via search_filing.
+
+Verifier fix found here: formula constants ("× 100") are not claims.
+
+Next idea (measured, not done): single-figure questions via lookup_metric
+too — the table is 46/48 correct with 0 wrong, above RAG's 85.7% strict
+(e.g. Q046 ITC standalone revenue: RAG answers 26,794.47, flagged by the
+verifier; the table has 26,943.23). Needs a full 63-question run.
+
+---
+
 ## Phase 3: Production Deployment & Reliability Hardening
 
 **Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;

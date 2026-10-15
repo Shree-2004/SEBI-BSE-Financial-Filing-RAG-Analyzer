@@ -199,6 +199,11 @@ export default function App() {
                             <span className="meta-pill">Confidence {(result.grounding_confidence * 100).toFixed(0)}%</span>
                             <span className="meta-pill">{result.chunks_used} chunks</span>
                             <span className="meta-pill latency">{result.latency_ms.toFixed(0)} ms</span>
+                            {result.path === "agent" && (
+                                <span className="meta-pill" title={(result.tool_calls || []).map((t) => t.tool).join(" → ")}>
+                                    Computed with tools · {(result.tool_calls || []).length} calls
+                                </span>
+                            )}
                             {result.filters_applied?.filters?.length > 0 && (
                                 <span className="meta-pill" title="Company and period used to filter the search">
                                     Searched: {result.filters_applied.filters

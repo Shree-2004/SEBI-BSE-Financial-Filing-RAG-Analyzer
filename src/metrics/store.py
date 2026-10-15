@@ -92,7 +92,7 @@ class MetricStore:
             "basis": first["basis"],
             "value": value,
             "unit": first["unit"],
-            "value_crore": first["value_crore"],
+            "value_crore": best[0]["value_crore"],    # same (most precise) row as value
             "sources_agreeing": n_agree,
             "sources_total": len(rows),
             "conflicting_values": sorted(v for v in votes if v != value),

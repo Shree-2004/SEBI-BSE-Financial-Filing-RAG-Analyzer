@@ -32,6 +32,7 @@ RUN chmod -R 777 /app/.cache
 
 COPY src/ ./src/
 COPY data/processed/bm25_index.pkl ./data/processed/bm25_index.pkl
+COPY data/processed/metrics.sqlite ./data/processed/metrics.sqlite
 
 ENV PYTHONPATH=/app/src
 ENV PORT=8000

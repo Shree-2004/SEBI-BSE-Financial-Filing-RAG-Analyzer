@@ -1,0 +1,654 @@
+[
+  {
+    "id": "Q005",
+    "question": "What was the net profit margin ratio formula used by Reliance Industries?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "ratios",
+    "context_hit": true,
+    "retrieved_pages": [
+      118,
+      118,
+      118,
+      33,
+      153
+    ],
+    "path": "rag",
+    "answer": "- **Net Profit Margin formula**: Net Profit Margin = Profit After Tax ÷ Value of Sales & Services [Reliance Industries | FY2025 | Page 118 | table].",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 118,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Reliance Industries | FY2025 | standalone and consolidated annual report | page 118\n39. Ratio Analysis:\n* Net Capital Turnover Ratio improved due to reduction in net working capital.\n39.1 Formula for computation of ratios are as follows:\n** \u0007Capital employed includes Equity, Borrowings, Deferred Tax..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 33,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Reliance Industries | FY2025 | standalone and consolidated annual report | page 33\nMovement in Key Financial Ratios\nThe net capital turnover ratio improved from 25.43 in FY 2023-24 to 47.92 in FY 2024-25, due to reduction in net working capital.\nThe operating margin ratio declined to 7.2% in FY 2024..."
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 153,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Reliance Industries | FY2025 | consolidated annual report | page 153\nThe Net Gearing Ratio at the end of the reporting period was as follows:\n| | As at 31st March, 2025 | (C in crore) As at 31st March, 2024 |\n|---|---|---|\n| Gross Debt | 3,47,530 | 3,24,622 |\n| Cash and Marketable Securities * | 2,3..."
+      }
+    ]
+  },
+  {
+    "id": "Q064",
+    "question": "What was TCS's consolidated revenue from operations growth year-on-year in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      13,
+      8,
+      7,
+      6,
+      7
+    ],
+    "path": "rag",
+    "answer": "- Consolidated revenue from operations for the quarter ended 31 December 2024 (Q3 FY 25) was **₹63,973 crore**.  \n- For the same quarter in the prior year (ended 31 December 2023) it was **₹60,583 crore**.  \n\n**Year‑on‑year growth**\n\n\\[\n\\frac{63,973 - 60,583}{60,583} \\times 100 = 5.596\\% \n\\]\n\nSo, TCS’s consolidated revenue from operations grew **5.596 % YoY** in Q3 FY 25.  \n\n**Source:** [TCS | Q3FY25 | Page 7] (consolidated interim statement).",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.375,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 13,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS | Q3FY25 | standalone quarterly results | page 13\nAudited Standalone Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended - ..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS | Q3FY25 | consolidated quarterly results | page 8\nTATA CONSULTANCY SERVICES LIMITED Audited Consolidated Interim Segment Information\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS | Q3FY25 | consolidated quarterly results | page 7\nAudited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS | Q3FY25 | consolidated quarterly results | page 6\nIndependent Auditor's Report (Continued)\nTata Consultancy Services Limited"
+      }
+    ]
+  },
+  {
+    "id": "Q065",
+    "question": "By what percentage did TCS's consolidated revenue from operations change quarter-on-quarter in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      7,
+      7,
+      7,
+      1,
+      7
+    ],
+    "path": "rag",
+    "answer": "- Consolidated revenue from operations for the quarter ended 31 Dec 2024 was **₹ 63,973** and for the prior quarter ended 30 Sep 2024 was **₹ 64,259**【TCS | Q3FY25 | Page 7】.  \n- The quarter‑on‑quarter change is:  \n\n\\[\n\\frac{63,973 - 64,259}{64,259}\\times 100 = \\frac{-286}{64,259}\\times 100 = -0.445\\%\n\\]\n\n**Result:** Consolidated revenue from operations **decreased by approximately 0.445 %** quarter‑on‑quarter in Q3FY25.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.273,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS | Q3FY25 | consolidated quarterly results | page 7\nAudited Consolidated Interim Statement of Financial Results\n| | Three months ended - December 31, 2024 | Three months ended - September 30, 2024 | Three months ended - December 31, 2023 | Nine months ended - December 31, 2024 | Nine months ended..."
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "TCS | Q3FY25 | standalone and consolidated quarterly results | page 1\nTCS/BM/241/SE/2024-25 January 9, 2025\nNational Stock Exchange of India Limited Exchange Plaza, C-1, Block G, Bandra Kurla Complex, Bandra (East), Mumbai - 400051 Symbol - TCS\nBSE Limited P. J. Towers, Dalal Street, Mumbai - 400001..."
+      }
+    ]
+  },
+  {
+    "id": "Q066",
+    "question": "What was HDFC Bank's standalone net profit growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [
+      18,
+      19,
+      21,
+      20,
+      19
+    ],
+    "path": "rag",
+    "answer": "- HDFC Bank’s standalone profit after tax (PAT) for the quarter ended 30 June 2026 was **₹ 190.6 billion**, representing a **5.0 % year‑on‑year increase** over the same quarter in 2025【Excerpt 2 | HDFC Bank | Q1FY27 | Page 19】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 18,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "HDFC Bank | Q1FY27 | standalone quarterly results | page 18\nProfit & Loss Account: Quarter ended June 30, 2026\nThe Bank's net revenue was ₹ 463.6 billion for the quarter ended June 30, 2026, as against  531.7 billion (which included transaction gains of  91.3 billion from a partial divestment throug..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 19,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "HDFC Bank | Q1FY27 | standalone quarterly results | page 19\nWe understand your world We understand your world HDFC BANK LIMITED, Sandoz House, Shivsagar Estate, Dr. Annie Besant Road, Worli, Mumbai - 400 018. CIN: L65920MH1994PLC080618\nProvisions and contingencies for the quarter ended June 30, 2026..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 21,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "HDFC Bank | Q1FY27 | consolidated quarterly results | page 21\nAssets Under Management were approximately  9,351 billion. Profit after tax for the quarter ended June 30, 2026 was 8.4 billion compared to ₹ 7.5 billion for the quarter ended June 30, 2025, a growth of 12.1%.\nHDFC Securities Ltd. (HSL), ..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 20,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "HDFC Bank | Q1FY27 | standalone quarterly results | page 20\nri  is r o    s   riy manned by Common Service Centres (CSC). The number of employees were at 2,12,958 as of June 30, 2026 (as against 2,18,822 as of June 30, 2025).\nASSET QUALITY\nGross non-performing assets were at 1.17% of gross advances ..."
+      }
+    ]
+  },
+  {
+    "id": "Q067",
+    "question": "What was Larsen & Toubro's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      6,
+      7,
+      6,
+      5,
+      3
+    ],
+    "path": "rag",
+    "answer": "- Consolidated revenue from operations grew **7% year‑on‑year** for the quarter ended June 30, 2026. [​Larsen & Toubro | Q1FY27 | Page 3]",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q068",
+    "question": "What was Sun Pharma's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      10,
+      6,
+      9,
+      7,
+      8
+    ],
+    "path": "rag",
+    "answer": "- **Consolidated revenue from operations (quarter ended 30 June 2026):** ₹ 152,998.8 million  \n- **Consolidated revenue from operations (quarter ended 30 June 2025):** ₹ 138,514.0 million  \n\n**Year‑on‑year growth**\n\n\\[\n\\frac{152,998.8 - 138,514.0}{138,514.0}\\times 100 = 10.46\\%\n\\]\n\n**Result:** Sun Pharma’s consolidated revenue from operations grew **approximately 10.46 % YoY** for the quarter ended 30 June 2026.  \n\n*Source: [Sun Pharma | Q1FY27 | Page 10]*",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.25,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharma | Q1FY27 | consolidated quarterly results | page 10\nSun Pharmaceutical Industries Limited\n| | Particulars | Quarter ended - 30.06.2026 - Unaudited | Quarter ended - 31.03.2026 - Audited | Quarter ended - 30.06.2025 - Unaudited | ({ in Million) - Year ended - 31 .03.2026 - Audited |\n|---|-..."
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharma | Q1FY27 | consolidated quarterly results | page 6\nSR BC & COLLP\nChartered Accountants\nSun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026\nPage 2 of 5\nThe accompanying Statement includes the unaudited interim financial results and other financia..."
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 9,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharma | Q1FY27 | consolidated quarterly results | page 9\nSR BC & COLLP\nChartered Accountants\nSun Pharmaceutical Industr ies Limited Limited Review Report for the quarter ended June 30, 2026 Page 5 of 5\nNote: Number of subsidiaries reported under para 6 of the auditor's review report have been r..."
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharma | Q1FY27 | consolidated quarterly results | page 7\nSun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026 Page 3 of 5\nAnnexure I - List of entities included in the report of the unaudited Consolidated Financial Results"
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Sun Pharma | Q1FY27 | consolidated quarterly results | page 8\nSR 8 C & COLLP\nChartered Accountants\nSun Pharmaceutical Industries Limited Limited Review Report for the quarter ended June 30, 2026 Page 4 of 5"
+      }
+    ]
+  },
+  {
+    "id": "Q069",
+    "question": "What was Maruti Suzuki's standalone revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      2,
+      2,
+      2,
+      2,
+      3
+    ],
+    "path": "rag",
+    "answer": "- **Total revenue from operations (quarter ended June 30 2026):** ₹ 524,557 million  \n- **Total revenue from operations (quarter ended June 30 2025):** ₹ 385,930 million  \n\n**Year‑on‑year growth**\n\n\\[\n\\frac{524,557 - 385,930}{385,930}\\times 100 = 35.93\\%\n\\]\n\n**Result:** Maruti Suzuki’s standalone revenue from operations grew **approximately 35.93 %** YoY for the quarter ended June 30 2026.  \n\n**Source:** [Maruti Suzuki | Q1FY27 | Page 2]",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.25,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Maruti Suzuki | Q1FY27 | standalone quarterly results | page 2\nStatement of Standalone Unaudited Financial Results for the quarter ended June 30, 2026\n| Particulars | | Quarter ended - June 30, 2026 - Unaudited | Quarter ended - March 31, 2026 - Audited (Refer Note 6) | Quarter ended - June 30, 2025..."
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Maruti Suzuki | Q1FY27 | standalone quarterly results | page 3\nquarter ended March 31, 2026 are the balancing figures between the audited figures for the year ended March 31, 2026 and the unaudited published figures up to nine months ended December 31, 2025 which were subjected to limited review by ..."
+      }
+    ]
+  },
+  {
+    "id": "Q070",
+    "question": "What was Bharti Airtel's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      3,
+      4,
+      4,
+      2,
+      3
+    ],
+    "path": "rag",
+    "answer": "- Consolidated revenue from operations for the quarter ended 30 June 2026: **₹ 585,391 million**【Bharti Airtel | Q1FY27 | Page 3】  \n- Consolidated revenue from operations for the same quarter in the prior year (30 June 2025): **₹ 494,626 million**【Bharti Airtel | Q1FY27 | Page 3】\n\n**Year‑on‑year growth**\n\n\\[\n\\frac{585,391 - 494,626}{494,626}\\times 100 = 18.35\\%\n\\]\n\n- YoY increase: **₹ 90,765 million**, which is **approximately 18.35 %** higher than the prior‑year quarter.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.333,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "Bharti Airtel",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": "quarterly_result",
+        "source_file": "bharti_airtel_q1fy27.pdf",
+        "excerpt": "Bharti Airtel | Q1FY27 | consolidated quarterly results | page 3\nCIN:L74899HR1995PLC095967\n| Particulars | Quarter ended / As of - June 30,2026 Audited | Quarter ended / As of - March 31, 2026 Audited | Quarter ended / As of - June 30,2025 Audited | Previous year ended / As of - March 31,2026 Audite..."
+      },
+      {
+        "company": "Bharti Airtel",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "bharti_airtel_q1fy27.pdf",
+        "excerpt": "Bharti Airtel | Q1FY27 | consolidated quarterly results | page 4\nNotes to the Audited Consolidated Financial Results\nTo et f e  t  e  e    e e e  det 1. Committee and approved by the Board of Directors at their respective meetings held on August 4, 2026.\n2 Tanied oe ced ot   on ied oe d i  c iael St..."
+      },
+      {
+        "company": "Bharti Airtel",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": "quarterly_result",
+        "source_file": "bharti_airtel_q1fy27.pdf",
+        "excerpt": "Bharti Airtel | Q1FY27 | consolidated quarterly results | page 2\nBharti Airtel Limited\nCIN:L74899HR1995PLC095967\nRegistered Office: Airtel Center, Plot no. 16, Udyog Vihar, Phase IV, Gurugram – 122015, India T.: +91-124-4222222, F.: +91-124-4248063, Email id: compliance.officer@bharti.in\nStatement o..."
+      }
+    ]
+  },
+  {
+    "id": "Q071",
+    "question": "Which had higher consolidated revenue from operations for the quarter ended June 30, 2026: ITC or Maruti Suzuki?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": false,
+    "retrieved_pages": [
+      8,
+      4,
+      8,
+      4,
+      2,
+      5
+    ],
+    "path": "rag",
+    "answer": "- **ITC** – Consolidated “Gross Revenue from sale of products and services” for the quarter ended 30 June 2026 is **29,409.82 Crores**【ITC | Q1FY27 | Page 8】.  \n- **Maruti Suzuki** – Consolidated “Total revenue from operations” for the quarter ended 30 June 2026 is **524,698** (as presented in the filing)【Maruti Suzuki | Q1FY27 | Page 4】.  \n\n**Conclusion:** ITC’s consolidated revenue for the quarter is higher than Maruti Suzuki’s.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 8,
+        "doc_type": "quarterly_result",
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "ITC | Q1FY27 | consolidated quarterly results | page 8\nITC LIMITED\nSegment-wise Revenue, Results, Assets and Liabilities for the Quarter ended 30th June, 2026\n(f in Crores)\n# The figures for the preceding 3 months ended 31.03.2026 are the balancing figures between the audited figures in respect of t..."
+      },
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "ITC | Q1FY27 | standalone quarterly results | page 4\nITC LIMITED Segment-wise Revenue, Results, Assets and Liabilities for the Quarter ended 30th June, 2026\n# The figures for the preceding 3 months ended 31 .03.2026 are the balancing figures between the audited figures in respect of the full financi..."
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Maruti Suzuki | Q1FY27 | consolidated quarterly results | page 4\nMARUTI SUZUKI INDIA LIMITED\n| | | Quarter ended | Quarter ended | Quarter ended | Year ended |\n|---|---|---|---|---|---|\n| | Particulars | June 30, 2026 | March 31, 2026 | June 30, 2025 | March 31, 2026 |\n| | | Unaudited | Audited (Ref..."
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Maruti Suzuki | Q1FY27 | standalone quarterly results | page 2\nStatement of Standalone Unaudited Financial Results for the quarter ended June 30, 2026\n| Particulars | | Quarter ended - June 30, 2026 - Unaudited | Quarter ended - March 31, 2026 - Audited (Refer Note 6) | Quarter ended - June 30, 2025..."
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Maruti Suzuki | Q1FY27 | consolidated quarterly results | page 5\nNotes to the Statement of Consolidated Unaudited Financial Results for the quarter ended June 30, 2026:\n1 The above financial results have been prepared in accordance with the recognition and measurement principles laid down in Ind AS ..."
+      }
+    ]
+  },
+  {
+    "id": "Q072",
+    "question": "How much higher was Bharti Airtel's consolidated revenue from operations than Sun Pharma's for the quarter ended June 30, 2026, in rupees crore?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": false,
+    "retrieved_pages": [
+      10,
+      4,
+      4,
+      10,
+      6,
+      24
+    ],
+    "path": "rag",
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q073",
+    "question": "Compare Larsen & Toubro's and Infosys's consolidated revenue from operations for the quarter ended June 30, 2026. What was the difference?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": false,
+    "retrieved_pages": [
+      43,
+      35,
+      193,
+      6,
+      6,
+      7
+    ],
+    "path": "rag",
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q074",
+    "question": "Compare HDFC Bank's standalone net profit with Infosys's consolidated net profit for the quarter ended June 30, 2026. Which was higher and by how much?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": false,
+    "retrieved_pages": [
+      25,
+      27,
+      25,
+      18,
+      21,
+      14
+    ],
+    "path": "rag",
+    "answer": "- **HDFC Bank (standalone)** – Net profit after tax (before consolidation adjustments) for the quarter ended 30 June 2026 was **₹ 816.06 crore**【HDFC Bank | Q1FY27 | Page 14】.  \n\n- **Infosys (consolidated)** – The consolidated net profit for the quarter ended 30 June 2026 is **not disclosed** in the excerpts provided. The only profit figures given for Infosys are standalone results (e.g., profit for the period of ₹ 7,249 crore)【Infosys | Q1FY27 | Page 25】, and the consolidated results are mentioned without any numeric values【Infosys | Q1FY27 | Page 25】.  \n\n**Conclusion:** The available data allow us to state HDFC Bank’s standalone net profit (₹ 816.06 crore), but Infosys’s consolidated net profit for the same quarter is not available in the provided filings, so a direct comparison cannot be made.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 5,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 25,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys | Q1FY27 | standalone and consolidated quarterly results | page 25\n4. Audited financial results of Infosys Limited (Standalone Information)\n| Particulars | Quarter ended June 30, | Quarter ended March 31, | Quarter ended June 30, | . Year ended March 31, |\n|---|---|---|---|---|\n| | 2026 | 20..."
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 27,
+        "doc_type": "quarterly_result",
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Infosys | Q1FY27 | standalone and consolidated quarterly results | page 27\n2. Information on dividends for the quarter ended June 30, 2026\nFor financial year 2026, the Board recommended a final dividend of f25/- (par value of f5/- each) per equity share. The same was approved by the shareholders in ..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 18,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "HDFC Bank | Q1FY27 | standalone quarterly results | page 18\nProfit & Loss Account: Quarter ended June 30, 2026\nThe Bank's net revenue was ₹ 463.6 billion for the quarter ended June 30, 2026, as against  531.7 billion (which included transaction gains of  91.3 billion from a partial divestment throug..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 21,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "HDFC Bank | Q1FY27 | consolidated quarterly results | page 21\nAssets Under Management were approximately  9,351 billion. Profit after tax for the quarter ended June 30, 2026 was 8.4 billion compared to ₹ 7.5 billion for the quarter ended June 30, 2025, a growth of 12.1%.\nHDFC Securities Ltd. (HSL), ..."
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 14,
+        "doc_type": "quarterly_result",
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "HDFC Bank | Q1FY27 | standalone and consolidated quarterly results | page 14\ntotal assets (before consolidation adjustments) of Rs. 4,48,061.91 crore as at 30 June 2026 and total revenues (before consolidation adjustments) of Rs. 36,173.21 crore and total net profit after tax (before consolidation a..."
+      }
+    ]
+  },
+  {
+    "id": "Q075",
+    "question": "What was TCS's consolidated net profit margin (net profit as a percentage of revenue from operations) in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "ratio",
+    "context_hit": false,
+    "retrieved_pages": [
+      2,
+      5,
+      7,
+      7,
+      7
+    ],
+    "path": "rag",
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q076",
+    "question": "What was ITC's standalone profit before tax margin (PBT as a percentage of revenue from operations) for the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "ratio",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      4,
+      3,
+      10,
+      4
+    ],
+    "path": "rag",
+    "answer": "- **Profit before tax (PBT) for the quarter ended 30 June 2026 (stand‑alone):** ₹ 4,759.41 crore [ITC | Q1FY27 | Page 4]  \n- **Revenue from operations for the same quarter (stand‑alone):** ₹ 27,588.56 crore [ITC | Q1FY27 | Page 10]  \n\n**PBT margin** = (PBT ÷ Revenue from operations) × 100  \n= (4,759.41 ÷ 27,588.56) × 100  \n= **17.25 %** (rounded to two decimal places).  \n\nThus, ITC’s standalone profit‑before‑tax margin for the quarter ended 30 June 2026 was **approximately 17.25 %**.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": false,
+    "grounding_confidence": 0.5,
+    "not_available": false,
+    "citation_count": 3,
+    "citations": [
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "ITC | Q1FY27 | standalone quarterly results | page 4\nITC LIMITED Segment-wise Revenue, Results, Assets and Liabilities for the Quarter ended 30th June, 2026\n# The figures for the preceding 3 months ended 31 .03.2026 are the balancing figures between the audited figures in respect of the full financi..."
+      },
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": "quarterly_result",
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "ITC | Q1FY27 | standalone quarterly results | page 3\nStatement of Unaudited Standalone Financial Results for the Quarter ended 30th June, 2026\n| Particulars | | 3 Months ended 30.06.2026 | Corresponding 3 Months ended 30.06.2025 | Preceding 3 Months ended 31 .03.2026' | If in Croresl Twelve Months e..."
+      },
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": "quarterly_result",
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "ITC | Q1FY27 | standalone and consolidated quarterly results | page 10\nExtract of Unaudited Standalone and Consolidated Financial Results for the Quarter ended 30th June, 2026\n| SI. No. | Particulars | Standalone - 3 Months ended 30.06.2026 | Standalone - Twelve Months ended 31.03.2026 | Standalone ..."
+      }
+    ]
+  }
+]

@@ -25,7 +25,7 @@ import os
 import time
 import uuid
 from contextlib import asynccontextmanager
-from typing import Optional
+from typing import Literal, Optional
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Query, Request
@@ -42,6 +42,8 @@ from indexing.embed import Embedder
 from indexing.vector_store import VectorStore
 from retrieval.hybrid_retriever import HybridRetriever
 from retrieval.query_filters import resolve_filters
+from generation.agent import MetricsAgent, agent_answer, needs_agent
+from metrics.store import MetricStore
 from api.query_cache import QueryCache
 from api.logging_config import setup_logging, get_logger
 
@@ -109,6 +111,7 @@ class AppState:
     startup_time: float = None
     query_cache: QueryCache = None
     available_periods: dict = None   # company -> periods actually in the index
+    agent: MetricsAgent = None       # tool-using path for comparison / growth / ratio questions
 
 state = AppState()
 state.query_cache = QueryCache(max_entries=500, ttl_seconds=3600)
@@ -135,6 +138,9 @@ async def lifespan(app: FastAPI):
     for chunk in (state.retriever.bm25.chunks if state.retriever.bm25 else []):
         if chunk.get("company") in state.available_periods:
             state.available_periods[chunk["company"]].add(chunk.get("period"))
+    state.agent = MetricsAgent(
+        state.retriever, MetricStore(os.getenv("METRICS_DB_PATH", "data/processed/metrics.sqlite"))
+    )
     state.startup_time = time.time() - t0
 
     logger.info("All models loaded", extra={"startup_time_s": round(state.startup_time, 2)})
@@ -239,11 +245,16 @@ class QueryRequest(BaseModel):
         le=10,
         description="Number of source chunks to retrieve",
     )
+    mode: Literal["auto", "rag", "agent"] = Field(
+        default="auto",
+        description="auto: comparison/growth/ratio questions go to the tool-using agent, "
+                    "the rest to retrieval + answer. rag / agent force one path.",
+    )
 
 
 class CitationSchema(BaseModel):
-    company: str
-    period: str
+    company: Optional[str]
+    period: Optional[str]
     page_number: Optional[int]
     doc_type: Optional[str]
     source_file: Optional[str]
@@ -271,6 +282,8 @@ class QueryResponse(BaseModel):
     filters_applied: dict
     latency_ms: float
     cached: bool = False
+    path: str = "rag"                    # "rag" or "agent"
+    tool_calls: list[dict] = []          # agent path: every tool call made
 
 
 # ---------------------------------------------------------------------------
@@ -330,7 +343,11 @@ async def query(request: Request, payload: QueryRequest):
     # re-retrieving, and re-generating — saves both latency and Groq's
     # scarce daily token quota. Exact-match only (see query_cache.py).
     cache_key = state.query_cache.make_key(
-        payload.query, payload.company, payload.period, payload.doc_type, payload.top_k
+        payload.query + f"||{payload.mode}", payload.company, payload.period, payload.doc_type, payload.top_k
+    )
+    companies = [payload.company] if payload.company else resolution["detected"]["companies"]
+    use_agent = payload.mode == "agent" or (
+        payload.mode == "auto" and needs_agent(payload.query, companies)
     )
     cached_result = state.query_cache.get(cache_key)
     if cached_result is not None:
@@ -340,8 +357,12 @@ async def query(request: Request, payload: QueryRequest):
         )
 
     try:
+        if use_agent:
+            # comparisons / growth / ratios: lookup_metric + calculate tools,
+            # verified against the tool outputs
+            result = agent_answer(state.agent, state.verifier, payload.query)
         # Retrieve relevant chunks (one search per company for comparisons)
-        if len(filter_list) > 1:
+        elif len(filter_list) > 1:
             chunks = state.retriever.retrieve_multi(payload.query, filter_list, top_k=max(payload.top_k, 6))
         else:
             chunks = state.retriever.retrieve(
@@ -350,7 +371,7 @@ async def query(request: Request, payload: QueryRequest):
                 filters=filter_list[0] if filter_list else None,
             )
 
-        if not chunks:
+        if not use_agent and not chunks:
             logger.warning(
                 "no chunks retrieved",
                 extra={"request_id": request_id, "filters": filters},
@@ -362,12 +383,13 @@ async def query(request: Request, payload: QueryRequest):
             )
 
         # Generate + verify
-        result = generate_and_verify(
-            query=payload.query,
-            chunks=chunks,
-            generator=state.generator,
-            verifier=state.verifier,
-        )
+        if not use_agent:
+            result = generate_and_verify(
+                query=payload.query,
+                chunks=chunks,
+                generator=state.generator,
+                verifier=state.verifier,
+            )
 
     except HTTPException:
         raise
@@ -405,6 +427,8 @@ async def query(request: Request, payload: QueryRequest):
         filters_applied=filters,
         latency_ms=round(latency_ms, 2),
         cached=False,
+        path="agent" if use_agent else "rag",
+        tool_calls=result.get("tool_calls", []),
     )
     state.query_cache.set(cache_key, response)
     return response
