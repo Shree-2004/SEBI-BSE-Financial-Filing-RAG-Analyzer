@@ -1,5 +1,7 @@
 # FinFiling RAG — SEBI/BSE Financial Filing Analyzer
 
+[![Tests](https://github.com/Shree-2004/SEBI-BSE-Financial-Filing-RAG-Analyzer/actions/workflows/tests.yml/badge.svg)](https://github.com/Shree-2004/SEBI-BSE-Financial-Filing-RAG-Analyzer/actions/workflows/tests.yml)
+
 
 FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system built over real Indian financial filings (SEBI/BSE corporate disclosures). It answers natural-language questions with **exact citations** from source documents, prioritizing financial accuracy and traceability.
 
@@ -117,7 +119,7 @@ cd finfiling-frontend && npm install && npm run dev
 
 ```bash
 pip install -r requirements-test.txt
-pytest          # no API keys or models needed
+pytest          # no API keys or models needed; also runs in CI on every push
 ```
 
 ## 🔌 API Endpoints
