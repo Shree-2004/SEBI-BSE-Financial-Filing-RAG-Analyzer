@@ -13,9 +13,9 @@ const HEALTH_CHECK_RETRY_MS = 10000;
 
 const SAMPLE_QUERIES = [
     "What was TCS revenue from operations in Q3FY25?",
-    "What was the standalone Profit After Tax of Reliance Industries in FY25?",
-    "What dividend did TCS declare in Q3FY25?",
-    "What was Infosys consolidated revenue from operations in Q1FY27?",
+    "What was HDFC Bank's standalone net profit for the quarter ended June 30, 2026?",
+    "Compare Bharti Airtel and Sun Pharma revenue growth year-on-year for the quarter ended June 30, 2026",
+    "What was TCS's consolidated net profit margin in Q3FY25?",
 ];
 
 export default function App() {

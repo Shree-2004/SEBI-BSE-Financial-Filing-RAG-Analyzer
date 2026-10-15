@@ -1,5 +1,6 @@
 # FinFiling RAG — SEBI/BSE Financial Filing Analyzer
 
+
 FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system built over real Indian financial filings (SEBI/BSE corporate disclosures). It answers natural-language questions with **exact citations** from source documents, prioritizing financial accuracy and traceability.
 
 ## Features
@@ -16,105 +17,119 @@ FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system b
 
 ## 🛠️ Tech Stack
 
-- **Ingestion:** `docling` (default, see `requirements-ingest.txt`), `pdfplumber` + `pytesseract` (legacy parser / OCR fallback)
+- **Ingestion:** `docling` (layout + TableFormer, RapidOCR for scanned filings; see `requirements-ingest.txt`), `pdfplumber` (legacy parser)
 - **Embeddings:** `BAAI/bge-base-en-v1.5` via `sentence-transformers`
-- **Vector Store:** Qdrant Cloud (or FAISS for local dev)
-- **Hybrid Retrieval:** Dense Embeddings + `rank-bm25`
-- **Reranking:** `CrossEncoder`
-- **Generation:** LLM API (OpenAI / Anthropic / Groq)
-- **Backend:** `FastAPI`, `Uvicorn`, `Pydantic`
-- **Frontend:** React (in `finfiling-frontend/`)
-- **Deployment:** Railway (backend), Vercel (frontend)
+- **Vector store:** Qdrant Cloud (or embedded on-disk Qdrant via `QDRANT_PATH` for local eval)
+- **Hybrid retrieval:** dense + `rank-bm25`, fused with Reciprocal Rank Fusion
+- **Reranking:** `cross-encoder/ms-marco-MiniLM-L-6-v2`
+- **Generation + tool calling:** `openai/gpt-oss-120b` on Groq (OpenAI `gpt-4o-mini` as rate-limit fallback)
+- **Metrics store:** SQLite (`data/processed/metrics.sqlite`)
+- **Backend:** FastAPI, Uvicorn, Pydantic, slowapi (rate limiting), optional Sentry
+- **Frontend:** React + Vite (`finfiling-frontend/`)
+- **Deployment:** Docker image (Render config) or Hugging Face Space (`deploy/`); Vercel for the frontend
+
+**Indexed filings (9 companies, 7 sectors):** Reliance Industries (annual report FY2025), TCS (Q3FY25), Infosys, HDFC Bank, ITC, Bharti Airtel, Sun Pharma, Larsen & Toubro, Maruti Suzuki (Q1FY27 results).
 
 ## 📁 Project Structure
 
 ```
-finfiling-rag/
-├── data/
-│   ├── raw_pdfs/                  # downloaded filings, organized by company
-│   └── processed/                 # parsed + chunked JSON output
 ├── src/
-│   ├── ingestion/                 # extraction, text + tables, OCR
-│   ├── chunking/                  # structure-aware chunking
-│   ├── indexing/                  # embeddings, Qdrant client, BM25 index
-│   ├── retrieval/                 # hybrid retrieval, CrossEncoder reranking
-│   ├── generation/                # LLM answer generation and verification
-│   └── api/
-│       └── main.py                # FastAPI app endpoints
-├── eval/                          # Evaluation scripts and question sets
-├── finfiling-frontend/            # React frontend
-├── requirements.txt
-└── .env
+│   ├── ingestion/pdf_parser.py      # Docling parser (+ --ocr / --force-ocr), legacy pdfplumber parser
+│   ├── chunking/chunker.py          # table row-groups, contextual chunk headers
+│   ├── indexing/                    # embeddings, Qdrant client, BM25 index
+│   ├── retrieval/
+│   │   ├── hybrid_retriever.py      # dense + BM25 + RRF + CrossEncoder; per-company multi-search
+│   │   └── query_filters.py         # company / period auto-detection
+│   ├── metrics/
+│   │   ├── extract.py               # key figures from parsed tables -> SQLite
+│   │   └── store.py                 # voting lookup (returns "ambiguous" instead of guessing)
+│   ├── generation/
+│   │   ├── answer_generator.py      # RAG answer generation (Groq)
+│   │   ├── agent.py                 # tool-calling agent: lookup_metric / calculate / search_filing
+│   │   └── verifier.py              # cell-level grounding verifier
+│   └── api/main.py                  # FastAPI app
+├── eval/                            # questions + gold, run_eval, strict scorer, verifier & metrics evals, runs/
+├── tests/                           # pytest suite (no API keys needed)
+├── deploy/                          # Hugging Face Space launcher + upload script
+├── fetch_bse_filing.py              # download results PDFs from BSE (by ticker, e.g. HDFCBANK)
+├── build_index.py                   # rebuild Qdrant collection + BM25 index from chunked files
+├── embed_and_upsert.py              # add one company's chunks to an existing collection
+├── finfiling-frontend/              # React frontend
+├── Dockerfile, railway.json
+└── requirements.txt, requirements-ingest.txt
 ```
 
 ## 🚀 Getting Started
 
-### 1. Prerequisites & Installation
-
-Ensure you have Python 3.9+ installed.
+### 1. Install
 
 ```bash
-# Clone the repository and cd into it
-git clone <your-repo-url>
-cd "SEBIBSE Filing RAG Analyzer"
-
-# Create and activate a virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
+venv\Scripts\activate             # Linux/macOS: source venv/bin/activate
 pip install -r requirements.txt
+# only for parsing new PDFs:
+pip install -r requirements-ingest.txt
+docling-tools models download layout tableformer rapidocr
 ```
 
-### 2. Environment Variables
+### 2. Environment variables
 
-Create a `.env` file in the root of your project based on the following keys. **Do not commit this file to version control.**
+Create `.env` (see `.env.example`; never commit it):
 
 ```env
-QDRANT_URL=https://<your-cluster-url>:6333
-QDRANT_API_KEY=your-qdrant-key
-OPENAI_API_KEY=your-openai-key
-
-# Optional: Add this if using Claude instead of OpenAI
-# ANTHROPIC_API_KEY=your-anthropic-key
+QDRANT_URL=https://<your-cluster>.cloud.qdrant.io
+QDRANT_API_KEY=...
+GROQ_API_KEY=...
+OPENAI_API_KEY=...        # optional fallback when Groq is rate-limited
 ```
 
-*Note: Models like `BAAI/bge-base-en-v1.5`, CrossEncoder, and BM25 run locally via `sentence-transformers` and do not require API keys.*
+The embedder, reranker and BM25 run locally and need no keys.
 
-### 3. Initialize Qdrant Indexes
+### 3. Build the indexes
 
-Before running the application or ingesting documents, you need to create the required payload indexes in your Qdrant cluster for efficient metadata filtering:
+The BM25 index and the metrics table are committed under `data/processed/`. To (re)build the Qdrant collection from the chunked files:
 
 ```bash
-python create_indexes.py
+set PYTHONPATH=src
+python build_index.py data/processed/docling/*_chunked.jsonl --recreate
 ```
-This script creates `company`, `period`, `doc_type`, and `block_type` keyword indexes in the `filing_chunks` collection.
 
-### 4. Running the Backend API
-
-Start the FastAPI server:
+Adding a company:
 
 ```bash
-# On Windows
-set PYTHONPATH=src && uvicorn src.api.main:app --reload --port 8000
-
-# On Linux/macOS
-export PYTHONPATH=src
-uvicorn src.api.main:app --reload --port 8000
+python fetch_bse_filing.py ITC --output data/raw_pdfs/itc/itc_q1fy27.pdf
+python src/ingestion/pdf_parser.py data/raw_pdfs/itc/itc_q1fy27.pdf --company ITC --doc-type quarterly_result --period Q1FY27 --output data/processed/docling/itc_blocks.jsonl --overwrite   # add --ocr for scanned PDFs
+python src/chunking/chunker.py data/processed/docling/itc_blocks.jsonl --output data/processed/docling/itc_chunked.jsonl
+python build_index.py data/processed/docling/*_chunked.jsonl --recreate
+python src/metrics/extract.py data/processed/docling/*_blocks.jsonl --output data/processed/metrics.sqlite
+# then add the company to INDEXED_COMPANIES in src/api/main.py
 ```
 
-Once running, visit **[http://localhost:8000/docs](http://localhost:8000/docs)** to access the auto-generated Swagger UI and test the endpoints.
+### 4. Run
+
+```bash
+set PYTHONPATH=src
+uvicorn api.main:app --reload --port 8000      # Swagger UI at http://localhost:8000/docs
+cd finfiling-frontend && npm install && npm run dev
+```
+
+### 5. Tests
+
+```bash
+pip install -r requirements-test.txt
+pytest          # no API keys or models needed
+```
 
 ## 🔌 API Endpoints
 
-- **`POST /query`**: Main RAG endpoint. Accepts a query and optional filters (company, period, doc_type). Returns an answer, source citations, and verification metrics.
-- **`GET /companies`**: Returns a list of companies currently indexed in the system.
-- **`GET /health`**: Health check to verify Qdrant connection and model availability.
-- **`GET /stats`**: Returns collection statistics (total chunks indexed, status, etc.).
+- **`POST /query`**: `{"query": "...", "company"?, "period"?, "mode"?: "auto" | "rag" | "agent"}`. Company and period are auto-detected when omitted. In `auto` mode, comparison/growth/ratio questions go to the tool-using agent and the rest to RAG. The response includes the answer, citations, cell-level verification, `path`, `tool_calls` and the filters applied.
+- **`GET /companies`**: indexed companies.
+- **`GET /health`**: Qdrant connection and model status.
+- **`GET /stats`**: collection statistics.
 
 ## 🧪 Evaluation
 
-63 hand-written questions across 9 companies (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF (page images for OCR'd filings). Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
+76 hand-written questions across 9 companies (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF (page images for OCR'd filings). Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
 
 All runs use the same model (`openai/gpt-oss-120b` on Groq):
 
@@ -129,13 +144,33 @@ Contextual chunk headers prepend one line to every chunk before embedding (e.g. 
 
 An earlier version of this README reported 95.6% "keyword accuracy". That metric counted an answer correct if *any* expected keyword appeared, and most keyword lists repeated words from the question, so wrong figures still passed. It is still printed as "lenient" for comparison, but it is not an accuracy number.
 
+### Comparison, growth and ratio questions (tool-using agent)
+
+13 more questions (Q064–Q076: YoY/QoQ growth, cross-company comparisons including ₹ crore vs ₹ million, margins), with gold computed from hand-verified figures:
+
+| | Plain RAG | Router → agent |
+|---|---|---|
+| Strict accuracy | 5/13 | **13/13** |
+| Answers verified grounded | — | 13/13 |
+
+### Other benchmarks (no LLM needed)
+
+| Script | Measures | Result |
+|---|---|---|
+| `eval/verifier_eval.py` | Does the verifier flag wrong answers? Held-out mutation test (wrong figure swapped into correct answers) | **85%** caught vs 0% for the original substring check |
+| `eval/metrics_eval.py` | Metrics-table accuracy vs 48 hand-verified figures, plus accounting identities over every extracted period | 46/48 correct, **0 wrong**; identities hold 60/60 |
+| `eval/run_eval.py --retrieval-only --auto-filters` | Retrieval with auto-detected company/period | 57/63 gold in top-5 (= hand-labelled filters) |
+
 ```bash
 set PYTHONPATH=src
 python eval/run_eval.py --retrieval-only        # context hit only, no LLM quota
 python eval/run_eval.py --no-fallback --resume  # full run, resumable after quota stops
+python eval/run_eval.py --no-fallback --router  # route like the API (agent for comparisons)
+python eval/verifier_eval.py score              # + `mutate headers`
+python eval/metrics_eval.py
 ```
 
-Per-run outputs live in `eval/runs/`.
+Per-run outputs are in `eval/runs/`. The full history of what changed and why is in `implementation_plan.md`.
 
 ## 🤝 Contributing
 

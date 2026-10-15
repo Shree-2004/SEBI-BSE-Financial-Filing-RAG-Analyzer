@@ -343,11 +343,15 @@ this is a summary only):**
 ## Verification Plan
 
 ### Automated Tests
-- No real `pytest` suite exists yet (`test_pipeline.py` is a manual smoke
-  script, not CI-runnable) — see Phase 3 item #3 above.
-- `eval/run_eval.py` is the closest thing to a regression suite currently;
-  re-run it after any change to chunking, retrieval, or the indexed company
-  list.
+- `pytest` (174 tests, no API keys or models needed) runs on every push via
+  GitHub Actions (`.github/workflows/tests.yml`): chunking, table splitting,
+  query filters (incl. every eval question's company/period), strict scorer,
+  verifier, metrics extraction/lookup, and the agent loop with a scripted
+  fake model.
+- No-LLM benchmarks to re-run after pipeline changes: `eval/metrics_eval.py`,
+  `eval/verifier_eval.py score` / `mutate`, `eval/run_eval.py --retrieval-only`.
+- `eval/run_eval.py` (with `--router`) is the end-to-end regression run;
+  it needs Groq quota (~1 full run/day on the free tier).
 
 ### Manual Verification
 - Ask a specific financial question about each indexed company through the

@@ -222,17 +222,17 @@ class QueryRequest(BaseModel):
         ...,
         min_length=5,
         max_length=500,
-        example="What was HDFC Bank's net interest margin in Q2FY25?",
+        example="What was HDFC Bank's standalone net profit for the quarter ended June 30, 2026?",
     )
     company: Optional[str] = Field(
         None,
         example="HDFC Bank",
-        description="Filter results to a specific company",
+        description="Filter to one company (auto-detected from the question if omitted)",
     )
     period: Optional[str] = Field(
         None,
-        example="Q2FY25",
-        description="Filter results to a specific period e.g. Q2FY25 or FY2024",
+        example="Q1FY27",
+        description="Filter to a period e.g. Q1FY27 or FY2025 (auto-detected from the question if omitted)",
     )
     doc_type: Optional[str] = Field(
         None,

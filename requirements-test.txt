@@ -1,0 +1,10 @@
+# Minimal set for the pytest suite (CI). No torch, no models, no API keys:
+# the suite tests parsing, chunking, filters, scoring, the verifier, the
+# metrics table and the agent loop (with a scripted fake model).
+pytest==9.1.1
+tiktoken==0.7.0
+pdfplumber==0.11.4
+groq==1.5.0
+httpx==0.28.1
+openai==1.109.1
+python-dotenv==1.0.1

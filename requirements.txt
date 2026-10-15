@@ -12,7 +12,6 @@ tiktoken==0.7.0
 # --- Embeddings & Retrieval ---
 sentence-transformers==3.1.1
 rank-bm25==0.2.2
-faiss-cpu==1.8.0.post1
 qdrant-client==1.11.3
 
 # --- Reranking ---
@@ -20,7 +19,6 @@ qdrant-client==1.11.3
 
 # --- Generation ---
 openai==1.109.1          # also used as Groq rate-limit fallback in answer_generator.py
-anthropic==0.36.0
 groq==1.5.0             # 0.11 passes proxies= to httpx, removed in httpx 0.28 -> startup crash
 httpx==0.28.1            # pinned to the version the eval runs were made with
 
@@ -31,9 +29,6 @@ python-multipart==0.0.12
 pydantic==2.9.2
 slowapi==0.1.10
 sentry-sdk[fastapi]==2.66.1   # no-op unless SENTRY_DSN is set
-
-# --- Eval ---
-pandas==2.2.3
 
 # --- Utils ---
 python-dotenv==1.0.1
