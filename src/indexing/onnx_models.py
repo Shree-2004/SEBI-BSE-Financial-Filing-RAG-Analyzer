@@ -44,6 +44,9 @@ class OnnxEncoder:
         opts.enable_mem_pattern = False
         opts.intra_op_num_threads = int(os.getenv("ONNX_THREADS", "2"))
         opts.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_BASIC
+        # pre-packing keeps a second, kernel-friendly copy of the int8
+        # weights: -40 MiB RSS without it, identical outputs, same latency
+        opts.add_session_config_entry("session.disable_prepacking", "1")
         self.session = ort.InferenceSession(str(model_path), opts, providers=["CPUExecutionProvider"])
         self.input_names = {i.name for i in self.session.get_inputs()}
 
@@ -78,9 +81,18 @@ class OnnxReranker(OnnxEncoder):
         super().__init__(RERANKER_DIR / RERANKER_FILES[variant], RERANKER_DIR / "tokenizer.json")
 
     def predict(self, pairs: list[tuple[str, str]]) -> list[float]:
-        """Same interface as sentence-transformers CrossEncoder.predict."""
-        logits = self.run(self.tokenizer.encode_batch([(q, d) for q, d in pairs]))
-        return logits[:, 0].tolist()
+        """Same interface as sentence-transformers CrossEncoder.predict.
+
+        Scored in small batches: attention memory grows with batch x seq_len²,
+        and 10 pairs of ~512 tokens in one batch spiked RSS by ~250 MiB
+        (measured in the 512 MB container — enough to get it OOM-killed).
+        Scores are identical; only peak memory changes."""
+        batch = int(os.getenv("RERANK_BATCH", "2"))
+        scores: list[float] = []
+        for i in range(0, len(pairs), batch):
+            enc = self.tokenizer.encode_batch([(q, d) for q, d in pairs[i:i + batch]])
+            scores.extend(self.run(enc)[:, 0].tolist())
+        return scores
 
 
 def prepare(models_dir: Path = MODELS_DIR) -> None:

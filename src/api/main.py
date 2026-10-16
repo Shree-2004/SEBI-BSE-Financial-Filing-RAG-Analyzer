@@ -21,7 +21,9 @@ Run locally:
 Then open: http://localhost:8000/docs  (Swagger UI auto-generated)
 """
 
+import asyncio
 import os
+from concurrent.futures import ThreadPoolExecutor
 import time
 import uuid
 from contextlib import asynccontextmanager
@@ -112,6 +114,13 @@ class AppState:
     query_cache: QueryCache = None
     available_periods: dict = None   # company -> periods actually in the index
     agent: MetricsAgent = None       # tool-using path for comparison / growth / ratio questions
+    # One pipeline run at a time: each run's reranking burst is sized to fit a
+    # 512 MB instance; three simultaneous runs measured 491 of 512 MiB.
+    pipeline_lock: asyncio.Lock = None
+    # ...on ONE dedicated thread: glibc keeps a malloc arena per thread that
+    # does heavy allocation, so rotating through a thread pool measured
+    # ~35 MiB higher peaks than a single worker.
+    pipeline_executor: ThreadPoolExecutor = None
 
 state = AppState()
 state.query_cache = QueryCache(max_entries=500, ttl_seconds=3600)
@@ -141,6 +150,8 @@ async def lifespan(app: FastAPI):
     state.agent = MetricsAgent(
         state.retriever, MetricStore(os.getenv("METRICS_DB_PATH", "data/processed/metrics.sqlite"))
     )
+    state.pipeline_lock = asyncio.Lock()
+    state.pipeline_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="pipeline")
     state.startup_time = time.time() - t0
 
     logger.info("All models loaded", extra={"startup_time_s": round(state.startup_time, 2)})
@@ -356,13 +367,13 @@ async def query(request: Request, payload: QueryRequest):
             update={"cached": True, "latency_ms": round((time.time() - t0) * 1000, 2)}
         )
 
-    try:
+    def run_pipeline() -> dict:
         if use_agent:
             # comparisons / growth / ratios: lookup_metric + calculate tools,
             # verified against the tool outputs
-            result = agent_answer(state.agent, state.verifier, payload.query)
+            return agent_answer(state.agent, state.verifier, payload.query)
         # Retrieve relevant chunks (one search per company for comparisons)
-        elif len(filter_list) > 1:
+        if len(filter_list) > 1:
             chunks = state.retriever.retrieve_multi(payload.query, filter_list, top_k=max(payload.top_k, 6))
         else:
             chunks = state.retriever.retrieve(
@@ -370,8 +381,7 @@ async def query(request: Request, payload: QueryRequest):
                 top_k=payload.top_k,
                 filters=filter_list[0] if filter_list else None,
             )
-
-        if not use_agent and not chunks:
+        if not chunks:
             logger.warning(
                 "no chunks retrieved",
                 extra={"request_id": request_id, "filters": filters},
@@ -381,15 +391,21 @@ async def query(request: Request, payload: QueryRequest):
                 detail="No relevant documents found for this query. "
                        "Try removing filters or rephrasing the question.",
             )
-
         # Generate + verify
-        if not use_agent:
-            result = generate_and_verify(
-                query=payload.query,
-                chunks=chunks,
-                generator=state.generator,
-                verifier=state.verifier,
-            )
+        return generate_and_verify(
+            query=payload.query,
+            chunks=chunks,
+            generator=state.generator,
+            verifier=state.verifier,
+        )
+
+    try:
+        # The pipeline is blocking (model inference + LLM calls of up to ~20s).
+        # Run it in a worker thread so the event loop keeps answering /health
+        # (the host's health check) while a question is in flight, and hold
+        # the lock so concurrent questions queue instead of stacking memory.
+        async with state.pipeline_lock:
+            result = await asyncio.get_running_loop().run_in_executor(state.pipeline_executor, run_pipeline)
 
     except HTTPException:
         raise

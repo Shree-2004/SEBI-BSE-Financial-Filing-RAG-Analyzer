@@ -322,7 +322,21 @@ Steps, each measured (retrieval = gold in top-5, original 63 questions):
 | int8 + reranker pool 20 | 55/63 | — (rejected) |
 | **int8 + index re-embedded with int8 (`filing_chunks_int8`)** | **58/63** | **387 MB** |
 
-Full API under real /query calls (RAG + agent): **~406 MB**, no torch.
+Full API under real /query calls (RAG + agent): **~406 MB** (Windows), no torch.
+
+**Verified in the real image, `docker run --memory=512m --memory-swap=512m`**
+(Linux cgroup peak). The first run was OOM-killed on the first question,
+and Windows RSS had hidden it. Fixes, each measured in the container:
+
+| Fix | Effect |
+|---|---|
+| Rerank in batches of 2 (`RERANK_BATCH`), not all 10 pairs at once | reranker burst 619 -> 200 MiB, and faster (1.6 s -> 0.96 s); identical scores |
+| `session.disable_prepacking` (no second copy of int8 weights) | -40 MiB steady; identical outputs, same latency |
+| Pipeline on ONE dedicated worker thread + a lock (one question at a time) | /health answers in 0.3 s mid-question (the event loop used to block for the whole LLM call); 3 simultaneous questions 491 -> 472 MiB peak |
+| `MALLOC_ARENA_MAX=2` | worse (495 MiB) — rejected |
+
+Final: idle 379 MiB, **peak 472 MiB over 8 questions incl. 3 simultaneous
+and agent questions**, no OOM, all answers verified.
 
 - `src/indexing/onnx_models.py`: own ONNX Runtime sessions (arena off,
   2 threads, `tokenizers`); embedder int8 = per-channel MatMul-only dynamic
