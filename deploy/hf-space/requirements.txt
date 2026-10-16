@@ -1,12 +1,14 @@
 # Runtime-only dependencies for the Hugging Face Space (the API, no
-# ingestion). fastapi / uvicorn / pydantic are deliberately unpinned: the
-# Gradio SDK preinstalls them and pinning older versions would conflict.
---extra-index-url https://download.pytorch.org/whl/cpu
-torch
-transformers==4.57.6
-sentence-transformers==3.1.1
-rank-bm25==0.2.2
+# ingestion, no PyTorch). fastapi / uvicorn / pydantic are deliberately
+# unpinned: the Gradio SDK preinstalls them and pinning older versions
+# would conflict. onnx is needed once, to int8-quantize the embedder on
+# first start (app.py).
 qdrant-client==1.11.3
+rank-bm25==0.2.2
+onnxruntime==1.31.0
+onnx==1.23.2
+tokenizers==0.22.1
+huggingface-hub
 groq==1.5.0
 httpx==0.28.1
 openai==1.109.1

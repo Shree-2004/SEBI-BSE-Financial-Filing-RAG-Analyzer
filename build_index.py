@@ -7,7 +7,8 @@ Replaces doing steps 5-6 of the "add a company" workflow by hand, where
 it was easy to update one index and forget the other.
 
 The target is controlled by the same env vars the API reads:
-    QDRANT_COLLECTION   collection name (default: filing_chunks)
+    QDRANT_COLLECTION   collection name (default: the one matching the embedder —
+                        filing_chunks_int8 for the ONNX int8 model, else filing_chunks)
     QDRANT_PATH         if set, a local on-disk Qdrant instead of the cloud
     BM25_INDEX_PATH     where to write the BM25 pickle
 

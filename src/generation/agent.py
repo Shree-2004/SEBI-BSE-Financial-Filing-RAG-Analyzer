@@ -156,9 +156,14 @@ class MetricsAgent:
             return [{"page": c.get("page_number"), "text": c["text"][:1200]} for c in chunks]
         return {"error": f"unknown tool {name}"}
 
-    def run(self, question: str) -> dict:
+    def run(self, question: str, check=None) -> dict:
+        """
+        check: optional callable(answer, trace) -> feedback str or None. If it
+        returns feedback (e.g. "these figures did not come from a tool"), the
+        model gets ONE more turn to fix its answer with the tools.
+        """
         messages = [{"role": "system", "content": self.system}, {"role": "user", "content": question}]
-        trace = {"lookups": [], "calculations": [], "chunks": [], "tool_calls": []}
+        trace = {"lookups": [], "calculations": [], "chunks": [], "tool_calls": [], "revised": False}
         answer = ""
         for _ in range(MAX_STEPS):
             resp = self.client.chat.completions.create(
@@ -167,7 +172,13 @@ class MetricsAgent:
             msg = resp.choices[0].message
             if not msg.tool_calls:
                 answer = (msg.content or "").strip()
-                break
+                feedback = None if (check is None or trace["revised"]) else check(answer, trace)
+                if not feedback:
+                    break
+                trace["revised"] = True
+                messages.append({"role": "assistant", "content": answer})
+                messages.append({"role": "user", "content": feedback})
+                continue
             messages.append({"role": "assistant", "content": msg.content or "",
                              "tool_calls": [t.model_dump() for t in msg.tool_calls]})
             for tc in msg.tool_calls:
@@ -240,7 +251,19 @@ def citations_from_trace(trace: dict) -> list[dict]:
 def agent_answer(agent: "MetricsAgent", verifier, question: str) -> dict:
     """Run the agent and verify its answer against the tool outputs.
     Same keys as generation.verifier.generate_and_verify, plus the trace."""
-    run = agent.run(question)
+    def check(answer, trace):
+        # one self-correction round: numbers no tool produced (typically
+        # arithmetic done "in its head") go back to the model to redo with
+        # calculate / lookup_metric
+        ver = verifier.verify(answer, build_evidence_chunks(trace), query=question)
+        missing = [c.split(":")[0] for c in ver["unverified_claims"] if c.endswith("not in sources")]
+        if not missing:
+            return None
+        return ("These figures in your answer did not come from a tool result: "
+                + ", ".join(missing) + ". Recompute every one of them with calculate (or look them "
+                "up with lookup_metric), then give the final answer again, quoting tool results only.")
+
+    run = agent.run(question, check=check)
     evidence = build_evidence_chunks(run)
     ver = verifier.verify(run["answer"], evidence, query=question)
     return {
@@ -254,5 +277,6 @@ def agent_answer(agent: "MetricsAgent", verifier, question: str) -> dict:
         "grounding_confidence": ver["confidence"],
         "warning": ver["warning"],
         "tool_calls": run["tool_calls"],
+        "revised": run["revised"],
         "evidence_text": "\n".join(c["text"] for c in evidence),
     }

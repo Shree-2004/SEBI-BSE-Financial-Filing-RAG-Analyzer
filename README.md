@@ -14,16 +14,16 @@ FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system b
 - **Company + period auto-detection:** "HDFC Bank net profit for the quarter ended June 30, 2026" is filtered to HDFC Bank / Q1FY27 without picking from a dropdown (names, tickers, aliases; dates and FY formats mapped to the Indian fiscal calendar). Questions naming several companies get one search per company; a period that isn't indexed returns a clear message instead of an answer from the wrong quarter.
 - **Cell-level answer verification:** every figure in an answer is traced to the source table cell it came from (row label, period column, standalone vs consolidated) and flagged if it doesn't fit the question. In a held-out mutation test (correct answers with a wrong figure swapped in), it catches **85%** of wrong figures; the original substring check caught **0%**. See `eval/verifier_eval.py`.
 - **Structured Ingestion:** Docling's layout + table-structure models rebuild financial tables with row labels and multi-level column headers intact, and tag each table with its heading (consolidated vs standalone). Large tables are split into row groups that repeat the caption and headers, so every chunk fits the 512-token embedder/reranker window. The original `pdfplumber` parser is kept behind `--parser pdfplumber`.
-- **FastAPI Backend:** A fast, asynchronous API serving the complete RAG pipeline with Swagger UI.
+- **FastAPI Backend:** A fast, asynchronous API serving the complete RAG pipeline with Swagger UI. Runs in **~400 MB** (fits a 512 MB free tier): the embedder and reranker run on ONNX Runtime with int8 weights instead of PyTorch, and the index is embedded with the same int8 model — retrieval 58/63 vs 57/63 for the original PyTorch setup. `EMBED_ONNX_VARIANT=fp32` / `RERANK_ONNX_VARIANT=fp32` switch to exact-precision models on a bigger host.
 - **Qdrant Vector Database:** Uses Qdrant Cloud to store and search high-dimensional embeddings efficiently.
 
 ## 🛠️ Tech Stack
 
 - **Ingestion:** `docling` (layout + TableFormer, RapidOCR for scanned filings; see `requirements-ingest.txt`), `pdfplumber` (legacy parser)
-- **Embeddings:** `BAAI/bge-base-en-v1.5` via `sentence-transformers`
+- **Embeddings:** `BAAI/bge-base-en-v1.5`, served with ONNX Runtime (int8; no PyTorch in the API — peak memory ~1 GB → ~400 MB, retrieval unchanged, see below)
 - **Vector store:** Qdrant Cloud (or embedded on-disk Qdrant via `QDRANT_PATH` for local eval)
 - **Hybrid retrieval:** dense + `rank-bm25`, fused with Reciprocal Rank Fusion
-- **Reranking:** `cross-encoder/ms-marco-MiniLM-L-6-v2`
+- **Reranking:** `cross-encoder/ms-marco-MiniLM-L-6-v2` (ONNX int8)
 - **Generation + tool calling:** `openai/gpt-oss-120b` on Groq (OpenAI `gpt-4o-mini` as rate-limit fallback)
 - **Metrics store:** SQLite (`data/processed/metrics.sqlite`)
 - **Backend:** FastAPI, Uvicorn, Pydantic, slowapi (rate limiting), optional Sentry
@@ -68,8 +68,8 @@ FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system b
 ```bash
 python -m venv venv
 venv\Scripts\activate             # Linux/macOS: source venv/bin/activate
-pip install -r requirements.txt
-# only for parsing new PDFs:
+pip install -r requirements.txt                 # API runtime (no PyTorch)
+# for parsing PDFs, building indexes and the eval scripts:
 pip install -r requirements-ingest.txt
 docling-tools models download layout tableformer rapidocr
 ```
@@ -87,7 +87,14 @@ OPENAI_API_KEY=...        # optional fallback when Groq is rate-limited
 
 The embedder, reranker and BM25 run locally and need no keys.
 
-### 3. Build the indexes
+### 3. Build the ONNX models and indexes
+
+```bash
+set PYTHONPATH=src
+python src/indexing/onnx_models.py prepare      # downloads + int8-quantizes the embedder/reranker into ./models
+```
+
+### 3b. Indexes
 
 The BM25 index and the metrics table are committed under `data/processed/`. To (re)build the Qdrant collection from the chunked files:
 

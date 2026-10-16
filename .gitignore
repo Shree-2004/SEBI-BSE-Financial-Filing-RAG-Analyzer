@@ -11,3 +11,6 @@ data/*
 data/processed/*
 !data/processed/bm25_index.pkl
 !data/processed/metrics.sqlite
+
+# ONNX models built by `python src/indexing/onnx_models.py prepare`
+models/

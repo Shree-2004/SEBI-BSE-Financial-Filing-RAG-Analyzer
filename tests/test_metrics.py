@@ -115,3 +115,19 @@ def test_split_sources_are_ambiguous_not_guessed(store):
 
 def test_unknown_figure_is_none(store):
     assert store.lookup("X", "net_profit", "Q1FY27") is None
+
+
+# ---------------------------------------------------------------- embedder / collection pairing
+
+def test_query_embedder_and_collection_are_paired(monkeypatch, tmp_path):
+    from indexing import embed, onnx_models
+
+    monkeypatch.delenv("EMBED_BACKEND", raising=False)
+    monkeypatch.setattr(onnx_models, "EMBEDDER_DIR", tmp_path / "missing")
+    assert embed.default_backend() == "torch" and embed.default_collection() == "filing_chunks"
+
+    monkeypatch.setattr(onnx_models, "EMBEDDER_DIR", tmp_path)          # models prepared
+    monkeypatch.setenv("EMBED_ONNX_VARIANT", "int8")
+    assert embed.default_backend() == "onnx" and embed.default_collection() == "filing_chunks_int8"
+    monkeypatch.setenv("EMBED_ONNX_VARIANT", "fp32")
+    assert embed.default_collection() == "filing_chunks"

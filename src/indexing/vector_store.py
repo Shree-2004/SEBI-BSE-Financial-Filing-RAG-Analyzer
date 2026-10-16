@@ -35,7 +35,10 @@ from tqdm import tqdm
 
 load_dotenv()
 
-COLLECTION_NAME = os.getenv("QDRANT_COLLECTION", "filing_chunks")
+from indexing.embed import default_collection
+
+# explicit QDRANT_COLLECTION wins; otherwise the collection matching the embedder
+COLLECTION_NAME = os.getenv("QDRANT_COLLECTION") or default_collection()
 EMBEDDING_DIM = 768          # bge-base-en-v1.5 output dim
 UPSERT_BATCH_SIZE = 100      # Qdrant free tier is comfortable with this
 

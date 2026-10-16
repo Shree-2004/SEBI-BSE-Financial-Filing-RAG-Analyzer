@@ -79,7 +79,7 @@ class FakeClient:
         self.chat = SimpleNamespace(completions=SimpleNamespace(create=self._create))
 
     def _create(self, **kwargs):
-        calls = self.steps.pop(0)
+        calls = self.steps.pop(0) if self.steps else None     # out of script: repeat the answer
         msg = SimpleNamespace(tool_calls=calls, content=None if calls else self.final_answer)
         return SimpleNamespace(choices=[SimpleNamespace(message=msg)])
 
@@ -100,5 +100,30 @@ def test_agent_answer_with_a_number_no_tool_produced_is_flagged(tmp_path):
     answer = "TCS consolidated revenue from operations grew 6.10% YoY, from ₹60,583 crore to ₹63,973 crore."
     agent = MetricsAgent(retriever=None, store=_store(tmp_path), client=FakeClient(answer))
     r = agent_answer(agent, Verifier(), Q)
-    assert not r["is_grounded"]
+    assert r["revised"]                      # it was given its one retry...
+    assert not r["is_grounded"]              # ...and still flagged, since the retry didn't fix it
     assert any("6.1" in c for c in r["verification"]["unverified_claims"])
+
+
+class FakeClientThatSelfCorrects(FakeClient):
+    """First final answer states a difference computed in its head; after the
+    feedback it calls calculate and answers again."""
+
+    def __init__(self):
+        super().__init__("Revenue rose by ₹3,390 crore, a 5.60% YoY increase, from ₹60,583 crore to ₹63,973 crore.")
+        self.steps.insert(3, [_tool_call(4, "calculate", {"expression": "63973 - 60583"})])
+        self.steps.append(None)
+        self.answers = iter([self.final_answer, self.final_answer])
+
+    def _create(self, **kwargs):
+        calls = self.steps.pop(0)
+        msg = SimpleNamespace(tool_calls=calls, content=None if calls else next(self.answers))
+        return SimpleNamespace(choices=[SimpleNamespace(message=msg)])
+
+
+def test_agent_gets_one_retry_for_numbers_no_tool_produced(tmp_path):
+    agent = MetricsAgent(retriever=None, store=_store(tmp_path), client=FakeClientThatSelfCorrects())
+    r = agent_answer(agent, Verifier(), Q)
+    assert r["revised"]
+    assert [t["tool"] for t in r["tool_calls"]][-1] == "calculate"
+    assert r["is_grounded"], r["verification"]["unverified_claims"]

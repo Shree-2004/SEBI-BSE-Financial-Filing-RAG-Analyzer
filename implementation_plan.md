@@ -304,6 +304,42 @@ verifier; the table has 26,943.23). Needs a full 63-question run.
 
 ---
 
+## Phase 11: API off PyTorch, onto ONNX Runtime — fits a 512 MB free tier (2026-10-16)
+
+Render's free 512 MB instance crashed on the first /query. Measured
+(Windows RSS, retrieval stack): models load at ~500 MB, then PyTorch's
+first inference adds ~330 MB -> **~1,008 MB peak**. `USE_RERANKER=false`
+could never have fixed it (828 MB without the reranker).
+
+Steps, each measured (retrieval = gold in top-5, original 63 questions):
+
+| Config | Retrieval | Peak RSS |
+|---|---|---|
+| PyTorch (before) | 57/63 | 1,008 MB |
+| FastEmbed defaults (arena on, fp16 embedder) | — | 1,022-1,077 MB |
+| ONNX fp32, lean session (arena off) | 57/63 (cosine 1.0000 vs torch) | 690 MB |
+| int8 embedder + int8 reranker, fp32-embedded index | 56/63 (loses Q001) | 387 MB |
+| int8 + reranker pool 20 | 55/63 | — (rejected) |
+| **int8 + index re-embedded with int8 (`filing_chunks_int8`)** | **58/63** | **387 MB** |
+
+Full API under real /query calls (RAG + agent): **~406 MB**, no torch.
+
+- `src/indexing/onnx_models.py`: own ONNX Runtime sessions (arena off,
+  2 threads, `tokenizers`); embedder int8 = per-channel MatMul-only dynamic
+  quantization (cos 0.990; default whole-model int8 was 0.967); reranker =
+  Xenova's int8 export. `prepare` builds them (Dockerfile build step).
+- Query embedder and collection are paired automatically
+  (`default_collection()`): int8 -> `filing_chunks_int8`, fp32/torch ->
+  `filing_chunks`. `EMBED_ONNX_VARIANT=fp32` + `RERANK_ONNX_VARIANT=fp32`
+  restores exact-parity models on a host with ~1 GB.
+- requirements.txt is now the API only (no torch / sentence-transformers /
+  PDF libs); ingestion deps moved to requirements-ingest.txt.
+- Agent: one self-correction round — figures in the answer that no tool
+  produced (arithmetic "in its head") are sent back with "recompute with
+  calculate"; seen live once on ITC vs Maruti.
+
+---
+
 ## Phase 3: Production Deployment & Reliability Hardening
 
 **Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;

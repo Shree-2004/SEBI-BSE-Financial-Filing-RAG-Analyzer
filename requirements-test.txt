@@ -8,3 +8,4 @@ groq==1.5.0
 httpx==0.28.1
 openai==1.109.1
 python-dotenv==1.0.1
+onnxruntime==1.31.0      # production embedder/reranker runtime (backend selection tests)

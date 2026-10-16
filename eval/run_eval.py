@@ -74,7 +74,8 @@ def run_eval(args):
             done = {r["id"]: r for r in json.load(f) if not r["answer"].startswith("ERROR")}
         print(f"Resuming: {len(done)} questions already answered")
 
-    print(f"Index: collection={os.getenv('QDRANT_COLLECTION', 'filing_chunks')} "
+    from indexing.vector_store import COLLECTION_NAME
+    print(f"Index: collection={COLLECTION_NAME} "
           f"bm25={os.getenv('BM25_INDEX_PATH', 'data/processed/bm25_index.pkl')}")
     retriever = HybridRetriever()
     available: dict[str, set] = {}

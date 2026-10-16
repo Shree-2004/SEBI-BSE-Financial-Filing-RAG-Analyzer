@@ -29,10 +29,9 @@ Usage:
 import os
 from pathlib import Path
 
-from sentence_transformers import CrossEncoder
 
 from indexing.bm25_index import BM25Index
-from indexing.embed import Embedder
+from indexing.embed import Embedder, default_backend
 from indexing.vector_store import VectorStore
 
 # ---------------------------------------------------------------------------
@@ -41,6 +40,16 @@ from indexing.vector_store import VectorStore
 
 # CrossEncoder model for reranking — lightweight, strong on retrieval tasks
 RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+
+
+def _load_reranker():
+    if default_backend() == "onnx":
+        from indexing.onnx_models import OnnxReranker
+
+        return OnnxReranker()
+    from sentence_transformers import CrossEncoder
+
+    return CrossEncoder(RERANKER_MODEL)
 
 # How many candidates to pull from each retriever before fusion + reranking
 # More candidates = better recall, slower reranking
@@ -135,7 +144,7 @@ class HybridRetriever:
         self.use_reranker = use_reranker
         if use_reranker:
             print(f"Loading reranker: {RERANKER_MODEL} ...")
-            self.reranker = CrossEncoder(RERANKER_MODEL)
+            self.reranker = _load_reranker()
             print("✓ Reranker loaded")
         else:
             self.reranker = None
@@ -195,8 +204,9 @@ class HybridRetriever:
 
         # ---- Step 5: CrossEncoder reranking ----
         if self.use_reranker and self.reranker is not None and fused:
-            # rerank top candidates (capped at 2*top_k for speed)
-            rerank_pool = fused[: max(top_k * 2, 10)]
+            # rerank the top fused candidates (RERANK_POOL, default 2*top_k / 10)
+            pool = int(os.getenv("RERANK_POOL", "0")) or max(top_k * 2, 10)
+            rerank_pool = fused[:pool]
             pairs = [(query, doc["text"]) for doc in rerank_pool]
             rerank_scores = self.reranker.predict(pairs)
 

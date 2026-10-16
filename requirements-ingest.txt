@@ -1,11 +1,27 @@
-# Ingestion-only dependencies (PDF -> blocks). NOT needed by the API, and
-# deliberately kept out of requirements.txt so the Docker image stays small:
-# Docling pulls in layout/table models, OpenCV, and a newer torch.
+# Ingestion, indexing and eval — NOT installed in the API image.
 #
 #   pip install -r requirements.txt -r requirements-ingest.txt
-#   docling-tools models download layout tableformer    # one-time, ~500MB
+#   docling-tools models download layout tableformer rapidocr   # one-time
+#   python src/indexing/onnx_models.py prepare                  # ONNX models for the API
 #
 # Note: Docling needs pydantic>=2.11 (requirements.txt pins 2.9.2 for the
 # API image); FastAPI 0.115 was verified to import and run on 2.14.
 docling==2.137.0
 pydantic==2.14.1
+
+# legacy parser / OCR / BSE downloads
+pdfplumber==0.11.4
+pytesseract==0.3.13
+pdf2image==1.17.0
+Pillow==10.4.0
+requests==2.34.2
+bse==3.3.0                   # unofficial BSE India API — used by fetch_bse_filing.py
+
+# chunking
+tiktoken==0.7.0
+
+# optional PyTorch backend (EMBED_BACKEND=torch) + ONNX quantization
+sentence-transformers==3.1.1
+onnx==1.23.2
+
+pytest==9.1.1

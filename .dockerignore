@@ -9,3 +9,8 @@ data/processed/*.jsonl
 eval/
 tests/
 *.md
+models/
+data/raw_pdfs/
+data/qdrant_local/
+data/processed/docling/
+finfiling-frontend/node_modules/

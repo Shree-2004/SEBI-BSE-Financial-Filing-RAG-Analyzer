@@ -1,0 +1,845 @@
+[
+  {
+    "id": "Q005",
+    "question": "What was the net profit margin ratio formula used by Reliance Industries?",
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "category": "ratios",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "search_filing",
+        "args": {
+          "company": "Reliance Industries",
+          "query": "net profit margin ratio formula"
+        }
+      }
+    ],
+    "answer": "Reliance Industries calculates **Net Profit Margin** as:\n\n**Net Profit Margin = Profit After Tax ÷ Value of Sales & Services**【Reliance Industries | FY2025 | page 118】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 118,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Reliance Industries | FY2025 | standalone and consolidated annual report | page 118\n39.1 Formula for computation of ratios are as follows:\n| Sr. No. | Particulars | Formula |\n|---|---|---|\n| 1 | Current Ratio | Current Assets Current Liabilities |\n| 2 | Debt-Equity Ratio | Total Debt Total Equity |\n"
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 118,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Reliance Industries | FY2025 | standalone and consolidated annual report | page 118\n39. Ratio Analysis:\n* Net Capital Turnover Ratio improved due to reduction in net working capital.\n39.1 Formula for computation of ratios are as follows:\n** \u0007Capital employed includes Equity, Borrowings, Deferred Tax"
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 33,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Reliance Industries | FY2025 | standalone and consolidated annual report | page 33\nMovement in Key Financial Ratios\nThe net capital turnover ratio improved from 25.43 in FY 2023-24 to 47.92 in FY 2024-25, due to reduction in net working capital.\nThe operating margin ratio declined to 7.2% in FY 2024"
+      },
+      {
+        "company": "Reliance Industries",
+        "period": "FY2025",
+        "page_number": 118,
+        "doc_type": "annual_report",
+        "source_file": "reliance_annual_report_FY2025.pdf",
+        "excerpt": "Reliance Industries | FY2025 | standalone and consolidated annual report | page 118\n39. Ratio Analysis:\n| Sr. No. | Particulars | 2024-25 | 2023-24 | % Changes |\n|---|---|---|---|---|\n| 1 | Current Ratio | 1.05 | 1.09 | (3.7) |\n| 2 | Debt-Equity Ratio | 0.37 | 0.41 | (9.8) |\n| 3 | Debt Service Cover"
+      }
+    ]
+  },
+  {
+    "id": "Q064",
+    "question": "What was TCS's consolidated revenue from operations growth year-on-year in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "TCS",
+          "metric": "revenue_from_operations",
+          "period": "Q3FY25"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "TCS",
+          "metric": "revenue_from_operations",
+          "period": "Q3FY24"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "(63973-60583)/60583*100"
+        }
+      }
+    ],
+    "answer": "TCS’s consolidated revenue from operations grew **5.60 %** year‑on‑year in Q3FY25, rising from ₹ 60,583 crore in Q3FY24 to ₹ 63,973 crore in Q3FY25【TCS | Q3FY25 | Page 7】【TCS | Q3FY24 | Page 7】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": null,
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Revenue from operations (consolidated): 63,973.0 crore"
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY24",
+        "page_number": 7,
+        "doc_type": null,
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Revenue from operations (consolidated): 60,583.0 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q065",
+    "question": "By what percentage did TCS's consolidated revenue from operations change quarter-on-quarter in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "TCS",
+          "metric": "revenue_from_operations",
+          "period": "Q3FY25"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "TCS",
+          "metric": "revenue_from_operations",
+          "period": "Q2FY25"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "(63973-64259)/64259*100"
+        }
+      }
+    ],
+    "answer": "TCS’s consolidated revenue from operations fell **‑0.45 %** quarter‑on‑quarter in Q3FY25 (63973 crore vs 64259 crore in Q2FY25)【TCS | Q3FY25 | Page 7】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": null,
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Revenue from operations (consolidated): 63,973.0 crore"
+      },
+      {
+        "company": "TCS",
+        "period": "Q2FY25",
+        "page_number": 7,
+        "doc_type": null,
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Revenue from operations (consolidated): 64,259.0 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q066",
+    "question": "What was HDFC Bank's standalone net profit growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "HDFC Bank",
+          "metric": "net_profit",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "HDFC Bank",
+          "metric": "net_profit",
+          "period": "Q1FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "(19059.72-18155.21)/18155.21*100"
+        }
+      }
+    ],
+    "answer": "HDFC Bank’s standalone net profit for Q1 FY27 (quarter ended 30 June 2026) was **₹ 19,059.72 crore**【HDFC Bank | Q1FY27 | Page 2】, up from **₹ 18,155.21 crore** in Q1 FY26【HDFC Bank | Q1FY26 | Page 2】.  \n\nThe year‑on‑year growth is **4.98 %**【calculation result】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": null,
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "Net profit for the period (standalone): 19,059.72 crore"
+      },
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY26",
+        "page_number": 2,
+        "doc_type": null,
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "Net profit for the period (standalone): 18,155.21 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q067",
+    "question": "What was Larsen & Toubro's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Larsen & Toubro",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Larsen & Toubro",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "((67941.74 - 63678.92) / 63678.92) * 100"
+        }
+      }
+    ],
+    "answer": "Larsen & Toubro’s consolidated revenue from operations was **₹ 67,941.74 crore** in Q1FY27 (quarter ended 30 June 2026)【Larsen & Toubro | Q1FY27 | Page 9】, compared with **₹ 63,678.92 crore** in Q1FY26 (quarter ended 30 June 2025)【Larsen & Toubro | Q1FY26 | Page 9】.  \n\nThe year‑on‑year growth is **6.69 %**.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "page_number": 9,
+        "doc_type": null,
+        "source_file": "larsen_toubro_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 67,941.74 crore"
+      },
+      {
+        "company": "Larsen & Toubro",
+        "period": "Q1FY26",
+        "page_number": 9,
+        "doc_type": null,
+        "source_file": "larsen_toubro_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 63,678.92 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q068",
+    "question": "What was Sun Pharma's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Sun Pharma",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Sun Pharma",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "(15299.88 - 13851.4) / 13851.4 * 100"
+        }
+      }
+    ],
+    "answer": "Sun Pharma’s consolidated revenue from operations grew **10.46%** year‑on‑year for the quarter ended 30 June 2026 (Q1FY27)【Sun Pharma | Q1FY27 | Page 10】. This is based on revenue of ₹ 15,299.88 crore in Q1FY27 versus ₹ 13,851.4 crore in Q1FY26【Sun Pharma | Q1FY26 | Page 10】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 152,998.8 million"
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY26",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 138,514.0 million"
+      }
+    ]
+  },
+  {
+    "id": "Q069",
+    "question": "What was Maruti Suzuki's standalone revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "Maruti Suzuki",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "Maruti Suzuki",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "((524557.0 - 385930.0) / 385930.0) * 100"
+        }
+      }
+    ],
+    "answer": "Maruti Suzuki’s standalone revenue from operations grew **35.92 % YoY** in the quarter ended 30 June 2026 (Q1FY27) versus the same quarter a year earlier (Q1FY26)【Maruti Suzuki | Q1FY27 | Page 2】【Maruti Suzuki | Q1FY26 | Page 2】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": null,
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Revenue from operations (standalone): 524,557.0 million"
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY26",
+        "page_number": 2,
+        "doc_type": null,
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Revenue from operations (standalone): 385,930.0 million"
+      }
+    ]
+  },
+  {
+    "id": "Q070",
+    "question": "What was Bharti Airtel's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Bharti Airtel",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Bharti Airtel",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "(58539.1-49462.6)/49462.6*100"
+        }
+      }
+    ],
+    "answer": "Bharti Airtel’s consolidated revenue from operations grew **≈ 18.35 % YoY** for the quarter ended 30 June 2026 (Q1FY27)【Bharti Airtel | Q1FY27 | Page 2】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "Bharti Airtel",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": null,
+        "source_file": "bharti_airtel_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 585,391.0 million"
+      },
+      {
+        "company": "Bharti Airtel",
+        "period": "Q1FY26",
+        "page_number": 2,
+        "doc_type": null,
+        "source_file": "bharti_airtel_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 494,626.0 million"
+      }
+    ]
+  },
+  {
+    "id": "Q071",
+    "question": "Which had higher consolidated revenue from operations for the quarter ended June 30, 2026: ITC or Maruti Suzuki?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "ITC",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Maruti Suzuki",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      }
+    ],
+    "answer": "Maruti Suzuki reported higher consolidated revenue from operations for the quarter ended 30 June 2026, with **₹ 52,469.8 crore** (reported as 524,698 million) versus ITC’s **₹ 29,523.3 crore**【ITC | Q1FY27 | Page 6】【Maruti Suzuki | Q1FY27 | Page 4】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": null,
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 29,523.3 crore"
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": null,
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 524,698.0 million"
+      }
+    ]
+  },
+  {
+    "id": "Q072",
+    "question": "How much higher was Bharti Airtel's consolidated revenue from operations than Sun Pharma's for the quarter ended June 30, 2026, in rupees crore?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Bharti Airtel",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Sun Pharma",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "58539.1 - 15299.88"
+        }
+      }
+    ],
+    "answer": "Bharti Airtel’s consolidated revenue from operations for Q1 FY27 was **₹ 58,539.1 crore**, while Sun Pharma’s was **₹ 15,299.88 crore**. The difference is **₹ 43,239.22 crore**【Bharti Airtel | Q1FY27 | Page 2】【Sun Pharma | Q1FY27 | Page 10】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "Bharti Airtel",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": null,
+        "source_file": "bharti_airtel_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 585,391.0 million"
+      },
+      {
+        "company": "Sun Pharma",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "sun_pharma_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 152,998.8 million"
+      }
+    ]
+  },
+  {
+    "id": "Q073",
+    "question": "Compare Larsen & Toubro's and Infosys's consolidated revenue from operations for the quarter ended June 30, 2026. What was the difference?",
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Larsen & Toubro",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Infosys",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "67941.74 - 48211.0"
+        }
+      }
+    ],
+    "answer": "- **Larsen & Toubro** reported consolidated revenue from operations of **₹ 67,941.74 crore** for Q1 FY27 (quarter ended 30 June 2026)【Larsen & Toubro | Q1FY27 | Page 9】.  \n- **Infosys** reported consolidated revenue from operations of **₹ 48,211.0 crore** for the same quarter【Infosys | Q1FY27 | Page 24】.  \n\n**Difference:** ₹ 19,730.74 crore (Larsen & Toubro higher)【Calculated | 67941.74 – 48211.0 = 19730.74】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "Larsen & Toubro",
+        "period": "Q1FY27",
+        "page_number": 9,
+        "doc_type": null,
+        "source_file": "larsen_toubro_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 67,941.74 crore"
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 24,
+        "doc_type": null,
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 48,211.0 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q074",
+    "question": "Compare HDFC Bank's standalone net profit with Infosys's consolidated net profit for the quarter ended June 30, 2026. Which was higher and by how much?",
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "HDFC Bank",
+          "metric": "net_profit",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "consolidated",
+          "company": "Infosys",
+          "metric": "net_profit",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "19059.72 - 7775.0"
+        }
+      }
+    ],
+    "answer": "HDFC Bank’s standalone net profit for Q1 FY27 (quarter ended 30 June 2026) was **₹ 19,059.72 crore**【HDFC Bank | Q1FY27 | Page 2】, while Infosys’s consolidated net profit for the same quarter was **₹ 7,775.00 crore**【Infosys | Q1FY27 | Page 22】.  \n\nHDFC Bank’s profit was higher by **₹ 11,284.72 crore**【calculation result】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "HDFC Bank",
+        "period": "Q1FY27",
+        "page_number": 2,
+        "doc_type": null,
+        "source_file": "hdfc_bank_q1fy27.pdf",
+        "excerpt": "Net profit for the period (standalone): 19,059.72 crore"
+      },
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 22,
+        "doc_type": null,
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Net profit for the period (consolidated): 7,775.0 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q075",
+    "question": "What was TCS's consolidated net profit margin (net profit as a percentage of revenue from operations) in Q3FY25?",
+    "company": "TCS",
+    "period": "Q3FY25",
+    "category": "ratio",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "TCS",
+          "metric": "net_profit",
+          "period": "Q3FY25"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "TCS",
+          "metric": "revenue_from_operations",
+          "period": "Q3FY25"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "12444.0 / 63973.0 * 100"
+        }
+      }
+    ],
+    "answer": "TCS’s consolidated net profit margin in Q3FY25 was **19.45 %** (net profit ₹ 12,444 crore ÷ revenue from operations ₹ 63,973 crore × 100)【TCS | Q3FY25 | Page 7】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": null,
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Net profit for the period (consolidated): 12,444.0 crore"
+      },
+      {
+        "company": "TCS",
+        "period": "Q3FY25",
+        "page_number": 7,
+        "doc_type": null,
+        "source_file": "tcs_q3fy25.pdf",
+        "excerpt": "Revenue from operations (consolidated): 63,973.0 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q076",
+    "question": "What was ITC's standalone profit before tax margin (PBT as a percentage of revenue from operations) for the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "ratio",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "ITC",
+          "metric": "profit_before_tax",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "ITC",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "4759.41 / 26943.23 * 100"
+        }
+      }
+    ],
+    "answer": "ITC’s standalone profit before tax margin for the quarter ended June 30 2026 was **17.66 %** (Profit before tax ₹ 4,759.41 crore ÷ Revenue from operations ₹ 26,943.23 crore × 100)【ITC | Q1FY27 | Page 3】【ITC | Q1FY27 | Page 4】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "Profit before tax (standalone): 4,759.41 crore"
+      },
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (standalone): 26,943.23 crore"
+      }
+    ]
+  }
+]

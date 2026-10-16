@@ -17,7 +17,9 @@ from qdrant_client.models import PointStruct
 
 load_dotenv()
 
-COLLECTION_NAME = os.getenv("QDRANT_COLLECTION", "filing_chunks")
+from indexing.embed import default_collection
+
+COLLECTION_NAME = os.getenv("QDRANT_COLLECTION") or default_collection()
 BATCH_SIZE = 50
 RETRY_ATTEMPTS = 5
 RETRY_DELAY = 10

@@ -14,6 +14,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "src
 
 import uvicorn  # noqa: E402
 
+from indexing.onnx_models import EMBEDDER_DIR, prepare  # noqa: E402
+
+if not EMBEDDER_DIR.exists():      # no Docker build step here: build models on first start
+    prepare()
+
 from api.main import app  # noqa: E402
 
 if __name__ == "__main__":
