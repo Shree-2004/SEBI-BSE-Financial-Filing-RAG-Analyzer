@@ -3,6 +3,9 @@
 [![Tests](https://github.com/Shree-2004/SEBI-BSE-Financial-Filing-RAG-Analyzer/actions/workflows/tests.yml/badge.svg)](https://github.com/Shree-2004/SEBI-BSE-Financial-Filing-RAG-Analyzer/actions/workflows/tests.yml)
 
 
+**Live demo:** https://sebi-bse-financial-filing-rag-analy.vercel.app · **API docs:** https://finfiling-rag-api.onrender.com/docs  
+*(free tier: the API sleeps when idle, so the first question can take ~1 minute while it wakes up)*
+
 FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system built over real Indian financial filings (SEBI/BSE corporate disclosures). It answers natural-language questions with **exact citations** from source documents, prioritizing financial accuracy and traceability.
 
 ## Features

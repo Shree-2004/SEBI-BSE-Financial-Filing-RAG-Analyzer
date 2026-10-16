@@ -379,7 +379,7 @@ this is a summary only):**
 - ✅ `data/processed/embeddings.pkl` confirmed dead code, removed
 
 **Genuinely still open:**
-1. **Not actually deployed yet** — mechanics are ready, but no live Railway/
+1. ~~**Not actually deployed yet**~~ **Deployed 2026-10-16** — backend on Render free (Docker, ONNX int8, 512 MB; see Phase 11), frontend on Vercel: https://sebi-bse-financial-filing-rag-analy.vercel.app. Original note: — mechanics are ready, but no live Railway/
    Vercel URL exists. Needs your own accounts; not something automatable.
 2. **RAM verification against the real built Docker image** — blocked on
    Docker not being available in any session so far.
