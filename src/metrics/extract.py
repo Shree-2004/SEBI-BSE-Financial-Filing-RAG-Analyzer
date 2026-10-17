@@ -50,11 +50,12 @@ METRICS: list[tuple[str, str, str | None]] = [
     ("total_tax_expense", r"^\W*\w{0,4}\W*(total )?tax expense\b", r"current|deferred|items|relating|exceptional"),
     ("profit_before_tax",
      r"profit\s*(/\s*\(loss\)\s*)?(from ordinary activities )?before (income )?tax",
-     r"exceptional|depreciation|share of|items that|minority|non-controlling"),
+     r"exceptional|depreciation|share of|items that|minority|non-controlling|regulatory"),
     ("profit_before_tax_and_minority", r"before tax and (minority|non-?controlling)", None),
     ("net_profit",
      r"(net profit|profit)\s*(/\s*\(loss\)\s*)?(for the (period|quarter|year)|after tax)",
-     r"attributable|comprehensive|before minority|but before|other compre|before tax|before exceptional"),
+     r"attributable|comprehensive|before minority|but before|other compre|before tax|before exceptional"
+     r"|margin|%|ratio"),
     ("ebitda", r"^\W*ebitda\b", r"%|margin"),
 ]
 
@@ -80,7 +81,7 @@ def _column_period(header: str) -> tuple[str | None, str | None, int | None, int
         return f"Q{m.group(1)}FY{int(m.group(2)) % 100:02d}", "quarter", None, None
     m = re.search(r"\bfy\s*(\d{4})\s*-\s*(\d{2})", h) or \
         re.search(r"(?<![\d.])(20\d{2})\s*-\s*(\d{2})(?![\d.])", h)        # "FY 2024-25", "2024-25"
-    if m:
+    if m and (int(m.group(1)) + 1) % 100 == int(m.group(2)) % 100:
         return f"FY{2000 + int(m.group(2))}", "year", None, None
     kind = _period_kind(header)
     month, year = _header_date(header)
@@ -94,12 +95,58 @@ def _column_period(header: str) -> tuple[str | None, str | None, int | None, int
     return f"FY{fy}", "year", month, year
 
 
+def _strip_spanning_title(header: list[str]) -> list[str]:
+    """
+    The statement title spanning every column is joined into each header
+    cell ("Statement of ... for the Three Months Ended 30/06/2026 - Year
+    Ended - 31/03/2026"), so every column would read the title's date.
+    Drop a leading " - " segment that all header cells share.
+    """
+    firsts = {h.split(" - ", 1)[0] for h in header}
+    if len(header) >= 3 and len(firsts) == 1 and all(" - " in h for h in header):
+        return [h.split(" - ", 1)[1] for h in header]
+    return header
+
+
+def _repair_periods(periods: list[tuple], header: list[str] | None = None) -> list[tuple]:
+    """
+    Two header failures seen in real filings:
+    - A "Quarter ended" heading spanning several columns gets attached to one
+      of them by the table parser, leaving the others with a date but no
+      period type (Bajaj Finance). If the table has explicit quarter columns,
+      a dated, untyped column whose date is a quarter-end is a quarter too.
+    - The statement's title lands in the header row of every column
+      (UltraTech: "...for the Three Months Ended 30/06/2026"), so all columns
+      claim the same period. Columns can't share a period, so any duplicated
+      label is unreliable: reset those columns and let a same-layout donor
+      header (or nothing) fill them — prior-period values must never be
+      filed under the current quarter.
+    """
+    periods = list(periods)
+    if any(p[1] == "quarter" for p in periods):
+        for i, (label, kind, month, year) in enumerate(periods):
+            if label is None and kind is None and month in (3, 6, 9, 12) and year:
+                periods[i] = (_quarter_label(month, year), "quarter", month, year)
+    # a column's identity is (period, statement basis): ITC's summary table
+    # legitimately has standalone AND consolidated columns for one quarter
+    def basis(i):
+        h = (header[i] if header and i < len(header) else "").lower()
+        return "c" if "consolidated" in h else "s" if "standalone" in h else ""
+    keys = [(p[0], basis(i)) for i, p in enumerate(periods)]
+    dup = {k for k in keys if k[0] and keys.count(k) > 1}
+    return [(None, None, None, None) if keys[i] in dup else p for i, p in enumerate(periods)]
+
+
 def _parse_number(cell: str) -> float | None:
     """One clean number per cell, '(1,234)' = negative. OCR-merged cells
     holding two numbers are skipped rather than guessed."""
     # rejoin OCR gaps around separators ("21731 .84"), but a space between two
     # numbers ("12,380 64") means two cells merged — skip it
     c = re.sub(r"\s*([.,])\s*", r"\1", cell.strip())
+    # table-rule artifacts around a value ("-- 2,603.72", "3,000.02 -" in
+    # UltraTech's filing): dashes separated from the number by a space.
+    # A real negative is "(1,480)" or "-1,480", never "- 1,480".
+    c = re.sub(r"^(?:[-–—]+\s+)+|(?:\s+[-–—]+)+$", "", c)
     m = re.fullmatch(r"(\()?[₹$]?(-?\d[\d,]*(?:\.\d+)?)(\))?%?", c)
     if not m or c.endswith("%"):
         return None
@@ -121,8 +168,14 @@ def _unit_and_currency(texts: list[str]) -> tuple[str | None, str]:
 # Extraction
 # ---------------------------------------------------------------------------
 
+_OCR_SPLIT_WORDS = {"tot al": "total", "ot her": "other", "in come": "income", "pro fit": "profit"}
+
+
 def _metric_for(label: str) -> str | None:
     l = label.lower()
+    for bad, good in _OCR_SPLIT_WORDS.items():     # OCR'd scans split words: "Tot al income"
+        l = re.sub(rf"\b{bad}\b", good, l)
+    l = re.sub(r"^\W*\w{0,4}\W*income\s+(?=\(a\))", "", l)   # "Income (a) Revenue from operations"
     for name, pat, excl in METRICS:
         if re.search(pat, l) and not (excl and re.search(excl, l)):
             return name
@@ -152,7 +205,8 @@ def extract_blocks(blocks: list[dict]) -> list[dict]:
         caption, header, rows = _split_table(b["text"])
         if not header:
             continue
-        tables.append((b, caption, header, rows, [_column_period(h) for h in header]))
+        cols = _strip_spanning_title(header)
+        tables.append((b, caption, header, rows, _repair_periods([_column_period(h) for h in cols], header)))
 
     # per filing: headers whose period columns are all fully dated — used to
     # fill headers that lost their dates to OCR ("Quarter ended", no year)
@@ -171,6 +225,7 @@ def extract_blocks(blocks: list[dict]) -> list[dict]:
 
     doc_unit = _unit_and_currency([b["text"][:800] for b in blocks if b["block_type"] == "table"])[0]
     out = []
+    tables_periods: dict[tuple, list] = {}
     for b, caption, header, rows, periods in tables:
         if any((p[1] or p[2]) and not p[0] for p in periods):
             donor = next((c for c in complete if compatible(c, periods)), None)
@@ -185,6 +240,7 @@ def extract_blocks(blocks: list[dict]) -> list[dict]:
                 header, periods = [""] * width, donor
 
         key = (b["source_file"], b["page_number"])
+        tables_periods.setdefault(key, []).append(periods)
         unit, currency = _unit_and_currency(caption + [" ".join(header)] + [prose_by_page.get(key, "")])
         if "$" in b["text"] and not re.search(r"[₹~]|\brs\b|\binr\b|crore", " ".join(caption + header).lower()):
             currency = "USD"     # e.g. Infosys IFRS statements: "Basic (in$ per share)"
@@ -192,8 +248,18 @@ def extract_blocks(blocks: list[dict]) -> list[dict]:
         page_basis = basis_by_page.get(key, "")
 
         section, last_metric = "", None
-        for parts in rows:
+        for i, parts in enumerate(rows):
             label = " ".join(p for p in parts if re.search(r"[A-Za-z]{2,}", p))
+            # a label wrapped onto two rows, the parser putting the numbers on
+            # the continuation ("operations" | 23,165.45 ...) and the start of
+            # the label on a number-less neighbour ("Total revenue from")
+            if re.match(r"[a-z]", label) and any(_parse_number(p) is not None for p in parts):
+                for j in (i + 1, i - 1):
+                    if 0 <= j < len(rows) and not any(_parse_number(p) is not None for p in rows[j][1:]):
+                        nb = " ".join(p for p in rows[j] if re.search(r"[A-Za-z]{2,}", p))
+                        if nb and re.search(r"\b(from|of|before|after|for|and|to)$", nb.lower()):
+                            label = nb + " " + label
+                            break
             ll = label.lower()
             if "attributable" in ll:
                 section = "profit" if re.search(r"profit", ll) and "comprehensive" not in ll else "other"
@@ -226,6 +292,54 @@ def extract_blocks(blocks: list[dict]) -> list[dict]:
                     "value_crore": None if is_eps or unit not in _TO_CRORE else round(v * _TO_CRORE[unit], 4),
                     "source_file": b["source_file"], "page": b["page_number"],
                     "row_label": label[:200], "column_header": col[:120], "filing_period": b["period"],
+                })
+    fallback = _extract_fallback_lines(blocks, tables_periods, basis_by_page, prose_by_page, doc_unit)
+    # on a merged page the text layer is the trustworthy reading: drop the
+    # parser's (row-merged) cells wherever the text layer gives the same figure
+    covered = {(r["source_file"], r["page"], r["metric"], r["period"]) for r in fallback}
+    out = [r for r in out if (r["source_file"], r["page"], r["metric"], r["period"]) not in covered]
+    return out + fallback
+
+
+_FALLBACK_LINE_RE = re.compile(
+    r"^(?P<label>.*?[A-Za-z].*?)\s+(?P<nums>(?:\(?-?\d[\d,]*\.\d{2}\)?\s*){2,})$")
+
+
+def _extract_fallback_lines(blocks, tables_periods, basis_by_page, prose_by_page, doc_unit) -> list[dict]:
+    """
+    Rows from the PDF's own text layer, for pages where the table parser
+    merged rows (NTPC: "(a) Revenue from operations 43831.86 43109.28 ...").
+    A line's numbers are mapped onto the page's dated columns only when the
+    count matches exactly — otherwise the line is skipped, not guessed.
+    """
+    out = []
+    for b in blocks:
+        if b["block_type"] != "prose" or not b["text"].startswith("Statement rows (PDF text layer)"):
+            continue
+        key = (b["source_file"], b["page_number"])
+        cols = max(([p for p in ps if p[0]] for ps in tables_periods.get(key, [])), key=len, default=[])
+        if len(cols) < 2:
+            continue
+        unit, _ = _unit_and_currency([prose_by_page.get(key, "")])
+        unit = unit or doc_unit
+        for line in b["text"].splitlines()[1:]:
+            m = _FALLBACK_LINE_RE.match(line.strip())
+            if not m:
+                continue
+            metric = _metric_for(m.group("label"))
+            nums = [_parse_number(x) for x in re.findall(r"\(?-?\d[\d,]*\.\d{2}\)?", m.group("nums"))]
+            if metric is None or len(nums) != len(cols) or any(v is None for v in nums):
+                continue
+            is_eps = metric == "eps_basic"
+            for (period, ptype, _, _), v in zip(cols, nums):
+                out.append({
+                    "company": b["company"], "metric": metric, "basis": basis_by_page.get(key, ""),
+                    "period": period, "period_type": ptype, "value": v,
+                    "unit": "per_share" if is_eps else unit, "currency": "INR",
+                    "value_crore": None if is_eps or unit not in _TO_CRORE else round(v * _TO_CRORE[unit], 4),
+                    "source_file": b["source_file"], "page": b["page_number"],
+                    "row_label": m.group("label")[:200], "column_header": "(text layer)",
+                    "filing_period": b["period"],
                 })
     return out
 

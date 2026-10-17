@@ -39,6 +39,9 @@ def test_column_without_year_has_no_period():
     ("63,973", 63973), ("1,90,845", 190845), ("(1,480)", -1480), ("19.19", 19.19),
     ("21731 .84", 21731.84),      # OCR gap before the decimal point
     ("12,380 64", None),          # two merged cells — skipped, not guessed
+    ("-- 2,603.72", 2603.72),     # table-rule dashes around a value (UltraTech)
+    ("3,000.02 -", 3000.02),
+    ("- -- 2,599.28", 2599.28),   # several rule dashes
     ("9.9%", None), ("-", None), ("", None),
 ])
 def test_parse_number(cell, value):
@@ -59,6 +62,10 @@ def test_parse_number(cell, value):
     ("Depreciati on and amortisation expense", "depreciation_amortisation"),
     ("Total comprehensive income for the period", None),
     ("Tax expense/(credit) - Exceptional (Refer Note 4 and 5)", None),
+    ("Income (a) Revenue from operations", "revenue_from_operations"),   # section heading glued on
+    ("Tot al income", "total_income"),                                    # OCR split word
+    ("Net profit margin (%)", None),
+    ("Profit before regulatory deferral account balances (3-4)", None),
 ])
 def test_metric_mapping(label, metric):
     assert _metric_for(label) == metric
@@ -84,6 +91,42 @@ def test_extract_reads_every_period_column_with_unit_and_basis():
     assert (rev["value"], rev["unit"], rev["basis"], rev["value_crore"]) == (63973, "crore", "consolidated", 63973)
     assert rows[("revenue_from_operations", "Q2FY25")]["value"] == 64259          # prior quarter too
     assert rows[("profit_attributable_to_owners", "Q3FY25")]["value"] == 12380   # sub-row of "attributable to:"
+
+
+def _table(header, rows, page=10, company="X"):
+    text = "| " + " | ".join(header) + " |\n|" + "---|" * len(header) + "\n"
+    text += "".join("| " + " | ".join(r) + " |\n" for r in rows)
+    return [{"block_type": "prose", "text": "Consolidated results (Rs. in crore)", "company": company,
+             "period": "Q1FY27", "source_file": "x.pdf", "page_number": page},
+            {"block_type": "table", "text": text, "company": company, "period": "Q1FY27",
+             "source_file": "x.pdf", "page_number": page}]
+
+
+def test_spanning_title_does_not_give_every_column_its_date():
+    t = "Statement of Consolidated Results for the Three Months Ended 30/06/2026"
+    rows = extract_blocks(_table(
+        [f"{t} - Particulars", f"{t} - Three Months Ended - 30/06/2026", f"{t} - 30/06/2025",
+         f"{t} - Year Ended - 31/03/2026"],
+        [["Revenue from Operations", "24,648.20", "21,275.45", "88,511.53"]]))
+    got = {r["period"]: r["value"] for r in rows}
+    assert got == {"Q1FY27": 24648.20, "Q1FY26": 21275.45, "FY2026": 88511.53}
+
+
+def test_label_wrapped_onto_two_rows_is_rejoined():
+    rows = extract_blocks(_table(
+        ["Particulars", "Quarter ended 30.06.2026", "Quarter ended 30.06.2025"],
+        [["Other operating income", "141.99", "117.48"],
+         ["operations", "23,165.45", "19,372.67"],
+         ["Total revenue from", "", ""]]))
+    got = {r["period"]: r["value"] for r in rows if r["metric"] == "revenue_from_operations"}
+    assert got == {"Q1FY27": 23165.45, "Q1FY26": 19372.67}
+
+
+def test_duplicated_column_period_is_dropped_not_guessed():
+    rows = extract_blocks(_table(
+        ["Particulars", "Quarter ended 30.06.2026", "Quarter ended 30.06.2026"],
+        [["Revenue from operations", "100.00", "90.00"]]))
+    assert rows == []
 
 
 @pytest.fixture

@@ -188,12 +188,13 @@ def run_eval(args):
 
 
 def write_summary(results, args, total_questions):
+    from indexing.vector_store import COLLECTION_NAME
     n = len(results)
     ctx = sum(1 for r in results if r["context_hit"])
     lines = [
         "FinFiling RAG — Eval Summary",
         "=============================",
-        f"Index             : {os.getenv('QDRANT_COLLECTION', 'filing_chunks')}",
+        f"Index             : {COLLECTION_NAME} (rerank pool {os.getenv('RERANK_POOL') or 10})",
         f"Questions         : {n}/{total_questions}",
         f"Context hit @5    : {_pct(ctx, n)}   (gold answer present in retrieved chunks)",
     ]

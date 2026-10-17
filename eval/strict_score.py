@@ -33,7 +33,9 @@ import json
 import re
 import sys
 
-_CITATION_RE = re.compile(r"\[[^\]]*\]|【[^】]*】")  # gpt-oss cites with 【】
+# a citation is short and on one line; an unbounded match let a stray OCR "["
+# in one retrieved chunk swallow everything up to a "]" several chunks later
+_CITATION_RE = re.compile(r"\[[^\]\n]{0,120}\]|【[^】\n]{0,120}】")  # gpt-oss cites with 【】
 _NUMBER_RE = re.compile(r"\d[\d,]*(?:\.\d+)?")
 _NUMERIC_GOLD_RE = re.compile(r"^[\d,]+(?:\.\d+)?$")
 

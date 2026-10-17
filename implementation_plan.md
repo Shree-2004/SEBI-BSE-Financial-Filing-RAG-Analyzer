@@ -354,6 +354,52 @@ and agent questions**, no OOM, all answers verified.
 
 ---
 
+## Phase 12: Four more companies — Tata Steel, NTPC, Bajaj Finance, UltraTech Cement (2026-10-17)
+
+BSE's announcement API now returns 403; filings come from NSE's
+corporate-announcements API (`fetch_nse_filing.py`, session cookie) or the
+company site. 13 companies, 10 sectors; 19 new questions (Q077-Q095, gold
+checked on page images for the scanned filings), 18 new metrics gold figures.
+
+Parser (all 13 re-parsed):
+- OCR'd text layers print thousands with dots ("60.794.29") -> repaired.
+- Docling merged statement rows on some pages (NTPC, Reliance, L&T...):
+  `table_looks_merged` flags them and the page's own PDF text layer is
+  added as a "Statement rows" block.
+
+Metrics extractor, each fix from a real filing:
+- "Net profit margin (%)" / regulatory-deferral rows are not net profit.
+- FY ranges must be consecutive years.
+- Span headers ("Quarter ended" over three dated columns, Bajaj) and a
+  statement title printed into every header cell (UltraTech) — the shared
+  title is stripped, and a column period that still repeats (same basis)
+  is dropped rather than guessed.
+- Labels wrapped over two rows and OCR-split words ("Tot al income").
+- Merged pages: the text-layer line wins over the parser's cell.
+
+| | Before | After |
+|---|---|---|
+| Metrics gold (66 figures) | 56 correct, 0 wrong | **64 correct, 0 wrong** |
+| Identities | rev 55/55, PBT-tax 31/33 | **66/66, 32/32** (NTPC skipped, stated: regulated utility) |
+
+Retrieval-only (int8 index, re-synced with `build_index.py --sync`):
+66/95 overall, 66/79 answerable-by-retrieval; original 63 at 55/63 (was
+58/63 — Q001, Q038 gold now ranks 6-10). New companies 10/16 single-figure.
+Rerank pool 15/20 tried: 64/95 and 63/95 — rejected.
+Found an eval bug on the way: `strict_match` stripped `[...]` citations
+unbounded, so a stray OCR "[" in one chunk deleted text up to a "]"
+several chunks later (Q080 was a false miss). Citations are now <=120
+chars on one line.
+
+Container (`--memory=512m`): peak **470 MiB** (was 472) over 7 questions
+incl. 3 simultaneous and agent questions; no OOM.
+
+Open: single-figure questions on UltraTech/Infosys can still be answered
+from the wrong chunk (press-release PAT, USD EPS) — candidate fix is routing
+"what was X's <metric>" to `lookup_metric` when the metric table has it.
+
+---
+
 ## Phase 3: Production Deployment & Reliability Hardening
 
 **Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;
@@ -393,7 +439,7 @@ this is a summary only):**
 ## Verification Plan
 
 ### Automated Tests
-- `pytest` (174 tests, no API keys or models needed) runs on every push via
+- `pytest` (209 tests, no API keys or models needed) runs on every push via
   GitHub Actions (`.github/workflows/tests.yml`): chunking, table splitting,
   query filters (incl. every eval question's company/period), strict scorer,
   verifier, metrics extraction/lookup, and the agent loop with a scripted

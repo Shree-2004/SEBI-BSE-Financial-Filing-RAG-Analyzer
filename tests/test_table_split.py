@@ -92,3 +92,13 @@ def test_untitled_page_with_minority_interest_is_consolidated():
         _block(9, "UN P ED ED D D G\n| Net profit before minority interest | 20382.69 |\n|---|---|", "table"),
     ])
     assert "| consolidated quarterly results | page 9" in chunks[-1].text.splitlines()[0]
+
+
+def test_ocr_dotted_thousands_are_repaired_but_dates_and_decimals_are_not():
+    from ingestion.pdf_parser import _fix_ocr_number_dots as fix
+
+    assert fix("| 60.794.29 | 2.318.35 |") == "| 60,794.29 | 2,318.35 |"      # Tata Steel
+    assert fix("| 18.430.12 | 69.850.79 |") == "| 18,430.12 | 69,850.79 |"    # Bajaj Finance
+    assert fix("revenue 1.39,720.22 crore") == "revenue 1,39,720.22 crore"
+    assert fix("| 1,39,720.22 | 36,896.55 | 19.19 |") == "| 1,39,720.22 | 36,896.55 | 19.19 |"
+    assert fix("quarter ended 30.06.2026") == "quarter ended 30.06.2026"

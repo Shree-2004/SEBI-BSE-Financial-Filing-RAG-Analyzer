@@ -54,6 +54,13 @@ def main(db: str = "data/processed/metrics.sqlite") -> None:
 
 
 
+# identity failures that are real accounting, not extraction errors
+EXPLAINED = {
+    ("NTPC", "PBT - tax = net profit"):
+        "regulated utility: net profit adds net movement in regulatory deferral account balances after tax",
+}
+
+
 def consistency(db: str = "data/processed/metrics.sqlite") -> None:
     """
     Held-out check over EVERY extracted (company, basis, period), not just
@@ -74,7 +81,7 @@ def consistency(db: str = "data/processed/metrics.sqlite") -> None:
     print("\nAccounting identities across all extracted figures:")
     for name, (m1, m2), m3, f in checks:
         ok = bad = 0
-        failures = []
+        failures, explained = [], {}
         for company, basis, period in sorted(keys):
             vals = [store.lookup(company, m, period, basis) for m in (m1, m2, m3)]
             if any(v is None or v.get("ambiguous") for v in vals):
@@ -82,10 +89,14 @@ def consistency(db: str = "data/processed/metrics.sqlite") -> None:
             a, b, c = (v["value"] for v in vals)
             if abs(f(a, b) - c) <= max(abs(c) * 0.002, 1.0):
                 ok += 1
+            elif (company, name) in EXPLAINED:
+                explained[company] = explained.get(company, 0) + 1
             else:
                 bad += 1
                 failures.append(f"{company} {basis} {period}: {f(a, b):,.2f} vs {c:,.2f}")
         print(f"  {name:40} {ok}/{ok + bad} hold")
+        for company, n in explained.items():
+            print(f"     ~ {company} ({n} skipped): {EXPLAINED[(company, name)]}")
         for x in failures[:6]:
             print(f"     x {x}")
 

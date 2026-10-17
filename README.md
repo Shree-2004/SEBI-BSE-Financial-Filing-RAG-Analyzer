@@ -13,7 +13,7 @@ FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system b
 - **Hybrid Retrieval:** Combines Dense Retrieval (BAAI/bge-base-en-v1.5 embeddings) with Keyword Search (BM25) to accurately surface both semantic concepts and exact financial numbers/company terms.
 - **Advanced Reranking:** Employs CrossEncoder to rerank the top chunks for maximum relevance before generating answers.
 - **Tool-using agent for comparisons, growth and ratios:** questions like "Compare Bharti Airtel and Sun Pharma revenue growth YoY" are routed (by a plain rule, no extra LLM call) to a gpt-oss-120b tool loop with `lookup_metric` (exact figures from the metrics table), `calculate` (AST-evaluated arithmetic; the model never does maths itself) and `search_filing` (fallback). Units are aligned (₹ crore vs ₹ million) before comparing, and every number in the answer is verified against the tool outputs. On 13 comparison/growth/ratio questions: **13/13 correct vs 5/13 for plain RAG**.
-- **Metrics table (data layer for tool use):** key P&L figures (revenue, total income, PBT, tax, net profit, profit to owners, EPS, bank interest earned, EBITDA…) extracted from every parsed table into SQLite, with company, standalone/consolidated, period, unit (₹ crore / ₹ million / per share) and source page. Each column's period is read from its own header date, so prior-quarter and year-ago figures are captured for growth questions. Lookups vote across every copy of a figure in the filing and return *ambiguous* rather than guess when sources disagree. **46/48 hand-verified figures correct, 0 wrong**; accounting identities (revenue + other income = total income; PBT − tax = net profit) hold for **60/60** extracted company-period combinations (`eval/metrics_eval.py`).
+- **Metrics table (data layer for tool use):** key P&L figures (revenue, total income, PBT, tax, net profit, profit to owners, EPS, bank interest earned, EBITDA…) extracted from every parsed table into SQLite, with company, standalone/consolidated, period, unit (₹ crore / ₹ million / per share) and source page. Each column's period is read from its own header date, so prior-quarter and year-ago figures are captured for growth questions. Lookups vote across every copy of a figure in the filing and return *ambiguous* rather than guess when sources disagree. **64/66 hand-verified figures correct, 0 wrong**; accounting identities (revenue + other income = total income; PBT − tax = net profit) hold for **66/66** and **32/32** extracted company-period combinations (NTPC's PBT − tax check is skipped with a stated reason: a regulated utility's net profit adds regulatory-deferral movements) (`eval/metrics_eval.py`).
 - **Company + period auto-detection:** "HDFC Bank net profit for the quarter ended June 30, 2026" is filtered to HDFC Bank / Q1FY27 without picking from a dropdown (names, tickers, aliases; dates and FY formats mapped to the Indian fiscal calendar). Questions naming several companies get one search per company; a period that isn't indexed returns a clear message instead of an answer from the wrong quarter.
 - **Cell-level answer verification:** every figure in an answer is traced to the source table cell it came from (row label, period column, standalone vs consolidated) and flagged if it doesn't fit the question. In a held-out mutation test (correct answers with a wrong figure swapped in), it catches **85%** of wrong figures; the original substring check caught **0%**. See `eval/verifier_eval.py`.
 - **Structured Ingestion:** Docling's layout + table-structure models rebuild financial tables with row labels and multi-level column headers intact, and tag each table with its heading (consolidated vs standalone). Large tables are split into row groups that repeat the caption and headers, so every chunk fits the 512-token embedder/reranker window. The original `pdfplumber` parser is kept behind `--parser pdfplumber`.
@@ -33,7 +33,7 @@ FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system b
 - **Frontend:** React + Vite (`finfiling-frontend/`)
 - **Deployment:** Docker image (Render config) or Hugging Face Space (`deploy/`); Vercel for the frontend
 
-**Indexed filings (9 companies, 7 sectors):** Reliance Industries (annual report FY2025), TCS (Q3FY25), Infosys, HDFC Bank, ITC, Bharti Airtel, Sun Pharma, Larsen & Toubro, Maruti Suzuki (Q1FY27 results).
+**Indexed filings (13 companies, 10 sectors):** Reliance Industries (annual report FY2025), TCS (Q3FY25), Infosys, HDFC Bank, ITC, Bharti Airtel, Sun Pharma, Larsen & Toubro, Maruti Suzuki, Tata Steel, NTPC, Bajaj Finance, UltraTech Cement (Q1FY27 results).
 
 ## 📁 Project Structure
 
@@ -141,7 +141,7 @@ pytest          # no API keys or models needed; also runs in CI on every push
 
 ## 🧪 Evaluation
 
-76 hand-written questions across 9 companies (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF (page images for OCR'd filings). Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
+95 hand-written questions across 13 companies (the tables below were measured on the first 76) (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF (page images for OCR'd filings). Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
 
 All runs use the same model (`openai/gpt-oss-120b` on Groq):
 
@@ -151,6 +151,8 @@ All runs use the same model (`openai/gpt-oss-120b` on Groq):
 | 18 questions on the six companies added later | — | 8/18 (44.4%) | **15/18 (83.3%)** |
 | All 63: gold answer in top-5 retrieved chunks | — | 43/63 (68.3%) | **57/63 (90.5%)** |
 | **All 63: strict accuracy** | — | 38/63 (60.3%) | **54/63 (85.7%)** |
+
+**After adding Tata Steel, NTPC, Bajaj Finance and UltraTech Cement (2026-10-17, retrieval only; end-to-end LLM run pending):** 95 questions. Gold in top-5 for **66/79** questions whose answer appears verbatim in a filing (the other 16 are computed growth/margin/comparison answers that retrieval alone can't contain). Original 63: 55/63 (two borderline questions now rank 6th-10th in the larger index). New companies' single-figure questions: 10/16 — on two scanned filings the reranker prefers auditor-report prose over the results table; that gap is open and tracked.
 
 Contextual chunk headers prepend one line to every chunk before embedding (e.g. `ITC | Q1FY27 | standalone quarterly results | page 3`), so retrieval can tell a company's standalone and consolidated tables apart.
 
@@ -170,7 +172,7 @@ An earlier version of this README reported 95.6% "keyword accuracy". That metric
 | Script | Measures | Result |
 |---|---|---|
 | `eval/verifier_eval.py` | Does the verifier flag wrong answers? Held-out mutation test (wrong figure swapped into correct answers) | **85%** caught vs 0% for the original substring check |
-| `eval/metrics_eval.py` | Metrics-table accuracy vs 48 hand-verified figures, plus accounting identities over every extracted period | 46/48 correct, **0 wrong**; identities hold 60/60 |
+| `eval/metrics_eval.py` | Metrics-table accuracy vs 66 hand-verified figures, plus accounting identities over every extracted period | 64/66 correct, **0 wrong**; identities hold 66/66 and 32/32 |
 | `eval/run_eval.py --retrieval-only --auto-filters` | Retrieval with auto-detected company/period | 57/63 gold in top-5 (= hand-labelled filters) |
 
 ```bash

@@ -29,6 +29,10 @@ COMPANY_ALIASES: dict[str, list[str]] = {
     "Sun Pharma": [r"sun\s*pharma"],
     "Larsen & Toubro": [r"larsen", r"\bl\s*&\s*t\b", r"\blnt\b"],
     "Maruti Suzuki": [r"maruti", r"\bmsil\b"],
+    "Tata Steel": [r"tata\s*steel"],
+    "NTPC": [r"\bntpc\b"],
+    "Bajaj Finance": [r"bajaj\s*finance", r"\bbajfinance\b"],
+    "UltraTech Cement": [r"ultra\s*tech", r"\bultracemco\b"],
 }
 
 _MONTH_NUM = {m: i for i, m in enumerate(

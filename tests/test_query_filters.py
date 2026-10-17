@@ -18,6 +18,7 @@ AVAILABLE = {
     "Reliance Industries": {"FY2025"}, "TCS": {"Q3FY25"}, "Infosys": {"Q1FY27"},
     "HDFC Bank": {"Q1FY27"}, "ITC": {"Q1FY27"}, "Bharti Airtel": {"Q1FY27"},
     "Sun Pharma": {"Q1FY27"}, "Larsen & Toubro": {"Q1FY27"}, "Maruti Suzuki": {"Q1FY27"},
+    "Tata Steel": {"Q1FY27"}, "NTPC": {"Q1FY27"}, "Bajaj Finance": {"Q1FY27"}, "UltraTech Cement": {"Q1FY27"},
 }
 QUESTIONS = json.loads(
     (Path(__file__).resolve().parents[1] / "eval" / "eval_questions.json").read_text(encoding="utf-8"))
@@ -57,6 +58,8 @@ def test_period_formats(text, period):
     ("Compare ITC and Maruti margins", ["ITC", "Maruti Suzuki"]),
     ("Which company has the highest revenue?", []),
     ("Explain the credit policy", []),          # "credit" must not match ITC
+    ("Tata Steel vs Tata Consultancy revenue", ["TCS", "Tata Steel"]),     # no "tata" collision
+    ("UltraTech's EBITDA", ["UltraTech Cement"]),
 ])
 def test_company_aliases(text, companies):
     assert detect_companies(text) == companies

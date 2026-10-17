@@ -242,6 +242,72 @@ def _fix_ocr_decimal_commas(text: str) -> str:
     return _OCR_DECIMAL_COMMA_RE.sub(r".\1", text)
 
 
+# The reverse slip, found in filings whose embedded text layer is itself OCR
+# (Tata Steel's Q1FY27 consolidated revenue reads "60.794.29", Bajaj Finance
+# has "18.430.12"): thousands separators read as dots. A number with two or
+# more separators ending in a 2-digit decimal can't be a real decimal, so
+# every separator but the last is a thousands comma. Dates don't match
+# ("30.06.2026" ends in 4 digits).
+_OCR_DOTTED_NUMBER_RE = re.compile(r"(?<![\d.,])\d{1,3}(?:[.,]\d{2,3})+\.\d{2}(?![\d.,])")
+
+
+def _fix_ocr_number_dots(text: str) -> str:
+    def repair(m: re.Match) -> str:
+        s = m.group(0)
+        if s.count(".") < 2:                       # already well-formed: 1,39,720.22
+            return s
+        head, dec = s.rsplit(".", 1)
+        return head.replace(".", ",") + "." + dec
+    return _OCR_DOTTED_NUMBER_RE.sub(repair, text)
+
+
+# A Docling table whose rows were merged: one cell holding two numbers
+# ("43831 680.55" = revenue and other income stacked). Happens on borderless
+# statement tables (NTPC's Q1FY27 standalone P&L).
+_MERGED_CELL_RE = re.compile(r"\|\s*\(?-?\d[\d,.]*\)?\s+\(?-?\d[\d,.]*\)?\s*(?=\|)")
+
+
+def table_looks_merged(table_md: str, threshold: float = 0.15) -> bool:
+    """True if a large share of numeric cells hold two or more numbers."""
+    cells = [c.strip() for line in table_md.splitlines() if line.startswith("|")
+             for c in line.strip("|").split("|")]
+    numeric = [c for c in cells if re.search(r"\d", c)]
+    if len(numeric) < 8:
+        return False
+    merged = sum(1 for c in numeric if re.fullmatch(r"\(?-?\d[\d,.]*\)?(\s+\(?-?\d[\d,.]*\)?)+", c))
+    return merged / len(numeric) >= threshold
+
+
+def add_text_layer_fallback(blocks: list, pdf_path: str) -> int:
+    """
+    For pages where Docling's table structure merged rows, also index the
+    PDF's own text layer for that page, line by line ("(a) Revenue from
+    operations 43831.86 43109.28 ..."), as an extra prose block. Docling's
+    table stays — this adds the clean rows next to it. Returns the number
+    of pages given a fallback block. Works on FilingBlock objects or dicts.
+    """
+    get = lambda b, k: b[k] if isinstance(b, dict) else getattr(b, k)
+    bad_pages = sorted({get(b, "page_number") for b in blocks
+                        if get(b, "block_type") == "table" and table_looks_merged(get(b, "text"))})
+    if not bad_pages:
+        return 0
+    first = blocks[0]
+    with pdfplumber.open(pdf_path) as pdf:
+        for page_number in bad_pages:
+            text = _fix_ocr_number_dots((pdf.pages[page_number - 1].extract_text() or "").strip())
+            if not text:
+                continue
+            fb = FilingBlock(
+                text="Statement rows (PDF text layer):\n" + text,
+                block_type="prose",
+                company=get(first, "company"), doc_type=get(first, "doc_type"),
+                period=get(first, "period"), source_file=get(first, "source_file"),
+                page_number=page_number, extraction_method="text_layer",
+            )
+            blocks.append(fb.to_dict() if isinstance(first, dict) else fb)
+    return len(bad_pages)
+
+
 def parse_filing_docling(
     pdf_path: str,
     company: str,
@@ -335,6 +401,7 @@ def parse_filing_docling(
                     continue
                 if ocr:
                     md = _fix_ocr_decimal_commas(md)
+                md = _fix_ocr_number_dots(md)          # text layers can be OCR too
                 caption = item.caption_text(doc) or last_heading
                 text = f"{caption}\n{md}" if caption else md
                 idx = table_counts.get(page_number, 0)
@@ -353,7 +420,7 @@ def parse_filing_docling(
                     )
                 )
             elif isinstance(item, TextItem):
-                text = item.text.strip()
+                text = _fix_ocr_number_dots(item.text.strip())
                 if not text:
                     continue
                 if isinstance(item, SectionHeaderItem):
@@ -374,6 +441,7 @@ def parse_filing_docling(
             )
         )
 
+    add_text_layer_fallback(blocks, str(pdf_path))
     blocks.sort(key=lambda b: (b.page_number, b.block_type != "table"))
     return blocks
 

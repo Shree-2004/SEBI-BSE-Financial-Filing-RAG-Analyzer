@@ -97,6 +97,10 @@ INDEXED_COMPANIES = [
     "Sun Pharma",
     "Larsen & Toubro",
     "Maruti Suzuki",
+    "Tata Steel",
+    "NTPC",
+    "Bajaj Finance",
+    "UltraTech Cement",
 ]
 
 BM25_INDEX_PATH = os.getenv("BM25_INDEX_PATH", "data/processed/bm25_index.pkl")

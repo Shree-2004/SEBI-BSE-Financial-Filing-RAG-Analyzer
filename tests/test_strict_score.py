@@ -45,3 +45,9 @@ def test_all_groups_required():
 def test_fullwidth_citation_brackets_do_not_count():
     # gpt-oss-120b cites as 【TCS | Q3FY25 | Page 10】 instead of [...]
     assert not strict_match("Not stated 【TCS | Q3FY25 | Page 10】", [["10"]])
+
+
+def test_stray_bracket_does_not_swallow_later_text():
+    # OCR'd chunk with an unclosed "[" joined to a later chunk that has a "]"
+    context = "Profit [Refer Note\nOwners of the Company 2,318.35\nTotal [a] 10"
+    assert strict_match(context, [["2,318.35"]])

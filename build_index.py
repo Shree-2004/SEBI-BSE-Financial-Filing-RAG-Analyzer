@@ -37,6 +37,10 @@ def main():
     parser = argparse.ArgumentParser(description="Rebuild dense + BM25 indexes from chunked JSONL.")
     parser.add_argument("inputs", nargs="+", help="Chunked JSONL files (all companies)")
     parser.add_argument("--recreate", action="store_true", help="Drop the collection first")
+    parser.add_argument("--sync", action="store_true",
+                        help="Zero-downtime rebuild: upsert everything, THEN delete points that are no "
+                             "longer in the input. The live API keeps answering throughout, unlike "
+                             "--recreate, which empties the collection while it re-embeds.")
     args = parser.parse_args()
 
     chunks = []
@@ -59,6 +63,21 @@ def main():
 
     embeddings = Embedder().embed_documents([c["text"] for c in chunks])
     store.upsert_chunks(chunks, embeddings)
+
+    if args.sync:
+        from indexing.vector_store import _chunk_id_to_int
+
+        keep = {_chunk_id_to_int(c["chunk_id"]) for c in chunks}
+        stale, offset = [], None
+        while True:
+            points, offset = store.client.scroll(COLLECTION_NAME, limit=1000, offset=offset,
+                                                 with_payload=False, with_vectors=False)
+            stale += [p.id for p in points if p.id not in keep]
+            if offset is None:
+                break
+        for i in range(0, len(stale), 500):
+            store.client.delete(COLLECTION_NAME, points_selector=stale[i:i + 500])
+        print(f"✓ Sync: removed {len(stale)} points no longer in the input")
 
     bm25_path = os.getenv("BM25_INDEX_PATH", "data/processed/bm25_index.pkl")
     bm25 = BM25Index()

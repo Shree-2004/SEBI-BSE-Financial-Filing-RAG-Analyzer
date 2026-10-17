@@ -1479,5 +1479,338 @@
             ]
         ],
         "gold_note": "Added 2026-10-15; computed from hand-verified figures: 4,759.41 / 26,943.23."
+    },
+    {
+        "id": "Q077",
+        "question": "What was Tata Steel's standalone total revenue from operations for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "36,896.55"
+        ],
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "36,896.55"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p1, verified on the page image."
+    },
+    {
+        "id": "Q078",
+        "question": "What was Tata Steel's consolidated total revenue from operations for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "60,794.29"
+        ],
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "60,794.29"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p3, verified on the page image (text layer read 60.794.29)."
+    },
+    {
+        "id": "Q079",
+        "question": "What was Tata Steel's consolidated net profit for the period for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "2,385.24"
+        ],
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "2,385.24"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p3, verified on the page image."
+    },
+    {
+        "id": "Q080",
+        "question": "What was Tata Steel's consolidated profit attributable to owners of the company for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "2,318.35"
+        ],
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "2,318.35"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p3; text layer read 2.318.35, matches the company's reported Rs 2,318 crore."
+    },
+    {
+        "id": "Q081",
+        "question": "What was NTPC's standalone revenue from operations for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "43,831.86"
+        ],
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "43,831.86"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p3, from the filing's (clean) text layer."
+    },
+    {
+        "id": "Q082",
+        "question": "What was NTPC's consolidated revenue from operations for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "50,740.96"
+        ],
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "50,740.96"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, from the filing's (clean) text layer."
+    },
+    {
+        "id": "Q083",
+        "question": "What was NTPC's consolidated profit for the period for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "6,896.44"
+        ],
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "6,896.44"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, from the filing's (clean) text layer."
+    },
+    {
+        "id": "Q084",
+        "question": "What was NTPC's consolidated profit attributable to owners of the parent company for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "6,721.05"
+        ],
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "6,721.05"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, from the filing's (clean) text layer."
+    },
+    {
+        "id": "Q085",
+        "question": "What was Bajaj Finance's consolidated total revenue from operations for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "23,165.45"
+        ],
+        "company": "Bajaj Finance",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "23,165.45"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, verified on the page image."
+    },
+    {
+        "id": "Q086",
+        "question": "What was Bajaj Finance's consolidated profit after tax for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "6,080.60"
+        ],
+        "company": "Bajaj Finance",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "6,080.60"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, verified on the page image."
+    },
+    {
+        "id": "Q087",
+        "question": "What was Bajaj Finance's consolidated profit attributable to owners of the company for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "5,985.75"
+        ],
+        "company": "Bajaj Finance",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "5,985.75"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10; matches the company's reported Rs 5,985.75 crore."
+    },
+    {
+        "id": "Q088",
+        "question": "What was Bajaj Finance's standalone profit before tax for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "7,162.86"
+        ],
+        "company": "Bajaj Finance",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "7,162.86"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p4, from the filing's (clean) text layer."
+    },
+    {
+        "id": "Q089",
+        "question": "What was UltraTech Cement's consolidated revenue from operations for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "24,648.20"
+        ],
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "revenue",
+        "gold": [
+            [
+                "24,648.20"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p6, from the filing's (clean) text layer."
+    },
+    {
+        "id": "Q090",
+        "question": "What was UltraTech Cement's consolidated profit attributable to owners of the parent for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "2,599.28"
+        ],
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "2,599.28"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p6, from the filing's (clean) text layer."
+    },
+    {
+        "id": "Q091",
+        "question": "What was UltraTech Cement's standalone net profit for the period for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "2,397.12"
+        ],
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "profitability",
+        "gold": [
+            [
+                "2,397.12"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p11, from the filing's (clean) text layer."
+    },
+    {
+        "id": "Q092",
+        "question": "What was UltraTech Cement's consolidated basic earnings per share for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "88.36"
+        ],
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "per_share",
+        "gold": [
+            [
+                "88.36"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); p6, from the filing's (clean) text layer."
+    },
+    {
+        "id": "Q093",
+        "question": "What was NTPC's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "7.81"
+        ],
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "growth",
+        "gold": [
+            [
+                "7.81",
+                "7.812",
+                "7.8"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); (50,740.96 - 47,064.35) / 47,064.35, p10."
+    },
+    {
+        "id": "Q094",
+        "question": "What was UltraTech Cement's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+        "expected_keywords": [
+            "15.85"
+        ],
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "growth",
+        "gold": [
+            [
+                "15.85",
+                "15.853",
+                "15.9"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); (24,648.20 - 21,275.45) / 21,275.45, p6."
+    },
+    {
+        "id": "Q095",
+        "question": "Compare Tata Steel's and NTPC's consolidated revenue from operations for the quarter ended June 30, 2026. What was the difference?",
+        "expected_keywords": [
+            "10,053.33"
+        ],
+        "company": "Tata Steel",
+        "companies": [
+            "Tata Steel",
+            "NTPC"
+        ],
+        "period": "Q1FY27",
+        "doc_type": "quarterly_result",
+        "category": "comparison",
+        "gold": [
+            [
+                "10,053.33",
+                "10,053.3",
+                "10,053"
+            ]
+        ],
+        "gold_note": "Added 2026-10-17 (official NSE/company filing); 60,794.29 - 50,740.96."
     }
 ]
