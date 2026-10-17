@@ -141,7 +141,7 @@ pytest          # no API keys or models needed; also runs in CI on every push
 
 ## 🧪 Evaluation
 
-95 hand-written questions across 13 companies (the tables below were measured on the first 76) (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF (page images for OCR'd filings). Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
+124 hand-written questions across 13 companies (the tables below were measured on the first 76). Q096-Q124 (added 2026-10-17, worded differently from the earlier set) cover unanswerable questions (period or company not indexed, figures a results filing never discloses; scored as correct only if the answer says so), cross-company comparisons across units, quarter-on-quarter and prior-period figures, new phrasings ("bottom line", "tax bill", "PAT") and auditor / board-date questions (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF (page images for OCR'd filings). Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
 
 All runs use the same model (`openai/gpt-oss-120b` on Groq):
 

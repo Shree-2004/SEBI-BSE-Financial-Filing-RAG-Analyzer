@@ -8,6 +8,8 @@ Run: pytest tests/test_strict_score.py -v
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "eval"))
 
 from strict_score import strict_match  # noqa: E402
@@ -51,3 +53,14 @@ def test_stray_bracket_does_not_swallow_later_text():
     # OCR'd chunk with an unclosed "[" joined to a later chunk that has a "]"
     context = "Profit [Refer Note\nOwners of the Company 2,318.35\nTotal [a] 10"
     assert strict_match(context, [["2,318.35"]])
+
+
+@pytest.mark.parametrize("answer, ok", [
+    ("Not in the index — TCS: Q1FY27 is not indexed (available: Q3FY25).", True),
+    ("The filing does not disclose Maruti Suzuki's employee headcount.", True),
+    ("This information is not available in the provided documents.", True),
+    ("Maruti Suzuki had 24,569 employees.", False),          # a confident wrong figure
+    ("Wipro's net profit was ₹3,330 crore [Wipro | Q1FY27 | Page 2].", False),
+])
+def test_not_available_gold_needs_a_refusal(answer, ok):
+    assert strict_match(answer, [["NOT_AVAILABLE"]]) is ok

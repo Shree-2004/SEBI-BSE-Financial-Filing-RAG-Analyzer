@@ -60,8 +60,29 @@ def _alt_matches(alt: str, numbers: set[float], norm_text: str) -> bool:
     return _norm_text(alt) in norm_text
 
 
+# gold for a question the filings can't answer (period / company not indexed,
+# figure never disclosed): the answer must say so instead of producing a number
+NOT_AVAILABLE = "NOT_AVAILABLE"
+_REFUSAL_RE = re.compile(
+    r"not (available|found|provided|indexed|disclosed|reported|included|stated|mentioned|present|in the)"
+    r"|n['’]t (available|contain|include|disclose|provide|have|mention)"
+    r"|no (information|data|figure|mention|disclosure|record)"
+    r"|does not (contain|include|provide|report|disclose|mention|cover)"
+    r"|unable to (find|locate|determine)|cannot (find|locate|be (found|determined))", re.I)
+
+
+def is_not_available_gold(gold: list[list[str]]) -> bool:
+    return gold == [[NOT_AVAILABLE]]
+
+
+def is_refusal(text: str) -> bool:
+    return bool(_REFUSAL_RE.search(_CITATION_RE.sub(" ", text)))
+
+
 def strict_match(text: str, gold: list[list[str]]) -> bool:
     """True if `text` satisfies every group in `gold`."""
+    if is_not_available_gold(gold):
+        return is_refusal(text)
     text = _CITATION_RE.sub(" ", text)
     numbers = _numbers(text)
     norm = _norm_text(text)

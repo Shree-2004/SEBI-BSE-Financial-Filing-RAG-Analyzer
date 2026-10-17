@@ -43,7 +43,7 @@ from groq import RateLimitError
 from retrieval.hybrid_retriever import HybridRetriever
 from generation.answer_generator import AnswerGenerator
 from generation.verifier import Verifier, generate_and_verify
-from strict_score import strict_match
+from strict_score import is_not_available_gold, strict_match
 from retrieval.query_filters import resolve_filters
 from generation.agent import MetricsAgent, agent_answer, needs_agent
 
@@ -96,6 +96,21 @@ def run_eval(args):
         print(f"[{i}/{len(questions)}] {q['id']}: {q['question'][:60]}...")
 
         resolution = resolve_filters(q["question"], available)
+        na_question = is_not_available_gold(q["gold"])
+        if (args.auto_filters or args.router) and resolution["missing"] and not resolution["filters"]:
+            # the API answers this without retrieval or an LLM call (HTTP 404)
+            answer = f"Not in the index — {resolution['missing']}."
+            record = {"id": q["id"], "question": q["question"], "company": q["company"],
+                      "period": q["period"], "category": q["category"], "context_hit": None,
+                      "retrieved_pages": [], "path": "refused", "answer": answer}
+            if not args.retrieval_only:
+                record.update({"model": None, "strict_hit": strict_match(answer, q["gold"]),
+                               "keyword_hit": keyword_match(answer, q["expected_keywords"]),
+                               "is_grounded": True, "grounding_confidence": 1.0,
+                               "not_available": True, "citation_count": 0, "citations": []})
+            print(f"       [refused] {answer}")
+            results.append(record)
+            continue
         use_agent = bool(agent) and needs_agent(
             q["question"], resolution["detected"]["companies"], agent.store,
             resolution["filters"][0].get("period") if len(resolution["filters"]) == 1 else None)
@@ -116,7 +131,8 @@ def run_eval(args):
             if q.get("period"):
                 filters["period"] = q["period"]
             chunks = retriever.retrieve(query=q["question"], top_k=5, filters=filters)
-        context_hit = strict_match("\n".join(c["text"] for c in chunks), q["gold"])
+        # an unanswerable question has no gold chunk to retrieve
+        context_hit = None if na_question else strict_match("\n".join(c["text"] for c in chunks), q["gold"])
         record = {
             "id": q["id"],
             "question": q["question"],
@@ -131,7 +147,7 @@ def run_eval(args):
         if args.retrieval_only:
             record["answer"] = ""
             results.append(record)
-            print(f"       context: {'✓' if context_hit else '✗'}")
+            print(f"       context: {'-' if context_hit is None else '✓' if context_hit else '✗'}")
             continue
 
         try:
@@ -140,7 +156,8 @@ def run_eval(args):
                     if use_agent:
                         result = agent_answer(agent, verifier, q["question"])
                         # "context" for the agent = everything its tools returned
-                        record["context_hit"] = context_hit = strict_match(result["evidence_text"], q["gold"])
+                        if not na_question:
+                            record["context_hit"] = context_hit = strict_match(result["evidence_text"], q["gold"])
                         record["tool_calls"] = result["tool_calls"]
                     else:
                         result = generate_and_verify(
@@ -191,13 +208,15 @@ def run_eval(args):
 
 def write_summary(results, args, total_questions):
     from indexing.vector_store import COLLECTION_NAME
-    n = len(results)
-    ctx = sum(1 for r in results if r["context_hit"])
+    scored = [r for r in results if r["context_hit"] is not None]   # unanswerable ones have no gold chunk
+    n = len(scored)
+    ctx = sum(1 for r in scored if r["context_hit"])
     lines = [
         "FinFiling RAG — Eval Summary",
         "=============================",
         f"Index             : {COLLECTION_NAME} (rerank pool {os.getenv('RERANK_POOL') or 10})",
-        f"Questions         : {n}/{total_questions}",
+        f"Questions         : {len(results)}/{total_questions}"
+        f"  ({len(results) - n} unanswerable/refused, excluded from context hit)",
         f"Context hit @5    : {_pct(ctx, n)}   (gold answer present in retrieved chunks)",
     ]
 
@@ -215,7 +234,7 @@ def write_summary(results, args, total_questions):
             f"Not-available     : {_pct(sum(1 for r in answered if r['not_available']), a)}",
             "",
             "Failure split (strict misses):",
-            f"  retrieval/parse : {sum(1 for r in answered if not r['strict_hit'] and not r['context_hit'])}   (gold not in retrieved context)",
+            f"  retrieval/parse : {sum(1 for r in answered if not r['strict_hit'] and r['context_hit'] is False)}   (gold not in retrieved context)",
             f"  generation      : {sum(1 for r in answered if not r['strict_hit'] and r['context_hit'])}   (gold retrieved, answer still wrong)",
             "",
             "Per-category strict accuracy:",
@@ -227,7 +246,7 @@ def write_summary(results, args, total_questions):
             lines.append(f"  {cat:<20} {sum(hits)}/{len(hits)}")
         lines += ["", "Strict misses: " + " ".join(r["id"] for r in answered if not r["strict_hit"])]
     else:
-        lines += ["", "Context misses: " + " ".join(r["id"] for r in results if not r["context_hit"])]
+        lines += ["", "Context misses: " + " ".join(r["id"] for r in scored if not r["context_hit"])]
 
     summary = "\n".join(lines) + "\n"
     print("\n" + summary)

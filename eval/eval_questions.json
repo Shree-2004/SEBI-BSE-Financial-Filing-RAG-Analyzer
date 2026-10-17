@@ -1,1816 +1,2382 @@
 [
-    {
-        "id": "Q001",
-        "question": "What was the EBITDA of Reliance Industries standalone entity in FY25?",
-        "expected_keywords": [
-            "74,163",
-            "74163",
-            "EBITDA",
-            "standalone"
-        ],
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "doc_type": "annual_report",
-        "category": "profitability",
-        "gold": [
-            [
-                "74,163"
-            ]
-        ]
-    },
-    {
-        "id": "Q002",
-        "question": "What was the standalone Profit After Tax of Reliance Industries in FY25?",
-        "expected_keywords": [
-            "35,262",
-            "35262",
-            "profit after tax",
-            "standalone"
-        ],
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "doc_type": "annual_report",
-        "category": "profitability",
-        "gold": [
-            [
-                "35,262"
-            ]
-        ]
-    },
-    {
-        "id": "Q003",
-        "question": "What dividend was declared by Reliance Industries board?",
-        "expected_keywords": [
-            "dividend",
-            "per share",
-            "equity"
-        ],
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "doc_type": "annual_report",
-        "category": "corporate_action",
-        "gold": [
-            [
-                "5.5"
-            ]
-        ],
-        "gold_note": "Gold added 2026-10-12: Board recommended Rs 5.50/share (annual report p.67, p.165). Original keywords had no figure."
-    },
-    {
-        "id": "Q004",
-        "question": "What is the face value of Reliance Industries equity shares?",
-        "expected_keywords": [
-            "10",
-            "face value",
-            "equity share"
-        ],
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "doc_type": "annual_report",
-        "category": "general",
-        "gold": [
-            [
-                "10"
-            ]
-        ]
-    },
-    {
-        "id": "Q005",
-        "question": "What was the net profit margin ratio formula used by Reliance Industries?",
-        "expected_keywords": [
-            "profit after tax",
-            "value of sales",
-            "services",
-            "margin"
-        ],
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "doc_type": "annual_report",
-        "category": "ratios",
-        "gold": [
-            [
-                "profit after tax"
-            ],
-            [
-                "value of sales"
-            ]
-        ]
-    },
-    {
-        "id": "Q006",
-        "question": "What is the return on capital employed formula for Reliance Industries?",
-        "expected_keywords": [
-            "net profit after tax",
-            "deferred tax",
-            "capital employed"
-        ],
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "doc_type": "annual_report",
-        "category": "ratios",
-        "gold": [
-            [
-                "deferred tax"
-            ],
-            [
-                "finance cost"
-            ],
-            [
-                "capital employed"
-            ]
-        ]
-    },
-    {
-        "id": "Q007",
-        "question": "What was TCS revenue from operations in Q3FY25?",
-        "expected_keywords": [
-            "63,973",
-            "63973",
-            "revenue from operations"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "63,973"
-            ]
-        ]
-    },
-    {
-        "id": "Q008",
-        "question": "What was TCS consolidated profit for the period in Q3FY25?",
-        "expected_keywords": [
-            "12,444",
-            "12444",
-            "profit for the period"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "12,444"
-            ]
-        ]
-    },
-    {
-        "id": "Q009",
-        "question": "What was TCS total income in Q3FY25?",
-        "expected_keywords": [
-            "65,216",
-            "65216",
-            "total income"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "65,216"
-            ]
-        ]
-    },
-    {
-        "id": "Q010",
-        "question": "What was TCS employee benefit expenses in Q3FY25?",
-        "expected_keywords": [
-            "35,956",
-            "35956",
-            "employee benefit"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "expenses",
-        "gold": [
-            [
-                "35,956"
-            ]
-        ]
-    },
-    {
-        "id": "Q011",
-        "question": "What was TCS earnings per share in Q3FY25?",
-        "expected_keywords": [
-            "34.21",
-            "earnings per share",
-            "EPS",
-            "basic",
-            "diluted"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "per_share",
-        "gold": [
-            [
-                "34.21"
-            ]
-        ]
-    },
-    {
-        "id": "Q012",
-        "question": "What interim dividend did TCS declare in Q3FY25?",
-        "expected_keywords": [
-            "76",
-            "10",
-            "interim dividend",
-            "special dividend"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "corporate_action",
-        "gold": [
-            [
-                "10",
-                "76"
-            ],
-            [
-                "66",
-                "76"
-            ]
-        ]
-    },
-    {
-        "id": "Q013",
-        "question": "What was TCS profit before tax in Q3FY25?",
-        "expected_keywords": [
-            "16,666",
-            "16666",
-            "profit before tax"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "16,666"
-            ]
-        ]
-    },
-    {
-        "id": "Q014",
-        "question": "What was TCS total tax expense in Q3FY25?",
-        "expected_keywords": [
-            "4,222",
-            "4222",
-            "tax expense",
-            "current tax"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "tax",
-        "gold": [
-            [
-                "4,222"
-            ]
-        ]
-    },
-    {
-        "id": "Q015",
-        "question": "What was TCS Banking Financial Services and Insurance segment revenue in Q3FY25?",
-        "expected_keywords": [
-            "23,481",
-            "23481",
-            "banking",
-            "financial services",
-            "insurance"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "segment",
-        "gold": [
-            [
-                "23,481"
-            ]
-        ]
-    },
-    {
-        "id": "Q016",
-        "question": "What was TCS Manufacturing segment revenue in Q3FY25?",
-        "expected_keywords": [
-            "6,194",
-            "6194",
-            "manufacturing"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "segment",
-        "gold": [
-            [
-                "6,194"
-            ]
-        ]
-    },
-    {
-        "id": "Q017",
-        "question": "What was TCS Communication Media and Technology segment revenue in Q3FY25?",
-        "expected_keywords": [
-            "11,989",
-            "11989",
-            "communication",
-            "media",
-            "technology"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "segment",
-        "gold": [
-            [
-                "11,989"
-            ]
-        ]
-    },
-    {
-        "id": "Q018",
-        "question": "What was TCS depreciation and amortisation expense in Q3FY25?",
-        "expected_keywords": [
-            "1,377",
-            "1377",
-            "depreciation",
-            "amortisation"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "expenses",
-        "gold": [
-            [
-                "1,377"
-            ]
-        ]
-    },
-    {
-        "id": "Q019",
-        "question": "What was TCS nine month revenue from operations ending December 2024?",
-        "expected_keywords": [
-            "1,90,845",
-            "190845",
-            "nine months",
-            "nine-months"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "1,90,845"
-            ]
-        ]
-    },
-    {
-        "id": "Q020",
-        "question": "When was the TCS Q3FY25 board meeting held?",
-        "expected_keywords": [
-            "January 9, 2025",
-            "9 January 2025",
-            "board meeting"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "general",
-        "gold": [
-            [
-                "January 9, 2025",
-                "9 January 2025",
-                "January 09, 2025",
-                "09 January 2025"
-            ]
-        ]
-    },
-    {
-        "id": "Q021",
-        "question": "What was TCS standalone revenue from operations in Q3FY25?",
-        "expected_keywords": [
-            "53,883",
-            "53883",
-            "standalone",
-            "revenue from operations"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "53,883"
-            ]
-        ]
-    },
-    {
-        "id": "Q022",
-        "question": "What was TCS standalone profit for the period in Q3FY25?",
-        "expected_keywords": [
-            "11,832",
-            "11832",
-            "standalone",
-            "profit for the period"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "11,832"
-            ]
-        ]
-    },
-    {
-        "id": "Q023",
-        "question": "What was TCS Life Sciences and Healthcare segment revenue in Q3FY25?",
-        "expected_keywords": [
-            "6,426",
-            "6426",
-            "life sciences",
-            "healthcare"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "segment",
-        "gold": [
-            [
-                "6,426"
-            ]
-        ]
-    },
-    {
-        "id": "Q024",
-        "question": "What was TCS Consumer Business segment revenue in Q3FY25?",
-        "expected_keywords": [
-            "10,035",
-            "10035",
-            "consumer business"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "segment",
-        "gold": [
-            [
-                "10,035"
-            ]
-        ]
-    },
-    {
-        "id": "Q025",
-        "question": "What was TCS finance costs in Q3FY25?",
-        "expected_keywords": [
-            "234",
-            "finance costs"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "expenses",
-        "gold": [
-            [
-                "234"
-            ]
-        ]
-    },
-    {
-        "id": "Q026",
-        "question": "What was TCS paid up equity share capital in Q3FY25?",
-        "expected_keywords": [
-            "362",
-            "paid up",
-            "equity share capital",
-            "face value"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "general",
-        "gold": [
-            [
-                "362"
-            ]
-        ]
-    },
-    {
-        "id": "Q027",
-        "question": "What was TCS total comprehensive income for Q3FY25?",
-        "expected_keywords": [
-            "11,624",
-            "11624",
-            "total comprehensive income"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "11,624"
-            ]
-        ]
-    },
-    {
-        "id": "Q028",
-        "question": "Who audited TCS Q3FY25 financial results?",
-        "expected_keywords": [
-            "BS R",
-            "BSR",
-            "chartered accountants",
-            "Aniruddha Godbole"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "audit",
-        "gold": [
-            [
-                "BSR",
-                "B S R"
-            ]
-        ]
-    },
-    {
-        "id": "Q029",
-        "question": "What was TCS profit before exceptional item and tax in Q3FY25?",
-        "expected_keywords": [
-            "16,666",
-            "16666",
-            "profit before exceptional"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "16,666"
-            ]
-        ]
-    },
-    {
-        "id": "Q030",
-        "question": "What was the record date for TCS Q3FY25 dividend payment?",
-        "expected_keywords": [
-            "January 17, 2025",
-            "17 January",
-            "record date"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "corporate_action",
-        "gold": [
-            [
-                "January 17, 2025",
-                "17 January 2025"
-            ]
-        ]
-    },
-    {
-        "id": "Q031",
-        "question": "What was TCS nine month profit for the period ending December 2024?",
-        "expected_keywords": [
-            "36,504",
-            "36504",
-            "nine months"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "36,504"
-            ]
-        ]
-    },
-    {
-        "id": "Q032",
-        "question": "What is the CIN of Tata Consultancy Services?",
-        "expected_keywords": [
-            "L22210MH1995PLC084781",
-            "CIN"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "general",
-        "gold": [
-            [
-                "L22210MH1995PLC084781"
-            ]
-        ]
-    },
-    {
-        "id": "Q033",
-        "question": "What was Reliance Industries Oil to Chemicals EBITDA for FY25?",
-        "expected_keywords": [
-            "74,163",
-            "oil to chemicals",
-            "O2C",
-            "EBITDA"
-        ],
-        "company": "Reliance Industries",
-        "period": "FY2025",
-        "doc_type": "annual_report",
-        "category": "segment",
-        "gold": [
-            [
-                "54,988"
-            ]
-        ],
-        "gold_note": "Gold corrected 2026-10-12: O2C EBITDA FY25 is Rs 54,988 crore (p.39). The original keyword 74,163 is standalone EBITDA (Q001)."
-    },
-    {
-        "id": "Q034",
-        "question": "What was TCS current tax expense in Q3FY25?",
-        "expected_keywords": [
-            "4,217",
-            "4217",
-            "current tax"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "tax",
-        "gold": [
-            [
-                "4,217"
-            ]
-        ]
-    },
-    {
-        "id": "Q035",
-        "question": "What was TCS profit attributable to shareholders of the company in Q3FY25?",
-        "expected_keywords": [
-            "12,380",
-            "12380",
-            "shareholders",
-            "attributable"
-        ],
-        "company": "TCS",
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "12,380"
-            ]
-        ]
-    },
-    {
-        "id": "Q036",
-        "question": "What was Infosys consolidated revenue from operations for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "48,211",
-            "48211",
-            "revenue from operations"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "48,211"
-            ]
-        ]
-    },
-    {
-        "id": "Q037",
-        "question": "What was Infosys consolidated profit for the period for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "7,775",
-            "7775",
-            "profit for the period"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "7,775"
-            ]
-        ]
-    },
-    {
-        "id": "Q038",
-        "question": "What was Infosys consolidated basic earnings per share for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "19.19",
-            "earnings per share",
-            "basic"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "per_share",
-        "gold": [
-            [
-                "19.19"
-            ]
-        ]
-    },
-    {
-        "id": "Q039",
-        "question": "What were Infosys consolidated employee benefit expenses for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "25,287",
-            "25287",
-            "employee benefit"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "expenses",
-        "gold": [
-            [
-                "25,287"
-            ]
-        ]
-    },
-    {
-        "id": "Q040",
-        "question": "What final dividend did Infosys recommend for financial year 2026?",
-        "expected_keywords": [
-            "25",
-            "final dividend",
-            "per equity share"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "corporate_action",
-        "gold": [
-            [
-                "25"
-            ]
-        ]
-    },
-    {
-        "id": "Q041",
-        "question": "What was Infosys Financial Services segment revenue for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "13,463",
-            "13463",
-            "financial services"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "segment",
-        "gold": [
-            [
-                "13,463"
-            ]
-        ]
-    },
-    {
-        "id": "Q042",
-        "question": "What was Infosys consolidated current tax expense for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "3,356",
-            "3356",
-            "current tax"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "tax",
-        "gold": [
-            [
-                "3,356"
-            ]
-        ]
-    },
-    {
-        "id": "Q043",
-        "question": "Who are the statutory auditors of Infosys and what opinion did they express for Q1FY27?",
-        "expected_keywords": [
-            "Deloitte Haskins",
-            "Sells",
-            "unmodified audit opinion"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "audit",
-        "gold": [
-            [
-                "Deloitte"
-            ],
-            [
-                "unmodified"
-            ]
-        ]
-    },
-    {
-        "id": "Q044",
-        "question": "What is the CIN of Infosys Limited?",
-        "expected_keywords": [
-            "L85110KA1981PLC013115",
-            "CIN"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "general",
-        "gold": [
-            [
-                "L85110KA1981PLC013115"
-            ]
-        ]
-    },
-    {
-        "id": "Q045",
-        "question": "What was Infosys standalone profit before tax for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "10,161",
-            "10161",
-            "standalone",
-            "profit before tax"
-        ],
-        "company": "Infosys",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "10,161"
-            ]
-        ]
-    },
-    {
-        "id": "Q046",
-        "question": "What was ITC's standalone revenue from operations for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "26,943.23",
-            "revenue from operations"
-        ],
-        "company": "ITC",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "26,943.23"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q047",
-        "question": "What was ITC's consolidated profit for the period for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "4,508.79",
-            "profit for the period"
-        ],
-        "company": "ITC",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "4,508.79"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q048",
-        "question": "What was ITC's standalone basic earnings per share for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "2.86",
-            "basic",
-            "earnings per share"
-        ],
-        "company": "ITC",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "per_share",
-        "gold": [
-            [
-                "2.86"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q049",
-        "question": "What was Sun Pharma's consolidated total revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "152,998.8",
-            "revenue from operations"
-        ],
-        "company": "Sun Pharma",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "152,998.8"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q050",
-        "question": "What was Sun Pharma's consolidated net profit after non-controlling interests for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "28,947.9",
-            "net profit"
-        ],
-        "company": "Sun Pharma",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "28,947.9"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q051",
-        "question": "What was Sun Pharma's consolidated basic earnings per share for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "12.1",
-            "basic",
-            "earnings per share"
-        ],
-        "company": "Sun Pharma",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "per_share",
-        "gold": [
-            [
-                "12.1"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q052",
-        "question": "What was HDFC Bank's standalone net profit for the period for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "19,059.72",
-            "net profit"
-        ],
-        "company": "HDFC Bank",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "19,059.72"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q053",
-        "question": "What was HDFC Bank's consolidated interest earned for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "90,575.33",
-            "interest earned"
-        ],
-        "company": "HDFC Bank",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "90,575.33"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q054",
-        "question": "What was HDFC Bank's consolidated profit before tax and minority interest for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "27,193.16",
-            "profit"
-        ],
-        "company": "HDFC Bank",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "27,193.16"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q055",
-        "question": "What was Larsen & Toubro's consolidated revenue from operations for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "67,941.74",
-            "67,942",
-            "revenue from operations"
-        ],
-        "company": "Larsen & Toubro",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "67,941.74",
-                "67,942"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q056",
-        "question": "What was Larsen & Toubro's consolidated profit before tax for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "6,922.26",
-            "profit before tax"
-        ],
-        "company": "Larsen & Toubro",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "6,922.26"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q057",
-        "question": "What was Larsen & Toubro's consolidated net profit attributable to owners of the company for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "4,122.85",
-            "attributable",
-            "owners"
-        ],
-        "company": "Larsen & Toubro",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "4,122.85"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
-    },
-    {
-        "id": "Q058",
-        "question": "What was Maruti Suzuki's standalone total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "524,557",
-            "revenue from operations"
-        ],
-        "company": "Maruti Suzuki",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "524,557"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
-    },
-    {
-        "id": "Q059",
-        "question": "What was Maruti Suzuki's consolidated total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "524,698",
-            "revenue from operations"
-        ],
-        "company": "Maruti Suzuki",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "524,698"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
-    },
-    {
-        "id": "Q060",
-        "question": "What was Maruti Suzuki's standalone profit for the period for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "33,521",
-            "profit for the period"
-        ],
-        "company": "Maruti Suzuki",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "33,521"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
-    },
-    {
-        "id": "Q061",
-        "question": "What was Bharti Airtel's consolidated revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "585,391",
-            "revenue from operations"
-        ],
-        "company": "Bharti Airtel",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "585,391"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
-    },
-    {
-        "id": "Q062",
-        "question": "What was Bharti Airtel's consolidated profit attributable to owners of the parent for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "81,674",
-            "owners of the parent"
-        ],
-        "company": "Bharti Airtel",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "81,674"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
-    },
-    {
-        "id": "Q063",
-        "question": "What was Bharti Airtel's standalone basic earnings per share for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "8.89",
-            "basic"
-        ],
-        "company": "Bharti Airtel",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "per_share",
-        "gold": [
-            [
-                "8.89"
-            ]
-        ],
-        "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
-    },
-    {
-        "id": "Q064",
-        "question": "What was TCS's consolidated revenue from operations growth year-on-year in Q3FY25?",
-        "expected_keywords": [
-            "5.6"
-        ],
-        "company": "TCS",
-        "companies": [
-            "TCS"
-        ],
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "growth",
-        "gold": [
-            [
-                "5.6",
-                "5.60",
-                "5.596"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (63,973 - 60,583) / 60,583."
-    },
-    {
-        "id": "Q065",
-        "question": "By what percentage did TCS's consolidated revenue from operations change quarter-on-quarter in Q3FY25?",
-        "expected_keywords": [
-            "0.45"
-        ],
-        "company": "TCS",
-        "companies": [
-            "TCS"
-        ],
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "growth",
-        "gold": [
-            [
-                "0.45",
-                "0.445",
-                "0.44",
-                "0.4"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (63,973 - 64,259) / 64,259 = -0.445%."
-    },
-    {
-        "id": "Q066",
-        "question": "What was HDFC Bank's standalone net profit growth year-on-year for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "4.98"
-        ],
-        "company": "HDFC Bank",
-        "companies": [
-            "HDFC Bank"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "growth",
-        "gold": [
-            [
-                "4.98",
-                "4.982",
-                "5.0"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (19,059.72 - 18,155.21) / 18,155.21."
-    },
-    {
-        "id": "Q067",
-        "question": "What was Larsen & Toubro's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "6.69"
-        ],
-        "company": "Larsen & Toubro",
-        "companies": [
-            "Larsen & Toubro"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "growth",
-        "gold": [
-            [
-                "6.69",
-                "6.694",
-                "6.7"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (67,941.74 - 63,678.92) / 63,678.92."
-    },
-    {
-        "id": "Q068",
-        "question": "What was Sun Pharma's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "10.46"
-        ],
-        "company": "Sun Pharma",
-        "companies": [
-            "Sun Pharma"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "growth",
-        "gold": [
-            [
-                "10.46",
-                "10.457",
-                "10.5"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (152,998.8 - 138,514.0) / 138,514.0."
-    },
-    {
-        "id": "Q069",
-        "question": "What was Maruti Suzuki's standalone revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "35.92"
-        ],
-        "company": "Maruti Suzuki",
-        "companies": [
-            "Maruti Suzuki"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "growth",
-        "gold": [
-            [
-                "35.92",
-                "35.920",
-                "35.9"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (524,557 - 385,930) / 385,930."
-    },
-    {
-        "id": "Q070",
-        "question": "What was Bharti Airtel's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "18.35"
-        ],
-        "company": "Bharti Airtel",
-        "companies": [
-            "Bharti Airtel"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "growth",
-        "gold": [
-            [
-                "18.35",
-                "18.350",
-                "18.4"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: (585,391 - 494,626) / 494,626."
-    },
-    {
-        "id": "Q071",
-        "question": "Which had higher consolidated revenue from operations for the quarter ended June 30, 2026: ITC or Maruti Suzuki?",
-        "expected_keywords": [
-            "Maruti",
-            "52,469.8"
-        ],
-        "company": "ITC",
-        "companies": [
-            "ITC",
-            "Maruti Suzuki"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "comparison",
-        "gold": [
-            [
-                "Maruti"
-            ],
-            [
-                "52,469.8",
-                "52,469.80",
-                "52,470"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: Maruti 524,698 million = 52,469.8 crore vs ITC 29,523.30 crore."
-    },
-    {
-        "id": "Q072",
-        "question": "How much higher was Bharti Airtel's consolidated revenue from operations than Sun Pharma's for the quarter ended June 30, 2026, in rupees crore?",
-        "expected_keywords": [
-            "43,239.22"
-        ],
-        "company": "Bharti Airtel",
-        "companies": [
-            "Bharti Airtel",
-            "Sun Pharma"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "comparison",
-        "gold": [
-            [
-                "43,239.22",
-                "43,239.2",
-                "43,239"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 58,539.1 - 15,299.88 crore (both reported in million)."
-    },
-    {
-        "id": "Q073",
-        "question": "Compare Larsen & Toubro's and Infosys's consolidated revenue from operations for the quarter ended June 30, 2026. What was the difference?",
-        "expected_keywords": [
-            "19,730.74"
-        ],
-        "company": "Larsen & Toubro",
-        "companies": [
-            "Larsen & Toubro",
-            "Infosys"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "comparison",
-        "gold": [
-            [
-                "19,730.74",
-                "19,730.7",
-                "19,731"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 67,941.74 - 48,211."
-    },
-    {
-        "id": "Q074",
-        "question": "Compare HDFC Bank's standalone net profit with Infosys's consolidated net profit for the quarter ended June 30, 2026. Which was higher and by how much?",
-        "expected_keywords": [
-            "HDFC",
-            "11,284.72"
-        ],
-        "company": "HDFC Bank",
-        "companies": [
-            "HDFC Bank",
-            "Infosys"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "comparison",
-        "gold": [
-            [
-                "HDFC"
-            ],
-            [
-                "11,284.72",
-                "11,284.7",
-                "11,285"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 19,059.72 - 7,775."
-    },
-    {
-        "id": "Q075",
-        "question": "What was TCS's consolidated net profit margin (net profit as a percentage of revenue from operations) in Q3FY25?",
-        "expected_keywords": [
-            "19.45"
-        ],
-        "company": "TCS",
-        "companies": [
-            "TCS"
-        ],
-        "period": "Q3FY25",
-        "doc_type": "quarterly_result",
-        "category": "ratio",
-        "gold": [
-            [
-                "19.45",
-                "19.452",
-                "19.5"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 12,444 / 63,973."
-    },
-    {
-        "id": "Q076",
-        "question": "What was ITC's standalone profit before tax margin (PBT as a percentage of revenue from operations) for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "17.66"
-        ],
-        "company": "ITC",
-        "companies": [
-            "ITC"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "ratio",
-        "gold": [
-            [
-                "17.66",
-                "17.665",
-                "17.7",
-                "17.67"
-            ]
-        ],
-        "gold_note": "Added 2026-10-15; computed from hand-verified figures: 4,759.41 / 26,943.23."
-    },
-    {
-        "id": "Q077",
-        "question": "What was Tata Steel's standalone total revenue from operations for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "36,896.55"
-        ],
-        "company": "Tata Steel",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "36,896.55"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p1, verified on the page image."
-    },
-    {
-        "id": "Q078",
-        "question": "What was Tata Steel's consolidated total revenue from operations for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "60,794.29"
-        ],
-        "company": "Tata Steel",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "60,794.29"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p3, verified on the page image (text layer read 60.794.29)."
-    },
-    {
-        "id": "Q079",
-        "question": "What was Tata Steel's consolidated net profit for the period for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "2,385.24"
-        ],
-        "company": "Tata Steel",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "2,385.24"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p3, verified on the page image."
-    },
-    {
-        "id": "Q080",
-        "question": "What was Tata Steel's consolidated profit attributable to owners of the company for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "2,318.35"
-        ],
-        "company": "Tata Steel",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "2,318.35"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p3; text layer read 2.318.35, matches the company's reported Rs 2,318 crore."
-    },
-    {
-        "id": "Q081",
-        "question": "What was NTPC's standalone revenue from operations for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "43,831.86"
-        ],
-        "company": "NTPC",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "43,831.86"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p3, from the filing's (clean) text layer."
-    },
-    {
-        "id": "Q082",
-        "question": "What was NTPC's consolidated revenue from operations for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "50,740.96"
-        ],
-        "company": "NTPC",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "50,740.96"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, from the filing's (clean) text layer."
-    },
-    {
-        "id": "Q083",
-        "question": "What was NTPC's consolidated profit for the period for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "6,896.44"
-        ],
-        "company": "NTPC",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "6,896.44"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, from the filing's (clean) text layer."
-    },
-    {
-        "id": "Q084",
-        "question": "What was NTPC's consolidated profit attributable to owners of the parent company for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "6,721.05"
-        ],
-        "company": "NTPC",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "6,721.05"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, from the filing's (clean) text layer."
-    },
-    {
-        "id": "Q085",
-        "question": "What was Bajaj Finance's consolidated total revenue from operations for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "23,165.45"
-        ],
-        "company": "Bajaj Finance",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "23,165.45"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, verified on the page image."
-    },
-    {
-        "id": "Q086",
-        "question": "What was Bajaj Finance's consolidated profit after tax for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "6,080.60"
-        ],
-        "company": "Bajaj Finance",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "6,080.60"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, verified on the page image."
-    },
-    {
-        "id": "Q087",
-        "question": "What was Bajaj Finance's consolidated profit attributable to owners of the company for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "5,985.75"
-        ],
-        "company": "Bajaj Finance",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "5,985.75"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p10; matches the company's reported Rs 5,985.75 crore."
-    },
-    {
-        "id": "Q088",
-        "question": "What was Bajaj Finance's standalone profit before tax for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "7,162.86"
-        ],
-        "company": "Bajaj Finance",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "7,162.86"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p4, from the filing's (clean) text layer."
-    },
-    {
-        "id": "Q089",
-        "question": "What was UltraTech Cement's consolidated revenue from operations for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "24,648.20"
-        ],
-        "company": "UltraTech Cement",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "revenue",
-        "gold": [
-            [
-                "24,648.20"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p6, from the filing's (clean) text layer."
-    },
-    {
-        "id": "Q090",
-        "question": "What was UltraTech Cement's consolidated profit attributable to owners of the parent for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "2,599.28"
-        ],
-        "company": "UltraTech Cement",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "2,599.28"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p6, from the filing's (clean) text layer."
-    },
-    {
-        "id": "Q091",
-        "question": "What was UltraTech Cement's standalone net profit for the period for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "2,397.12"
-        ],
-        "company": "UltraTech Cement",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "profitability",
-        "gold": [
-            [
-                "2,397.12"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p11, from the filing's (clean) text layer."
-    },
-    {
-        "id": "Q092",
-        "question": "What was UltraTech Cement's consolidated basic earnings per share for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "88.36"
-        ],
-        "company": "UltraTech Cement",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "per_share",
-        "gold": [
-            [
-                "88.36"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); p6, from the filing's (clean) text layer."
-    },
-    {
-        "id": "Q093",
-        "question": "What was NTPC's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "7.81"
-        ],
-        "company": "NTPC",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "growth",
-        "gold": [
-            [
-                "7.81",
-                "7.812",
-                "7.8"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); (50,740.96 - 47,064.35) / 47,064.35, p10."
-    },
-    {
-        "id": "Q094",
-        "question": "What was UltraTech Cement's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
-        "expected_keywords": [
-            "15.85"
-        ],
-        "company": "UltraTech Cement",
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "growth",
-        "gold": [
-            [
-                "15.85",
-                "15.853",
-                "15.9"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); (24,648.20 - 21,275.45) / 21,275.45, p6."
-    },
-    {
-        "id": "Q095",
-        "question": "Compare Tata Steel's and NTPC's consolidated revenue from operations for the quarter ended June 30, 2026. What was the difference?",
-        "expected_keywords": [
-            "10,053.33"
-        ],
-        "company": "Tata Steel",
-        "companies": [
-            "Tata Steel",
-            "NTPC"
-        ],
-        "period": "Q1FY27",
-        "doc_type": "quarterly_result",
-        "category": "comparison",
-        "gold": [
-            [
-                "10,053.33",
-                "10,053.3",
-                "10,053"
-            ]
-        ],
-        "gold_note": "Added 2026-10-17 (official NSE/company filing); 60,794.29 - 50,740.96."
-    }
+  {
+    "id": "Q001",
+    "question": "What was the EBITDA of Reliance Industries standalone entity in FY25?",
+    "expected_keywords": [
+      "74,163",
+      "74163",
+      "EBITDA",
+      "standalone"
+    ],
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "doc_type": "annual_report",
+    "category": "profitability",
+    "gold": [
+      [
+        "74,163"
+      ]
+    ]
+  },
+  {
+    "id": "Q002",
+    "question": "What was the standalone Profit After Tax of Reliance Industries in FY25?",
+    "expected_keywords": [
+      "35,262",
+      "35262",
+      "profit after tax",
+      "standalone"
+    ],
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "doc_type": "annual_report",
+    "category": "profitability",
+    "gold": [
+      [
+        "35,262"
+      ]
+    ]
+  },
+  {
+    "id": "Q003",
+    "question": "What dividend was declared by Reliance Industries board?",
+    "expected_keywords": [
+      "dividend",
+      "per share",
+      "equity"
+    ],
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "doc_type": "annual_report",
+    "category": "corporate_action",
+    "gold": [
+      [
+        "5.5"
+      ]
+    ],
+    "gold_note": "Gold added 2026-10-12: Board recommended Rs 5.50/share (annual report p.67, p.165). Original keywords had no figure."
+  },
+  {
+    "id": "Q004",
+    "question": "What is the face value of Reliance Industries equity shares?",
+    "expected_keywords": [
+      "10",
+      "face value",
+      "equity share"
+    ],
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "doc_type": "annual_report",
+    "category": "general",
+    "gold": [
+      [
+        "10"
+      ]
+    ]
+  },
+  {
+    "id": "Q005",
+    "question": "What was the net profit margin ratio formula used by Reliance Industries?",
+    "expected_keywords": [
+      "profit after tax",
+      "value of sales",
+      "services",
+      "margin"
+    ],
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "doc_type": "annual_report",
+    "category": "ratios",
+    "gold": [
+      [
+        "profit after tax"
+      ],
+      [
+        "value of sales"
+      ]
+    ]
+  },
+  {
+    "id": "Q006",
+    "question": "What is the return on capital employed formula for Reliance Industries?",
+    "expected_keywords": [
+      "net profit after tax",
+      "deferred tax",
+      "capital employed"
+    ],
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "doc_type": "annual_report",
+    "category": "ratios",
+    "gold": [
+      [
+        "deferred tax"
+      ],
+      [
+        "finance cost"
+      ],
+      [
+        "capital employed"
+      ]
+    ]
+  },
+  {
+    "id": "Q007",
+    "question": "What was TCS revenue from operations in Q3FY25?",
+    "expected_keywords": [
+      "63,973",
+      "63973",
+      "revenue from operations"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "63,973"
+      ]
+    ]
+  },
+  {
+    "id": "Q008",
+    "question": "What was TCS consolidated profit for the period in Q3FY25?",
+    "expected_keywords": [
+      "12,444",
+      "12444",
+      "profit for the period"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "12,444"
+      ]
+    ]
+  },
+  {
+    "id": "Q009",
+    "question": "What was TCS total income in Q3FY25?",
+    "expected_keywords": [
+      "65,216",
+      "65216",
+      "total income"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "65,216"
+      ]
+    ]
+  },
+  {
+    "id": "Q010",
+    "question": "What was TCS employee benefit expenses in Q3FY25?",
+    "expected_keywords": [
+      "35,956",
+      "35956",
+      "employee benefit"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "expenses",
+    "gold": [
+      [
+        "35,956"
+      ]
+    ]
+  },
+  {
+    "id": "Q011",
+    "question": "What was TCS earnings per share in Q3FY25?",
+    "expected_keywords": [
+      "34.21",
+      "earnings per share",
+      "EPS",
+      "basic",
+      "diluted"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "per_share",
+    "gold": [
+      [
+        "34.21"
+      ]
+    ]
+  },
+  {
+    "id": "Q012",
+    "question": "What interim dividend did TCS declare in Q3FY25?",
+    "expected_keywords": [
+      "76",
+      "10",
+      "interim dividend",
+      "special dividend"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "corporate_action",
+    "gold": [
+      [
+        "10",
+        "76"
+      ],
+      [
+        "66",
+        "76"
+      ]
+    ]
+  },
+  {
+    "id": "Q013",
+    "question": "What was TCS profit before tax in Q3FY25?",
+    "expected_keywords": [
+      "16,666",
+      "16666",
+      "profit before tax"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "16,666"
+      ]
+    ]
+  },
+  {
+    "id": "Q014",
+    "question": "What was TCS total tax expense in Q3FY25?",
+    "expected_keywords": [
+      "4,222",
+      "4222",
+      "tax expense",
+      "current tax"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "tax",
+    "gold": [
+      [
+        "4,222"
+      ]
+    ]
+  },
+  {
+    "id": "Q015",
+    "question": "What was TCS Banking Financial Services and Insurance segment revenue in Q3FY25?",
+    "expected_keywords": [
+      "23,481",
+      "23481",
+      "banking",
+      "financial services",
+      "insurance"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "segment",
+    "gold": [
+      [
+        "23,481"
+      ]
+    ]
+  },
+  {
+    "id": "Q016",
+    "question": "What was TCS Manufacturing segment revenue in Q3FY25?",
+    "expected_keywords": [
+      "6,194",
+      "6194",
+      "manufacturing"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "segment",
+    "gold": [
+      [
+        "6,194"
+      ]
+    ]
+  },
+  {
+    "id": "Q017",
+    "question": "What was TCS Communication Media and Technology segment revenue in Q3FY25?",
+    "expected_keywords": [
+      "11,989",
+      "11989",
+      "communication",
+      "media",
+      "technology"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "segment",
+    "gold": [
+      [
+        "11,989"
+      ]
+    ]
+  },
+  {
+    "id": "Q018",
+    "question": "What was TCS depreciation and amortisation expense in Q3FY25?",
+    "expected_keywords": [
+      "1,377",
+      "1377",
+      "depreciation",
+      "amortisation"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "expenses",
+    "gold": [
+      [
+        "1,377"
+      ]
+    ]
+  },
+  {
+    "id": "Q019",
+    "question": "What was TCS nine month revenue from operations ending December 2024?",
+    "expected_keywords": [
+      "1,90,845",
+      "190845",
+      "nine months",
+      "nine-months"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "1,90,845"
+      ]
+    ]
+  },
+  {
+    "id": "Q020",
+    "question": "When was the TCS Q3FY25 board meeting held?",
+    "expected_keywords": [
+      "January 9, 2025",
+      "9 January 2025",
+      "board meeting"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "general",
+    "gold": [
+      [
+        "January 9, 2025",
+        "9 January 2025",
+        "January 09, 2025",
+        "09 January 2025"
+      ]
+    ]
+  },
+  {
+    "id": "Q021",
+    "question": "What was TCS standalone revenue from operations in Q3FY25?",
+    "expected_keywords": [
+      "53,883",
+      "53883",
+      "standalone",
+      "revenue from operations"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "53,883"
+      ]
+    ]
+  },
+  {
+    "id": "Q022",
+    "question": "What was TCS standalone profit for the period in Q3FY25?",
+    "expected_keywords": [
+      "11,832",
+      "11832",
+      "standalone",
+      "profit for the period"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "11,832"
+      ]
+    ]
+  },
+  {
+    "id": "Q023",
+    "question": "What was TCS Life Sciences and Healthcare segment revenue in Q3FY25?",
+    "expected_keywords": [
+      "6,426",
+      "6426",
+      "life sciences",
+      "healthcare"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "segment",
+    "gold": [
+      [
+        "6,426"
+      ]
+    ]
+  },
+  {
+    "id": "Q024",
+    "question": "What was TCS Consumer Business segment revenue in Q3FY25?",
+    "expected_keywords": [
+      "10,035",
+      "10035",
+      "consumer business"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "segment",
+    "gold": [
+      [
+        "10,035"
+      ]
+    ]
+  },
+  {
+    "id": "Q025",
+    "question": "What was TCS finance costs in Q3FY25?",
+    "expected_keywords": [
+      "234",
+      "finance costs"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "expenses",
+    "gold": [
+      [
+        "234"
+      ]
+    ]
+  },
+  {
+    "id": "Q026",
+    "question": "What was TCS paid up equity share capital in Q3FY25?",
+    "expected_keywords": [
+      "362",
+      "paid up",
+      "equity share capital",
+      "face value"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "general",
+    "gold": [
+      [
+        "362"
+      ]
+    ]
+  },
+  {
+    "id": "Q027",
+    "question": "What was TCS total comprehensive income for Q3FY25?",
+    "expected_keywords": [
+      "11,624",
+      "11624",
+      "total comprehensive income"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "11,624"
+      ]
+    ]
+  },
+  {
+    "id": "Q028",
+    "question": "Who audited TCS Q3FY25 financial results?",
+    "expected_keywords": [
+      "BS R",
+      "BSR",
+      "chartered accountants",
+      "Aniruddha Godbole"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "audit",
+    "gold": [
+      [
+        "BSR",
+        "B S R"
+      ]
+    ]
+  },
+  {
+    "id": "Q029",
+    "question": "What was TCS profit before exceptional item and tax in Q3FY25?",
+    "expected_keywords": [
+      "16,666",
+      "16666",
+      "profit before exceptional"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "16,666"
+      ]
+    ]
+  },
+  {
+    "id": "Q030",
+    "question": "What was the record date for TCS Q3FY25 dividend payment?",
+    "expected_keywords": [
+      "January 17, 2025",
+      "17 January",
+      "record date"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "corporate_action",
+    "gold": [
+      [
+        "January 17, 2025",
+        "17 January 2025"
+      ]
+    ]
+  },
+  {
+    "id": "Q031",
+    "question": "What was TCS nine month profit for the period ending December 2024?",
+    "expected_keywords": [
+      "36,504",
+      "36504",
+      "nine months"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "36,504"
+      ]
+    ]
+  },
+  {
+    "id": "Q032",
+    "question": "What is the CIN of Tata Consultancy Services?",
+    "expected_keywords": [
+      "L22210MH1995PLC084781",
+      "CIN"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "general",
+    "gold": [
+      [
+        "L22210MH1995PLC084781"
+      ]
+    ]
+  },
+  {
+    "id": "Q033",
+    "question": "What was Reliance Industries Oil to Chemicals EBITDA for FY25?",
+    "expected_keywords": [
+      "74,163",
+      "oil to chemicals",
+      "O2C",
+      "EBITDA"
+    ],
+    "company": "Reliance Industries",
+    "period": "FY2025",
+    "doc_type": "annual_report",
+    "category": "segment",
+    "gold": [
+      [
+        "54,988"
+      ]
+    ],
+    "gold_note": "Gold corrected 2026-10-12: O2C EBITDA FY25 is Rs 54,988 crore (p.39). The original keyword 74,163 is standalone EBITDA (Q001)."
+  },
+  {
+    "id": "Q034",
+    "question": "What was TCS current tax expense in Q3FY25?",
+    "expected_keywords": [
+      "4,217",
+      "4217",
+      "current tax"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "tax",
+    "gold": [
+      [
+        "4,217"
+      ]
+    ]
+  },
+  {
+    "id": "Q035",
+    "question": "What was TCS profit attributable to shareholders of the company in Q3FY25?",
+    "expected_keywords": [
+      "12,380",
+      "12380",
+      "shareholders",
+      "attributable"
+    ],
+    "company": "TCS",
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "12,380"
+      ]
+    ]
+  },
+  {
+    "id": "Q036",
+    "question": "What was Infosys consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "48,211",
+      "48211",
+      "revenue from operations"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "48,211"
+      ]
+    ]
+  },
+  {
+    "id": "Q037",
+    "question": "What was Infosys consolidated profit for the period for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "7,775",
+      "7775",
+      "profit for the period"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "7,775"
+      ]
+    ]
+  },
+  {
+    "id": "Q038",
+    "question": "What was Infosys consolidated basic earnings per share for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "19.19",
+      "earnings per share",
+      "basic"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "per_share",
+    "gold": [
+      [
+        "19.19"
+      ]
+    ]
+  },
+  {
+    "id": "Q039",
+    "question": "What were Infosys consolidated employee benefit expenses for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "25,287",
+      "25287",
+      "employee benefit"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "expenses",
+    "gold": [
+      [
+        "25,287"
+      ]
+    ]
+  },
+  {
+    "id": "Q040",
+    "question": "What final dividend did Infosys recommend for financial year 2026?",
+    "expected_keywords": [
+      "25",
+      "final dividend",
+      "per equity share"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "corporate_action",
+    "gold": [
+      [
+        "25"
+      ]
+    ]
+  },
+  {
+    "id": "Q041",
+    "question": "What was Infosys Financial Services segment revenue for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "13,463",
+      "13463",
+      "financial services"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "segment",
+    "gold": [
+      [
+        "13,463"
+      ]
+    ]
+  },
+  {
+    "id": "Q042",
+    "question": "What was Infosys consolidated current tax expense for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "3,356",
+      "3356",
+      "current tax"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "tax",
+    "gold": [
+      [
+        "3,356"
+      ]
+    ]
+  },
+  {
+    "id": "Q043",
+    "question": "Who are the statutory auditors of Infosys and what opinion did they express for Q1FY27?",
+    "expected_keywords": [
+      "Deloitte Haskins",
+      "Sells",
+      "unmodified audit opinion"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "audit",
+    "gold": [
+      [
+        "Deloitte"
+      ],
+      [
+        "unmodified"
+      ]
+    ]
+  },
+  {
+    "id": "Q044",
+    "question": "What is the CIN of Infosys Limited?",
+    "expected_keywords": [
+      "L85110KA1981PLC013115",
+      "CIN"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "general",
+    "gold": [
+      [
+        "L85110KA1981PLC013115"
+      ]
+    ]
+  },
+  {
+    "id": "Q045",
+    "question": "What was Infosys standalone profit before tax for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "10,161",
+      "10161",
+      "standalone",
+      "profit before tax"
+    ],
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "10,161"
+      ]
+    ]
+  },
+  {
+    "id": "Q046",
+    "question": "What was ITC's standalone revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "26,943.23",
+      "revenue from operations"
+    ],
+    "company": "ITC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "26,943.23"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q047",
+    "question": "What was ITC's consolidated profit for the period for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "4,508.79",
+      "profit for the period"
+    ],
+    "company": "ITC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "4,508.79"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q048",
+    "question": "What was ITC's standalone basic earnings per share for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "2.86",
+      "basic",
+      "earnings per share"
+    ],
+    "company": "ITC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "per_share",
+    "gold": [
+      [
+        "2.86"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q049",
+    "question": "What was Sun Pharma's consolidated total revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "152,998.8",
+      "revenue from operations"
+    ],
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "152,998.8"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q050",
+    "question": "What was Sun Pharma's consolidated net profit after non-controlling interests for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "28,947.9",
+      "net profit"
+    ],
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "28,947.9"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q051",
+    "question": "What was Sun Pharma's consolidated basic earnings per share for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "12.1",
+      "basic",
+      "earnings per share"
+    ],
+    "company": "Sun Pharma",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "per_share",
+    "gold": [
+      [
+        "12.1"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q052",
+    "question": "What was HDFC Bank's standalone net profit for the period for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "19,059.72",
+      "net profit"
+    ],
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "19,059.72"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q053",
+    "question": "What was HDFC Bank's consolidated interest earned for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "90,575.33",
+      "interest earned"
+    ],
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "90,575.33"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q054",
+    "question": "What was HDFC Bank's consolidated profit before tax and minority interest for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "27,193.16",
+      "profit"
+    ],
+    "company": "HDFC Bank",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "27,193.16"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q055",
+    "question": "What was Larsen & Toubro's consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "67,941.74",
+      "67,942",
+      "revenue from operations"
+    ],
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "67,941.74",
+        "67,942"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q056",
+    "question": "What was Larsen & Toubro's consolidated profit before tax for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "6,922.26",
+      "profit before tax"
+    ],
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "6,922.26"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q057",
+    "question": "What was Larsen & Toubro's consolidated net profit attributable to owners of the company for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "4,122.85",
+      "attributable",
+      "owners"
+    ],
+    "company": "Larsen & Toubro",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "4,122.85"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing (page image for OCR'd filings)."
+  },
+  {
+    "id": "Q058",
+    "question": "What was Maruti Suzuki's standalone total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "524,557",
+      "revenue from operations"
+    ],
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "524,557"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+  },
+  {
+    "id": "Q059",
+    "question": "What was Maruti Suzuki's consolidated total revenue from operations (in INR million) for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "524,698",
+      "revenue from operations"
+    ],
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "524,698"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+  },
+  {
+    "id": "Q060",
+    "question": "What was Maruti Suzuki's standalone profit for the period for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "33,521",
+      "profit for the period"
+    ],
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "33,521"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+  },
+  {
+    "id": "Q061",
+    "question": "What was Bharti Airtel's consolidated revenue from operations (in Rs million) for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "585,391",
+      "revenue from operations"
+    ],
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "585,391"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+  },
+  {
+    "id": "Q062",
+    "question": "What was Bharti Airtel's consolidated profit attributable to owners of the parent for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "81,674",
+      "owners of the parent"
+    ],
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "81,674"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+  },
+  {
+    "id": "Q063",
+    "question": "What was Bharti Airtel's standalone basic earnings per share for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "8.89",
+      "basic"
+    ],
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "per_share",
+    "gold": [
+      [
+        "8.89"
+      ]
+    ],
+    "gold_note": "Added 2026-10-13; gold verified against the filing's page image (embedded text layer was bad OCR)."
+  },
+  {
+    "id": "Q064",
+    "question": "What was TCS's consolidated revenue from operations growth year-on-year in Q3FY25?",
+    "expected_keywords": [
+      "5.6"
+    ],
+    "company": "TCS",
+    "companies": [
+      "TCS"
+    ],
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "5.6",
+        "5.60",
+        "5.596"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: (63,973 - 60,583) / 60,583."
+  },
+  {
+    "id": "Q065",
+    "question": "By what percentage did TCS's consolidated revenue from operations change quarter-on-quarter in Q3FY25?",
+    "expected_keywords": [
+      "0.45"
+    ],
+    "company": "TCS",
+    "companies": [
+      "TCS"
+    ],
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "0.45",
+        "0.445",
+        "0.44",
+        "0.4"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: (63,973 - 64,259) / 64,259 = -0.445%."
+  },
+  {
+    "id": "Q066",
+    "question": "What was HDFC Bank's standalone net profit growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "4.98"
+    ],
+    "company": "HDFC Bank",
+    "companies": [
+      "HDFC Bank"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "4.98",
+        "4.982",
+        "5.0"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: (19,059.72 - 18,155.21) / 18,155.21."
+  },
+  {
+    "id": "Q067",
+    "question": "What was Larsen & Toubro's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "6.69"
+    ],
+    "company": "Larsen & Toubro",
+    "companies": [
+      "Larsen & Toubro"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "6.69",
+        "6.694",
+        "6.7"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: (67,941.74 - 63,678.92) / 63,678.92."
+  },
+  {
+    "id": "Q068",
+    "question": "What was Sun Pharma's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "10.46"
+    ],
+    "company": "Sun Pharma",
+    "companies": [
+      "Sun Pharma"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "10.46",
+        "10.457",
+        "10.5"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: (152,998.8 - 138,514.0) / 138,514.0."
+  },
+  {
+    "id": "Q069",
+    "question": "What was Maruti Suzuki's standalone revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "35.92"
+    ],
+    "company": "Maruti Suzuki",
+    "companies": [
+      "Maruti Suzuki"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "35.92",
+        "35.920",
+        "35.9"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: (524,557 - 385,930) / 385,930."
+  },
+  {
+    "id": "Q070",
+    "question": "What was Bharti Airtel's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "18.35"
+    ],
+    "company": "Bharti Airtel",
+    "companies": [
+      "Bharti Airtel"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "18.35",
+        "18.350",
+        "18.4"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: (585,391 - 494,626) / 494,626."
+  },
+  {
+    "id": "Q071",
+    "question": "Which had higher consolidated revenue from operations for the quarter ended June 30, 2026: ITC or Maruti Suzuki?",
+    "expected_keywords": [
+      "Maruti",
+      "52,469.8"
+    ],
+    "company": "ITC",
+    "companies": [
+      "ITC",
+      "Maruti Suzuki"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "Maruti"
+      ],
+      [
+        "52,469.8",
+        "52,469.80",
+        "52,470"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: Maruti 524,698 million = 52,469.8 crore vs ITC 29,523.30 crore."
+  },
+  {
+    "id": "Q072",
+    "question": "How much higher was Bharti Airtel's consolidated revenue from operations than Sun Pharma's for the quarter ended June 30, 2026, in rupees crore?",
+    "expected_keywords": [
+      "43,239.22"
+    ],
+    "company": "Bharti Airtel",
+    "companies": [
+      "Bharti Airtel",
+      "Sun Pharma"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "43,239.22",
+        "43,239.2",
+        "43,239"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: 58,539.1 - 15,299.88 crore (both reported in million)."
+  },
+  {
+    "id": "Q073",
+    "question": "Compare Larsen & Toubro's and Infosys's consolidated revenue from operations for the quarter ended June 30, 2026. What was the difference?",
+    "expected_keywords": [
+      "19,730.74"
+    ],
+    "company": "Larsen & Toubro",
+    "companies": [
+      "Larsen & Toubro",
+      "Infosys"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "19,730.74",
+        "19,730.7",
+        "19,731"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: 67,941.74 - 48,211."
+  },
+  {
+    "id": "Q074",
+    "question": "Compare HDFC Bank's standalone net profit with Infosys's consolidated net profit for the quarter ended June 30, 2026. Which was higher and by how much?",
+    "expected_keywords": [
+      "HDFC",
+      "11,284.72"
+    ],
+    "company": "HDFC Bank",
+    "companies": [
+      "HDFC Bank",
+      "Infosys"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "HDFC"
+      ],
+      [
+        "11,284.72",
+        "11,284.7",
+        "11,285"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: 19,059.72 - 7,775."
+  },
+  {
+    "id": "Q075",
+    "question": "What was TCS's consolidated net profit margin (net profit as a percentage of revenue from operations) in Q3FY25?",
+    "expected_keywords": [
+      "19.45"
+    ],
+    "company": "TCS",
+    "companies": [
+      "TCS"
+    ],
+    "period": "Q3FY25",
+    "doc_type": "quarterly_result",
+    "category": "ratio",
+    "gold": [
+      [
+        "19.45",
+        "19.452",
+        "19.5"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: 12,444 / 63,973."
+  },
+  {
+    "id": "Q076",
+    "question": "What was ITC's standalone profit before tax margin (PBT as a percentage of revenue from operations) for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "17.66"
+    ],
+    "company": "ITC",
+    "companies": [
+      "ITC"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "ratio",
+    "gold": [
+      [
+        "17.66",
+        "17.665",
+        "17.7",
+        "17.67"
+      ]
+    ],
+    "gold_note": "Added 2026-10-15; computed from hand-verified figures: 4,759.41 / 26,943.23."
+  },
+  {
+    "id": "Q077",
+    "question": "What was Tata Steel's standalone total revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "36,896.55"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "36,896.55"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p1, verified on the page image."
+  },
+  {
+    "id": "Q078",
+    "question": "What was Tata Steel's consolidated total revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "60,794.29"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "60,794.29"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p3, verified on the page image (text layer read 60.794.29)."
+  },
+  {
+    "id": "Q079",
+    "question": "What was Tata Steel's consolidated net profit for the period for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "2,385.24"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "2,385.24"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p3, verified on the page image."
+  },
+  {
+    "id": "Q080",
+    "question": "What was Tata Steel's consolidated profit attributable to owners of the company for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "2,318.35"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "2,318.35"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p3; text layer read 2.318.35, matches the company's reported Rs 2,318 crore."
+  },
+  {
+    "id": "Q081",
+    "question": "What was NTPC's standalone revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "43,831.86"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "43,831.86"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p3, from the filing's (clean) text layer."
+  },
+  {
+    "id": "Q082",
+    "question": "What was NTPC's consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "50,740.96"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "50,740.96"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, from the filing's (clean) text layer."
+  },
+  {
+    "id": "Q083",
+    "question": "What was NTPC's consolidated profit for the period for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "6,896.44"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "6,896.44"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, from the filing's (clean) text layer."
+  },
+  {
+    "id": "Q084",
+    "question": "What was NTPC's consolidated profit attributable to owners of the parent company for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "6,721.05"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "6,721.05"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, from the filing's (clean) text layer."
+  },
+  {
+    "id": "Q085",
+    "question": "What was Bajaj Finance's consolidated total revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "23,165.45"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "23,165.45"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, verified on the page image."
+  },
+  {
+    "id": "Q086",
+    "question": "What was Bajaj Finance's consolidated profit after tax for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "6,080.60"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "6,080.60"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p10, verified on the page image."
+  },
+  {
+    "id": "Q087",
+    "question": "What was Bajaj Finance's consolidated profit attributable to owners of the company for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "5,985.75"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "5,985.75"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p10; matches the company's reported Rs 5,985.75 crore."
+  },
+  {
+    "id": "Q088",
+    "question": "What was Bajaj Finance's standalone profit before tax for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "7,162.86"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "7,162.86"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p4, from the filing's (clean) text layer."
+  },
+  {
+    "id": "Q089",
+    "question": "What was UltraTech Cement's consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "24,648.20"
+    ],
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "24,648.20"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p6, from the filing's (clean) text layer."
+  },
+  {
+    "id": "Q090",
+    "question": "What was UltraTech Cement's consolidated profit attributable to owners of the parent for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "2,599.28"
+    ],
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "2,599.28"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p6, from the filing's (clean) text layer."
+  },
+  {
+    "id": "Q091",
+    "question": "What was UltraTech Cement's standalone net profit for the period for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "2,397.12"
+    ],
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "2,397.12"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p11, from the filing's (clean) text layer."
+  },
+  {
+    "id": "Q092",
+    "question": "What was UltraTech Cement's consolidated basic earnings per share for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "88.36"
+    ],
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "per_share",
+    "gold": [
+      [
+        "88.36"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); p6, from the filing's (clean) text layer."
+  },
+  {
+    "id": "Q093",
+    "question": "What was NTPC's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "7.81"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "7.81",
+        "7.812",
+        "7.8"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); (50,740.96 - 47,064.35) / 47,064.35, p10."
+  },
+  {
+    "id": "Q094",
+    "question": "What was UltraTech Cement's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "15.85"
+    ],
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "15.85",
+        "15.853",
+        "15.9"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); (24,648.20 - 21,275.45) / 21,275.45, p6."
+  },
+  {
+    "id": "Q095",
+    "question": "Compare Tata Steel's and NTPC's consolidated revenue from operations for the quarter ended June 30, 2026. What was the difference?",
+    "expected_keywords": [
+      "10,053.33"
+    ],
+    "company": "Tata Steel",
+    "companies": [
+      "Tata Steel",
+      "NTPC"
+    ],
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "10,053.33",
+        "10,053.3",
+        "10,053"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (official NSE/company filing); 60,794.29 - 50,740.96."
+  },
+  {
+    "id": "Q096",
+    "question": "What was TCS's revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "not"
+    ],
+    "company": "TCS",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "unanswerable",
+    "gold": [
+      [
+        "NOT_AVAILABLE"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); only TCS Q3FY25 is indexed."
+  },
+  {
+    "id": "Q097",
+    "question": "What was Wipro's consolidated net profit for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "not"
+    ],
+    "company": "Wipro",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "unanswerable",
+    "gold": [
+      [
+        "NOT_AVAILABLE"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); Wipro is not indexed; an unfiltered search must not answer from another company."
+  },
+  {
+    "id": "Q098",
+    "question": "What was Infosys's consolidated revenue from operations for the quarter ended September 30, 2026?",
+    "expected_keywords": [
+      "not"
+    ],
+    "company": "Infosys",
+    "period": "Q2FY27",
+    "doc_type": "quarterly_result",
+    "category": "unanswerable",
+    "gold": [
+      [
+        "NOT_AVAILABLE"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); Q2FY27 not indexed (Infosys Q1FY27 only)."
+  },
+  {
+    "id": "Q099",
+    "question": "How many employees did Maruti Suzuki have as of June 30, 2026?",
+    "expected_keywords": [
+      "not"
+    ],
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "unanswerable",
+    "gold": [
+      [
+        "NOT_AVAILABLE"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); headcount is not in the results filing (only employee benefits expense, p2/p4: 24,569 million — a tempting wrong answer)."
+  },
+  {
+    "id": "Q100",
+    "question": "What was Bajaj Finance's consolidated revenue from operations for the quarter ended June 30, 2024?",
+    "expected_keywords": [
+      "not"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY25",
+    "doc_type": "quarterly_result",
+    "category": "unanswerable",
+    "gold": [
+      [
+        "NOT_AVAILABLE"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); Q1FY25 is not a column in the Q1FY27 filing (columns: Q1FY27, Q4FY26, Q1FY26, FY2026)."
+  },
+  {
+    "id": "Q101",
+    "question": "What was NTPC's consolidated net profit for the year ended March 31, 2027?",
+    "expected_keywords": [
+      "not"
+    ],
+    "company": "NTPC",
+    "period": "FY2027",
+    "doc_type": "quarterly_result",
+    "category": "unanswerable",
+    "gold": [
+      [
+        "NOT_AVAILABLE"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); FY2027 has not ended in the indexed filing (Q1FY27 only); a quarterly figure is wrong."
+  },
+  {
+    "id": "Q102",
+    "question": "Which had higher consolidated profit attributable to owners for the quarter ended June 30, 2026: NTPC or Tata Steel?",
+    "expected_keywords": [
+      "NTPC",
+      "6,721.05"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "NTPC"
+      ],
+      [
+        "6,721.05"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); NTPC 6,721.05 (p10) vs Tata Steel 2,318.35 (p3).",
+    "companies": [
+      "NTPC",
+      "Tata Steel"
+    ]
+  },
+  {
+    "id": "Q103",
+    "question": "How much higher was Bajaj Finance's consolidated profit attributable to owners than UltraTech Cement's for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "3,386.47"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "3,386.47",
+        "3,386.5",
+        "3,386"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); 5,985.75 (Bajaj p10) - 2,599.28 (UltraTech p6) = 3,386.47 crore.",
+    "companies": [
+      "Bajaj Finance",
+      "UltraTech Cement"
+    ]
+  },
+  {
+    "id": "Q104",
+    "question": "Which had higher consolidated revenue from operations for the quarter ended June 30, 2026: Bharti Airtel or NTPC?",
+    "expected_keywords": [
+      "Bharti",
+      "58,539"
+    ],
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "Bharti",
+        "Airtel"
+      ],
+      [
+        "58,539.1",
+        "58,539.10",
+        "58,539",
+        "585,391"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); Bharti 585,391 Rs million = 58,539.1 crore vs NTPC 50,740.96 crore (unit alignment).",
+    "companies": [
+      "Bharti Airtel",
+      "NTPC"
+    ]
+  },
+  {
+    "id": "Q105",
+    "question": "Rank Tata Steel, NTPC and UltraTech Cement by consolidated revenue from operations for the quarter ended June 30, 2026.",
+    "expected_keywords": [
+      "60,794.29",
+      "50,740.96",
+      "24,648.2"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "60,794.29"
+      ],
+      [
+        "50,740.96"
+      ],
+      [
+        "24,648.20",
+        "24,648.2",
+        "24,648"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); Tata Steel 60,794.29 > NTPC 50,740.96 > UltraTech 24,648.20.",
+    "companies": [
+      "Tata Steel",
+      "NTPC",
+      "UltraTech Cement"
+    ]
+  },
+  {
+    "id": "Q106",
+    "question": "What was the combined consolidated revenue from operations of Tata Steel and NTPC for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "111,535.25"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "comparison",
+    "gold": [
+      [
+        "111,535.25",
+        "111,535.2",
+        "111,535"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); 60,794.29 + 50,740.96 = 111,535.25 crore.",
+    "companies": [
+      "Tata Steel",
+      "NTPC"
+    ]
+  },
+  {
+    "id": "Q107",
+    "question": "What was NTPC's consolidated revenue from operations growth quarter-on-quarter for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "2.12"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "2.12",
+        "2.123",
+        "2.1"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); (50,740.96 - 49,686.31) / 49,686.31, p10."
+  },
+  {
+    "id": "Q108",
+    "question": "By what percentage did UltraTech Cement's consolidated revenue from operations change quarter-on-quarter in the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "4.46"
+    ],
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "4.46",
+        "4.462",
+        "4.5"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); (24,648.20 - 25,799.47) / 25,799.47 = -4.46%, p6 (a decline)."
+  },
+  {
+    "id": "Q109",
+    "question": "What was Tata Steel's consolidated profit attributable to owners growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "11.58"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "11.58",
+        "11.584",
+        "11.6"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); (2,318.35 - 2,077.68) / 2,077.68, p3 (page image)."
+  },
+  {
+    "id": "Q110",
+    "question": "What was Bajaj Finance's consolidated profit attributable to owners growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "27.37"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "27.37",
+        "27.367",
+        "27.4"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); (5,985.75 - 4,699.61) / 4,699.61, p10 (page image)."
+  },
+  {
+    "id": "Q111",
+    "question": "By what percentage did ITC's standalone profit for the period change year-on-year in the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "30.01"
+    ],
+    "company": "ITC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "30.01",
+        "30.010",
+        "30.0"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); (3,578.82 - 5,113.36) / 5,113.36 = -30.01%, p3 (a decline)."
+  },
+  {
+    "id": "Q112",
+    "question": "What was Tata Steel's consolidated revenue from operations for the quarter ended March 31, 2026?",
+    "expected_keywords": [
+      "63,270.13"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "63,270.13"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); prior-quarter column of the Q1FY27 filing, p3 (page image)."
+  },
+  {
+    "id": "Q113",
+    "question": "What was Bajaj Finance's consolidated profit after tax for the quarter ended June 30, 2025?",
+    "expected_keywords": [
+      "4,765.29"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "4,765.29"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); year-ago column of the Q1FY27 filing, p10 (page image)."
+  },
+  {
+    "id": "Q114",
+    "question": "What was NTPC's standalone revenue from operations for the year ended March 31, 2026?",
+    "expected_keywords": [
+      "165,487.84"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "165,487.84",
+        "1,65,487.84",
+        "165487.84"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); FY2026 column of the Q1FY27 filing, p3."
+  },
+  {
+    "id": "Q115",
+    "question": "How much did Tata Steel earn per share (basic) on a consolidated basis in Q1 FY27?",
+    "expected_keywords": [
+      "1.86"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "per_share",
+    "gold": [
+      [
+        "1.86"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); p3 (page image)."
+  },
+  {
+    "id": "Q116",
+    "question": "What was Bajaj Finance's standalone PAT in the June 2026 quarter?",
+    "expected_keywords": [
+      "5,345.52"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "5,345.52"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); p4 (page image)."
+  },
+  {
+    "id": "Q117",
+    "question": "What were UltraTech Cement's consolidated finance costs in Q1FY27?",
+    "expected_keywords": [
+      "452.93"
+    ],
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "expenses",
+    "gold": [
+      [
+        "452.93"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); p6."
+  },
+  {
+    "id": "Q118",
+    "question": "What was Tata Steel's tax bill on a consolidated basis for Q1 FY27?",
+    "expected_keywords": [
+      "1,452.29"
+    ],
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "tax",
+    "gold": [
+      [
+        "1,452.29"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); total tax expense, p3 (page image)."
+  },
+  {
+    "id": "Q119",
+    "question": "What was ITC's bottom line on a standalone basis for the quarter ended 30 June 2026?",
+    "expected_keywords": [
+      "3,578.82"
+    ],
+    "company": "ITC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "3,578.82"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); profit for the period, p3."
+  },
+  {
+    "id": "Q120",
+    "question": "What was NTPC's standalone basic EPS including the net movement in regulatory deferral account balances for Q1FY27?",
+    "expected_keywords": [
+      "5.51"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "per_share",
+    "gold": [
+      [
+        "5.51"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); p3 row 10 (5.51 incl.; row 11 excl. is 5.24 — a tempting wrong answer)."
+  },
+  {
+    "id": "Q121",
+    "question": "Which audit firms jointly reviewed UltraTech Cement's results for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "Deloitte",
+      "KKC"
+    ],
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "audit",
+    "gold": [
+      [
+        "Deloitte"
+      ],
+      [
+        "KKC"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); Deloitte Haskins & Sells LLP and KKC & Associates LLP, p2-p5."
+  },
+  {
+    "id": "Q122",
+    "question": "Who are the joint statutory auditors that reviewed Bajaj Finance's Q1FY27 results?",
+    "expected_keywords": [
+      "Price Waterhouse",
+      "Kirtane"
+    ],
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "audit",
+    "gold": [
+      [
+        "Price Waterhouse"
+      ],
+      [
+        "Kirtane"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); Price Waterhouse LLP and Kirtane & Pandit LLP (signatures on p4/p10)."
+  },
+  {
+    "id": "Q123",
+    "question": "On what date did NTPC's Board of Directors approve the results for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "24 July 2026"
+    ],
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "general",
+    "gold": [
+      [
+        "24 July 2026",
+        "July 24, 2026",
+        "24th July 2026",
+        "24 July, 2026",
+        "24-07-2026",
+        "24.07.2026"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); p1 / p6 / p13."
+  },
+  {
+    "id": "Q124",
+    "question": "Was the auditors' review conclusion on UltraTech Cement's Q1FY27 results modified?",
+    "expected_keywords": [
+      "not modified"
+    ],
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "audit",
+    "gold": [
+      [
+        "not modified",
+        "unmodified"
+      ]
+    ],
+    "gold_note": "Added 2026-10-17 (expansion step 2); 'Our conclusion on the Statement is not modified in respect of this matter.' p4-p5."
+  }
 ]

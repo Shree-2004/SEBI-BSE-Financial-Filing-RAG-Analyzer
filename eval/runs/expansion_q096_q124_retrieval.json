@@ -1,0 +1,465 @@
+[
+  {
+    "id": "Q096",
+    "question": "What was TCS's revenue from operations for the quarter ended June 30, 2026?",
+    "company": "TCS",
+    "period": "Q1FY27",
+    "category": "unanswerable",
+    "context_hit": null,
+    "retrieved_pages": [],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q097",
+    "question": "What was Wipro's consolidated net profit for the quarter ended June 30, 2026?",
+    "company": "Wipro",
+    "period": "Q1FY27",
+    "category": "unanswerable",
+    "context_hit": null,
+    "retrieved_pages": [],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q098",
+    "question": "What was Infosys's consolidated revenue from operations for the quarter ended September 30, 2026?",
+    "company": "Infosys",
+    "period": "Q2FY27",
+    "category": "unanswerable",
+    "context_hit": null,
+    "retrieved_pages": [],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q099",
+    "question": "How many employees did Maruti Suzuki have as of June 30, 2026?",
+    "company": "Maruti Suzuki",
+    "period": "Q1FY27",
+    "category": "unanswerable",
+    "context_hit": null,
+    "retrieved_pages": [
+      2,
+      4,
+      1,
+      6,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q100",
+    "question": "What was Bajaj Finance's consolidated revenue from operations for the quarter ended June 30, 2024?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY25",
+    "category": "unanswerable",
+    "context_hit": null,
+    "retrieved_pages": [],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q101",
+    "question": "What was NTPC's consolidated net profit for the year ended March 31, 2027?",
+    "company": "NTPC",
+    "period": "FY2027",
+    "category": "unanswerable",
+    "context_hit": null,
+    "retrieved_pages": [],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q102",
+    "question": "Which had higher consolidated profit attributable to owners for the quarter ended June 30, 2026: NTPC or Tata Steel?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": true,
+    "retrieved_pages": [
+      10,
+      11,
+      16,
+      10,
+      6
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q103",
+    "question": "How much higher was Bajaj Finance's consolidated profit attributable to owners than UltraTech Cement's for the quarter ended June 30, 2026?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": false,
+    "retrieved_pages": [
+      13,
+      10,
+      10,
+      10,
+      7
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q104",
+    "question": "Which had higher consolidated revenue from operations for the quarter ended June 30, 2026: Bharti Airtel or NTPC?",
+    "company": "Bharti Airtel",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": true,
+    "retrieved_pages": [
+      4,
+      3,
+      4,
+      5,
+      2
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q105",
+    "question": "Rank Tata Steel, NTPC and UltraTech Cement by consolidated revenue from operations for the quarter ended June 30, 2026.",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      4,
+      3,
+      5,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q106",
+    "question": "What was the combined consolidated revenue from operations of Tata Steel and NTPC for the quarter ended June 30, 2026?",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      3,
+      4,
+      4,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q107",
+    "question": "What was NTPC's consolidated revenue from operations growth quarter-on-quarter for the quarter ended June 30, 2026?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      11,
+      11,
+      6,
+      12,
+      14
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q108",
+    "question": "By what percentage did UltraTech Cement's consolidated revenue from operations change quarter-on-quarter in the quarter ended June 30, 2026?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      14,
+      4,
+      9,
+      5
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q109",
+    "question": "What was Tata Steel's consolidated profit attributable to owners growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      3,
+      3,
+      4,
+      4,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q110",
+    "question": "What was Bajaj Finance's consolidated profit attributable to owners growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [
+      13,
+      10,
+      10,
+      10,
+      7
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q111",
+    "question": "By what percentage did ITC's standalone profit for the period change year-on-year in the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [
+      3,
+      4,
+      4,
+      4,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q112",
+    "question": "What was Tata Steel's consolidated revenue from operations for the quarter ended March 31, 2026?",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      4,
+      3,
+      4,
+      4,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q113",
+    "question": "What was Bajaj Finance's consolidated profit after tax for the quarter ended June 30, 2025?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [
+      13,
+      10,
+      10,
+      10,
+      10
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q114",
+    "question": "What was NTPC's standalone revenue from operations for the year ended March 31, 2026?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [
+      4,
+      3,
+      6,
+      4,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q115",
+    "question": "How much did Tata Steel earn per share (basic) on a consolidated basis in Q1 FY27?",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      3,
+      1,
+      3,
+      7,
+      5
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q116",
+    "question": "What was Bajaj Finance's standalone PAT in the June 2026 quarter?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      4,
+      13,
+      6,
+      6
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q117",
+    "question": "What were UltraTech Cement's consolidated finance costs in Q1FY27?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "expenses",
+    "context_hit": true,
+    "retrieved_pages": [
+      14,
+      15,
+      6,
+      7,
+      7
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q118",
+    "question": "What was Tata Steel's tax bill on a consolidated basis for Q1 FY27?",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "tax",
+    "context_hit": true,
+    "retrieved_pages": [
+      3,
+      3,
+      4,
+      3,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q119",
+    "question": "What was ITC's bottom line on a standalone basis for the quarter ended 30 June 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": false,
+    "retrieved_pages": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q120",
+    "question": "What was NTPC's standalone basic EPS including the net movement in regulatory deferral account balances for Q1FY27?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      3,
+      3,
+      6,
+      5,
+      3
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q121",
+    "question": "Which audit firms jointly reviewed UltraTech Cement's results for the quarter ended June 30, 2026?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "audit",
+    "context_hit": true,
+    "retrieved_pages": [
+      5,
+      10,
+      4,
+      4,
+      9
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q122",
+    "question": "Who are the joint statutory auditors that reviewed Bajaj Finance's Q1FY27 results?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "category": "audit",
+    "context_hit": false,
+    "retrieved_pages": [
+      5,
+      6,
+      11,
+      6,
+      22
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q123",
+    "question": "On what date did NTPC's Board of Directors approve the results for the quarter ended June 30, 2026?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      6,
+      1,
+      1,
+      18,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  },
+  {
+    "id": "Q124",
+    "question": "Was the auditors' review conclusion on UltraTech Cement's Q1FY27 results modified?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "audit",
+    "context_hit": true,
+    "retrieved_pages": [
+      5,
+      9,
+      10,
+      4,
+      4
+    ],
+    "path": "rag",
+    "answer": ""
+  }
+]

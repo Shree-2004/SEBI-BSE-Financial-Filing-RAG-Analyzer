@@ -405,6 +405,20 @@ excluded. Offline: 53 eval questions newly routed, table figure = gold for
 missed questions: 5/5 strict, grounded, cited. Cost: the agent path makes
 ~2-3 LLM calls instead of 1, so more Groq tokens per single-figure question.
 
+Eval expansion (same day): 95 -> 124 questions (Q096-Q124), gold read off
+the filings (text layer; page images for OCR'd Tata Steel p3, Bajaj p4/p10)
+— never from the metrics table, which they test.
+- 6 unanswerable (gold `NOT_AVAILABLE`: correct only if the answer says
+  the figure isn't available): TCS Q1FY27, Wipro (not indexed), Infosys
+  Q2FY27, Maruti headcount (filing has only employee *expense*), Bajaj
+  Q1FY25, NTPC FY2027. The eval mirrors the API's "not indexed" refusal.
+- 5 cross-company (incl. ₹ million vs ₹ crore), 5 QoQ/YoY growth, 3
+  prior-period figures, 6 new phrasings, 4 auditor / board-date questions.
+Retrieval-only on the 29: 13/23 (6 unanswerable excluded).
+Found: prior-period figures (Q112-Q114, e.g. Tata Steel Q4FY26 revenue) are
+printed in the indexed Q1FY27 filing, but `resolve_filters` answers "Q4FY26
+is not indexed" — xfail in tests/test_query_filters.py until fixed.
+
 ---
 
 ## Phase 3: Production Deployment & Reliability Hardening
