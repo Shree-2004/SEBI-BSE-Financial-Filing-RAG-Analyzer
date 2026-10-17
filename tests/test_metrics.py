@@ -64,6 +64,7 @@ def test_parse_number(cell, value):
     ("Tax expense/(credit) - Exceptional (Refer Note 4 and 5)", None),
     ("Income (a) Revenue from operations", "revenue_from_operations"),   # section heading glued on
     ("Tot al income", "total_income"),                                    # OCR split word
+    ("7 Profit aftertax (5-6)", "net_profit"),                            # OCR run-together words
     ("Net profit margin (%)", None),
     ("Profit before regulatory deferral account balances (3-4)", None),
 ])

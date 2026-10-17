@@ -418,6 +418,15 @@ Retrieval-only on the 29: 13/23 (6 unanswerable excluded).
 Found: prior-period figures (Q112-Q114, e.g. Tata Steel Q4FY26 revenue) are
 printed in the indexed Q1FY27 filing, but `resolve_filters` answers "Q4FY26
 is not indexed" — xfail in tests/test_query_filters.py until fixed.
+Fixed (same day): `MetricStore.comparative_periods()` maps every period
+printed as a column (Q4FY26, Q1FY26, FY2026 of a Q1FY27 filing) to its
+filing; `resolve_filters(..., comparatives=)` searches that filing, and the
+router checks the table for the period actually asked. Periods no filing
+prints (Bajaj Q1FY25, Infosys Q2FY27) are still refused. Router spot check:
+Q112 / Q114 right, Q113 picked profit-to-owners for "profit after tax" ->
+agent prompt now defines net_profit vs owners -> right. Q116 exposed an
+OCR run-together label ("Profit aftertax") -> metrics extractor fixed
+(gold still 64/66, 0 wrong; PBT-tax identity 35/35).
 
 ---
 

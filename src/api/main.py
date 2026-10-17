@@ -117,6 +117,7 @@ class AppState:
     startup_time: float = None
     query_cache: QueryCache = None
     available_periods: dict = None   # company -> periods actually in the index
+    comparative_periods: dict = None  # company -> {prior period: filing that prints it}
     agent: MetricsAgent = None       # tool-using path for comparison / growth / ratio questions
     # One pipeline run at a time: each run's reranking burst is sized to fit a
     # 512 MB instance; three simultaneous runs measured 491 of 512 MiB.
@@ -154,6 +155,9 @@ async def lifespan(app: FastAPI):
     state.agent = MetricsAgent(
         state.retriever, MetricStore(os.getenv("METRICS_DB_PATH", "data/processed/metrics.sqlite"))
     )
+    # prior periods printed inside an indexed filing (Q1FY27 results also
+    # report Q4FY26 / Q1FY26 / FY2026) -> search that filing for them
+    state.comparative_periods = state.agent.store.comparative_periods()
     state.pipeline_lock = asyncio.Lock()
     state.pipeline_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="pipeline")
     state.startup_time = time.time() - t0
@@ -340,7 +344,8 @@ async def query(request: Request, payload: QueryRequest):
     # the question text. Without a company filter the search would run
     # across all companies and mix their tables.
     resolution = resolve_filters(
-        payload.query, state.available_periods, payload.company, payload.period
+        payload.query, state.available_periods, payload.company, payload.period,
+        comparatives=state.comparative_periods,
     )
     if resolution["missing"] and not resolution["filters"]:
         raise HTTPException(status_code=404, detail=f"Not in the index — {resolution['missing']}.")
@@ -364,7 +369,8 @@ async def query(request: Request, payload: QueryRequest):
     use_agent = payload.mode == "agent" or (
         payload.mode == "auto" and needs_agent(
             payload.query, companies, state.agent.store,
-            filter_list[0].get("period") if len(filter_list) == 1 else None)
+            resolution["detected"]["period"]
+            or (filter_list[0].get("period") if len(filter_list) == 1 else None))
     )
     cached_result = state.query_cache.get(cache_key)
     if cached_result is not None:

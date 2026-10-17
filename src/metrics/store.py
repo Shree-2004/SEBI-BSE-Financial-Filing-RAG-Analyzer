@@ -100,6 +100,18 @@ class MetricStore:
             "source_file": first["source_file"],
         }
 
+    def comparative_periods(self) -> dict[str, dict[str, str]]:
+        """company -> {period: filing that prints it}, e.g. NTPC Q4FY26 -> Q1FY27.
+        Only periods that are a column of some filing. (If two filings ever
+        print the same period, the last in sort order wins — today every
+        period has exactly one source filing.)"""
+        out: dict[str, dict[str, str]] = {}
+        for r in self.con.execute(
+                "SELECT DISTINCT company, period, filing_period FROM metrics "
+                "WHERE currency='INR' ORDER BY company, filing_period"):
+            out.setdefault(r["company"], {})[r["period"]] = r["filing_period"]
+        return out
+
     def available(self, company: str | None = None) -> list[dict]:
         """What can be looked up: (company, metric, period, basis) combinations."""
         q = ("SELECT DISTINCT company, metric, period, period_type, basis FROM metrics "

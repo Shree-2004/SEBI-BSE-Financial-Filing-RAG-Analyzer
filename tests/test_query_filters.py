@@ -20,29 +20,26 @@ AVAILABLE = {
     "Sun Pharma": {"Q1FY27"}, "Larsen & Toubro": {"Q1FY27"}, "Maruti Suzuki": {"Q1FY27"},
     "Tata Steel": {"Q1FY27"}, "NTPC": {"Q1FY27"}, "Bajaj Finance": {"Q1FY27"}, "UltraTech Cement": {"Q1FY27"},
 }
+# periods printed as comparative columns of each indexed filing (what
+# MetricStore.comparative_periods() returns for the real index)
+COMPARATIVES = {c: {p: "Q1FY27" for p in ("Q4FY26", "Q1FY26", "FY2026")}
+                for c, ps in AVAILABLE.items() if ps == {"Q1FY27"}}
+COMPARATIVES["TCS"] = {p: "Q3FY25" for p in ("Q2FY25", "Q3FY24", "9MFY25", "9MFY24", "FY2024")}
+COMPARATIVES["Reliance Industries"] = {"FY2024": "FY2025", "FY2023": "FY2025"}
 QUESTIONS = json.loads(
     (Path(__file__).resolve().parents[1] / "eval" / "eval_questions.json").read_text(encoding="utf-8"))
-
-
-# Known gap (found by the 2026-10-17 eval expansion): a prior-period figure
-# printed as a comparative column of an indexed filing ("Tata Steel revenue
-# for the quarter ended March 31, 2026" lives in the Q1FY27 results) is
-# reported as "Q4FY26 is not indexed" instead of searching that filing.
-COMPARATIVE_PERIOD_GAP = {"Q112", "Q113", "Q114"}
 
 
 def _params():
     for q in QUESTIONS:
         if q["gold"] == [["NOT_AVAILABLE"]]:
             continue            # no labelled filter: the right answer is a refusal
-        marks = [pytest.mark.xfail(strict=True, reason="comparative-period gap")] \
-            if q["id"] in COMPARATIVE_PERIOD_GAP else []
-        yield pytest.param(q, id=q["id"], marks=marks)
+        yield pytest.param(q, id=q["id"])
 
 
 @pytest.mark.parametrize("q", _params())
 def test_eval_question_resolves_to_its_labelled_filters(q):
-    r = resolve_filters(q["question"], AVAILABLE)
+    r = resolve_filters(q["question"], AVAILABLE, comparatives=COMPARATIVES)
     companies = sorted(q.get("companies", [q["company"]]))
     got = sorted(r["filters"], key=lambda f: f["company"])
     assert got == [{"company": c, "period": q["period"]} for c in companies] or \
@@ -96,3 +93,20 @@ def test_comparison_question_gets_one_filter_per_company():
     r = resolve_filters("Compare ITC and Maruti Suzuki revenue for the quarter ended June 30, 2026", AVAILABLE)
     assert r["filters"] == [{"company": "ITC", "period": "Q1FY27"},
                             {"company": "Maruti Suzuki", "period": "Q1FY27"}]
+
+
+def test_prior_period_printed_in_an_indexed_filing_searches_that_filing():
+    # Tata Steel's March-quarter revenue is a column of its Q1FY27 results
+    r = resolve_filters("Tata Steel revenue for the quarter ended March 31, 2026", AVAILABLE,
+                        comparatives=COMPARATIVES)
+    assert r["filters"] == [{"company": "Tata Steel", "period": "Q1FY27"}] and r["missing"] is None
+    assert r["detected"]["period"] == "Q4FY26"        # the agent still looks up Q4FY26
+
+
+@pytest.mark.parametrize("text", [
+    "Bajaj Finance revenue for the quarter ended June 30, 2024",     # Q1FY25: no filing prints it
+    "Infosys revenue for the quarter ended September 30, 2026",      # Q2FY27: future
+])
+def test_period_no_filing_prints_is_still_not_indexed(text):
+    r = resolve_filters(text, AVAILABLE, comparatives=COMPARATIVES)
+    assert r["filters"] == [] and "is not indexed" in r["missing"]

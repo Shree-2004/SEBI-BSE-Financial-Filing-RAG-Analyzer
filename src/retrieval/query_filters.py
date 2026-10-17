@@ -104,6 +104,7 @@ def resolve_filters(
     available: dict[str, set[str]],
     company: str | None = None,
     period: str | None = None,
+    comparatives: dict[str, dict[str, str]] | None = None,
 ) -> dict:
     """
     Decide the retrieval filters for a question.
@@ -112,6 +113,10 @@ def resolve_filters(
         available: company -> periods actually indexed (read from the index)
         company / period: explicit choices from the request; they win over
             anything detected in the question text
+        comparatives: company -> {period: filing period} for periods printed
+            as comparative columns inside an indexed filing (a Q1FY27 results
+            filing also reports Q4FY26, Q1FY26 and FY2026). A question about
+            one of those searches the filing that prints it.
 
     Returns dict with:
         filters:  list of filter dicts, one per company (empty = unfiltered)
@@ -130,6 +135,8 @@ def resolve_filters(
             # annual reports are indexed as FY2025; quarterly as Q1FY27
             if wanted in periods:
                 f["period"] = wanted
+            elif (comparatives or {}).get(c, {}).get(wanted) in periods:
+                f["period"] = comparatives[c][wanted]
             elif not period and len(periods) == 1 and wanted.startswith("FY") \
                     and next(iter(periods)).endswith(wanted[-2:]):
                 f["period"] = next(iter(periods))

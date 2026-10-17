@@ -81,6 +81,8 @@ def run_eval(args):
     available: dict[str, set] = {}
     for ch in (retriever.bm25.chunks if retriever.bm25 else []):
         available.setdefault(ch["company"], set()).add(ch["period"])
+    from metrics.store import MetricStore
+    comparatives = MetricStore().comparative_periods()
     generator = None if args.retrieval_only else AnswerGenerator()
     if generator and args.no_fallback:
         # keep every answer from the same model so runs are comparable
@@ -95,7 +97,7 @@ def run_eval(args):
             continue
         print(f"[{i}/{len(questions)}] {q['id']}: {q['question'][:60]}...")
 
-        resolution = resolve_filters(q["question"], available)
+        resolution = resolve_filters(q["question"], available, comparatives=comparatives)
         na_question = is_not_available_gold(q["gold"])
         if (args.auto_filters or args.router) and resolution["missing"] and not resolution["filters"]:
             # the API answers this without retrieval or an LLM call (HTTP 404)
@@ -113,7 +115,8 @@ def run_eval(args):
             continue
         use_agent = bool(agent) and needs_agent(
             q["question"], resolution["detected"]["companies"], agent.store,
-            resolution["filters"][0].get("period") if len(resolution["filters"]) == 1 else None)
+            resolution["detected"]["period"]
+            or (resolution["filters"][0].get("period") if len(resolution["filters"]) == 1 else None))
         if use_agent:
             chunks = []                     # the agent fetches its own evidence
         elif args.no_filters:

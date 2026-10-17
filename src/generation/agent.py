@@ -170,6 +170,9 @@ Rules:
 5. Quote every number exactly as a tool returned it (commas allowed; percentages rounded to 2 decimals
    are fine). Cite each reported figure as [Company | Period | Page N].
 6. If a figure is not available, say so plainly. Keep the answer short.
+7. Metric names: "profit after tax", "PAT", "net profit", "profit for the period" and "bottom line" are
+   net_profit (the total, including non-controlling interests). Use profit_attributable_to_owners
+   only when the question says owners, shareholders, parent or equity holders.
 
 Periods available in the metrics table:
 {coverage}"""

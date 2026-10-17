@@ -168,12 +168,13 @@ def _unit_and_currency(texts: list[str]) -> tuple[str | None, str]:
 # Extraction
 # ---------------------------------------------------------------------------
 
-_OCR_SPLIT_WORDS = {"tot al": "total", "ot her": "other", "in come": "income", "pro fit": "profit"}
+_OCR_SPLIT_WORDS = {"tot al": "total", "ot her": "other", "in come": "income", "pro fit": "profit",
+                    "aftertax": "after tax", "beforetax": "before tax"}   # split or run-together words
 
 
 def _metric_for(label: str) -> str | None:
     l = label.lower()
-    for bad, good in _OCR_SPLIT_WORDS.items():     # OCR'd scans split words: "Tot al income"
+    for bad, good in _OCR_SPLIT_WORDS.items():     # OCR: "Tot al income", "Profit aftertax"
         l = re.sub(rf"\b{bad}\b", good, l)
     l = re.sub(r"^\W*\w{0,4}\W*income\s+(?=\(a\))", "", l)   # "Income (a) Revenue from operations"
     for name, pat, excl in METRICS:
