@@ -152,3 +152,12 @@ def test_agent_gets_one_retry_for_numbers_no_tool_produced(tmp_path):
     assert r["revised"]
     assert [t["tool"] for t in r["tool_calls"]][-1] == "calculate"
     assert r["is_grounded"], r["verification"]["unverified_claims"]
+
+
+def test_unknown_metric_name_comes_back_as_a_tool_error_not_a_crash(tmp_path):
+    agent = MetricsAgent(retriever=None, store=_store(tmp_path), client=FakeClient(""))
+    trace = {"lookups": [], "calculations": [], "chunks": [], "tool_calls": [], "revised": False}
+    r = agent._run_tool("lookup_metric", {"company": "TCS", "metric": "total_revenue_from_operations",
+                                          "period": "Q3FY25"}, trace)
+    assert "unknown metric" in r["error"] and "revenue_from_operations" in r["error"]
+    assert trace["lookups"] == []

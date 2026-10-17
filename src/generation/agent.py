@@ -132,7 +132,11 @@ TOOLS = [
         "description": "Exact reported figure for one company, metric and period from the filings.",
         "parameters": {"type": "object", "properties": {
             "company": {"type": "string"},
-            "metric": {"type": "string", "enum": sorted(METRIC_NAMES)},
+            # validated in _run_tool, not as a schema enum: Groq rejects the
+            # whole request when the model invents a name outside an enum
+            # ("total_revenue_from_operations"), so the user got an error;
+            # a tool-result error lets the model correct itself instead
+            "metric": {"type": "string", "description": "one of: " + ", ".join(sorted(METRIC_NAMES))},
             "period": {"type": "string", "description": "e.g. Q1FY27, Q3FY25, 9MFY25, FY2025"},
             "basis": {"type": "string", "enum": ["consolidated", "standalone"],
                       "description": "omit unless the question specifies it (defaults to consolidated)"},
@@ -164,7 +168,9 @@ Rules:
 1. Get every reported figure with lookup_metric. If it returns nothing or "ambiguous", use search_filing.
 2. NEVER do arithmetic yourself. Call calculate for every difference, ratio, growth rate and unit conversion.
 3. Units differ between companies (₹ crore vs ₹ million; 1 crore = 10 million). lookup_metric returns
-   value_crore — compare companies on value_crore and say the unit is ₹ crore.
+   value_crore — compare companies on value_crore and say the unit is ₹ crore. A single company's
+   figure is quoted in the unit its filing reports (value and unit from lookup_metric); you may add
+   the ₹ crore equivalent in brackets.
 4. Growth % = (current - previous) / previous * 100. Year-ago quarter of Q1FY27 is Q1FY26; the
    previous quarter of Q1FY27 is Q4FY26; of Q3FY25 they are Q3FY24 and Q2FY25.
 5. Quote every number exactly as a tool returned it (commas allowed; percentages rounded to 2 decimals
@@ -191,6 +197,9 @@ class MetricsAgent:
 
     def _run_tool(self, name: str, args: dict, trace: dict):
         if name == "lookup_metric":
+            if args.get("metric") not in METRIC_NAMES:
+                return {"error": f"unknown metric {args.get('metric')!r}; use one of: "
+                                 + ", ".join(sorted(METRIC_NAMES))}
             r = self.store.lookup(args.get("company", ""), args.get("metric", ""),
                                   args.get("period", ""), args.get("basis"))
             if r and r.get("value") is not None:
