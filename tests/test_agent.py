@@ -12,7 +12,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from generation.agent import MetricsAgent, agent_answer, calculate, needs_agent
+from generation.agent import MetricsAgent, agent_answer, asks_reported_metric, calculate, needs_agent
 from generation.verifier import Verifier
 from metrics.extract import SCHEMA
 from metrics.store import MetricStore
@@ -57,6 +57,31 @@ def _store(tmp_path):
                      "crore", "INR", value, "tcs.pdf", 7, "Revenue from operations", "Three months ended", "Q3FY25"))
     con.commit()
     return MetricStore(str(db))
+
+
+@pytest.mark.parametrize("q, period, expected", [
+    ("What was TCS revenue from operations in Q3FY25?", "Q3FY25", True),     # table has it
+    ("What were TCS's sales in Q3FY25?", "Q3FY25", True),
+    ("What was TCS revenue from operations in Q1FY27?", "Q1FY27", False),    # period not in table
+    ("What was TCS net profit in Q3FY25?", "Q3FY25", False),                 # metric not in table
+    ("What was TCS's BFSI segment revenue in Q3FY25?", "Q3FY25", False),     # segment figure
+    ("What was TCS revenue for the nine months ended December 2024?", "Q3FY25", False),
+    ("Who audited TCS Q3FY25 financial results?", "Q3FY25", False),
+])
+def test_single_figure_question_goes_to_the_table_only_when_it_holds_the_figure(tmp_path, q, period, expected):
+    assert needs_agent(q, ["TCS"], _store(tmp_path), period) is expected
+
+
+@pytest.mark.parametrize("q, metric", [
+    ("What was TCS current tax expense in Q3FY25?", "current_tax"),
+    ("What was TCS total tax expense in Q3FY25?", "total_tax_expense"),
+    ("HDFC Bank's consolidated profit before tax and minority interest", "profit_before_tax_and_minority"),
+    ("Tata Steel's profit attributable to owners of the company", "profit_attributable_to_owners"),
+    ("What was ITC's other income?", "other_income"),
+    ("What was Reliance's EBITDA in FY25?", None),            # segment-level in most filings
+])
+def test_metric_wording(q, metric):
+    assert asks_reported_metric(q) == metric
 
 
 def _tool_call(i, name, args):

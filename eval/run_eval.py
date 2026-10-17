@@ -96,7 +96,9 @@ def run_eval(args):
         print(f"[{i}/{len(questions)}] {q['id']}: {q['question'][:60]}...")
 
         resolution = resolve_filters(q["question"], available)
-        use_agent = bool(agent) and needs_agent(q["question"], resolution["detected"]["companies"])
+        use_agent = bool(agent) and needs_agent(
+            q["question"], resolution["detected"]["companies"], agent.store,
+            resolution["filters"][0].get("period") if len(resolution["filters"]) == 1 else None)
         if use_agent:
             chunks = []                     # the agent fetches its own evidence
         elif args.no_filters:

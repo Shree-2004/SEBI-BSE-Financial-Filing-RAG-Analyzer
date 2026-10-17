@@ -39,8 +39,61 @@ _AGENT_PATTERN = re.compile(
 )
 
 
-def needs_agent(question: str, companies: list[str]) -> bool:
-    return len(companies) >= 2 or bool(_AGENT_PATTERN.search(question))
+# "What was X's <metric>?" -> which metrics-table figure it asks for. Order
+# matters: the more specific wording first ("profit before tax" is not
+# "net profit", "other income" is not "revenue").
+_METRIC_WORDING = [
+    ("profit_attributable_to_owners", r"attributable|owners|equity holders|shareholders of the (company|parent)"),
+    ("profit_before_tax_and_minority", r"before tax and minority"),
+    ("profit_before_tax", r"profit before tax|\bpbt\b|pre-?tax profit"),
+    ("current_tax", r"current tax"),
+    ("total_tax_expense", r"tax expense|total tax"),
+    ("eps_basic", r"\beps\b|earnings per (equity )?share"),
+    ("net_profit", r"net profit|profit after tax|\bpat\b|profit for the (period|quarter|year)|bottom[- ]line"),
+    ("total_income", r"total income"),
+    ("other_income", r"other income"),
+    ("interest_earned", r"interest earned"),
+    ("employee_benefit_expense", r"employee (benefit|cost)|staff cost"),
+    ("finance_costs", r"finance cost|interest (cost|expense)"),
+    ("depreciation_amortisation", r"depreciation|amorti[sz]ation"),
+    ("total_expenses", r"total (expenses|expenditure)"),
+    ("revenue_from_operations", r"revenue|\bsales\b|turnover|top[- ]line"),
+]
+# figures the table does NOT hold even though the wording overlaps: segment
+# or business-line numbers, nine-month / half-year totals, explanations.
+# EBITDA is left to retrieval on purpose: most filings print it per segment
+# (Reliance O2C / Jio / Retail), so the table's EBITDA rows rarely resolve.
+_NOT_A_TABLE_FIGURE = re.compile(
+    r"\b(segment|division|business|vertical|subsidiar\w*|geograph\w*|region\w*|nine[- ]months?|9m|"
+    r"half[- ]year|h1|why|explain|reason|drivers?|guidance|outlook|arpu|volume|dividend|"
+    r"net interest income|nii|order (book|inflow))\b", re.I)
+
+
+def asks_reported_metric(question: str) -> str | None:
+    """The metrics-table figure a single-figure question asks for, if any."""
+    if _NOT_A_TABLE_FIGURE.search(question):
+        return None
+    q = question.lower()
+    return next((m for m, pat in _METRIC_WORDING if re.search(pat, q)), None)
+
+
+def needs_agent(question: str, companies: list[str], store: MetricStore | None = None,
+                period: str | None = None) -> bool:
+    """
+    Agent for comparisons / growth / ratios and multi-company questions; and,
+    when a store is given, for a plain "what was X's <metric>" question whose
+    figure the metrics table holds — a lookup returns the reported cell
+    (voted across every copy in the filing), where top-5 retrieval can hand
+    the model a press-release rounding or a figure in the wrong currency.
+    """
+    if len(companies) >= 2 or _AGENT_PATTERN.search(question):
+        return True
+    if store is None or len(companies) != 1:
+        return False
+    metric = asks_reported_metric(question)
+    return bool(metric) and any(
+        r["metric"] == metric and (period is None or r["period"] == period)
+        for r in store.available(companies[0]))
 
 
 # ---------------------------------------------------------------------------

@@ -394,9 +394,16 @@ chars on one line.
 Container (`--memory=512m`): peak **470 MiB** (was 472) over 7 questions
 incl. 3 simultaneous and agent questions; no OOM.
 
-Open: single-figure questions on UltraTech/Infosys can still be answered
-from the wrong chunk (press-release PAT, USD EPS) — candidate fix is routing
-"what was X's <metric>" to `lookup_metric` when the metric table has it.
+Routing fix (same day): single-figure questions on UltraTech/Infosys were
+answered from the wrong chunk (press-release PAT ₹2,604 cr, USD EPS $0.20).
+`needs_agent` now also sends "what was X's <metric>" to the agent when the
+metrics table holds that (company, metric, period) — wording -> metric map in
+`asks_reported_metric`; segment / nine-month / EBITDA / explanation questions
+excluded. Offline: 53 eval questions newly routed, table figure = gold for
+53/53 (an upper bound — wording and extractor were built against this set);
+13 of them were retrieval misses. Router spot check, 5 previously wrong or
+missed questions: 5/5 strict, grounded, cited. Cost: the agent path makes
+~2-3 LLM calls instead of 1, so more Groq tokens per single-figure question.
 
 ---
 

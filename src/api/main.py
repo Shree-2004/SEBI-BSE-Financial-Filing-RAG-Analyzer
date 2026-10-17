@@ -362,7 +362,9 @@ async def query(request: Request, payload: QueryRequest):
     )
     companies = [payload.company] if payload.company else resolution["detected"]["companies"]
     use_agent = payload.mode == "agent" or (
-        payload.mode == "auto" and needs_agent(payload.query, companies)
+        payload.mode == "auto" and needs_agent(
+            payload.query, companies, state.agent.store,
+            filter_list[0].get("period") if len(filter_list) == 1 else None)
     )
     cached_result = state.query_cache.get(cache_key)
     if cached_result is not None:

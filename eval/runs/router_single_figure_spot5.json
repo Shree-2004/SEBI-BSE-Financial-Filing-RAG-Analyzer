@@ -1,0 +1,194 @@
+[
+  {
+    "id": "Q038",
+    "question": "What was Infosys consolidated basic earnings per share for the quarter ended June 30, 2026?",
+    "company": "Infosys",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Infosys",
+          "metric": "eps_basic",
+          "period": "Q1FY27"
+        }
+      }
+    ],
+    "answer": "Infosys reported a consolidated basic earnings per share of **₹ 19.19** for the quarter ended 30 June 2026 (Q1FY27)【Infosys | Q1FY27 | Page 22】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "Infosys",
+        "period": "Q1FY27",
+        "page_number": 22,
+        "doc_type": null,
+        "source_file": "infosys_q1fy27.pdf",
+        "excerpt": "Basic EPS (consolidated): 19.19 per_share"
+      }
+    ]
+  },
+  {
+    "id": "Q081",
+    "question": "What was NTPC's standalone revenue from operations for the quarter ended June 30, 2026?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "NTPC",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      }
+    ],
+    "answer": "NTPC’s standalone revenue from operations for the quarter ended 30 June 2026 was **₹ 43,831.86 crore** [NTPC | Q1FY27 | Page 3].",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (standalone): 43,831.86 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q089",
+    "question": "What was UltraTech Cement's consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "UltraTech Cement",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      }
+    ],
+    "answer": "UltraTech Cement reported consolidated revenue from operations of **₹ 24,648.2 crore** for the quarter ended 30 June 2026 (Q1FY27) [UltraTech Cement | Q1FY27 | Page 6].",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": null,
+        "source_file": "ultratech_cement_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 24,648.2 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q090",
+    "question": "What was UltraTech Cement's consolidated profit attributable to owners of the parent for the quarter ended June 30, 2026?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "UltraTech Cement",
+          "metric": "profit_attributable_to_owners",
+          "period": "Q1FY27"
+        }
+      }
+    ],
+    "answer": "UltraTech Cement reported a consolidated profit attributable to owners of the parent of **₹ 2,599.28 crore** for the quarter ended 30 June 2026 (Q1FY27)【UltraTech Cement | Q1FY27 | Page 6】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": null,
+        "source_file": "ultratech_cement_q1fy27.pdf",
+        "excerpt": "Profit attributable to owners of the company (consolidated): 2,599.28 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q091",
+    "question": "What was UltraTech Cement's standalone net profit for the period for the quarter ended June 30, 2026?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "UltraTech Cement",
+          "metric": "net_profit",
+          "period": "Q1FY27"
+        }
+      }
+    ],
+    "answer": "UltraTech Cement’s standalone net profit for the quarter ended 30 June 2026 (Q1FY27) was **₹ 2,397.12 crore**【UltraTech Cement | Q1FY27 | Page 11‑12】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "page_number": 11,
+        "doc_type": null,
+        "source_file": "ultratech_cement_q1fy27.pdf",
+        "excerpt": "Net profit for the period (standalone): 2,397.12 crore"
+      }
+    ]
+  }
+]
