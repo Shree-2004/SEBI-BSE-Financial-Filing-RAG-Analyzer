@@ -199,14 +199,23 @@ def run_eval(args):
 
         results.append(record)
         # save after every question so a quota stop loses nothing
-        with open(args.out, "w", encoding="utf-8") as f:
-            json.dump(results, f, indent=2, ensure_ascii=False)
+        _save(args.out, results, done)
         time.sleep(1)  # avoid rate limiting on Groq free tier
 
-    with open(args.out, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+    # a quota stop breaks out early: keep the answers earlier runs saved for
+    # questions this run never reached (they used to be dropped from --out)
+    seen = {r["id"] for r in results}
+    results += [r for qid, r in done.items() if qid not in seen]
+    _save(args.out, results, {})
 
     write_summary(results, args, total_questions=len(questions))
+
+
+def _save(path, results, done):
+    """Results so far plus previously saved answers not re-run yet."""
+    seen = {r["id"] for r in results}
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(results + [r for qid, r in done.items() if qid not in seen], f, indent=2, ensure_ascii=False)
 
 
 def write_summary(results, args, total_questions):

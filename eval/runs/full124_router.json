@@ -4843,6 +4843,66 @@
     ]
   },
   {
+    "id": "Q107",
+    "question": "What was NTPC's consolidated revenue from operations growth quarter-on-quarter for the quarter ended June 30, 2026?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "NTPC",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "NTPC",
+          "metric": "revenue_from_operations",
+          "period": "Q4FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "(50740.96-49686.31)/49686.31*100"
+        }
+      }
+    ],
+    "answer": "NTPC’s consolidated revenue from operations grew **2.12 %** quarter‑on‑quarter in the quarter ended 30 June 2026 (Q1FY27) versus Q4FY26 [NTPC | Q1FY27 | Page 10] (previous quarter = ₹ 49,686.31 crore) [NTPC | Q4FY26 | Page 10] (current quarter = ₹ 50,740.96 crore) [NTPC | Q1FY27 | Page 10].",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 50,740.96 crore"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q4FY26",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 49,686.31 crore"
+      }
+    ]
+  },
+  {
     "id": "Q108",
     "question": "By what percentage did UltraTech Cement's consolidated revenue from operations change quarter-on-quarter in the quarter ended June 30, 2026?",
     "company": "UltraTech Cement",
@@ -5040,16 +5100,5 @@
         "excerpt": "Profit attributable to owners of the company (consolidated): 4,699.61 crore"
       }
     ]
-  },
-  {
-    "id": "Q111",
-    "question": "By what percentage did ITC's standalone profit for the period change year-on-year in the quarter ended June 30, 2026?",
-    "company": "ITC",
-    "period": "Q1FY27",
-    "category": "growth",
-    "context_hit": false,
-    "retrieved_pages": [],
-    "path": "agent",
-    "answer": "ERROR: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kea90g1afyhszh47n3t9g1fa` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198778, Requested 1554. Please try again in 2m23.424s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
   }
 ]
