@@ -194,6 +194,7 @@ class MetricsAgent:
         self.store = store or MetricStore()
         self.client = client or Groq()
         self.system = _system_prompt(self.store)
+        self.comparatives = self.store.comparative_periods()
 
     def _run_tool(self, name: str, args: dict, trace: dict):
         if name == "lookup_metric":
@@ -215,7 +216,9 @@ class MetricsAgent:
         if name == "search_filing":
             f = {"company": args.get("company")}
             if args.get("period"):
-                f["period"] = args["period"]
+                # a prior period (Q4FY26) lives in the filing that prints it as
+                # a comparative column (Q1FY27); chunks carry the filing's period
+                f["period"] = self.comparatives.get(f["company"], {}).get(args["period"], args["period"])
             chunks = self.retriever.retrieve(args.get("query", ""), top_k=4, filters=f)
             trace["chunks"].extend(chunks)
             return [{"page": c.get("page_number"), "text": c["text"][:1200]} for c in chunks]

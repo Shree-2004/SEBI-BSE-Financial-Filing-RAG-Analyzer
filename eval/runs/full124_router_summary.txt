@@ -1,34 +1,34 @@
 FinFiling RAG — Eval Summary
 =============================
 Index             : filing_chunks_int8 (rerank pool 10)
-Questions         : 105/124  (6 unanswerable/refused, excluded from context hit)
-Context hit @5    : 95/99 = 96.0%   (gold answer present in retrieved chunks)
-Answered          : 103  (models: None, openai/gpt-oss-120b)
+Questions         : 111/124  (6 unanswerable/refused, excluded from context hit)
+Context hit @5    : 101/105 = 96.2%   (gold answer present in retrieved chunks)
+Answered          : 110  (models: None, openai/gpt-oss-120b)
 
-STRICT ACCURACY   : 95/103 = 92.2%
-Lenient keyword   : 97/103 = 94.2%   (legacy any-keyword metric, not accuracy)
-Grounding rate    : 102/103 = 99.0%
-Citation rate     : 95/103 = 92.2%
-Not-available     : 8/103 = 7.8%
+STRICT ACCURACY   : 104/110 = 94.5%
+Lenient keyword   : 104/110 = 94.5%   (legacy any-keyword metric, not accuracy)
+Grounding rate    : 108/110 = 98.2%
+Citation rate     : 102/110 = 92.7%
+Not-available     : 8/110 = 7.3%
 
 Failure split (strict misses):
-  retrieval/parse : 2   (gold not in retrieved context)
-  generation      : 6   (gold retrieved, answer still wrong)
+  retrieval/parse : 3   (gold not in retrieved context)
+  generation      : 3   (gold retrieved, answer still wrong)
 
 Per-category strict accuracy:
   audit                1/2
-  comparison           8/8
+  comparison           10/10
   corporate_action     3/4
   expenses             4/4
   general              5/5
-  growth               9/9
+  growth               12/13
   per_share            6/6
-  profitability        22/28
+  profitability        25/28
   ratio                2/2
   ratios               2/2
-  revenue              17/17
+  revenue              18/18
   segment              7/7
   tax                  3/3
   unanswerable         6/6
 
-Strict misses: Q001 Q012 Q027 Q028 Q035 Q050 Q060 Q062
+Strict misses: Q001 Q012 Q027 Q028 Q035 Q107

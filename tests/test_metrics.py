@@ -21,6 +21,7 @@ from metrics.store import MetricStore
     ("Year ended - March 31, 2024", "FY2024", "year"),
     ("Quarter ended - 30.06.2026 - Unaudited", "Q1FY27", "quarter"),
     ("Corresponding 3 Months ended 30.06.2025", "Q1FY26", "quarter"),      # ITC wording
+    ("Yearended 31.03.2026 (Audited)", "FY2026", "year"),                  # OCR run-together (NTPC p10)
     ("Preceding 3 Months ended 31 .03.2026'", "Q4FY26", "quarter"),        # OCR gap in the date
     ("Q1 FY'26", "Q1FY26", "quarter"),                                      # L&T key parameters
     ("FY 2024-25", "FY2025", "year"),
@@ -175,3 +176,10 @@ def test_query_embedder_and_collection_are_paired(monkeypatch, tmp_path):
     assert embed.default_backend() == "onnx" and embed.default_collection() == "filing_chunks_int8"
     monkeypatch.setenv("EMBED_ONNX_VARIANT", "fp32")
     assert embed.default_collection() == "filing_chunks"
+
+
+def test_unreadable_year_column_is_not_turned_into_a_second_quarter():
+    from metrics.extract import _repair_periods
+    periods = [_column_period(h) for h in
+               ["Quarter ended 30.06.2026", "Quarter ended 31.03.2026", "Full 31.03.2026"]]
+    assert [p[0] for p in _repair_periods(periods)] == ["Q1FY27", "Q4FY26", None]

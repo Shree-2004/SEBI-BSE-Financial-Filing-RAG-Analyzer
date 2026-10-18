@@ -161,3 +161,17 @@ def test_unknown_metric_name_comes_back_as_a_tool_error_not_a_crash(tmp_path):
                                           "period": "Q3FY25"}, trace)
     assert "unknown metric" in r["error"] and "revenue_from_operations" in r["error"]
     assert trace["lookups"] == []
+
+
+def test_search_for_a_prior_period_searches_the_filing_that_prints_it(tmp_path):
+    seen = {}
+
+    class Retriever:
+        def retrieve(self, query, top_k, filters):
+            seen.update(filters)
+            return []
+
+    agent = MetricsAgent(retriever=Retriever(), store=_store(tmp_path), client=FakeClient(""))
+    trace = {"lookups": [], "calculations": [], "chunks": [], "tool_calls": [], "revised": False}
+    agent._run_tool("search_filing", {"company": "TCS", "period": "Q3FY24", "query": "revenue"}, trace)
+    assert seen == {"company": "TCS", "period": "Q3FY25"}     # Q3FY24 is a column of the Q3FY25 filing

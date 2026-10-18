@@ -75,7 +75,7 @@ def _quarter_label(month: int, year: int) -> str:
 
 def _column_period(header: str) -> tuple[str | None, str | None, int | None, int | None]:
     """-> (period, period_type, month, year) for one column header."""
-    h = header.lower()
+    h = re.sub(r"(quarter|year|months?)(ended|ending)", r"\1 \2", header.lower())   # OCR: "Yearended"
     m = re.search(r"\bq([1-4])\s*fy\s*'?(\d{2,4})", h)                 # "Q1 FY'27"
     if m:
         return f"Q{m.group(1)}FY{int(m.group(2)) % 100:02d}", "quarter", None, None
@@ -83,7 +83,7 @@ def _column_period(header: str) -> tuple[str | None, str | None, int | None, int
         re.search(r"(?<![\d.])(20\d{2})\s*-\s*(\d{2})(?![\d.])", h)        # "FY 2024-25", "2024-25"
     if m and (int(m.group(1)) + 1) % 100 == int(m.group(2)) % 100:
         return f"FY{2000 + int(m.group(2))}", "year", None, None
-    kind = _period_kind(header)
+    kind = _period_kind(h)
     month, year = _header_date(header)
     if not kind or month is None or year is None:
         return None, {"quarter": "quarter", "nine": "nine_months", "year": "year"}.get(kind), month, year
@@ -125,7 +125,10 @@ def _repair_periods(periods: list[tuple], header: list[str] | None = None) -> li
     periods = list(periods)
     if any(p[1] == "quarter" for p in periods):
         for i, (label, kind, month, year) in enumerate(periods):
-            if label is None and kind is None and month in (3, 6, 9, 12) and year:
+            # never inherit into a label another column already has: an
+            # unreadable "Year ended 31.03.2026" is not a second Q4FY26
+            if label is None and kind is None and month in (3, 6, 9, 12) and year \
+                    and _quarter_label(month, year) not in {p[0] for p in periods}:
                 periods[i] = (_quarter_label(month, year), "quarter", month, year)
     # a column's identity is (period, statement basis): ITC's summary table
     # legitimately has standalone AND consolidated columns for one quarter
