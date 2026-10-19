@@ -383,7 +383,8 @@ async def query(request: Request, payload: QueryRequest):
         if use_agent:
             # comparisons / growth / ratios: lookup_metric + calculate tools,
             # verified against the tool outputs
-            return agent_answer(state.agent, state.verifier, payload.query)
+            return agent_answer(state.agent, state.verifier, payload.query,
+                                period=payload.period or resolution["detected"]["period"])
         # Retrieve relevant chunks (one search per company for comparisons)
         if len(filter_list) > 1:
             chunks = state.retriever.retrieve_multi(payload.query, filter_list, top_k=max(payload.top_k, 6))

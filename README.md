@@ -141,6 +141,19 @@ pytest          # no API keys or models needed; also runs in CI on every push
 
 ## 🧪 Evaluation
 
+**Current (2026-10-19): 116/124 strict (93.5%)**: full end-to-end run on 13 companies, routed exactly like the API (`eval/run_eval.py --router`, gpt-oss-120b, commit 5c33d8f; results in `eval/runs/full124_router.json`).
+
+| Category | Strict |
+|---|---|
+| Unanswerable (period/company not indexed, figure never disclosed) | **6/6**: says so instead of inventing a number |
+| Comparisons across companies and units | 10/10 |
+| Growth: YoY, QoQ, prior-period | 14/14 |
+| Revenue / profitability / per-share / tax / expenses | 64/68 |
+| Segment, ratio, general, corporate action | 20/21 |
+| Auditor questions | 2/5 |
+
+8 misses: 4 retrieval (Reliance standalone EBITDA, TCS auditor, Bajaj's second auditor, which appears only in a scanned signature stamp) and 4 generation (TCS special dividend, a TCS table with Docling-shifted rows (2), and one fiscal-calendar error: "quarter ended March 31, 2026" read as Q1FY26; fixed after the run by passing the rule-detected period to the agent, 5/5 on a spot check of it and four neighbouring agent questions, not a full re-run).
+
 124 hand-written questions across 13 companies (the tables below were measured on the first 76). Q096-Q124 (added 2026-10-17, worded differently from the earlier set) cover unanswerable questions (period or company not indexed, figures a results filing never discloses; scored as correct only if the answer says so), cross-company comparisons across units, quarter-on-quarter and prior-period figures, new phrasings ("bottom line", "tax bill", "PAT") and auditor / board-date questions (`eval/eval_questions.json`), each with a `gold` answer verified against the source PDF (page images for OCR'd filings). Scoring is **strict**: the answer must contain the gold figure, compared by value (`eval/strict_score.py`).
 
 All runs use the same model (`openai/gpt-oss-120b` on Groq):
@@ -152,7 +165,7 @@ All runs use the same model (`openai/gpt-oss-120b` on Groq):
 | All 63: gold answer in top-5 retrieved chunks | — | 43/63 (68.3%) | **57/63 (90.5%)** |
 | **All 63: strict accuracy** | — | 38/63 (60.3%) | **54/63 (85.7%)** |
 
-**After adding Tata Steel, NTPC, Bajaj Finance and UltraTech Cement (2026-10-17, retrieval only; end-to-end LLM run pending):** 95 questions. Gold in top-5 for **66/79** questions whose answer appears verbatim in a filing (the other 16 are computed growth/margin/comparison answers that retrieval alone can't contain). Original 63: 55/63 (two borderline questions now rank 6th-10th in the larger index). New companies' single-figure questions: 10/16 — on two scanned filings the reranker prefers auditor-report prose over the results table; that gap is open and tracked.
+**After adding Tata Steel, NTPC, Bajaj Finance and UltraTech Cement (2026-10-17, retrieval only):** 95 questions. Gold in top-5 for **66/79** questions whose answer appears verbatim in a filing (the other 16 are computed growth/margin/comparison answers that retrieval alone can't contain). Original 63: 55/63 (two borderline questions now rank 6th-10th in the larger index). New companies' single-figure questions: 10/16 — on two scanned filings the reranker prefers auditor-report prose over the results table; that gap is open and tracked.
 
 Contextual chunk headers prepend one line to every chunk before embedding (e.g. `ITC | Q1FY27 | standalone quarterly results | page 3`), so retrieval can tell a company's standalone and consolidated tables apart.
 

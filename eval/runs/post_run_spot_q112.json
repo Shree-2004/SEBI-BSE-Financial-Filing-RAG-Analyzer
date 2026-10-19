@@ -1,0 +1,264 @@
+[
+  {
+    "id": "Q071",
+    "question": "Which had higher consolidated revenue from operations for the quarter ended June 30, 2026: ITC or Maruti Suzuki?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "comparison",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "ITC",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Maruti Suzuki",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "52469.8 - 29523.3"
+        }
+      }
+    ],
+    "answer": "- **ITC** – consolidated revenue from operations: **₹ 29,523.3 crore**【ITC | Q1FY27 | Page 6】  \n- **Maruti Suzuki** – consolidated revenue from operations: **₹ 524,698 million** (≈ **₹ 52,469.8 crore**)【Maruti Suzuki | Q1FY27 | Page 4】\n\n**Maruti Suzuki** had the higher revenue (₹ 52,469.8 crore vs. ₹ 29,523.3 crore).",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": null,
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 29,523.3 crore"
+      },
+      {
+        "company": "Maruti Suzuki",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": null,
+        "source_file": "maruti_suzuki_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 524,698.0 million"
+      }
+    ]
+  },
+  {
+    "id": "Q093",
+    "question": "What was NTPC's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "NTPC",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "NTPC",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "(50740.96-47064.35)/47064.35*100"
+        }
+      }
+    ],
+    "answer": "NTPC’s consolidated revenue from operations for Q1 FY27 (quarter ended 30 June 2026) was **₹ 50,740.96 crore**【NTPC | Q1FY27 | Page 10】, compared with **₹ 47,064.35 crore** in Q1 FY26【NTPC | Q1FY26 | Page 10】.  \n\nThe year‑on‑year growth is **7.81 %**.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 50,740.96 crore"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY26",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 47,064.35 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q107",
+    "question": "What was NTPC's consolidated revenue from operations growth quarter-on-quarter for the quarter ended June 30, 2026?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "NTPC",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "NTPC",
+          "metric": "revenue_from_operations",
+          "period": "Q4FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "(50740.96-49686.31)/49686.31*100"
+        }
+      }
+    ],
+    "answer": "NTPC’s consolidated revenue from operations grew **2.12 %** quarter‑on‑quarter in Q1FY27 (quarter ended 30 June 2026)【NTPC | Q1FY27 | Page 10】. The revenue was ₹ 50,740.96 crore in Q1FY27 versus ₹ 49,686.31 crore in the prior quarter【NTPC | Q4FY26 | Page 10】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 50,740.96 crore"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q4FY26",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 49,686.31 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q112",
+    "question": "What was Tata Steel's consolidated revenue from operations for the quarter ended March 31, 2026?",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Tata Steel",
+          "metric": "revenue_from_operations",
+          "period": "Q4FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "63270.13 * 10"
+        }
+      }
+    ],
+    "answer": "Tata Steel’s consolidated revenue from operations for the quarter ended 31 March 2026 was **₹ 63,270.13 crore**【Tata Steel | Q4FY26 | Page 3】, which equals **₹ 632,701.3 million**【calculated】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "Tata Steel",
+        "period": "Q4FY26",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "tata_steel_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 63,270.13 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q113",
+    "question": "What was Bajaj Finance's consolidated profit after tax for the quarter ended June 30, 2025?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Bajaj Finance",
+          "metric": "net_profit",
+          "period": "Q1FY26"
+        }
+      }
+    ],
+    "answer": "Bajaj Finance’s consolidated profit after tax for the quarter ended 30 June 2025 was **₹ 4,765.29 crore**【Bajaj Finance | Q1FY26 | Page 10】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "Bajaj Finance",
+        "period": "Q1FY26",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "bajaj_finance_q1fy27.pdf",
+        "excerpt": "Net profit for the period (consolidated): 4,765.29 crore"
+      }
+    ]
+  }
+]

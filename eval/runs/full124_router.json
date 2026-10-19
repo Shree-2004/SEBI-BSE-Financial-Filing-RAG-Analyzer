@@ -5100,5 +5100,716 @@
         "excerpt": "Profit attributable to owners of the company (consolidated): 4,699.61 crore"
       }
     ]
+  },
+  {
+    "id": "Q111",
+    "question": "By what percentage did ITC's standalone profit for the period change year-on-year in the quarter ended June 30, 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "growth",
+    "context_hit": false,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "ITC",
+          "metric": "net_profit",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "ITC",
+          "metric": "net_profit",
+          "period": "Q1FY26"
+        }
+      },
+      {
+        "tool": "calculate",
+        "args": {
+          "expression": "(3578.82-4910.73)/4910.73*100"
+        }
+      }
+    ],
+    "answer": "ITC’s standalone profit for the period fell **27.12 %** year‑on‑year in the quarter ended 30 June 2026 (Q1FY27 = ₹ 3578.82 crore vs Q1FY26 = ₹ 4910.73 crore)【ITC | Q1FY27 | Page 3】【ITC | Q1FY26 | Page 3】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "Net profit for the period (standalone): 3,578.82 crore"
+      },
+      {
+        "company": "ITC",
+        "period": "Q1FY26",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "Net profit for the period (standalone): 4,910.73 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q112",
+    "question": "What was Tata Steel's consolidated revenue from operations for the quarter ended March 31, 2026?",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": false,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Tata Steel",
+          "metric": "revenue_from_operations",
+          "period": "Q1FY26"
+        }
+      }
+    ],
+    "answer": "Tata Steel’s consolidated revenue from operations for the quarter ended 31 March 2026 was **₹ 53,178.12 crore**【Tata Steel | Q1FY26 | Page 3】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "Tata Steel",
+        "period": "Q1FY26",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "tata_steel_q1fy27.pdf",
+        "excerpt": "Revenue from operations (consolidated): 53,178.12 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q113",
+    "question": "What was Bajaj Finance's consolidated profit after tax for the quarter ended June 30, 2025?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "Bajaj Finance",
+          "metric": "net_profit",
+          "period": "Q1FY26"
+        }
+      }
+    ],
+    "answer": "Bajaj Finance’s consolidated profit after tax for the quarter ended 30 June 2025 (Q1 FY 2026) was **₹ 4,765.29 crore**【Bajaj Finance | Q1FY26 | Page 10】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "Bajaj Finance",
+        "period": "Q1FY26",
+        "page_number": 10,
+        "doc_type": null,
+        "source_file": "bajaj_finance_q1fy27.pdf",
+        "excerpt": "Net profit for the period (consolidated): 4,765.29 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q114",
+    "question": "What was NTPC's standalone revenue from operations for the year ended March 31, 2026?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "revenue",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "NTPC",
+          "metric": "revenue_from_operations",
+          "period": "FY2026"
+        }
+      }
+    ],
+    "answer": "NTPC’s standalone revenue from operations for FY 2026 (year ended 31 Mar 2026) was **₹ 165,487.84 crore**【NTPC | FY2026 | Page 3】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "NTPC",
+        "period": "FY2026",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "Revenue from operations (standalone): 165,487.84 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q115",
+    "question": "How much did Tata Steel earn per share (basic) on a consolidated basis in Q1 FY27?",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [
+      3,
+      1,
+      3,
+      7,
+      5
+    ],
+    "path": "rag",
+    "answer": "- Basic earnings per share (consolidated, not annualised, after exceptional items) for Q1 FY27 (quarter ended 30 June 2026) = **₹ 1.86** per share【Tata Steel | Q1FY27 | Page 3】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": "quarterly_result",
+        "source_file": "tata_steel_q1fy27.pdf",
+        "excerpt": "Tata Steel | Q1FY27 | consolidated quarterly results | page 3\nConsolidated Statement of Profit and Loss for the quarter ended on 30th June 2026\n| Particulars | Quarter ended on 30.06.2026 - Unaudited | Quarter ended on 31.03.2026 - Unaudited ( refer note 7) | Quarter ended on 30.06.2025 - Unaudited ..."
+      },
+      {
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "tata_steel_q1fy27.pdf",
+        "excerpt": "Tata Steel | Q1FY27 | standalone quarterly results | page 1\n| Particulars | Quarter ended on 30.06.2026 - Audited | Quarter ended on 31.03.2026 - (refer note 7) | Quarter ended on 30.06.2025 - Audited | Financial year ended on 31.03.2026 - Audited |\n|---|---|---|---|---|\n| Basic earnings per share (..."
+      },
+      {
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "page_number": 7,
+        "doc_type": "quarterly_result",
+        "source_file": "tata_steel_q1fy27.pdf",
+        "excerpt": "Tata Steel | Q1FY27 | standalone and consolidated quarterly results | page 7\nof 8335 crore, subject to necessary approvals. The Company, on May 15, 2026, has executed Share Purchase Agreement with IQ and TMILL. The transaction is subject to customary conditions precedent, and approvals from regulato..."
+      },
+      {
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "tata_steel_q1fy27.pdf",
+        "excerpt": "Tata Steel | Q1FY27 | consolidated quarterly results | page 5\nConsolidated Statement of Profit and Loss for the quarter ended on 30th June 2026\n| | Quarter ended Particulars on 30.06.2026 | Quarter ended on 31.03.2026 | Quarter ended on 30.06.2025 | Financial year ended on 31.03.2026 |\n|---|---|---|..."
+      }
+    ]
+  },
+  {
+    "id": "Q116",
+    "question": "What was Bajaj Finance's standalone PAT in the June 2026 quarter?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "Bajaj Finance",
+          "metric": "net_profit",
+          "period": "Q1FY27"
+        }
+      }
+    ],
+    "answer": "Bajaj Finance’s standalone profit after tax (PAT) for the June 2026 quarter (Q1 FY27) was **₹ 5,345.52 crore**【Bajaj Finance | Q1FY27 | Page 4】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "Bajaj Finance",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": null,
+        "source_file": "bajaj_finance_q1fy27.pdf",
+        "excerpt": "Net profit for the period (standalone): 5,345.52 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q117",
+    "question": "What were UltraTech Cement's consolidated finance costs in Q1FY27?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "expenses",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "company": "UltraTech Cement",
+          "metric": "finance_costs",
+          "period": "Q1FY27"
+        }
+      }
+    ],
+    "answer": "UltraTech Cement’s consolidated finance costs in Q1FY27 were **₹ 452.93 crore**【UltraTech Cement | Q1FY27 | Page 6】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": null,
+        "source_file": "ultratech_cement_q1fy27.pdf",
+        "excerpt": "Finance costs (consolidated): 452.93 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q118",
+    "question": "What was Tata Steel's tax bill on a consolidated basis for Q1 FY27?",
+    "company": "Tata Steel",
+    "period": "Q1FY27",
+    "category": "tax",
+    "context_hit": true,
+    "retrieved_pages": [
+      3,
+      3,
+      4,
+      3,
+      4
+    ],
+    "path": "rag",
+    "answer": "- **Consolidated total tax expense (tax bill) for Q1 FY27:** **₹ 1,452.29 million**【Tata Steel | Q1FY27 | Page 3】.  \n\n(For reference, the component items are Current tax ₹ 1,504.78 million, Current tax in relation to earlier years (₹ 505.05) million, and Deferred tax ₹ 452.56 million, which together total the reported ₹ 1,452.29 million【Tata Steel | Q1FY27 | Page 3】.)",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 2,
+    "citations": [
+      {
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": "quarterly_result",
+        "source_file": "tata_steel_q1fy27.pdf",
+        "excerpt": "Tata Steel | Q1FY27 | consolidated quarterly results | page 3\nConsolidated Statement of Profit and Loss for the quarter ended on 30th June 2026\n| Particulars | Quarter ended on 30.06.2026 - Unaudited | Quarter ended on 31.03.2026 - Unaudited ( refer note 7) | Quarter ended on 30.06.2025 - Unaudited ..."
+      },
+      {
+        "company": "Tata Steel",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "tata_steel_q1fy27.pdf",
+        "excerpt": "Tata Steel | Q1FY27 | consolidated quarterly results | page 4\nConsolidated Statement of Profit and Loss for the quarter ended on 30th June 2026\n| Particulars | Quarter ended on 30.06.2026 - Unaudited | Quarter ended on 31.03.2026 - Unaudited | Quarter ended on 30.06.2025 - Restated | Financial year ..."
+      }
+    ]
+  },
+  {
+    "id": "Q119",
+    "question": "What was ITC's bottom line on a standalone basis for the quarter ended 30 June 2026?",
+    "company": "ITC",
+    "period": "Q1FY27",
+    "category": "profitability",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "ITC",
+          "metric": "net_profit",
+          "period": "Q1FY27"
+        }
+      }
+    ],
+    "answer": "ITC reported a standalone net profit (bottom line) of **₹ 3,578.82 crore** for the quarter ended 30 June 2026 (Q1FY27)【ITC | Q1FY27 | Page 3】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.5,
+    "not_available": false,
+    "citation_count": 1,
+    "citations": [
+      {
+        "company": "ITC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "itc_q1fy27.pdf",
+        "excerpt": "Net profit for the period (standalone): 3,578.82 crore"
+      }
+    ]
+  },
+  {
+    "id": "Q120",
+    "question": "What was NTPC's standalone basic EPS including the net movement in regulatory deferral account balances for Q1FY27?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "per_share",
+    "context_hit": true,
+    "retrieved_pages": [],
+    "path": "agent",
+    "tool_calls": [
+      {
+        "tool": "lookup_metric",
+        "args": {
+          "basis": "standalone",
+          "company": "NTPC",
+          "metric": "eps_basic",
+          "period": "Q1FY27"
+        }
+      },
+      {
+        "tool": "search_filing",
+        "args": {
+          "company": "NTPC",
+          "period": "Q1FY27",
+          "query": "regulatory deferral account"
+        }
+      },
+      {
+        "tool": "search_filing",
+        "args": {
+          "company": "NTPC",
+          "period": "Q1FY27",
+          "query": "including net movement in regulatory deferral account balances EPS"
+        }
+      }
+    ],
+    "answer": "NTPC’s standalone basic earnings‑per‑share (including the net movement in regulatory deferral account balances) for Q1FY27 was **₹5.51 per share**【NTPC | Q1FY27 | Page 3】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": false,
+    "grounding_confidence": 0.5,
+    "not_available": false,
+    "citation_count": 9,
+    "citations": [
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": null,
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "Basic EPS (standalone): 5.51 per_share"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 3\n88\n(excluding net movement in regulatory deferral account\nbalances): Basic and Diluted (in ~)\n12 Paid-up equity share capital 9696.67 9696.67 9696.67 9696.67\n(Face value of share, 10/-each)\n13 Paid-up debt capital$ 190406.42 190109.58 182438.10 1"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 6\nconsists of exchange differences arising from settlement/translation of monetary item denominated in foreign currency to the extent recoverable from or payable to the beneficiaries in subsequenl periods, deferred tax liability reversible in futur"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 5\nLess:\n(i) Finance costs 2359.15 2666.95 2838.23 10442.18\n(ii) Other unallocated expenditure net of unallocable income (328.73) (379.14) (115.78) (2430.00)\nProfit before tax 6824.31 7927.19 6088.84 26302.99\nLess: Total tax expense 1798.06 (8737.27"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 5\nSTATEMENT OF UNAUDITED STANDALONE FINANCIAL RESULTS FOR THE QUARTER ENDED 30 JUNE 2026\n| SI. No. | Particulars | Quarter ended 30.06.2026 (Unaudited) | Quarter ended 31 .03.2026 (Audited) | Quarter ended 30.06.2025 (Unaudited) | Year ended 31 .03"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 3\n88\n(excluding net movement in regulatory deferral account\nbalances): Basic and Diluted (in ~)\n12 Paid-up equity share capital 9696.67 9696.67 9696.67 9696.67\n(Face value of share, 10/-each)\n13 Paid-up debt capital$ 190406.42 190109.58 182438.10 1"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 6\ngrade slippages and other adjustments.\nSales for the quarter ended 30 June 2026 include f 35.93 crore (30 June 2025 , 26.02 crore) on account of deferred tax materialized which is recoverable from beneficiaries as per Regulations, 2024.\nRevenue f"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 3,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 3\n.32)\ntax) (Refer Note 5)\n7 Profit for the period (5+6) 5342.36 8747.27 4774.68 23162.22\n8 Other comprehensive income\n(i) Items that will not be reclassified to profit or loss\n(a) Net actuarial gains/(losses) on defined benefit plans (58.40) 5.13 "
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 5\nLess:\n(i) Finance costs 2359.15 2666.95 2838.23 10442.18\n(ii) Other unallocated expenditure net of unallocable income (328.73) (379.14) (115.78) (2430.00)\nProfit before tax 6824.31 7927.19 6088.84 26302.99\nLess: Total tax expense 1798.06 (8737.27"
+      }
+    ]
+  },
+  {
+    "id": "Q121",
+    "question": "Which audit firms jointly reviewed UltraTech Cement's results for the quarter ended June 30, 2026?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "audit",
+    "context_hit": true,
+    "retrieved_pages": [
+      5,
+      10,
+      4,
+      4,
+      9
+    ],
+    "path": "rag",
+    "answer": "This information is not available in the provided filings.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": true,
+    "citation_count": 0,
+    "citations": []
+  },
+  {
+    "id": "Q122",
+    "question": "Who are the joint statutory auditors that reviewed Bajaj Finance's Q1FY27 results?",
+    "company": "Bajaj Finance",
+    "period": "Q1FY27",
+    "category": "audit",
+    "context_hit": false,
+    "retrieved_pages": [
+      5,
+      6,
+      11,
+      6,
+      22
+    ],
+    "path": "rag",
+    "answer": "- **Joint statutory auditors:** Kirtane & Pandit LLP, Chartered Accountants【Bajaj Finance | Q1FY27 | Page 22】.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": false,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "Bajaj Finance",
+        "period": "Q1FY27",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "bajaj_finance_q1fy27.pdf",
+        "excerpt": "Bajaj Finance | Q1FY27 | standalone quarterly results | page 5\nNotes:\n1 The above results have been reviewed by the Audit Committee and approved by t he Board of Directors at its meeting held on 30 July 2026 and subjected to limited review by joint statutory auditors, pursuant to regulation 33 and 5..."
+      },
+      {
+        "company": "Bajaj Finance",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "bajaj_finance_q1fy27.pdf",
+        "excerpt": "Bajaj Finance | Q1FY27 | standalone quarterly results | page 6\nreview by joint statutory auditors.\n8 Figures for the previous periods have been regrouped. wherever necessary, to make them comparable with the current period.\n9 The Company has designated an exclusive email ID viz. investor.service@baj..."
+      },
+      {
+        "company": "Bajaj Finance",
+        "period": "Q1FY27",
+        "page_number": 11,
+        "doc_type": "quarterly_result",
+        "source_file": "bajaj_finance_q1fy27.pdf",
+        "excerpt": "Bajaj Finance | Q1FY27 | consolidated quarterly results | page 11\nNotes:\nThe consolidated financial results of Parent and its subsidiaries (collectively referred as 'Group') and its associates. include the result of the Company and following entities:\n2 The above results have been reviewed by the Au..."
+      },
+      {
+        "company": "Bajaj Finance",
+        "period": "Q1FY27",
+        "page_number": 22,
+        "doc_type": "quarterly_result",
+        "source_file": "bajaj_finance_q1fy27.pdf",
+        "excerpt": "Bajaj Finance | Q1FY27 | standalone quarterly results | page 22\nIndependent Auditor's Report on Security Cover as at June 30, 2026 under Regulation 54 read with Regulation 56(1)(d) of the Securities and Exchange Board of India (Listing Obligations and Disclosure Requirements) Regulations, 2015 (as a..."
+      }
+    ]
+  },
+  {
+    "id": "Q123",
+    "question": "On what date did NTPC's Board of Directors approve the results for the quarter ended June 30, 2026?",
+    "company": "NTPC",
+    "period": "Q1FY27",
+    "category": "general",
+    "context_hit": true,
+    "retrieved_pages": [
+      6,
+      1,
+      1,
+      18,
+      4
+    ],
+    "path": "rag",
+    "answer": "- The Board of Directors approved the unaudited financial results for the quarter ended 30 June 2026 on **24 July 2026**【NTPC | Q1FY27 | Page 6】【NTPC | Q1FY27 | Page 1】",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": false,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 6,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 6\nNotes to Unaudited Standalone Financial Results:\nThe above standalone financial results have been reviewed by the Audit Committee of the Board of Directors in their meeting held on 24 July 2026 and approved by the Board of Directors on the same d..."
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 1,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone and consolidated quarterly results | page 1\nRef. No.: FA/ISD/Compliance/26-27/Ql\n~ ~/ Corporate Centre\nDated: 24/07/2026\nListing Department\nNational Stock Exchange of India Limited\n'Exchange Plaza', C-1, Block G, Bandra Kurla Complex, Sandra (E), Mumbai - 400 051. Scrip Co..."
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 18,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone and consolidated quarterly results | page 18\nOther information- rntegrated Filing (Financial) - For the quarter ended 30 June 2026\nPlace: New Delhi\nDate : 24 July 2026"
+      },
+      {
+        "company": "NTPC",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "ntpc_q1fy27.pdf",
+        "excerpt": "NTPC | Q1FY27 | standalone quarterly results | page 4\nSTATEMENT OF UNAUDITED STANDALONE FINANCIAL RESULTS FOR THE QUARTER ENDED 30 JUNE 2026\nt crore The operations of the Company are mainly carried out within the country and therefore, there is no reportable geographical segment."
+      }
+    ]
+  },
+  {
+    "id": "Q124",
+    "question": "Was the auditors' review conclusion on UltraTech Cement's Q1FY27 results modified?",
+    "company": "UltraTech Cement",
+    "period": "Q1FY27",
+    "category": "audit",
+    "context_hit": true,
+    "retrieved_pages": [
+      5,
+      9,
+      10,
+      4,
+      4
+    ],
+    "path": "rag",
+    "answer": "- No. The auditors repeatedly state that their conclusion on the Q1 FY27 results **was not modified**.\n\n  - “Our conclusion on the Statement is not modified in respect of this matter.” [UltraTech Cement | Q1FY27 | Page 5]  \n  - “Our conclusion is not modified in respect of this matter.” [UltraTech Cement | Q1FY27 | Page 9]  \n  - “Our conclusion is not modified in respect of these matters.” [UltraTech Cement | Q1FY27 | Page 10]  \n  - “Our conclusion on the Statement is not modified in respect of this matter.” [UltraTech Cement | Q1FY27 | Page 4] (both excerpts on page 4)  \n\nThus, the auditors’ review conclusion on UltraTech Cement’s Q1 FY27 results was **not modified**.",
+    "model": "openai/gpt-oss-120b",
+    "strict_hit": true,
+    "keyword_hit": true,
+    "is_grounded": true,
+    "grounding_confidence": 1.0,
+    "not_available": false,
+    "citation_count": 4,
+    "citations": [
+      {
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "page_number": 5,
+        "doc_type": "quarterly_result",
+        "source_file": "ultratech_cement_q1fy27.pdf",
+        "excerpt": "UltraTech Cement | Q1FY27 | consolidated quarterly results | page 5\nOur conclusion on the Statement is not modified in respect of this matter.\nThe unaudited consolidated financial results for the corresponding quarter ended 30 June 2025 included in the Statement were jointly reviewed by KKC & Associ..."
+      },
+      {
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "page_number": 9,
+        "doc_type": "quarterly_result",
+        "source_file": "ultratech_cement_q1fy27.pdf",
+        "excerpt": "UltraTech Cement | Q1FY27 | standalone quarterly results | page 9\ntax (before consolidation adjustments) of Rs. 4.06 crores, total comprehensive loss ofRs. 4.06 crores for the quarter ended 30 June 2026 as considered in this Statement, whose financial results have been reviewed by one of the joint a..."
+      },
+      {
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "page_number": 10,
+        "doc_type": "quarterly_result",
+        "source_file": "ultratech_cement_q1fy27.pdf",
+        "excerpt": "UltraTech Cement | Q1FY27 | standalone quarterly results | page 10\nrecorded as an asset. The Company, backed by legal opinions, believes that it has a good case in both the matters basis which no provision has been recognised in the books of account.\nOur conclusion is not modified in respect of thes..."
+      },
+      {
+        "company": "UltraTech Cement",
+        "period": "Q1FY27",
+        "page_number": 4,
+        "doc_type": "quarterly_result",
+        "source_file": "ultratech_cement_q1fy27.pdf",
+        "excerpt": "UltraTech Cement | Q1FY27 | consolidated quarterly results | page 4\n0.05 crores and total comprehensive income (before consolidation adjustments) of Rs. 0.05 crores for the quarter ended 30 June 2026 as considered in the Statement, in respect of one joint venture, whose interim financial information..."
+      }
+    ]
   }
 ]

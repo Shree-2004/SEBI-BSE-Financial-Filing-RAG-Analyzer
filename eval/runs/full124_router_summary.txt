@@ -1,34 +1,34 @@
 FinFiling RAG — Eval Summary
 =============================
 Index             : filing_chunks_int8 (rerank pool 10)
-Questions         : 107/124  (6 unanswerable/refused, excluded from context hit)
-Context hit @5    : 98/101 = 97.0%   (gold answer present in retrieved chunks)
-Answered          : 106  (models: None, openai/gpt-oss-120b)
+Questions         : 124/124  (6 unanswerable/refused, excluded from context hit)
+Context hit @5    : 113/118 = 95.8%   (gold answer present in retrieved chunks)
+Answered          : 124  (models: None, openai/gpt-oss-120b)
 
-STRICT ACCURACY   : 101/106 = 95.3%
-Lenient keyword   : 101/106 = 95.3%   (legacy any-keyword metric, not accuracy)
-Grounding rate    : 104/106 = 98.1%
-Citation rate     : 98/106 = 92.5%
-Not-available     : 8/106 = 7.5%
+STRICT ACCURACY   : 116/124 = 93.5%
+Lenient keyword   : 115/124 = 92.7%   (legacy any-keyword metric, not accuracy)
+Grounding rate    : 120/124 = 96.8%
+Citation rate     : 115/124 = 92.7%
+Not-available     : 9/124 = 7.3%
 
 Failure split (strict misses):
-  retrieval/parse : 2   (gold not in retrieved context)
-  generation      : 3   (gold retrieved, answer still wrong)
+  retrieval/parse : 4   (gold not in retrieved context)
+  generation      : 4   (gold retrieved, answer still wrong)
 
 Per-category strict accuracy:
-  audit                1/2
+  audit                2/5
   comparison           10/10
   corporate_action     3/4
-  expenses             4/4
-  general              5/5
-  growth               9/9
-  per_share            6/6
-  profitability        25/28
+  expenses             5/5
+  general              6/6
+  growth               14/14
+  per_share            8/8
+  profitability        28/31
   ratio                2/2
   ratios               2/2
-  revenue              18/18
+  revenue              19/20
   segment              7/7
-  tax                  3/3
+  tax                  4/4
   unanswerable         6/6
 
-Strict misses: Q001 Q012 Q027 Q028 Q035
+Strict misses: Q001 Q012 Q027 Q028 Q035 Q112 Q121 Q122

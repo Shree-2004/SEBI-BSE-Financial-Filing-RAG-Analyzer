@@ -172,7 +172,9 @@ Rules:
    figure is quoted in the unit its filing reports (value and unit from lookup_metric); you may add
    the ₹ crore equivalent in brackets.
 4. Growth % = (current - previous) / previous * 100. Year-ago quarter of Q1FY27 is Q1FY26; the
-   previous quarter of Q1FY27 is Q4FY26; of Q3FY25 they are Q3FY24 and Q2FY25.
+   previous quarter of Q1FY27 is Q4FY26; of Q3FY25 they are Q3FY24 and Q2FY25. Indian fiscal year:
+   quarters ending 30 June / 30 Sep / 31 Dec / 31 March are Q1 / Q2 / Q3 / Q4, and FYxx is named for
+   the March it ends in (quarter ended 31 March 2026 = Q4FY26; 30 June 2025 = Q1FY26).
 5. Quote every number exactly as a tool returned it (commas allowed; percentages rounded to 2 decimals
    are fine). Cite each reported figure as [Company | Period | Page N].
 6. If a figure is not available, say so plainly. Keep the answer short.
@@ -224,13 +226,17 @@ class MetricsAgent:
             return [{"page": c.get("page_number"), "text": c["text"][:1200]} for c in chunks]
         return {"error": f"unknown tool {name}"}
 
-    def run(self, question: str, check=None) -> dict:
+    def run(self, question: str, check=None, period: str | None = None) -> dict:
         """
         check: optional callable(answer, trace) -> feedback str or None. If it
         returns feedback (e.g. "these figures did not come from a tool"), the
         model gets ONE more turn to fix its answer with the tools.
+        period: the period detect_period() read from the question. Passed on
+        because the model can get the Indian fiscal calendar wrong ("quarter
+        ended March 31, 2026" looked up as Q1FY26 instead of Q4FY26).
         """
-        messages = [{"role": "system", "content": self.system}, {"role": "user", "content": question}]
+        content = question if not period else f"{question}\n\n(Period asked about: {period})"
+        messages = [{"role": "system", "content": self.system}, {"role": "user", "content": content}]
         trace = {"lookups": [], "calculations": [], "chunks": [], "tool_calls": [], "revised": False}
         answer = ""
         for _ in range(MAX_STEPS):
@@ -316,7 +322,7 @@ def citations_from_trace(trace: dict) -> list[dict]:
     return cites
 
 
-def agent_answer(agent: "MetricsAgent", verifier, question: str) -> dict:
+def agent_answer(agent: "MetricsAgent", verifier, question: str, period: str | None = None) -> dict:
     """Run the agent and verify its answer against the tool outputs.
     Same keys as generation.verifier.generate_and_verify, plus the trace."""
     def check(answer, trace):
@@ -331,7 +337,7 @@ def agent_answer(agent: "MetricsAgent", verifier, question: str) -> dict:
                 + ", ".join(missing) + ". Recompute every one of them with calculate (or look them "
                 "up with lookup_metric), then give the final answer again, quoting tool results only.")
 
-    run = agent.run(question, check=check)
+    run = agent.run(question, check=check, period=period)
     evidence = build_evidence_chunks(run)
     ver = verifier.verify(run["answer"], evidence, query=question)
     return {

@@ -157,7 +157,8 @@ def run_eval(args):
             for attempt in range(4):
                 try:
                     if use_agent:
-                        result = agent_answer(agent, verifier, q["question"])
+                        result = agent_answer(agent, verifier, q["question"],
+                                              period=resolution["detected"]["period"])
                         # "context" for the agent = everything its tools returned
                         if not na_question:
                             record["context_hit"] = context_hit = strict_match(result["evidence_text"], q["gold"])
