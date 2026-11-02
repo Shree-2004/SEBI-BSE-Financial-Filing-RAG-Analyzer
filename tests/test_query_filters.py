@@ -15,17 +15,16 @@ import pytest
 from retrieval.query_filters import detect_companies, detect_period, resolve_filters
 
 AVAILABLE = {
-    "Reliance Industries": {"FY2025"}, "TCS": {"Q3FY25"}, "Infosys": {"Q1FY27"},
+    "Reliance Industries": {"FY2025", "Q1FY27"}, "TCS": {"Q3FY25", "Q1FY27"}, "Infosys": {"Q1FY27"},
     "HDFC Bank": {"Q1FY27"}, "ITC": {"Q1FY27"}, "Bharti Airtel": {"Q1FY27"},
     "Sun Pharma": {"Q1FY27"}, "Larsen & Toubro": {"Q1FY27"}, "Maruti Suzuki": {"Q1FY27"},
     "Tata Steel": {"Q1FY27"}, "NTPC": {"Q1FY27"}, "Bajaj Finance": {"Q1FY27"}, "UltraTech Cement": {"Q1FY27"},
 }
 # periods printed as comparative columns of each indexed filing (what
 # MetricStore.comparative_periods() returns for the real index)
-COMPARATIVES = {c: {p: "Q1FY27" for p in ("Q4FY26", "Q1FY26", "FY2026")}
-                for c, ps in AVAILABLE.items() if ps == {"Q1FY27"}}
-COMPARATIVES["TCS"] = {p: "Q3FY25" for p in ("Q2FY25", "Q3FY24", "9MFY25", "9MFY24", "FY2024")}
-COMPARATIVES["Reliance Industries"] = {"FY2024": "FY2025", "FY2023": "FY2025"}
+COMPARATIVES = {c: {p: "Q1FY27" for p in ("Q4FY26", "Q1FY26", "FY2026")} for c in AVAILABLE}
+COMPARATIVES["TCS"].update({p: "Q3FY25" for p in ("Q2FY25", "Q3FY24", "9MFY25", "9MFY24", "FY2024")})
+COMPARATIVES["Reliance Industries"].update({"FY2024": "FY2025", "FY2023": "FY2025"})
 QUESTIONS = json.loads(
     (Path(__file__).resolve().parents[1] / "eval" / "eval_questions.json").read_text(encoding="utf-8"))
 
@@ -79,9 +78,9 @@ def test_company_aliases(text, companies):
 
 
 def test_period_not_indexed_is_reported_not_silently_ignored():
-    r = resolve_filters("TCS revenue for the quarter ended June 30, 2026", AVAILABLE)
+    r = resolve_filters("TCS revenue for the quarter ended December 31, 2025", AVAILABLE)
     assert r["filters"] == []
-    assert "TCS: Q1FY27 is not indexed (available: Q3FY25)" in r["missing"]
+    assert "TCS: Q3FY26 is not indexed (available: Q1FY27, Q3FY25)" in r["missing"]
 
 
 def test_explicit_request_filters_win_over_detection():
@@ -110,3 +109,15 @@ def test_prior_period_printed_in_an_indexed_filing_searches_that_filing():
 def test_period_no_filing_prints_is_still_not_indexed(text):
     r = resolve_filters(text, AVAILABLE, comparatives=COMPARATIVES)
     assert r["filters"] == [] and "is not indexed" in r["missing"]
+
+
+def test_company_with_two_filings_picks_the_one_asked_about():
+    available = {"TCS": {"Q3FY25", "Q1FY27"}}
+    comparatives = {"TCS": {"Q4FY26": "Q1FY27", "Q1FY26": "Q1FY27", "FY2026": "Q1FY27", "FY2024": "Q3FY25"}}
+    def pick(text):
+        return resolve_filters(text, available, comparatives=comparatives)["filters"]
+    assert pick("TCS revenue in Q3FY25") == [{"company": "TCS", "period": "Q3FY25"}]
+    assert pick("TCS revenue for the quarter ended June 30, 2026") == [{"company": "TCS", "period": "Q1FY27"}]
+    assert pick("TCS revenue for the quarter ended March 31, 2026") == [{"company": "TCS", "period": "Q1FY27"}]
+    assert pick("TCS EBITDA in FY25") == [{"company": "TCS", "period": "Q3FY25"}]
+    assert pick("What is the CIN of TCS?") == [{"company": "TCS"}]     # no period: both filings

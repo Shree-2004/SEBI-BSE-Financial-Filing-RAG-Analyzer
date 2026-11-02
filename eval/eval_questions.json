@@ -1817,18 +1817,19 @@
     "id": "Q096",
     "question": "What was TCS's revenue from operations for the quarter ended June 30, 2026?",
     "expected_keywords": [
-      "not"
+      "72,275"
     ],
     "company": "TCS",
     "period": "Q1FY27",
     "doc_type": "quarterly_result",
-    "category": "unanswerable",
+    "category": "revenue",
     "gold": [
       [
-        "NOT_AVAILABLE"
+        "72,275",
+        "72275"
       ]
     ],
-    "gold_note": "Added 2026-10-17 (expansion step 2); only TCS Q3FY25 is indexed."
+    "gold_note": "Re-labelled 2026-11-02: was unanswerable (only TCS Q3FY25 was indexed); the Q1FY27 results are now indexed. Consolidated, p8 (PDF text layer)."
   },
   {
     "id": "Q097",
@@ -2378,5 +2379,249 @@
       ]
     ],
     "gold_note": "Added 2026-10-17 (expansion step 2); 'Our conclusion on the Statement is not modified in respect of this matter.' p4-p5."
+  },
+  {
+    "id": "Q125",
+    "question": "What was TCS's consolidated revenue from operations for the quarter ended December 31, 2025?",
+    "expected_keywords": [
+      "not"
+    ],
+    "company": "TCS",
+    "period": "Q3FY26",
+    "doc_type": "quarterly_result",
+    "category": "unanswerable",
+    "gold": [
+      [
+        "NOT_AVAILABLE"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); Q3FY26 is not a column in either indexed TCS filing (Q3FY25: Q3FY25/Q2FY25/Q3FY24/9M; Q1FY27: Q1FY27/Q4FY26/Q1FY26/FY2026)."
+  },
+  {
+    "id": "Q126",
+    "question": "What was TCS's consolidated profit for the period for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "13,420"
+    ],
+    "company": "TCS",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "13,420",
+        "13420"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); p8."
+  },
+  {
+    "id": "Q127",
+    "question": "What was TCS's consolidated profit attributable to shareholders of the company for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "13,349"
+    ],
+    "company": "TCS",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "13,349",
+        "13349"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); p8 (Docling shifts these rows; the metrics table drops them, so this tests the search fallback)."
+  },
+  {
+    "id": "Q128",
+    "question": "What interim dividend per share did TCS declare with its results for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "12"
+    ],
+    "company": "TCS",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "corporate_action",
+    "gold": [
+      [
+        "12"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); INR 12 per share, cover letter p1; record date July 15, 2026."
+  },
+  {
+    "id": "Q129",
+    "question": "What was TCS's consolidated revenue from operations growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "13.93"
+    ],
+    "company": "TCS",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "13.93",
+        "13.932",
+        "13.9"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); (72,275 - 63,437) / 63,437 = 13.932%, p8."
+  },
+  {
+    "id": "Q130",
+    "question": "Which had higher consolidated revenue from operations for the quarter ended June 30, 2026: TCS or Infosys?",
+    "expected_keywords": [
+      "72,275"
+    ],
+    "company": "TCS",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "companies": [
+      "TCS",
+      "Infosys"
+    ],
+    "category": "comparison",
+    "gold": [
+      [
+        "TCS",
+        "Tata Consultancy"
+      ],
+      [
+        "72,275",
+        "72275"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); TCS 72,275 crore (p8) vs Infosys 48,211 crore (metrics table, p24)."
+  },
+  {
+    "id": "Q131",
+    "question": "What was Reliance Industries' consolidated revenue from operations for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "311,850"
+    ],
+    "company": "Reliance Industries",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "revenue",
+    "gold": [
+      [
+        "311,850",
+        "3,11,850",
+        "311850"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); p9 (page image; the PDF's own text layer is bad OCR, parsed with --force-ocr)."
+  },
+  {
+    "id": "Q132",
+    "question": "What was Reliance Industries' consolidated net profit growth year-on-year for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "24.65"
+    ],
+    "company": "Reliance Industries",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "growth",
+    "gold": [
+      [
+        "24.65",
+        "24.647",
+        "24.6",
+        "24.7"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); (23,196 - 30,783) / 30,783 = -24.647% (a decline), p9 page image; net profit = profit after tax and share of associates/JVs. Using 'Profit After Tax' before associates (23,001 vs 30,681) gives -25.03%, a tempting wrong answer."
+  },
+  {
+    "id": "Q133",
+    "question": "What was Reliance Industries' consolidated basic EPS for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "15.48"
+    ],
+    "company": "Reliance Industries",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "per_share",
+    "gold": [
+      [
+        "15.48"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); p10 page image."
+  },
+  {
+    "id": "Q134",
+    "question": "What was Reliance Industries' consolidated Oil to Chemicals (O2C) segment revenue for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "201,803"
+    ],
+    "company": "Reliance Industries",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "segment",
+    "gold": [
+      [
+        "201,803",
+        "2,01,803",
+        "201803"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); p13 page image (segment value of sales and services)."
+  },
+  {
+    "id": "Q135",
+    "question": "What was Reliance Industries' standalone profit after tax for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "13,272"
+    ],
+    "company": "Reliance Industries",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "13,272",
+        "13272"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); p18."
+  },
+  {
+    "id": "Q136",
+    "question": "What was Reliance Industries' consolidated net profit attributable to owners of the company for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "20,946"
+    ],
+    "company": "Reliance Industries",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "20,946",
+        "20946"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); p9 page image."
+  },
+  {
+    "id": "Q137",
+    "question": "What was Reliance Industries' consolidated profit before tax for the quarter ended June 30, 2026?",
+    "expected_keywords": [
+      "30,630"
+    ],
+    "company": "Reliance Industries",
+    "period": "Q1FY27",
+    "doc_type": "quarterly_result",
+    "category": "profitability",
+    "gold": [
+      [
+        "30,630",
+        "30630"
+      ]
+    ],
+    "gold_note": "Added 2026-11-02 (TCS/Reliance Q1FY27 refresh); p9 page image (OCR merged this label with 'Total Expenses', so the metrics table drops it: tests the search fallback)."
   }
 ]

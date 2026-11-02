@@ -26,6 +26,8 @@ from metrics.store import MetricStore
     ("Q1 FY'26", "Q1FY26", "quarter"),                                      # L&T key parameters
     ("FY 2024-25", "FY2025", "year"),
     ("2024-25", "FY2025", "year"),                                          # Reliance annual report
+    ("Quarter Ended - 30th Jun'26", "Q1FY27", "quarter"),                   # Reliance Q1FY27 results
+    ("Year Ended (Audited) - 31stMar'26", "FY2026", "year"),
 ])
 def test_column_period(header, period, ptype):
     assert _column_period(header)[:2] == (period, ptype)
@@ -43,6 +45,7 @@ def test_column_without_year_has_no_period():
     ("-- 2,603.72", 2603.72),     # table-rule dashes around a value (UltraTech)
     ("3,000.02 -", 3000.02),
     ("- -- 2,599.28", 2599.28),   # several rule dashes
+    ("30,783.", 30783),           # OCR stray full stop
     ("9.9%", None), ("-", None), ("", None),
 ])
 def test_parse_number(cell, value):
@@ -68,6 +71,12 @@ def test_parse_number(cell, value):
     ("7 Profit aftertax (5-6)", "net_profit"),                            # OCR run-together words
     ("Net profit margin (%)", None),
     ("Profit before regulatory deferral account balances (3-4)", None),
+    ("Total Segment Profit before Interest, Tax and Depreciation, Amortisation", None),
+    ("(ii) (iii) Profit Before Tax (i) Current Tax (ii) Deferred Tax Profit After Tax", None),   # merged rows
+    ("REVENUE FROM OPERATIONS [(i)+(ii)]", "revenue_from_operations"),     # a formula, not merged rows
+    ("Share of Profit / (Loss) of Associates and Joint Ventures Profit After Tax", None),
+    # two rows merged into one label by the parser (TCS Q1FY27 p8)
+    ("Total reserves (including Non-controlling interests) Earnings per equi ty share:- Basic and di luted ( )", None),
 ])
 def test_metric_mapping(label, metric):
     assert _metric_for(label) == metric
@@ -183,3 +192,34 @@ def test_unreadable_year_column_is_not_turned_into_a_second_quarter():
     periods = [_column_period(h) for h in
                ["Quarter ended 30.06.2026", "Quarter ended 31.03.2026", "Full 31.03.2026"]]
     assert [p[0] for p in _repair_periods(periods)] == ["Q1FY27", "Q4FY26", None]
+
+
+def test_label_merging_owners_and_minority_rows_is_skipped():
+    # TCS Q1FY27 p8: Docling shifted the rows, so the owners' figures sit on
+    # the heading and the minority figures on a merged two-label row
+    rows = extract_blocks(_table(
+        ["Particulars", "Quarter ended 30.06.2026", "Quarter ended 31.03.2026"],
+        [["Profit for the period", "13,420", "13,784"],
+         ["Profit for the year attributable to:", "13,349", "13,718"],
+         ["Shareholders of the Company Non-controlling interests", "71", "66"]]))
+    assert not [r for r in rows if r["metric"] == "profit_attributable_to_owners"]
+
+
+def test_profit_after_associates_is_the_net_profit():
+    rows = extract_blocks(_table(
+        ["Particulars", "Quarter ended 30.06.2026", "Quarter ended 30.06.2025"],
+        [["Profit After Tax", "23,001", "30,681"],
+         ["Share of Profit / (Loss) of Associates and Joint Ventures", "195", "102"],
+         ["Profit After Tax and Share of Profit / (Loss) of Associates and Joint Ventures", "23,196", "30,783"]]))
+    got = {r["period"]: r["value"] for r in rows if r["metric"] == "net_profit"}
+    assert got == {"Q1FY27": 23196, "Q1FY26": 30783}
+
+
+def test_segment_table_costs_are_not_read_as_the_pnl_figure():
+    # Reliance p22: "Less: (i) Finance Cost (1,838)" in the segment reconciliation
+    rows = extract_blocks(_table(
+        ["Particulars", "Quarter ended 30.06.2026", "Quarter ended 30.06.2025"],
+        [["Segment Value of Sales and Services (Revenue)", "", ""],
+         ["(i) Finance Cost", "(1,838)", "(2,194)"],
+         ["Profit Before Tax", "17,600", "20,306"]]))
+    assert {r["metric"] for r in rows} == {"profit_before_tax"}

@@ -278,17 +278,22 @@ def table_looks_merged(table_md: str, threshold: float = 0.15) -> bool:
     return merged / len(numeric) >= threshold
 
 
-def add_text_layer_fallback(blocks: list, pdf_path: str) -> int:
+def add_text_layer_fallback(blocks: list, pdf_path: str, pages: set[int] | None = None) -> int:
     """
     For pages where Docling's table structure merged rows, also index the
     PDF's own text layer for that page, line by line ("(a) Revenue from
     operations 43831.86 43109.28 ..."), as an extra prose block. Docling's
     table stays — this adds the clean rows next to it. Returns the number
     of pages given a fallback block. Works on FilingBlock objects or dicts.
+
+    pages: extra pages to treat as merged, for a shift the merged-cell check
+    misses (TCS Q1FY27 p8: rows moved up one line, few cells hold two
+    numbers). Only for filings whose text layer was checked to be clean.
     """
     get = lambda b, k: b[k] if isinstance(b, dict) else getattr(b, k)
     bad_pages = sorted({get(b, "page_number") for b in blocks
-                        if get(b, "block_type") == "table" and table_looks_merged(get(b, "text"))})
+                        if get(b, "block_type") == "table" and table_looks_merged(get(b, "text"))}
+                       | set(pages or ()))
     if not bad_pages:
         return 0
     first = blocks[0]
@@ -315,6 +320,7 @@ def parse_filing_docling(
     period: str,
     ocr: bool = False,
     force_ocr: bool = False,
+    text_layer_pages: set[int] | None = None,
 ) -> list[FilingBlock]:
     """
     Same contract as parse_filing(), but uses Docling's layout + table
@@ -441,7 +447,7 @@ def parse_filing_docling(
             )
         )
 
-    add_text_layer_fallback(blocks, str(pdf_path))
+    add_text_layer_fallback(blocks, str(pdf_path), text_layer_pages)
     blocks.sort(key=lambda b: (b.page_number, b.block_type != "table"))
     return blocks
 
@@ -456,6 +462,7 @@ def parse_filing_to_jsonl(
     parser: str = "docling",
     ocr: bool = False,
     force_ocr: bool = False,
+    text_layer_pages: set[int] | None = None,
 ) -> int:
     """
     Convenience wrapper: parse a filing and append the resulting blocks
@@ -466,7 +473,8 @@ def parse_filing_to_jsonl(
 
     if parser == "docling":
         blocks = parse_filing_docling(
-            pdf_path, company, doc_type, period, ocr=ocr, force_ocr=force_ocr
+            pdf_path, company, doc_type, period, ocr=ocr, force_ocr=force_ocr,
+            text_layer_pages=text_layer_pages,
         )
     else:
         blocks = parse_filing(pdf_path, company, doc_type, period)
@@ -499,6 +507,8 @@ if __name__ == "__main__":
     parser.add_argument("--overwrite", action="store_true", help="Overwrite output instead of appending")
     parser.add_argument("--ocr", action="store_true", help="Docling OCR for scanned (image-only) pages")
     parser.add_argument("--force-ocr", action="store_true", help="OCR every page, ignoring a bad embedded text layer")
+    parser.add_argument("--text-layer-pages", default="",
+                        help="comma-separated pages whose clean PDF text layer is also indexed (row-shifted tables)")
     args = parser.parse_args()
 
     n = parse_filing_to_jsonl(
@@ -511,5 +521,6 @@ if __name__ == "__main__":
         parser=args.parser,
         ocr=args.ocr,
         force_ocr=args.force_ocr,
+        text_layer_pages={int(x) for x in args.text_layer_pages.split(",") if x},
     )
     print(f"Parsed {n} blocks from {args.pdf_path} -> {args.output}")

@@ -38,14 +38,15 @@ METRICS: list[tuple[str, str, str | None]] = [
     ("interest_earned", r"^\W*\d*\W*interest earned", None),
     ("profit_attributable_to_owners",
      r"(profit|net profit).*attributable.*(owners|shareholders|parent|equity holders)", r"comprehensive"),
-    ("eps_basic", r"\bbasic\b|earnings per (equity )?share", r"^(?!.*basic).*diluted|weighted|number of"),
+    # "Total reserves ... Earnings per equity share" is two rows merged by the parser (TCS p8)
+    ("eps_basic", r"\bbasic\b|earnings per (equity )?share", r"^(?!.*basic).*diluted|weighted|number of|reserves"),
     ("revenue_from_operations", r"^\W*\w{0,3}\W*(total |net )?revenues? from operat", r"segment|growth|%|other operat"),
     ("total_income", r"^\W*\w{0,4}\W*total income", r"comprehensive|other"),
     ("other_income", r"^\W*\w{0,4}\W*other income", r"comprehensive"),
     ("total_expenses", r"^\W*\w{0,4}\W*total (expenses|expenditure)", None),
     ("employee_benefit_expense", r"employee(s)? (benefits? )?(expenses?|cost)", None),
     ("finance_costs", r"^\W*\w{0,3}\W*finance costs?\b", r"financial services"),
-    ("depreciation_amortisation", r"depreciat", None),
+    ("depreciation_amortisation", r"depreciat", r"before"),   # not "profit before interest, tax and depreciation"
     ("current_tax", r"^\W*\w{0,3}\W*current tax", None),
     ("total_tax_expense", r"^\W*\w{0,4}\W*(total )?tax expense\b", r"current|deferred|items|relating|exceptional"),
     ("profit_before_tax",
@@ -55,7 +56,7 @@ METRICS: list[tuple[str, str, str | None]] = [
     ("net_profit",
      r"(net profit|profit)\s*(/\s*\(loss\)\s*)?(for the (period|quarter|year)|after tax)",
      r"attributable|comprehensive|before minority|but before|other compre|before tax|before exceptional"
-     r"|margin|%|ratio"),
+     r"|margin|%|ratio|^\W*\w{0,4}\W*share of"),
     ("ebitda", r"^\W*ebitda\b", r"%|margin"),
 ]
 
@@ -150,6 +151,7 @@ def _parse_number(cell: str) -> float | None:
     # UltraTech's filing): dashes separated from the number by a space.
     # A real negative is "(1,480)" or "-1,480", never "- 1,480".
     c = re.sub(r"^(?:[-–—]+\s+)+|(?:\s+[-–—]+)+$", "", c)
+    c = re.sub(r"(?<=\d)\.$", "", c)          # OCR stray full stop: "30,783."
     m = re.fullmatch(r"(\()?[₹$]?(-?\d[\d,]*(?:\.\d+)?)(\))?%?", c)
     if not m or c.endswith("%"):
         return None
@@ -180,10 +182,16 @@ def _metric_for(label: str) -> str | None:
     for bad, good in _OCR_SPLIT_WORDS.items():     # OCR: "Tot al income", "Profit aftertax"
         l = re.sub(rf"\b{bad}\b", good, l)
     l = re.sub(r"^\W*\w{0,4}\W*income\s+(?=\(a\))", "", l)   # "Income (a) Revenue from operations"
-    for name, pat, excl in METRICS:
-        if re.search(pat, l) and not (excl and re.search(excl, l)):
-            return name
-    return None
+    found = [name for name, pat, excl in METRICS if re.search(pat, l) and not (excl and re.search(excl, l))]
+    # a label naming two metrics is several rows the parser merged into one
+    # ("Profit Before Tax (i) Current Tax (ii) Deferred Tax Profit After Tax"):
+    # its numbers belong to only one of them, so skip it
+    # ... or carrying several list markers: "(ii) (iii) Profit Before Tax (i) Current Tax"
+    # — not a formula: ITC's "REVENUE FROM OPERATIONS [(i)+(ii)]"
+    no_formula = re.sub(r"\[[^\]]*\]|\([ivx]+\)\s*[-+]\s*\([ivx]+\)", "", l)
+    if len(re.findall(r"\((?:i{1,3}|iv|vi{0,3}|ix|x)\)", no_formula)) >= 2:
+        return None
+    return found[0] if len(found) == 1 else None
 
 
 def _split_table(text: str):
@@ -250,6 +258,10 @@ def extract_blocks(blocks: list[dict]) -> list[dict]:
             currency = "USD"     # e.g. Infosys IFRS statements: "Basic (in$ per share)"
         unit = unit or doc_unit
         page_basis = basis_by_page.get(key, "")
+        # a segment table lists costs only as "Less: (i) Finance Cost" lines of
+        # its reconciliation, with the sign flipped (Reliance Q1FY27 p22)
+        # (the caption can be OCR noise, so the first rows count too)
+        is_segment = "segment" in " ".join(caption + [" ".join(r) for r in rows[:3]]).lower()
 
         section, last_metric = "", None
         for i, parts in enumerate(rows):
@@ -268,12 +280,15 @@ def extract_blocks(blocks: list[dict]) -> list[dict]:
             if "attributable" in ll:
                 section = "profit" if re.search(r"profit", ll) and "comprehensive" not in ll else "other"
             metric = _metric_for(label)
-            if metric is None and re.search(r"owners|shareholders|parent", ll) and (
+            # "Shareholders of the Company Non-controlling interests" is two rows
+            # merged into one: its numbers belong to only one of them (TCS p8)
+            if metric is None and re.search(r"owners|shareholders|parent", ll) \
+                    and not re.search(r"non-?controlling|minority", ll) and (
                     section == "profit" or (last_metric == "net_profit" and "attributable" in ll)):
                 metric = "profit_attributable_to_owners"
             if "comprehensive" in ll:
                 last_metric = None
-            if metric is None:
+            if metric is None or (is_segment and metric in _COST_METRICS):
                 continue
             last_metric = metric
             for j, cell in enumerate(parts):
@@ -297,12 +312,27 @@ def extract_blocks(blocks: list[dict]) -> list[dict]:
                     "source_file": b["source_file"], "page": b["page_number"],
                     "row_label": label[:200], "column_header": col[:120], "filing_period": b["period"],
                 })
+    out = _prefer_after_associates(out)
     fallback = _extract_fallback_lines(blocks, tables_periods, basis_by_page, prose_by_page, doc_unit)
     # on a merged page the text layer is the trustworthy reading: drop the
     # parser's (row-merged) cells wherever the text layer gives the same figure
     covered = {(r["source_file"], r["page"], r["metric"], r["period"]) for r in fallback}
     out = [r for r in out if (r["source_file"], r["page"], r["metric"], r["period"]) not in covered]
     return out + fallback
+
+
+_COST_METRICS = {"finance_costs", "current_tax", "total_tax_expense", "depreciation_amortisation"}
+
+
+def _prefer_after_associates(rows: list[dict]) -> list[dict]:
+    """Reliance prints "Profit After Tax" and then "Profit After Tax and Share
+    of Profit / (Loss) of Associates and Joint Ventures": the second is the
+    period's net profit. Where a table has both, drop the first."""
+    key = lambda r: (r["source_file"], r["page"], r["basis"], r["period"])
+    with_assoc = {key(r) for r in rows
+                  if r["metric"] == "net_profit" and "share of" in r["row_label"].lower()}
+    return [r for r in rows if not (r["metric"] == "net_profit" and key(r) in with_assoc
+                                    and "share of" not in r["row_label"].lower())]
 
 
 _FALLBACK_LINE_RE = re.compile(

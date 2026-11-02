@@ -137,9 +137,10 @@ def resolve_filters(
                 f["period"] = wanted
             elif (comparatives or {}).get(c, {}).get(wanted) in periods:
                 f["period"] = comparatives[c][wanted]
-            elif not period and len(periods) == 1 and wanted.startswith("FY") \
-                    and next(iter(periods)).endswith(wanted[-2:]):
-                f["period"] = next(iter(periods))
+            elif not period and wanted.startswith("FY") \
+                    and len(same_fy := [p for p in periods if p.endswith(wanted[-2:])]) == 1:
+                # "TCS in FY25" -> the one TCS filing from that fiscal year
+                f["period"] = same_fy[0]
             else:
                 missing.append(f"{c}: {wanted} is not indexed (available: {', '.join(sorted(periods))})")
                 continue

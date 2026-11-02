@@ -308,6 +308,10 @@ def _header_date(text: str) -> tuple[int | None, int | None]:
     m = re.search(r"(\d{1,2})\s*[./-]\s*(\d{1,2})\s*[./-]\s*(\d{4})", t)
     if m:
         return int(m.group(2)), int(m.group(3))
+    # Reliance: "30th Jun'26", "31stMar'26"
+    m = re.search(r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s*['’]\s*(\d{2})\b", t)
+    if m:
+        return _MONTH_NUM[m.group(1)], 2000 + int(m.group(2))
     m = re.search(r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*,?\s*(?:\d{1,2}(?:st|nd|rd|th)?)?"
                   r"\s*,?\s*-?\s*(\d{4})?", t)
     if m:

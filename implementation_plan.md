@@ -430,6 +430,51 @@ OCR run-together label ("Profit aftertax") -> metrics extractor fixed
 
 ---
 
+## Phase 13: TCS and Reliance on the same quarter as everyone else (2026-11-02)
+
+TCS (Q3FY25) and Reliance (FY2025 annual report) were the only companies
+not on Q1FY27, so cross-company questions could not line up. Added their
+Q1FY27 results **next to** the old filings (the first 45 eval questions
+use those): 15 filings, 2,935 chunks, two filings for TCS and Reliance.
+
+- TCS: clean text layer. Docling shifted the bottom rows of the
+  consolidated P&L again (owners' profit landed on the heading, minority
+  interest on a merged two-label row; EPS on "Total reserves ... Earnings
+  per share"). `--text-layer-pages 8` indexes the PDF's own rows for that
+  page; merged two-label rows are now skipped instead of read.
+- Reliance: the embedded text layer is bad OCR (empty current-quarter
+  column) -> `--force-ocr`. Headers use "30th Jun'26" -> `_header_date`
+  reads 'YY years.
+- Extractor rules, each diffed against all other filings before keeping:
+  a label matching two metrics or carrying several "(i)/(ii)" markers is
+  merged rows (skipped; ITC's "[(i)+(ii)]" formula kept); "profit before
+  ... depreciation" is not depreciation (removed 21 wrong rows: Bharti,
+  Reliance AR, Tata Steel); segment-table cost lines are skipped; where a
+  table prints PAT before and after associates, the latter is net profit.
+  Old filings: 37 rows removed, 0 added; lookups changed only for Bharti
+  depreciation (was "ambiguous", now the P&L figure). Gold 64/66, 0 wrong;
+  identities 84/84 and 43/43.
+- `resolve_filters`: "TCS in FY25" picks the one filing of that fiscal
+  year (was: only when the company had one filing).
+- Eval: Q096 (TCS Q1FY27 revenue) is answerable now -> gold 72,275; new
+  Q125-Q137 (gold from page images for Reliance). Unanswerable stays at 6
+  (Q125: TCS Q3FY26, printed by neither filing).
+
+Run (local index `data/qdrant_local` / `bm25_q1refresh.pkl`, gpt-oss-120b),
+all 52 TCS/Reliance questions: **46/52**. Old ones: 4 misses (Q001, Q012,
+Q027, Q028 — all misses before); Q035 now right. New: 12/14; misses Q127
+(owners' profit — rows dropped from the table, search did not find the
+text-layer rows) and Q137 (Reliance consolidated PBT — OCR merged "Total
+Expenses Profit Before Tax"; the agent read the March column, 27,195).
+The other 85 questions were not re-run (only BM25 corpus statistics
+changed for them; retrieval-only: Q117's 5th chunk moved, it is answered
+by the agent).
+
+Not deployed yet: Qdrant Cloud, `data/processed/bm25_index.pkl` and the
+Render image still hold the 13-filing index.
+
+---
+
 ## Phase 3: Production Deployment & Reliability Hardening
 
 **Status (updated 2026-08-15 — this section had drifted stale for ~6 commits;
