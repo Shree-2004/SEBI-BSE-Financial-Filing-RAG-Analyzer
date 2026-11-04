@@ -33,7 +33,7 @@ FinFiling RAG is a domain-specific Retrieval-Augmented Generation (RAG) system b
 - **Frontend:** React + Vite (`finfiling-frontend/`)
 - **Deployment:** Docker image (Render config) or Hugging Face Space (`deploy/`); Vercel for the frontend
 
-**Indexed filings (13 companies, 10 sectors):** Reliance Industries (annual report FY2025), TCS (Q3FY25), Infosys, HDFC Bank, ITC, Bharti Airtel, Sun Pharma, Larsen & Toubro, Maruti Suzuki, Tata Steel, NTPC, Bajaj Finance, UltraTech Cement (Q1FY27 results).
+**Indexed filings (13 companies, 10 sectors, 15 filings):** Q1FY27 results for all 13: Reliance Industries, TCS, Infosys, HDFC Bank, ITC, Bharti Airtel, Sun Pharma, Larsen & Toubro, Maruti Suzuki, Tata Steel, NTPC, Bajaj Finance, UltraTech Cement. Older filings kept alongside: Reliance annual report FY2025 and TCS Q3FY25 results.
 
 ## 📁 Project Structure
 
@@ -142,6 +142,8 @@ pytest          # no API keys or models needed; also runs in CI on every push
 ## 🧪 Evaluation
 
 **Current (2026-10-19): 116/124 strict (93.5%)**: full end-to-end run on 13 companies, routed exactly like the API (`eval/run_eval.py --router`, gpt-oss-120b, commit 5c33d8f; results in `eval/runs/full124_router.json`).
+
+**2026-11-02: TCS and Reliance Q1FY27 added** (13 new questions, Q125-Q137, plus Q096 re-labelled now that TCS Q1FY27 is indexed). Re-run on every TCS and Reliance question: **46/52** (`eval/runs/q1refresh_tcs_reliance.json`). The other 85 questions were not re-run end to end; retrieval-only, only one of them (Q117, agent-routed) changed a top-5 chunk.
 
 | Category | Strict |
 |---|---|

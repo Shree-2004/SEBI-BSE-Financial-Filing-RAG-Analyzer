@@ -12,10 +12,10 @@ const HEALTH_CHECK_MAX_ATTEMPTS = 6;
 const HEALTH_CHECK_RETRY_MS = 10000;
 
 const SAMPLE_QUERIES = [
-    "What was TCS revenue from operations in Q3FY25?",
+    "What was TCS revenue from operations in Q1FY27?",
     "What was HDFC Bank's standalone net profit for the quarter ended June 30, 2026?",
     "Compare Bharti Airtel and Sun Pharma revenue growth year-on-year for the quarter ended June 30, 2026",
-    "What was TCS's consolidated net profit margin in Q3FY25?",
+    "What was Reliance Industries' consolidated net profit margin in Q1FY27?",
 ];
 
 export default function App() {
@@ -123,7 +123,7 @@ export default function App() {
                     <div className="search-box">
                         <textarea
                             className="search-input"
-                            placeholder="e.g. What was TCS net profit in Q3FY25?"
+                            placeholder="e.g. What was TCS net profit in Q1FY27?"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             onKeyDown={(e) => {
@@ -152,7 +152,7 @@ export default function App() {
                         </select>
                         <input
                             className="filter-input"
-                            placeholder="Period (auto) e.g. Q3FY25"
+                            placeholder="Period (auto) e.g. Q1FY27"
                             value={period}
                             onChange={(e) => setPeriod(e.target.value)}
                         />
